@@ -2,11 +2,13 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { moduleList } from "@/lib/modules";
 import { tools } from "@/lib/tools";
+import { industries } from "@/lib/industries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
-    "/product",
+    "/features",
+    "/industries",
     "/compare",
     "/security",
     "/integrations",
@@ -21,7 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
     "/dpdp",
-    ...moduleList.map((m) => `/product/${m.slug}`),
+    ...moduleList.map((m) => `/features/${m.slug}`),
+    ...industries.map((i) => `/industries/${i.slug}`),
     ...tools.map((t) => `/tools/${t.slug}`),
   ];
   const now = new Date();

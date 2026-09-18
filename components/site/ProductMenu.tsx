@@ -55,7 +55,7 @@ export function ProductMenu() {
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1 py-5 text-sm font-medium text-body transition-colors hover:text-ink"
       >
-        Product
+        Features
         <svg
           viewBox="0 0 24 24"
           className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
@@ -84,7 +84,7 @@ export function ProductMenu() {
                 {grp.items.map((it) => (
                   <li key={it.slug}>
                     <Link
-                      href={it.href ?? `/product/${it.slug}`}
+                      href={it.href ?? `/features/${it.slug}`}
                       onClick={() => setOpen(false)}
                       className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-body transition-colors hover:bg-brand-tint hover:text-brand"
                     >
@@ -101,7 +101,7 @@ export function ProductMenu() {
             20+ modules on one employee record.
           </span>
           <Link
-            href="/product"
+            href="/features"
             onClick={() => setOpen(false)}
             className="text-xs font-semibold text-brand hover:text-brand-dark"
           >

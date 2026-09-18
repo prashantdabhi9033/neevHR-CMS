@@ -42,7 +42,7 @@ export default function MobilePage() {
                 Book a demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/product" variant="secondary" size="lg">
+              <Button href="/features" variant="secondary" size="lg">
                 Explore the platform
               </Button>
             </div>

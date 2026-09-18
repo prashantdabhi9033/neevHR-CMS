@@ -50,7 +50,7 @@ export function CompensationVisual() {
                       className="tnum rounded-md py-2 text-[13px] font-bold"
                       style={{ background: h.bg, color: h.fg }}
                     >
-                      {v ? `${v}%` : "—"}
+                      {v ? `${v}%` : "-"}
                     </td>
                   );
                 })}

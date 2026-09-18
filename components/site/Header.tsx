@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/site/MobileNav";
 import { ProductMenu } from "@/components/site/ProductMenu";
+import { IndustriesMenu } from "@/components/site/IndustriesMenu";
 
 const secondaryNav = [
   { label: "Why NeevHR", href: "/compare" },
-  { label: "Security", href: "/security" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Company", href: "/company" },
@@ -21,6 +21,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-6 lg:flex">
           <ProductMenu />
+          <IndustriesMenu />
 
           {secondaryNav.map((item) => (
             <Link

@@ -52,7 +52,7 @@ const features: Feature[] = [
       "LOP, arrears and loan EMIs flow in automatically",
       "NEFT and RTGS files, register, ECR, challans and Form 16",
     ],
-    href: "/product/payroll",
+    href: "/features/payroll",
     Visual: PayrollVisual,
   },
   {
@@ -64,7 +64,7 @@ const features: Feature[] = [
       "Configurable day-close, grace and overtime rules",
       "Pay-at-risk surfaces before payroll runs",
     ],
-    href: "/product/attendance",
+    href: "/features/attendance",
     Visual: AttendanceVisual,
   },
   {
@@ -76,7 +76,7 @@ const features: Feature[] = [
       "360 feedback, 9-box and bell-curve calibration",
       "Ratings reprice increments at final sign-off",
     ],
-    href: "/product/performance",
+    href: "/features/performance",
     Visual: PerformanceVisual,
   },
   {
@@ -88,7 +88,7 @@ const features: Feature[] = [
       "Pipeline board, panels and offer history",
       "Hire-to-onboard handover into the employee record",
     ],
-    href: "/product/recruitment",
+    href: "/features/recruitment",
     Visual: RecruitmentVisual,
   },
   {
@@ -112,7 +112,7 @@ const features: Feature[] = [
       "Drill from any chart to the records behind it",
       "Dashboards for every persona",
     ],
-    href: "/product/reports",
+    href: "/features/reports",
     Visual: ReportsVisual,
   },
 ];
@@ -138,34 +138,30 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
-        <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/15 via-brand-soft/10 to-accent/10 blur-3xl" />
-        <Container className="relative grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-brand shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              India-only HRMS · built for 500 to 5,000 employees
-            </span>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
+        <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+        <div className="pointer-events-none absolute -top-48 left-1/2 h-[620px] w-[960px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/15 via-brand-soft/10 to-accent/10 blur-3xl" />
+        <Container className="relative pt-16 text-center lg:pt-24">
+          <div className="animate-fade-up mx-auto max-w-3xl">
+            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
               One platform to run{" "}
               <span className="text-brand">all of HR</span>, the India way.
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
               NeevHR brings payroll, attendance, leave, performance, recruitment
               and employee experience onto one effective-dated employee record,
               with India&apos;s statutory rules in the core. Live in 4 to 8
               weeks, run by your own HR admin.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">
                 Book a demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/product" variant="secondary" size="lg">
+              <Button href="/features" variant="secondary" size="lg">
                 Explore the platform
               </Button>
             </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
               {[
                 "PF, ESI, PT & TDS accuracy",
                 "20+ modules, one record",
@@ -178,9 +174,10 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-          <div className="animate-fade-up lg:pl-4">
+
+          <Reveal className="mx-auto mt-14 max-w-5xl pb-16 lg:mt-16 lg:pb-20">
             <HeroVisual />
-          </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -242,7 +239,7 @@ export default function HomePage() {
         ))}
 
         <Container className="pb-20 text-center">
-          <Button href="/product" variant="secondary" size="lg">
+          <Button href="/features" variant="secondary" size="lg">
             See all 20+ modules
             <Icon name="arrow" className="h-4 w-4" />
           </Button>

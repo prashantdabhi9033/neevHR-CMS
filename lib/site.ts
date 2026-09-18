@@ -11,7 +11,7 @@ export const site = {
 } as const;
 
 export const primaryNav = [
-  { label: "Product", href: "/product" },
+  { label: "Product", href: "/features" },
   { label: "Why NeevHR", href: "/compare" },
   { label: "Security", href: "/security" },
   { label: "Pricing", href: "/pricing" },

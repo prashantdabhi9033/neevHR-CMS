@@ -58,7 +58,7 @@ export default function ProductOverviewPage() {
                   {grp.items.map((m) => (
                     <Link
                       key={m.slug}
-                      href={m.href ?? `/product/${m.slug}`}
+                      href={m.href ?? `/features/${m.slug}`}
                       className="group block rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand/40 hover:bg-brand-tint/40"
                     >
                       <div className="flex items-center justify-between gap-2">

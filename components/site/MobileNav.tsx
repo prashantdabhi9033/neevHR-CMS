@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { moduleGroups } from "@/lib/module-nav";
+import { industries } from "@/lib/industries";
 
 export function MobileNav({
   secondaryNav,
@@ -12,6 +13,7 @@ export function MobileNav({
 }) {
   const [open, setOpen] = useState(false);
   const [modulesOpen, setModulesOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
 
   return (
     <div className="lg:hidden">
@@ -38,7 +40,7 @@ export function MobileNav({
             onClick={() => setModulesOpen((v) => !v)}
             className="flex w-full items-center justify-between py-2 text-sm font-semibold text-ink"
           >
-            Product
+            Features
             <span className={`transition-transform ${modulesOpen ? "rotate-45" : ""}`}>+</span>
           </button>
           {modulesOpen && (
@@ -52,7 +54,7 @@ export function MobileNav({
                     {grp.items.map((it) => (
                       <Link
                         key={it.slug}
-                        href={it.href ?? `/product/${it.slug}`}
+                        href={it.href ?? `/features/${it.slug}`}
                         onClick={() => setOpen(false)}
                         className="py-1.5 text-[13px] text-body"
                       >
@@ -63,12 +65,35 @@ export function MobileNav({
                 </div>
               ))}
               <Link
-                href="/product"
+                href="/features"
                 onClick={() => setOpen(false)}
                 className="inline-block text-xs font-semibold text-brand"
               >
                 View the full platform →
               </Link>
+            </div>
+          )}
+
+          <button
+            type="button"
+            onClick={() => setIndustriesOpen((v) => !v)}
+            className="mt-1 flex w-full items-center justify-between border-t border-line py-2 text-sm font-semibold text-ink"
+          >
+            Industries
+            <span className={`transition-transform ${industriesOpen ? "rotate-45" : ""}`}>+</span>
+          </button>
+          {industriesOpen && (
+            <div className="grid grid-cols-2 gap-x-3 pb-3 pl-1">
+              {industries.map((it) => (
+                <Link
+                  key={it.slug}
+                  href={`/industries/${it.slug}`}
+                  onClick={() => setOpen(false)}
+                  className="py-1.5 text-[13px] text-body"
+                >
+                  {it.name}
+                </Link>
+              ))}
             </div>
           )}
 

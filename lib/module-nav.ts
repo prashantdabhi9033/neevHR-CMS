@@ -1,7 +1,7 @@
 // Lightweight module navigation metadata (no component imports) so the
 // header mega-menu and overview can list every module without pulling the
 // designed Visual components into the client bundle.
-// Slugs match the product's own module keys and the /product/[slug] routes.
+// Slugs match the product's own module keys and the /features/[slug] routes.
 
 export type ModuleNavItem = { slug: string; name: string; desc: string; href?: string };
 export type ModuleNavGroup = { group: string; blurb: string; items: ModuleNavItem[] };
@@ -77,5 +77,5 @@ export const moduleGroups: ModuleNavGroup[] = [
   },
 ];
 
-// Flat set of slugs that have their own /product/[slug] page.
+// Flat set of slugs that have their own /features/[slug] page.
 export const moduleSlugs = moduleGroups.flatMap((g) => g.items.map((i) => i.slug));

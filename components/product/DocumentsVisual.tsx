@@ -8,10 +8,10 @@ const catTone: Record<string, string> = {
   Form16: "bg-emerald-100 text-emerald-700",
 };
 const rows = [
-  { doc: "PAN card", cat: "KYC", who: "Ishita Gandhi", expiry: "—", verified: true },
-  { doc: "Appointment letter", cat: "Letter", who: "Rohan Nair", expiry: "—", verified: true },
+  { doc: "PAN card", cat: "KYC", who: "Ishita Gandhi", expiry: "-", verified: true },
+  { doc: "Appointment letter", cat: "Letter", who: "Rohan Nair", expiry: "-", verified: true },
   { doc: "Contract (FTC)", cat: "Contract", who: "Neel Mishra", expiry: "31 Dec 26", verified: false },
-  { doc: "Form 16 · FY25-26", cat: "Form16", who: "Kavya Mehta", expiry: "—", verified: true },
+  { doc: "Form 16 · FY25-26", cat: "Form16", who: "Kavya Mehta", expiry: "-", verified: true },
 ];
 
 export function DocumentsVisual() {
@@ -42,7 +42,7 @@ export function DocumentsVisual() {
                   <span className={`rounded-md px-1.5 py-0.5 text-[10px] font-semibold ${catTone[r.cat]}`}>{r.cat}</span>
                 </td>
                 <td className="px-3 py-2 text-body">{r.who}</td>
-                <td className={`px-3 py-2 text-xs ${r.expiry !== "—" ? "text-amber-600" : "text-muted"}`}>{r.expiry}</td>
+                <td className={`px-3 py-2 text-xs ${r.expiry !== "-" ? "text-amber-600" : "text-muted"}`}>{r.expiry}</td>
                 <td className="px-3 py-2 text-right">
                   {r.verified ? (
                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-accent-dark">

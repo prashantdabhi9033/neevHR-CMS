@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — India-first HRMS for growing teams`,
+    default: `${site.name} - India-first HRMS for growing teams`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -34,12 +34,12 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — India-first HRMS for growing teams`,
+    title: `${site.name} - India-first HRMS for growing teams`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — India-first HRMS`,
+    title: `${site.name} - India-first HRMS`,
     description: site.description,
   },
   robots: { index: true, follow: true },

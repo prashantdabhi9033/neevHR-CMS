@@ -11,7 +11,7 @@ import { differentiators } from "@/lib/site";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
-    g.items.map((i) => [i.slug, { name: i.name, href: i.href ?? `/product/${i.slug}` }])
+    g.items.map((i) => [i.slug, { name: i.name, href: i.href ?? `/features/${i.slug}` }])
   )
 ) as Record<string, { name: string; href: string }>;
 
@@ -68,7 +68,7 @@ export default async function ModulePage({ params }: Params) {
                 Book a demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/product" variant="secondary" size="lg">
+              <Button href="/features" variant="secondary" size="lg">
                 All modules
               </Button>
             </div>
