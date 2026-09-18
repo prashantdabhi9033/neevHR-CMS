@@ -4,6 +4,7 @@ import { AttendanceVisual } from "@/components/product/AttendanceVisual";
 import { LeaveVisual } from "@/components/product/LeaveVisual";
 import { PerformanceVisual } from "@/components/product/PerformanceVisual";
 import { RecruitmentVisual } from "@/components/product/RecruitmentVisual";
+import { OnboardingVisual } from "@/components/product/OnboardingVisual";
 
 export type ModuleContent = {
   slug: string;
@@ -129,6 +130,33 @@ export const modules: Record<string, ModuleContent> = {
     ],
     related: ["recruitment"],
     Visual: PerformanceVisual,
+  },
+  onboarding: {
+    slug: "onboarding",
+    name: "Onboarding",
+    eyebrow: "Core HR",
+    title: "New hires productive from day one, not week three",
+    intro:
+      "Turn an accepted offer into a ready employee. Collect documents, capture statutory and bank details, issue assets and assign a buddy, all as a guided, trackable journey the new joiner and HR share.",
+    capabilities: [
+      { title: "Guided joining journey", body: "A stage-by-stage checklist for HR and the candidate, so nothing slips between offer and day one." },
+      { title: "Dynamic intake forms", body: "Collect exactly the fields your policy needs, with statutory, bank and personal details captured once and reused." },
+      { title: "Assets & buddy", body: "Reserve and issue assets, assign a department buddy, and confirm the workstation before the joiner arrives." },
+      { title: "Policy acknowledgement", body: "Admin-authored policies the candidate reads and acknowledges, recorded for audit." },
+    ],
+    configPoints: [
+      "Joining stages and checklist per role",
+      "Intake form fields (work vs personal email, statutory, bank)",
+      "Asset categories and issue workflow",
+      "Policies requiring acknowledgement",
+    ],
+    reports: [
+      "Onboarding status by joiner",
+      "Pending documents & tasks",
+      "Time-to-productive",
+    ],
+    related: ["recruitment", "payroll"],
+    Visual: OnboardingVisual,
   },
   recruitment: {
     slug: "recruitment",

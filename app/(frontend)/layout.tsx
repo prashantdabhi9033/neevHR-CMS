@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { Analytics } from "@/components/site/Analytics";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -55,6 +56,7 @@ export default function FrontendLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

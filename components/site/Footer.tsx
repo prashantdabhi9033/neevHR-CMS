@@ -5,19 +5,21 @@ const cols = [
   {
     title: "Product",
     links: [
-      { label: "Modules", href: "/#modules" },
-      { label: "Why NeevHR", href: "/#why" },
-      { label: "Compliance", href: "/#compliance" },
+      { label: "Platform", href: "/product" },
+      { label: "Mobile app", href: "/mobile" },
+      { label: "Integrations", href: "/integrations" },
+      { label: "Security", href: "/security" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Blog", href: "/blog" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/company" },
+      { label: "Why NeevHR", href: "/compare" },
+      { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
-      { label: "Book a demo", href: "/demo" },
     ],
   },
   {

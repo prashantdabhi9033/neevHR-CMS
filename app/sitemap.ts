@@ -5,11 +5,17 @@ import { moduleList } from "@/lib/modules";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
-    "/demo",
+    "/product",
+    "/compare",
+    "/security",
+    "/integrations",
+    "/mobile",
     "/pricing",
     "/blog",
+    "/faq",
     "/company",
     "/contact",
+    "/demo",
     "/privacy",
     "/terms",
     "/dpdp",

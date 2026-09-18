@@ -11,9 +11,9 @@ export const site = {
 } as const;
 
 export const primaryNav = [
-  { label: "Product", href: "/#modules" },
-  { label: "Why NeevHR", href: "/#why" },
-  { label: "Compliance", href: "/#compliance" },
+  { label: "Product", href: "/product" },
+  { label: "Why NeevHR", href: "/compare" },
+  { label: "Security", href: "/security" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Company", href: "/company" },
@@ -54,7 +54,7 @@ export const moduleMap: ModuleGroup[] = [
     blurb: "One employee record, effective-dated, as the single source of truth.",
     modules: [
       { name: "Employee records", desc: "One dated timeline per employee. History is never overwritten." },
-      { name: "Onboarding", desc: "Offer to day-one, dynamic forms, document collection and buddy assignment." },
+      { name: "Onboarding", desc: "Offer to day-one, dynamic forms, document collection and buddy assignment.", slug: "onboarding" },
       { name: "Documents", desc: "Policies, letters and employee files with acknowledgement tracking." },
       { name: "Org & positions", desc: "Legal entities, business units, departments and reporting lines." },
     ],
@@ -106,6 +106,46 @@ export const compliancePoints = [
   "Gratuity & Bonus",
   "POSH",
   "DPDP Act 2023",
+];
+
+export const platformCapabilities = [
+  { title: "Custom fields", body: "Extend any record with your own fields, governed by a catalog, without a code change." },
+  { title: "Workflow & approvals", body: "Configurable approval chains per record type, routed to a role or a specific person." },
+  { title: "Role-based access", body: "Fine-grained RBAC with data scopes, time-bound grants and separation-of-duties checks." },
+  { title: "Audit trail", body: "Every change is recorded, effective-dated, and reportable as of any date." },
+  { title: "Notifications", body: "In-app, email, SMS, WhatsApp and browser push, driven by a single dispatcher." },
+  { title: "Import & export", body: "Bulk CSV import with dry-run validation and export from every list." },
+];
+
+export const faqs = [
+  {
+    q: "Is NeevHR only for India?",
+    a: "Yes. NeevHR is built for Indian companies only, with INR, the India financial year and India statutory law (PF, ESI, PT, LWF, TDS, gratuity, bonus, POSH and the DPDP Act 2023) in the core. The product is available in English and Hindi.",
+  },
+  {
+    q: "How long does implementation take?",
+    a: "A focused rollout takes 4 to 8 weeks: configure, migrate your employee master, run a parallel payroll cycle to reconcile, then go live.",
+  },
+  {
+    q: "Do we need a certified consultant to configure it?",
+    a: "No. Leave, attendance, payroll, expense and appraisal are configurable rule sets a trained HR admin can own and assign to employee groups. No code change per business unit.",
+  },
+  {
+    q: "What company size is NeevHR for?",
+    a: "Mid-market companies with roughly 500 to 5,000 employees, large enough to need process discipline and statutory accuracy, without the cost of a tier-one suite.",
+  },
+  {
+    q: "Does it handle PF, ESI, PT and TDS?",
+    a: "Yes. Statutory deductions, thresholds and returns are built in, with ECR, challans, Form 24Q and Form 16 outputs, kept current with Indian law.",
+  },
+  {
+    q: "Is there a mobile app?",
+    a: "Yes. Employees get self-service on the web and a mobile app for attendance, leave, payslips, approvals and more.",
+  },
+  {
+    q: "How is our employee data protected?",
+    a: "Row-level tenant isolation, role-based access, an audit trail and DPDP Act 2023 alignment with consent and data-principal rights are built into the platform.",
+  },
 ];
 
 export const implementationSteps = [

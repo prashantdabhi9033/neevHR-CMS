@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { HeroVisual } from "@/components/home/HeroVisual";
+import { Faq } from "@/components/site/Faq";
 import {
   compliancePoints,
   differentiators,
@@ -228,8 +229,13 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t border-line bg-surface-soft">
+        <Faq withSchema />
+      </section>
+
       {/* Final CTA */}
-      <section className="pb-24">
+      <section className="pb-24 pt-4">
         <Container>
           <div className="relative overflow-hidden rounded-3xl bg-brand px-8 py-14 text-center shadow-[var(--shadow-float)] sm:px-12">
             <div className="bg-grid absolute inset-0 opacity-20" />
