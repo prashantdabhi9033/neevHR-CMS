@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { moduleMap, platformCapabilities } from "@/lib/site";
+import { platformCapabilities } from "@/lib/site";
+import { moduleGroups } from "@/lib/module-nav";
 
 export const metadata: Metadata = {
   title: "The platform",
@@ -45,7 +46,7 @@ export default function ProductOverviewPage() {
       <section className="py-16 lg:py-20">
         <Container>
           <div className="space-y-10">
-            {moduleMap.map((grp) => (
+            {moduleGroups.map((grp) => (
               <div key={grp.group}>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">
@@ -54,40 +55,25 @@ export default function ProductOverviewPage() {
                   <p className="text-sm text-muted">{grp.blurb}</p>
                 </div>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {grp.modules.map((m) => {
-                    const inner = (
-                      <>
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className="text-[15px] font-semibold text-ink">
-                            {m.name}
-                          </h3>
-                          {m.slug && (
-                            <span className="text-xs font-semibold text-brand opacity-0 transition-opacity group-hover:opacity-100">
-                              View →
-                            </span>
-                          )}
-                        </div>
-                        <p className="mt-1.5 text-sm leading-relaxed text-body">
-                          {m.desc}
-                        </p>
-                      </>
-                    );
-                    const cls =
-                      "group block rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand/40 hover:bg-brand-tint/40";
-                    return m.slug ? (
-                      <Link
-                        key={m.name}
-                        href={`/product/${m.slug}`}
-                        className={cls}
-                      >
-                        {inner}
-                      </Link>
-                    ) : (
-                      <div key={m.name} className={cls}>
-                        {inner}
+                  {grp.items.map((m) => (
+                    <Link
+                      key={m.slug}
+                      href={m.href ?? `/product/${m.slug}`}
+                      className="group block rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand/40 hover:bg-brand-tint/40"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="text-[15px] font-semibold text-ink">
+                          {m.name}
+                        </h3>
+                        <span className="text-xs font-semibold text-brand opacity-0 transition-opacity group-hover:opacity-100">
+                          View →
+                        </span>
                       </div>
-                    );
-                  })}
+                      <p className="mt-1.5 text-sm leading-relaxed text-body">
+                        {m.desc}
+                      </p>
+                    </Link>
+                  ))}
                 </div>
               </div>
             ))}

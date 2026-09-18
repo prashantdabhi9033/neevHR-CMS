@@ -5,6 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { modules, moduleList } from "@/lib/modules";
+import { moduleGroups } from "@/lib/module-nav";
+
+const navLookup = Object.fromEntries(
+  moduleGroups.flatMap((g) =>
+    g.items.map((i) => [i.slug, { name: i.name, href: i.href ?? `/product/${i.slug}` }])
+  )
+) as Record<string, { name: string; href: string }>;
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -144,15 +151,19 @@ export default async function ModulePage({ params }: Params) {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              {m.related.map((slug) => (
-                <Link
-                  key={slug}
-                  href={`/product/${slug}`}
-                  className="rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-brand/40 hover:text-brand"
-                >
-                  {modules[slug].name} →
-                </Link>
-              ))}
+              {m.related.map((slug) => {
+                const rel = navLookup[slug];
+                if (!rel) return null;
+                return (
+                  <Link
+                    key={slug}
+                    href={rel.href}
+                    className="rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-brand/40 hover:text-brand"
+                  >
+                    {rel.name} →
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
