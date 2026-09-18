@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { StoreBadges } from "@/components/site/StoreBadges";
 import { Icon } from "@/components/ui/Icon";
 import { MobileVisual } from "@/components/product/MobileVisual";
 
@@ -46,6 +47,7 @@ export default function MobilePage() {
                 Explore the platform
               </Button>
             </div>
+            <StoreBadges className="mt-8" />
           </div>
           <div className="animate-fade-up">
             <MobileVisual />

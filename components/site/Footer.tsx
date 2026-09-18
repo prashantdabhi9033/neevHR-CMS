@@ -1,6 +1,7 @@
 import { BrandMark } from "@/components/brand/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { StoreBadges } from "@/components/site/StoreBadges";
 
 const cols = [
   {
@@ -89,7 +90,8 @@ export function Footer() {
               A configurable, India-first HRMS for teams of 500 to 5,000.
               Payroll, attendance, talent and compliance on one employee record.
             </p>
-            <p className="mt-4 text-xs font-medium text-muted">
+            <StoreBadges className="mt-6" />
+            <p className="mt-6 text-xs font-medium text-muted">
               Made in India · English & Hindi
             </p>
           </div>
