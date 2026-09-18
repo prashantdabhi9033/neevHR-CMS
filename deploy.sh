@@ -12,6 +12,10 @@ git pull
 echo "==> Installing dependencies"
 pnpm install --frozen-lockfile
 
+echo "==> Running database migrations"
+set -a; . ./.env; set +a
+pnpm payload migrate
+
 echo "==> Building"
 pnpm build
 

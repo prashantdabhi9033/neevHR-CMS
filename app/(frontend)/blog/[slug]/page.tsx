@@ -14,16 +14,20 @@ export const revalidate = 60;
 type Params = { params: Promise<{ slug: string }> };
 
 async function getPost(slug: string) {
-  const payload = await getPayload({ config });
-  const { docs } = await payload.find({
-    collection: "posts",
-    where: {
-      and: [{ slug: { equals: slug } }, { _status: { equals: "published" } }],
-    },
-    limit: 1,
-    depth: 1,
-  });
-  return docs[0] ?? null;
+  try {
+    const payload = await getPayload({ config });
+    const { docs } = await payload.find({
+      collection: "posts",
+      where: {
+        and: [{ slug: { equals: slug } }, { _status: { equals: "published" } }],
+      },
+      limit: 1,
+      depth: 1,
+    });
+    return docs[0] ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

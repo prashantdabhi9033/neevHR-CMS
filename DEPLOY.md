@@ -98,15 +98,17 @@ ENV
 
 Note: `NEXT_PUBLIC_SERVER_URL` is baked in at build time, so it must be set before you build. Add the GA id later when you have it, then rebuild.
 
-## Step 8. Install and build
+## Step 8. Install, migrate and build
 
 ```bash
 cd /var/www/neevhr
 pnpm install --frozen-lockfile
+set -a; . ./.env; set +a
+pnpm payload migrate   # creates the database tables
 pnpm build
 ```
 
-The build reads the database, which is why Postgres must exist first. Payload creates its tables automatically on first run (the config uses `push: true`).
+`pnpm payload migrate` runs the generated migrations in `migrations/` and creates all the tables, so the build can read the database. Migrations are idempotent, so re-running them is safe.
 
 ## Step 9. Run it with PM2
 

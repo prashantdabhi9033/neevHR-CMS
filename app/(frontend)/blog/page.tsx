@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { readMins } from "@/lib/blog";
+import type { Post } from "@/payload-types";
 
 export const revalidate = 60;
 
@@ -25,14 +26,19 @@ function formatDate(d?: string | null) {
 }
 
 export default async function BlogPage() {
-  const payload = await getPayload({ config });
-  const { docs } = await payload.find({
-    collection: "posts",
-    where: { _status: { equals: "published" } },
-    sort: "-publishedAt",
-    limit: 50,
-    depth: 1,
-  });
+  let docs: Post[] = [];
+  try {
+    const payload = await getPayload({ config });
+    ({ docs } = await payload.find({
+      collection: "posts",
+      where: { _status: { equals: "published" } },
+      sort: "-publishedAt",
+      limit: 50,
+      depth: 1,
+    }));
+  } catch {
+    docs = [];
+  }
 
   return (
     <>
