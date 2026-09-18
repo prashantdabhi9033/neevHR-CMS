@@ -3,7 +3,8 @@
 > Public marketing + lead-generation website for **NeevHR**, an India-only, mid-market (500–5,000 employees) HRMS product competing with Keka, Darwinbox, and greytHR.
 > This site is **separate from the product app** (`web/`, `backend/`) — its own Next.js app, its own stack. It does not touch the locked product stack.
 
-**Status:** Phase A + Phase B complete (18 Sep 2026). Repo: https://github.com/prashantdabhi9033/neevHR-CMS
+**Status:** Phases A-D complete (18 Sep 2026) — launch-ready. Repo: https://github.com/prashantdabhi9033/neevHR-CMS
+Pages live: home, /product (+6 module deep pages: payroll, attendance, leave, performance, recruitment, onboarding), /compare, /security, /integrations, /mobile, /pricing, /blog (Payload CMS), /faq, /company, /contact, /demo (leads to Payload), legal. GA4 ready via NEXT_PUBLIC_GA_ID. All module visuals are designed in-code (not screenshots).
 **Location:** `marketing-site/` (sibling to `web/`, `backend/`, `mobile/`).
 
 ### Local dev
