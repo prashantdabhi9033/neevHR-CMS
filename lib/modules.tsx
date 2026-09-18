@@ -16,7 +16,20 @@ import { FieldTrackingVisual } from "@/components/product/FieldTrackingVisual";
 import { SurveysVisual } from "@/components/product/SurveysVisual";
 import { ReportsVisual } from "@/components/product/ReportsVisual";
 import { OrgVisual } from "@/components/product/OrgVisual";
-import { ShowcaseVisual, type ShowcaseData } from "@/components/product/ShowcaseVisual";
+import { PositionsVisual } from "@/components/product/PositionsVisual";
+import { PlanningVisual } from "@/components/product/PlanningVisual";
+import { DocumentsVisual } from "@/components/product/DocumentsVisual";
+import { HolidaysVisual } from "@/components/product/HolidaysVisual";
+import { TimesheetsVisual } from "@/components/product/TimesheetsVisual";
+import { ProjectsVisual } from "@/components/product/ProjectsVisual";
+import { ExpensesVisual } from "@/components/product/ExpensesVisual";
+import { VariablePayVisual } from "@/components/product/VariablePayVisual";
+import { BenefitsVisual } from "@/components/product/BenefitsVisual";
+import { LearningVisual } from "@/components/product/LearningVisual";
+import { EngagementVisual } from "@/components/product/EngagementVisual";
+import { HelpdeskVisual } from "@/components/product/HelpdeskVisual";
+import { TravelVisual } from "@/components/product/TravelVisual";
+import { AssetsVisual } from "@/components/product/AssetsVisual";
 
 export type ModuleContent = {
   slug: string;
@@ -29,13 +42,6 @@ export type ModuleContent = {
   reports: string[];
   related: string[];
   Visual: ComponentType;
-};
-
-// Helper: bind a ShowcaseData object into a no-prop component.
-const show = (data: ShowcaseData): ComponentType => {
-  const C = () => <ShowcaseVisual data={data} />;
-  C.displayName = `Showcase(${data.title})`;
-  return C;
 };
 
 export const modules: Record<string, ModuleContent> = {
@@ -115,22 +121,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Positions per department and grade", "Budgeted CTC per seat", "Freeze and closure rules", "Link to workforce plan"],
     reports: ["Vacancy & open seats", "Budgeted vs actual cost", "On-notice positions"],
     related: ["planning", "org-chart", "recruitment"],
-    Visual: show({
-      title: "NeevHR · Positions · Establishment",
-      stats: [
-        { label: "Positions", value: "214" },
-        { label: "Open seats", value: "12", accent: true },
-        { label: "Frozen", value: "3" },
-      ],
-      barTitle: "Seats by status",
-      bars: [
-        { label: "Filled", value: 199 },
-        { label: "Open", value: 12 },
-        { label: "On notice", value: 6 },
-        { label: "Frozen", value: 3 },
-      ],
-      tags: ["FTE tracking", "Budget per seat", "Freeze / reopen"],
-    }),
+    Visual: PositionsVisual,
   },
   planning: {
     slug: "planning",
@@ -148,22 +139,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Financial-year plan periods", "Department and cost-centre structure", "Budget envelopes", "Plan-change approval"],
     reports: ["Plan vs actual headcount", "Open vs over plan", "Recruitment budget burn"],
     related: ["positions", "org-chart", "recruitment"],
-    Visual: show({
-      title: "NeevHR · Workforce planning · FY 2026-27",
-      stats: [
-        { label: "Planned", value: "236" },
-        { label: "Current", value: "201", accent: true },
-        { label: "Open", value: "35" },
-      ],
-      barTitle: "Planned vs strength by department",
-      bars: [
-        { label: "Engineering", value: 92 },
-        { label: "Operations", value: 63 },
-        { label: "Sales", value: 52 },
-        { label: "Support", value: 29 },
-      ],
-      tags: ["FY plan", "Cost-centre budgets", "Copy from last year"],
-    }),
+    Visual: PlanningVisual,
   },
   exit: {
     slug: "exit",
@@ -199,22 +175,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Document categories and expiry lead-days", "Letter templates and merge tokens", "Verification rules", "Retention class per category"],
     reports: ["Expiring documents", "Letters issued", "Acknowledgement status"],
     related: ["employees", "onboarding", "compliance"],
-    Visual: show({
-      title: "NeevHR · Documents · Vault",
-      stats: [
-        { label: "On file", value: "18,240" },
-        { label: "Expiring", value: "34", accent: true },
-        { label: "Letters this month", value: "126" },
-      ],
-      barTitle: "Documents by category",
-      bars: [
-        { label: "KYC", value: 6200 },
-        { label: "Letters", value: 4800 },
-        { label: "Payslips", value: 5100 },
-        { label: "Form 16", value: 2140 },
-      ],
-      tags: ["Mail-merge letters", "Expiry tracking", "Tamper-proof"],
-    }),
+    Visual: DocumentsVisual,
   },
 
   // ---------------------------------------------------------- Time & attendance
@@ -288,21 +249,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Holidays by location and year", "Holiday types", "Schemes and their mappings", "Financial-year alignment"],
     reports: ["Holiday list by location", "Scheme coverage", "Working-day calendar"],
     related: ["leave", "attendance"],
-    Visual: show({
-      title: "NeevHR · Holiday calendar · 2026",
-      stats: [
-        { label: "Holidays", value: "14" },
-        { label: "Locations", value: "6" },
-        { label: "Schemes", value: "4", accent: true },
-      ],
-      barTitle: "Holidays by type",
-      bars: [
-        { label: "Public", value: 10 },
-        { label: "Optional", value: 3 },
-        { label: "Restricted", value: 2 },
-      ],
-      tags: ["Location-aware", "RH & optional", "Import / export"],
-    }),
+    Visual: HolidaysVisual,
   },
   "field-tracking": {
     slug: "field-tracking",
@@ -338,22 +285,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Daily or weekly cadence", "Project and cost-centre list", "Billable rules", "Approval chain"],
     reports: ["Utilisation %", "Billable vs non-billable", "Hours by project"],
     related: ["projects", "attendance"],
-    Visual: show({
-      title: "NeevHR · Timesheets · Week 38",
-      stats: [
-        { label: "Submitted", value: "142" },
-        { label: "Utilisation", value: "82%", accent: true },
-        { label: "Billable share", value: "68%" },
-      ],
-      barTitle: "Hours by project",
-      bars: [
-        { label: "Meridian Pay", value: 186 },
-        { label: "Atlas CRM", value: 142 },
-        { label: "Internal", value: 98 },
-        { label: "Nova App", value: 76 },
-      ],
-      tags: ["Billable vs non-billable", "Weekly grid", "Invoicing export"],
-    }),
+    Visual: TimesheetsVisual,
   },
   projects: {
     slug: "projects",
@@ -371,23 +303,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Clients and internal projects", "Bill and cost rates", "Budgets", "Members"],
     reports: ["Budget vs actual", "Project profitability", "Utilisation by project"],
     related: ["timesheets"],
-    Visual: show({
-      title: "NeevHR · Projects",
-      stats: [
-        { label: "Active", value: "24" },
-        { label: "Billable", value: "18", accent: true },
-        { label: "On hold", value: "3" },
-      ],
-      barTitle: "Budget by project (₹ L)",
-      money: true,
-      bars: [
-        { label: "Meridian Pay", value: 48 },
-        { label: "Atlas CRM", value: 36 },
-        { label: "Nova App", value: 28 },
-        { label: "Orbit Data", value: 19 },
-      ],
-      tags: ["Bill & cost rates", "Budget in hrs + ₹", "Client invoicing"],
-    }),
+    Visual: ProjectsVisual,
   },
 
   // -------------------------------------------------------------- Payroll & pay
@@ -443,23 +359,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Categories and per-day caps", "Per-diem grade × location matrix", "Submission window and receipt threshold", "Advance ceilings"],
     reports: ["Spend by category", "Pending & reimbursed", "Advances outstanding"],
     related: ["payroll", "travel", "loans"],
-    Visual: show({
-      title: "NeevHR · Expenses · September",
-      stats: [
-        { label: "Pending", value: "₹3.4 L" },
-        { label: "Spend MTD", value: "₹18.9 L", accent: true },
-        { label: "Advances", value: "₹2.1 L" },
-      ],
-      barTitle: "Spend by category (₹ '000)",
-      money: true,
-      bars: [
-        { label: "Travel", value: 720 },
-        { label: "Hotel", value: 540 },
-        { label: "Meals", value: 310 },
-        { label: "Conveyance", value: 220 },
-      ],
-      tags: ["Receipts", "Partial sanction", "NEFT / RTGS / IMPS"],
-    }),
+    Visual: ExpensesVisual,
   },
   loans: {
     slug: "loans",
@@ -495,22 +395,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Components and frequency", "Ring-fence limits", "Bonus rate and eligibility", "Approval chain"],
     reports: ["Variable pay register", "Bonus disbursement", "Forms A to D"],
     related: ["payroll", "compensation"],
-    Visual: show({
-      title: "NeevHR · Variable pay · FY 2025-26 bonus",
-      stats: [
-        { label: "Eligible", value: "176" },
-        { label: "Bonus payable", value: "₹41.2 L", accent: true },
-        { label: "Rate", value: "8.33%" },
-      ],
-      barTitle: "Approved inputs by type (₹ '000)",
-      money: true,
-      bars: [
-        { label: "Incentive", value: 640 },
-        { label: "Statutory bonus", value: 4120 },
-        { label: "Recovery", value: 180 },
-      ],
-      tags: ["Payment of Bonus Act", "Ring-fence limits", "Forms A-D"],
-    }),
+    Visual: VariablePayVisual,
   },
   benefits: {
     slug: "benefits",
@@ -528,22 +413,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Plans, insurers and premiums", "Eligibility and auto-enrol", "Dependent rules", "FBP components and tax treatment"],
     reports: ["Lives covered", "Enrolment %", "FBP utilisation"],
     related: ["payroll", "compliance"],
-    Visual: show({
-      title: "NeevHR · Benefits · Policy year 2026-27",
-      stats: [
-        { label: "Lives covered", value: "5,120" },
-        { label: "GMC enrolment", value: "96%", accent: true },
-        { label: "Endorsements", value: "8" },
-      ],
-      barTitle: "Enrolment by plan",
-      bars: [
-        { label: "GMC", value: 201 },
-        { label: "GPA", value: 201 },
-        { label: "GTL", value: 188 },
-        { label: "OPD", value: 96 },
-      ],
-      tags: ["GMC / GPA / GTL", "Dependent rules", "FBP proof queue"],
-    }),
+    Visual: BenefitsVisual,
   },
 
   // ------------------------------------------------------------------- Talent
@@ -617,22 +487,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Courses and mandatory flags", "Competency catalog", "Session capacity", "Training budgets"],
     reports: ["Compliance completion by department", "Hours per employee", "Active learners"],
     related: ["performance", "onboarding"],
-    Visual: show({
-      title: "NeevHR · Learning · Mandatory compliance",
-      stats: [
-        { label: "Completion", value: "94%", accent: true },
-        { label: "Hrs / employee", value: "11.4" },
-        { label: "Active learners", value: "1,860" },
-      ],
-      barTitle: "Compliance by department",
-      bars: [
-        { label: "Engineering", value: 96 },
-        { label: "Sales", value: 88 },
-        { label: "Operations", value: 92 },
-        { label: "Support", value: 84 },
-      ],
-      tags: ["POSH · DPDP", "Classroom seats", "Annual plan"],
-    }),
+    Visual: LearningVisual,
   },
   succession: {
     slug: "succession",
@@ -670,22 +525,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Kudos categories", "Announcement audiences", "Pulse cadence", "eNPS thresholds"],
     reports: ["eNPS trend", "Pulse by dimension", "Recognition activity"],
     related: ["surveys", "mobile"],
-    Visual: show({
-      title: "NeevHR · Engagement",
-      stats: [
-        { label: "eNPS", value: "+42", accent: true },
-        { label: "Pulse participation", value: "87%" },
-        { label: "Kudos this month", value: "312" },
-      ],
-      barTitle: "Score by dimension (of 5)",
-      bars: [
-        { label: "Leadership", value: 42 },
-        { label: "Growth", value: 36 },
-        { label: "Recognition", value: 39 },
-        { label: "Work-life", value: 44 },
-      ],
-      tags: ["Kudos", "Announcements", "Celebrations"],
-    }),
+    Visual: EngagementVisual,
   },
   surveys: {
     slug: "surveys",
@@ -721,22 +561,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Categories and priorities", "SLA targets", "Escalation tiers", "Assignment rules"],
     reports: ["Open & breaching SLA", "Resolution time", "Volume by category"],
     related: ["mobile", "assets"],
-    Visual: show({
-      title: "NeevHR · HR helpdesk · SLA board",
-      stats: [
-        { label: "Open tickets", value: "46" },
-        { label: "Breaching SLA", value: "3" },
-        { label: "Resolved this week", value: "128", accent: true },
-      ],
-      barTitle: "Tickets by category",
-      bars: [
-        { label: "Payroll", value: 18 },
-        { label: "IT access", value: 14 },
-        { label: "Leave", value: 9 },
-        { label: "Documents", value: 5 },
-      ],
-      tags: ["SLA countdown", "Escalation tiers", "Threaded"],
-    }),
+    Visual: HelpdeskVisual,
   },
   travel: {
     slug: "travel",
@@ -754,23 +579,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Travel types and bands", "Grade entitlement caps", "Approval chain", "Expense link"],
     reports: ["Travel spend", "Estimate vs actual", "Pending to book"],
     related: ["expenses", "mobile"],
-    Visual: show({
-      title: "NeevHR · Travel",
-      stats: [
-        { label: "Requests", value: "62" },
-        { label: "Pending", value: "9", accent: true },
-        { label: "Booked", value: "44" },
-      ],
-      barTitle: "Spend by type (₹ '000)",
-      money: true,
-      bars: [
-        { label: "Air", value: 620 },
-        { label: "Hotel", value: 480 },
-        { label: "Rail", value: 190 },
-        { label: "Cab", value: 120 },
-      ],
-      tags: ["Entitlement matrix", "Over-cap reason", "Expense reconciliation"],
-    }),
+    Visual: TravelVisual,
   },
   assets: {
     slug: "assets",
@@ -788,22 +597,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Asset types and categories", "Depreciation rates", "Warranty windows", "Issue and return workflow"],
     reports: ["Assets by status", "Warranty expiring", "Book value"],
     related: ["onboarding", "helpdesk"],
-    Visual: show({
-      title: "NeevHR · Assets · Lifecycle",
-      stats: [
-        { label: "Total assets", value: "1,340" },
-        { label: "Assigned", value: "1,120", accent: true },
-        { label: "In repair", value: "18" },
-      ],
-      barTitle: "Assets by status",
-      bars: [
-        { label: "Assigned", value: 1120 },
-        { label: "In stock", value: 156 },
-        { label: "Reserved", value: 34 },
-        { label: "In repair", value: 18 },
-      ],
-      tags: ["Warranty tracking", "Depreciation", "Custody history"],
-    }),
+    Visual: AssetsVisual,
   },
 
   // ------------------------------------------------------------------ Insights
