@@ -4,6 +4,8 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
+import { BlogCover } from "@/components/blog/BlogCover";
+import { readMins } from "@/lib/blog";
 
 export const revalidate = 60;
 
@@ -60,24 +62,23 @@ export default async function BlogPage() {
                     href={`/blog/${post.slug}`}
                     className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-[var(--shadow-card)] transition-colors hover:border-brand/40"
                   >
-                    <div className="aspect-[16/10] overflow-hidden bg-brand-tint">
+                    <div className="overflow-hidden">
                       {cover?.url ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={cover.url}
                           alt={cover.alt || post.title}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          className="aspect-[16/10] h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                         />
                       ) : (
-                        <div className="flex h-full items-center justify-center text-brand/40">
-                          <span className="text-3xl font-bold">NeevHR</span>
-                        </div>
+                        <BlogCover category={post.category} />
                       )}
                     </div>
                     <div className="flex flex-1 flex-col p-5">
                       <p className="text-xs font-medium text-muted">
                         {formatDate(post.publishedAt)}
                         {post.author ? ` · ${post.author}` : ""}
+                        {post.bodyMarkdown ? ` · ${readMins(post.bodyMarkdown)} min read` : ""}
                       </p>
                       <h2 className="mt-2 text-lg font-semibold leading-snug text-ink group-hover:text-brand">
                         {post.title}

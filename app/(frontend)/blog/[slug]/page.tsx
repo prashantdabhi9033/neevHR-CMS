@@ -6,6 +6,8 @@ import config from "@payload-config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Container } from "@/components/ui/Container";
+import { BlogCover } from "@/components/blog/BlogCover";
+import { mdToHtml, readMins, categoryOf } from "@/lib/blog";
 
 export const revalidate = 60;
 
@@ -64,8 +66,11 @@ export default async function PostPage({ params }: Params) {
           ← All posts
         </Link>
         <p className="mt-6 text-sm font-medium text-muted">
+          <span className="text-brand">{categoryOf(post.category).label}</span>
+          {" · "}
           {formatDate(post.publishedAt)}
           {post.author ? ` · ${post.author}` : ""}
+          {post.bodyMarkdown ? ` · ${readMins(post.bodyMarkdown)} min read` : ""}
         </p>
         <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
           {post.title}
@@ -75,21 +80,51 @@ export default async function PostPage({ params }: Params) {
             {post.excerpt}
           </p>
         )}
-        {cover?.url && (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-line">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={cover.url}
-              alt={cover.alt || post.title}
-              className="w-full object-cover"
-            />
-          </div>
+        <div className="mt-8">
+          {cover?.url ? (
+            <div className="overflow-hidden rounded-2xl border border-line">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={cover.url}
+                alt={cover.alt || post.title}
+                className="w-full object-cover"
+              />
+            </div>
+          ) : (
+            <BlogCover category={post.category} />
+          )}
+        </div>
+        {post.bodyMarkdown ? (
+          <div
+            className="prose-neev mt-10"
+            dangerouslySetInnerHTML={{ __html: mdToHtml(post.bodyMarkdown) }}
+          />
+        ) : (
+          post.content && (
+            <div className="prose-neev mt-10">
+              <RichText data={post.content as SerializedEditorState} />
+            </div>
+          )
         )}
-        {post.content && (
-          <div className="prose-neev mt-10">
-            <RichText data={post.content as SerializedEditorState} />
+
+        <div className="mt-12 rounded-2xl bg-brand px-7 py-7 text-center sm:text-left">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div>
+              <h3 className="text-lg font-bold text-white">
+                Run all of this on one platform
+              </h3>
+              <p className="mt-1 text-sm text-white/80">
+                NeevHR handles payroll, attendance and compliance for Indian teams of 500 to 5,000.
+              </p>
+            </div>
+            <Link
+              href="/demo"
+              className="shrink-0 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-brand hover:bg-white/90"
+            >
+              Book a demo
+            </Link>
           </div>
-        )}
+        </div>
       </Container>
     </article>
   );

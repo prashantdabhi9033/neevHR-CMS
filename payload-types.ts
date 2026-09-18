@@ -138,7 +138,12 @@ export interface Post {
    * One or two lines shown on the blog listing.
    */
   excerpt?: string | null;
+  category?: ('payroll' | 'compliance' | 'time' | 'performance' | 'recruitment' | 'hr-strategy' | 'product') | null;
   coverImage?: (number | null) | Media;
+  /**
+   * Article body in Markdown (supports headings, lists, tables). If set, this renders instead of the rich text below.
+   */
+  bodyMarkdown?: string | null;
   content?: {
     root: {
       type: string;
@@ -332,7 +337,9 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   excerpt?: T;
+  category?: T;
   coverImage?: T;
+  bodyMarkdown?: T;
   content?: T;
   author?: T;
   publishedAt?: T;

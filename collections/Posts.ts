@@ -43,7 +43,30 @@ export const Posts: CollectionConfig = {
       maxLength: 240,
       admin: { description: "One or two lines shown on the blog listing." },
     },
+    {
+      name: "category",
+      type: "select",
+      defaultValue: "hr-strategy",
+      admin: { position: "sidebar" },
+      options: [
+        { label: "Payroll", value: "payroll" },
+        { label: "Compliance", value: "compliance" },
+        { label: "Attendance & leave", value: "time" },
+        { label: "Performance", value: "performance" },
+        { label: "Recruitment", value: "recruitment" },
+        { label: "HR strategy", value: "hr-strategy" },
+        { label: "Product", value: "product" },
+      ],
+    },
     { name: "coverImage", type: "upload", relationTo: "media" },
+    {
+      name: "bodyMarkdown",
+      type: "textarea",
+      admin: {
+        description:
+          "Article body in Markdown (supports headings, lists, tables). If set, this renders instead of the rich text below.",
+      },
+    },
     { name: "content", type: "richText" },
     {
       name: "author",
