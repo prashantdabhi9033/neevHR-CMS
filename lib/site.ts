@@ -15,6 +15,7 @@ export const primaryNav = [
   { label: "Why NeevHR", href: "/#why" },
   { label: "Compliance", href: "/#compliance" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
   { label: "Company", href: "/company" },
 ] as const;
 

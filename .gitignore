@@ -42,3 +42,6 @@ next-env.d.ts
 
 # lead sink (temporary, pre-Payload)
 /data/
+
+# payload media uploads
+/public/media/

@@ -54,6 +54,57 @@ body {
   background-size: 44px 44px;
 }
 
+/* Blog article body (Payload rich text output). */
+.prose-neev {
+  color: var(--color-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.prose-neev > * + * {
+  margin-top: 1.15rem;
+}
+.prose-neev h2 {
+  margin-top: 2.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+.prose-neev h3 {
+  margin-top: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.prose-neev a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-neev ul,
+.prose-neev ol {
+  padding-left: 1.4rem;
+}
+.prose-neev ul {
+  list-style: disc;
+}
+.prose-neev ol {
+  list-style: decimal;
+}
+.prose-neev li + li {
+  margin-top: 0.4rem;
+}
+.prose-neev blockquote {
+  border-left: 3px solid var(--color-brand);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+.prose-neev strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

@@ -9,6 +9,7 @@ const cols = [
       { label: "Why NeevHR", href: "/#why" },
       { label: "Compliance", href: "/#compliance" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {

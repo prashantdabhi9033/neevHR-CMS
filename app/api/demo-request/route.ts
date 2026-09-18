@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
-
-// Temporary lead sink. In build phase B this is replaced by a Payload
-// "Leads" collection so the owner views submissions in the CMS admin panel.
-const DATA_DIR = path.join(process.cwd(), "data");
-const LEADS_FILE = path.join(DATA_DIR, "leads.jsonl");
+import { getPayload } from "payload";
+import config from "@payload-config";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const SIZES = ["500 - 1,000", "1,000 - 2,500", "2,500 - 5,000", "Other"] as const;
+type Size = (typeof SIZES)[number];
+
+function toSize(v: unknown): Size | undefined {
+  const s = String(v ?? "").trim();
+  return (SIZES as readonly string[]).includes(s) ? (s as Size) : undefined;
+}
 
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -33,21 +36,24 @@ export async function POST(req: Request) {
     );
   }
 
-  const lead = {
-    name,
-    email,
-    company,
-    size: String(body.size ?? "").trim(),
-    phone: String(body.phone ?? "").trim(),
-    role: String(body.role ?? "").trim(),
-    message: String(body.message ?? "").trim().slice(0, 2000),
-    receivedAt: new Date().toISOString(),
-  };
-
   try {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-    await fs.appendFile(LEADS_FILE, JSON.stringify(lead) + "\n", "utf8");
-  } catch {
+    const payload = await getPayload({ config });
+    await payload.create({
+      collection: "leads",
+      // Local API overrides access control, so create() is allowed here only.
+      data: {
+        name,
+        email,
+        company,
+        size: toSize(body.size),
+        phone: String(body.phone ?? "").trim() || undefined,
+        role: String(body.role ?? "").trim() || undefined,
+        message: String(body.message ?? "").trim().slice(0, 2000) || undefined,
+        status: "new",
+      },
+    });
+  } catch (err) {
+    console.error("Lead create failed:", err);
     return NextResponse.json(
       { error: "Could not save your request. Please email us directly." },
       { status: 500 }
