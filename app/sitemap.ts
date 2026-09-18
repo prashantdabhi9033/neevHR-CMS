@@ -1,8 +1,20 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { moduleList } from "@/lib/modules";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/demo", "/pricing", "/company", "/contact", "/privacy", "/terms", "/dpdp"];
+  const routes = [
+    "",
+    "/demo",
+    "/pricing",
+    "/blog",
+    "/company",
+    "/contact",
+    "/privacy",
+    "/terms",
+    "/dpdp",
+    ...moduleList.map((m) => `/product/${m.slug}`),
+  ];
   const now = new Date();
   return routes.map((r) => ({
     url: `${site.url}${r}`,

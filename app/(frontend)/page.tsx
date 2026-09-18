@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
@@ -121,19 +122,36 @@ export default function HomePage() {
                   <p className="text-sm text-muted">{grp.blurb}</p>
                 </div>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {grp.modules.map((m) => (
-                    <div
-                      key={m.name}
-                      className="group rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand/40 hover:bg-brand-tint/40"
-                    >
-                      <h4 className="text-[15px] font-semibold text-ink">
-                        {m.name}
-                      </h4>
-                      <p className="mt-1.5 text-sm leading-relaxed text-body">
-                        {m.desc}
-                      </p>
-                    </div>
-                  ))}
+                  {grp.modules.map((m) => {
+                    const inner = (
+                      <>
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-[15px] font-semibold text-ink">
+                            {m.name}
+                          </h4>
+                          {m.slug && (
+                            <span className="text-xs font-semibold text-brand opacity-0 transition-opacity group-hover:opacity-100">
+                              View →
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1.5 text-sm leading-relaxed text-body">
+                          {m.desc}
+                        </p>
+                      </>
+                    );
+                    const cls =
+                      "group block rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand/40 hover:bg-brand-tint/40";
+                    return m.slug ? (
+                      <Link key={m.name} href={`/product/${m.slug}`} className={cls}>
+                        {inner}
+                      </Link>
+                    ) : (
+                      <div key={m.name} className={cls}>
+                        {inner}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}

@@ -45,7 +45,7 @@ export const differentiators = [
 export type ModuleGroup = {
   group: string;
   blurb: string;
-  modules: { name: string; desc: string }[];
+  modules: { name: string; desc: string; slug?: string }[];
 };
 
 export const moduleMap: ModuleGroup[] = [
@@ -63,8 +63,8 @@ export const moduleMap: ModuleGroup[] = [
     group: "Time & attendance",
     blurb: "From biometric punches to a clean, payroll-ready attendance day.",
     modules: [
-      { name: "Attendance", desc: "Biometric device ingestion, regularisation and configurable day-close." },
-      { name: "Leave", desc: "Configurable leave types, accrual, proration and approval flows." },
+      { name: "Attendance", desc: "Biometric device ingestion, regularisation and configurable day-close.", slug: "attendance" },
+      { name: "Leave", desc: "Configurable leave types, accrual, proration and approval flows.", slug: "leave" },
       { name: "Shift & roster", desc: "Shifts, weekly-off policies, rosters and overtime rules." },
     ],
   },
@@ -72,7 +72,7 @@ export const moduleMap: ModuleGroup[] = [
     group: "Payroll & compliance",
     blurb: "Statutory-accurate payroll with a full audit trail.",
     modules: [
-      { name: "Payroll", desc: "Configurable pay structures, LOP, loans, arrears and payslips." },
+      { name: "Payroll", desc: "Configurable pay structures, LOP, loans, arrears and payslips.", slug: "payroll" },
       { name: "Statutory", desc: "PF, ESI, PT, LWF and TDS with ECR, challan and Form 16 outputs." },
       { name: "Expenses & FBP", desc: "Claims, reimbursement with separation of duties, flexible benefits." },
     ],
@@ -81,8 +81,8 @@ export const moduleMap: ModuleGroup[] = [
     group: "Talent",
     blurb: "Hire, review and grow, on the same employee record.",
     modules: [
-      { name: "Recruitment", desc: "Requisitions, interview panels, offers and hire-to-onboard handover." },
-      { name: "Performance", desc: "Goals, reviews, ratings and increment or bonus decisions with sign-off." },
+      { name: "Recruitment", desc: "Requisitions, interview panels, offers and hire-to-onboard handover.", slug: "recruitment" },
+      { name: "Performance", desc: "Goals, reviews, ratings and increment or bonus decisions with sign-off.", slug: "performance" },
       { name: "Exit", desc: "Notice, clearance, knowledge handover and full and final settlement." },
     ],
   },

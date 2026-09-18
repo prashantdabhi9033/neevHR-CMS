@@ -3,8 +3,14 @@
 > Public marketing + lead-generation website for **NeevHR**, an India-only, mid-market (500–5,000 employees) HRMS product competing with Keka, Darwinbox, and greytHR.
 > This site is **separate from the product app** (`web/`, `backend/`) — its own Next.js app, its own stack. It does not touch the locked product stack.
 
-**Status:** Scaffolding started 18 Sep 2026.
+**Status:** Phase A + Phase B complete (18 Sep 2026). Repo: https://github.com/prashantdabhi9033/neevHR-CMS
 **Location:** `marketing-site/` (sibling to `web/`, `backend/`, `mobile/`).
+
+### Local dev
+- `pnpm dev --port 3100` (env in `.env`, gitignored). Postgres DB `neevhr_cms` (owner role `prashantdabhi`, local).
+- Admin panel: `/admin` — create the first user manually (Claude cannot set passwords). Blog posts + leads managed there.
+- Sample posts: `GET /api/dev-seed` (dev only). Package is ESM (`"type": "module"`); regenerate types with `pnpm generate:types` after schema changes.
+- Node 24 breaks the Payload CLI unless the package is ESM; that is handled. `pnpm build` needs `DATABASE_URI` set (blog is ISR and reads at build).
 
 ---
 
