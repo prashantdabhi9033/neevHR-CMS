@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { sendLeadNotification } from "@/lib/email";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -58,6 +59,21 @@ export async function POST(req: Request) {
       { error: "Could not save your request. Please email us directly." },
       { status: 500 }
     );
+  }
+
+  // Notify by email (best effort; never blocks the response).
+  try {
+    await sendLeadNotification({
+      name,
+      email,
+      company,
+      size: toSize(body.size),
+      phone: String(body.phone ?? "").trim() || undefined,
+      role: String(body.role ?? "").trim() || undefined,
+      message: String(body.message ?? "").trim().slice(0, 2000) || undefined,
+    });
+  } catch (err) {
+    console.error("Lead email failed:", err);
   }
 
   return NextResponse.json({ ok: true });
