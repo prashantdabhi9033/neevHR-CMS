@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Reveal } from "@/components/site/Reveal";
 import { modules, moduleList } from "@/lib/modules";
 import { moduleGroups } from "@/lib/module-nav";
+import { differentiators } from "@/lib/site";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -41,6 +43,7 @@ export default async function ModulePage({ params }: Params) {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-[440px] w-[720px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/12 via-brand-soft/8 to-accent/10 blur-3xl" />
         <Container className="relative grid items-center gap-12 py-14 lg:grid-cols-[1fr_1.05fr] lg:py-20">
           <div className="animate-fade-up">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand">
@@ -52,12 +55,20 @@ export default async function ModulePage({ params }: Params) {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
               {m.intro}
             </p>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+              {m.capabilities.slice(0, 3).map((c) => (
+                <li key={c.title} className="inline-flex items-center gap-1.5">
+                  <Icon name="check" className="h-4 w-4 text-accent" />
+                  {c.title}
+                </li>
+              ))}
+            </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/demo" size="lg">
                 Book a demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/#modules" variant="secondary" size="lg">
+              <Button href="/product" variant="secondary" size="lg">
                 All modules
               </Button>
             </div>
@@ -71,26 +82,29 @@ export default async function ModulePage({ params }: Params) {
       {/* Capabilities */}
       <section className="py-16 lg:py-20">
         <Container>
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Key capabilities
-          </span>
-          <h2 className="mt-2 max-w-2xl text-3xl font-bold tracking-tight text-ink">
-            What {m.name.toLowerCase()} does in NeevHR
-          </h2>
+          <Reveal className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+              Key capabilities
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">
+              What {m.name.toLowerCase()} does in NeevHR
+            </h2>
+          </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {m.capabilities.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]"
-              >
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent-tint text-accent-dark">
-                  <Icon name="check" className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 text-base font-semibold text-ink">
-                  {c.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-body">{c.body}</p>
-              </div>
+            {m.capabilities.map((c, i) => (
+              <Reveal key={c.title} delay={i * 60}>
+                <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent-tint text-accent-dark">
+                    <Icon name="check" className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-ink">
+                    {c.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">
+                    {c.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -99,7 +113,7 @@ export default async function ModulePage({ params }: Params) {
       {/* Config + Reports */}
       <section className="border-y border-line bg-surface-soft py-16 lg:py-20">
         <Container className="grid gap-10 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand">
               <Icon name="sliders" className="h-4 w-4" />
               Configuration points
@@ -115,8 +129,8 @@ export default async function ModulePage({ params }: Params) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={80}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand">
               <Icon name="chart" className="h-4 w-4" />
               Reports & analytics
@@ -136,12 +150,48 @@ export default async function ModulePage({ params }: Params) {
                 </li>
               ))}
             </ul>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Platform band */}
+      <section className="py-16 lg:py-20">
+        <Container>
+          <Reveal className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+              Built on the NeevHR platform
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">
+              {m.name} does not run in a silo
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-body">
+              Like every module, it sits on one effective-dated employee record,
+              with India&apos;s statutory rules, configuration and governance
+              shared across the platform.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {differentiators.map((d, i) => (
+              <Reveal key={d.title} delay={i * 60}>
+                <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-tint text-brand">
+                    <Icon name={d.icon} />
+                  </span>
+                  <h3 className="mt-4 text-[15px] font-semibold text-ink">
+                    {d.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">
+                    {d.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </section>
 
       {/* Related + CTA */}
-      <section className="py-16 lg:py-20">
+      <section className="border-t border-line py-16 lg:py-20">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>

@@ -40,8 +40,11 @@ const cols = [
     links: [
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
+      { label: "Free tools", href: "/tools" },
+      { label: "Gratuity calculator", href: "/tools/gratuity-calculator" },
+      { label: "HRA calculator", href: "/tools/hra-calculator" },
+      { label: "PF calculator", href: "/tools/pf-calculator" },
       { label: "Contact", href: "/contact" },
-      { label: "Book a demo", href: "/demo" },
     ],
   },
   {

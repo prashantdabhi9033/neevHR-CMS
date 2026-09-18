@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { moduleList } from "@/lib/modules";
+import { tools } from "@/lib/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pricing",
     "/blog",
     "/faq",
+    "/tools",
     "/company",
     "/contact",
     "/demo",
@@ -20,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms",
     "/dpdp",
     ...moduleList.map((m) => `/product/${m.slug}`),
+    ...tools.map((t) => `/tools/${t.slug}`),
   ];
   const now = new Date();
   return routes.map((r) => ({
