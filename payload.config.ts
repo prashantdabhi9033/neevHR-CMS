@@ -27,6 +27,10 @@ export default buildConfig({
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },
+    // Auto-sync the schema on boot in every environment. Simple for a
+    // single self-hosted server; switch to generated migrations if the
+    // team grows or schema changes get complex.
+    push: true,
   }),
   sharp,
 });

@@ -3,11 +3,14 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { seedPosts } from "@/lib/seed/posts";
 
-// Dev-only helper to seed blog posts. Returns 404 in production.
-// Idempotent: updates a post if the slug already exists, else creates it.
-export async function GET() {
+// Seeds blog posts. In production it runs only when the ?key= query matches
+// the SEED_KEY env var (set it once, seed, then unset it). Idempotent.
+export async function GET(req: Request) {
   if (process.env.NODE_ENV === "production") {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+    const key = new URL(req.url).searchParams.get("key");
+    if (!process.env.SEED_KEY || key !== process.env.SEED_KEY) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
   }
   const payload = await getPayload({ config });
   const results: string[] = [];
