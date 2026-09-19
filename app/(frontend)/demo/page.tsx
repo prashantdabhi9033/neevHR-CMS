@@ -12,7 +12,7 @@ const intents: Record<
   demo: {
     eyebrow: "Book a demo",
     title: "See NeevHR on your own numbers",
-    lead: "Tell us a little about your team. We will tailor the session to your size, structure and statutory needs, no generic slide deck.",
+    lead: "Tell us about your team, and we will tailor the session to your size, structure and statutory needs. No generic slide deck.",
     points: [
       "A walkthrough on your headcount and pay structure",
       "How PF, ESI, PT and TDS are handled end to end",
@@ -23,7 +23,7 @@ const intents: Record<
   quote: {
     eyebrow: "Get a quote",
     title: "Get a quote for your team",
-    lead: "Tell us a little about your team. We will put together edition and pricing options sized to your headcount and scope, in INR.",
+    lead: "Tell us about your team, and we will put together edition and pricing options sized to your headcount and scope, in INR.",
     points: [
       "Pricing sized to your headcount and edition",
       "What is included at each edition, no per-module maze",

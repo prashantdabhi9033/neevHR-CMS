@@ -15,7 +15,7 @@ export default function FaqPage() {
       <PageHeader
         eyebrow="FAQ"
         title="Questions teams ask before they switch"
-        sub="If your question is not here, book a demo and we will answer it against your specifics."
+        sub="The essentials on compliance, implementation and configurability. If yours is not here, book a demo and we will answer it for your specific setup."
       />
       <Faq withSchema heading="Frequently asked questions" />
     </>

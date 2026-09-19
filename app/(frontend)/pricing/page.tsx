@@ -69,7 +69,7 @@ export default function PricingPage() {
               >
                 {e.highlight && (
                   <span className="mb-3 inline-flex w-fit rounded-full bg-brand-tint px-3 py-1 text-xs font-semibold text-brand">
-                    Most popular
+                    Recommended
                   </span>
                 )}
                 <h3 className="text-lg font-bold text-ink">{e.name}</h3>

@@ -45,7 +45,7 @@ export const differentiators = [
   },
   {
     title: "Live in 4 to 8 weeks",
-    body: "A focused implementation measured in weeks, not quarters. You start running real payroll and attendance fast.",
+    body: "A focused implementation measured in weeks, not quarters, so you are running live payroll and attendance while a tier-one rollout is still in workshops.",
     icon: "bolt",
   },
   {

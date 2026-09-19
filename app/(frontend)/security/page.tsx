@@ -131,9 +131,9 @@ export default function SecurityPage() {
       <section className="border-t border-line py-14">
         <Container className="max-w-3xl text-center">
           <p className="text-sm text-muted">
-            We are transparent about our roadmap: formal certifications are on
-            our roadmap as the platform grows. We are happy to walk your IT and
-            security teams through our current controls in detail.
+            Formal certifications are on our roadmap. Until they land, our team
+            will walk your IT and security functions through every control we
+            operate today, in as much detail as your due diligence needs.
           </p>
         </Container>
       </section>

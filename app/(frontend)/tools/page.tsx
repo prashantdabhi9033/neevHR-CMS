@@ -18,7 +18,7 @@ export default function ToolsPage() {
       <PageHeader
         eyebrow="Free HR tools"
         title="Free calculators for Indian HR and payroll"
-        sub="Quick, accurate India-specific calculators. No sign-up, no catch."
+        sub="Accurate, India-specific calculators built on current statutory rules. No sign-up required."
       />
       <section className="py-16">
         <Container>

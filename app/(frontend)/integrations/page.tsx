@@ -40,7 +40,7 @@ export default function IntegrationsPage() {
       <PageHeader
         eyebrow="Integrations"
         title="Connected to the tools your HR already runs on"
-        sub="NeevHR connects to your biometric devices and communication channels, and moves data cleanly in and out. Here is exactly what is available today."
+        sub="NeevHR ingests from your biometric devices, reaches employees on the channels they use, and moves data cleanly in and out. Everything below is available today."
       />
 
       <section className="py-16 lg:py-20">
@@ -76,8 +76,8 @@ export default function IntegrationsPage() {
                 Need a specific integration?
               </h3>
               <p className="mt-1 text-sm text-body">
-                Tell us what you run and we will talk you through the options
-                honestly, including what is on our roadmap.
+                Tell us what you run today. We will walk you through what
+                connects now and what is on the roadmap.
               </p>
             </div>
             <Button href="/demo">Talk to us</Button>

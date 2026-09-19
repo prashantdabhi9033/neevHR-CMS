@@ -15,8 +15,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Let us talk"
-        sub="Whether you want a demo, have a question about compliance, or want to shape the roadmap, we would love to hear from you."
+        title="Talk to the NeevHR team"
+        sub="A demo, a compliance question, a partnership, or the specifics of a migration. Tell us what you need and the right person will get back to you."
       />
       <section className="py-16">
         <Container className="grid gap-6 sm:grid-cols-2">
@@ -35,7 +35,8 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">
             <h2 className="text-lg font-semibold text-ink">See it live</h2>
             <p className="mt-2 text-sm text-body">
-              The fastest way to understand NeevHR is a tailored walkthrough.
+              The fastest way to judge NeevHR is a walkthrough mapped to your
+              own headcount, pay structure and compliance.
             </p>
             <div className="mt-4">
               <Button href="/demo">Book a demo</Button>

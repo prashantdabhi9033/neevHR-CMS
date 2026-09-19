@@ -199,9 +199,9 @@ export default function HomePage() {
             </h1>
             <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
               NeevHR runs payroll, attendance, leave, performance and
-              recruitment on one intelligent employee record, with India&apos;s
+              recruitment on a single employee record, with India&apos;s
               statutory rules (PF, ESI, PT and TDS) built into the core.
-              Configurable by your own HR admin and live in 4 to 8 weeks.
+              Configured by your own HR team, and live in weeks.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">
@@ -240,12 +240,12 @@ export default function HomePage() {
               Why NeevHR
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Why do Indian teams choose NeevHR?
+              Built for the way India runs HR
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-body">
-              Enough depth to run real HR and payroll at scale, with the ease of
-              a modern platform, and none of the cost, consultants or year-long
-              rollout of a tier-one suite.
+              The depth to run payroll and compliance at scale, with the clarity
+              of a modern platform, and none of the cost, consultants or
+              year-long rollout of a tier-one suite.
             </p>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -314,8 +314,8 @@ export default function HomePage() {
               Unify people, pay and processes, without the silos
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-body">
-              Twenty-plus modules on one employee record, so a change in one
-              place flows everywhere it is needed. Here are a few of them.
+              Twenty-plus modules share one employee record, so a change made
+              once flows everywhere it belongs. A few of them below.
             </p>
           </Reveal>
         </Container>
