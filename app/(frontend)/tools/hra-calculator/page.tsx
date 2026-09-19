@@ -6,6 +6,7 @@ import { toolBySlug } from "@/lib/tools";
 const t = toolBySlug["hra-calculator"];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tools/hra-calculator" },
   title: t.name,
   description: t.metaDesc,
 };

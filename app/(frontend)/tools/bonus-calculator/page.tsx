@@ -6,6 +6,7 @@ import { toolBySlug } from "@/lib/tools";
 const t = toolBySlug["bonus-calculator"];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tools/bonus-calculator" },
   title: t.name,
   description: t.metaDesc,
 };

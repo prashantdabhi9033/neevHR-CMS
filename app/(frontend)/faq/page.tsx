@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Faq } from "@/components/site/Faq";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "FAQ",
   description:
     "Common questions about NeevHR: India statutory coverage, implementation time, configurability, company size, mobile and data protection.",

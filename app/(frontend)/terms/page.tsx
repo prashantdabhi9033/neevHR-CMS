@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Use",
   description: "Terms governing use of the NeevHR website.",
 };

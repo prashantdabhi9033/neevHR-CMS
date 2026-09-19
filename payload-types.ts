@@ -213,6 +213,7 @@ export interface Lead {
   name: string;
   email: string;
   company: string;
+  intent?: ('demo' | 'quote') | null;
   size?: ('500 - 1,000' | '1,000 - 2,500' | '2,500 - 5,000' | 'Other') | null;
   phone?: string | null;
   role?: string | null;
@@ -397,6 +398,7 @@ export interface LeadsSelect<T extends boolean = true> {
   name?: T;
   email?: T;
   company?: T;
+  intent?: T;
   size?: T;
   phone?: T;
   role?: T;

@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { modules, moduleList } from "@/lib/modules";
 import { moduleGroups } from "@/lib/module-nav";
-import { differentiators } from "@/lib/site";
+import { differentiators, site } from "@/lib/site";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -24,11 +24,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const m = modules[slug];
-  if (!m) return { title: "Module not found" };
+  if (!m) return { title: "Module not found", robots: { index: false } };
   return {
     title: `${m.name} software for India`,
     description: m.intro,
-    openGraph: { title: `${m.name} · NeevHR`, description: m.intro },
+    alternates: { canonical: `/features/${slug}` },
+    openGraph: {
+      title: `${m.name} · NeevHR`,
+      description: m.intro,
+      url: `${site.url}/features/${slug}`,
+    },
   };
 }
 
@@ -38,8 +43,22 @@ export default async function ModulePage({ params }: Params) {
   if (!m) notFound();
   const Visual = m.Visual;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Product", item: `${site.url}/features` },
+      { "@type": "ListItem", position: 3, name: m.name, item: `${site.url}/features/${slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />

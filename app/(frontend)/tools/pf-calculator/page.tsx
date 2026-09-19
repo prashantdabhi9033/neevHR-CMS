@@ -6,6 +6,7 @@ import { toolBySlug } from "@/lib/tools";
 const t = toolBySlug["pf-calculator"];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tools/pf-calculator" },
   title: t.name,
   description: t.metaDesc,
 };

@@ -6,6 +6,7 @@ import { Icon } from "@/components/ui/Icon";
 import { MobileVisual } from "@/components/product/MobileVisual";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mobile" },
   title: "Mobile app",
   description:
     "The NeevHR employee self-service mobile app: punch attendance, apply for leave, view payslips, act on approvals and more, from any phone.",

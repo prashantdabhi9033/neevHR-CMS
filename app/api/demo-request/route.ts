@@ -13,6 +13,11 @@ function toSize(v: unknown): Size | undefined {
   return (SIZES as readonly string[]).includes(s) ? (s as Size) : undefined;
 }
 
+type Intent = "demo" | "quote";
+function toIntent(v: unknown): Intent {
+  return String(v ?? "").trim() === "quote" ? "quote" : "demo";
+}
+
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try {
@@ -29,6 +34,7 @@ export async function POST(req: Request) {
   const name = String(body.name ?? "").trim();
   const email = String(body.email ?? "").trim();
   const company = String(body.company ?? "").trim();
+  const intent = toIntent(body.intent);
 
   if (!name || !company || !emailRe.test(email)) {
     return NextResponse.json(
@@ -46,6 +52,7 @@ export async function POST(req: Request) {
         name,
         email,
         company,
+        intent,
         size: toSize(body.size),
         phone: String(body.phone ?? "").trim() || undefined,
         role: String(body.role ?? "").trim() || undefined,
@@ -67,6 +74,7 @@ export async function POST(req: Request) {
       name,
       email,
       company,
+      intent,
       size: toSize(body.size),
       phone: String(body.phone ?? "").trim() || undefined,
       role: String(body.role ?? "").trim() || undefined,

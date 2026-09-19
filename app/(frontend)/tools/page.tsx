@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { tools } from "@/lib/tools";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tools" },
   title: "Free HR & payroll tools",
   description:
     "Free India HR and payroll calculators from NeevHR: gratuity, HRA exemption and PF contribution calculators.",

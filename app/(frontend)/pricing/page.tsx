@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
     "NeevHR is priced for the Indian mid-market with simple, edition-based packaging, not a per-module licensing maze. Talk to us for a quote.",
@@ -89,7 +90,7 @@ export default function PricingPage() {
                 </ul>
                 <div className="mt-6">
                   <Button
-                    href="/demo"
+                    href="/demo?intent=quote"
                     variant={e.highlight ? "primary" : "secondary"}
                     className="w-full"
                   >

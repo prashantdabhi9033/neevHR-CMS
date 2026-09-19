@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Get in touch with the NeevHR team.",
 };

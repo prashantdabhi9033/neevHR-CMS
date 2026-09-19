@@ -7,10 +7,34 @@ import { Icon } from "@/components/ui/Icon";
 const sizes = ["500 - 1,000", "1,000 - 2,500", "2,500 - 5,000", "Other"];
 
 type Status = "idle" | "submitting" | "done" | "error";
+export type Intent = "demo" | "quote";
 
-export function DemoForm() {
+const copy: Record<
+  Intent,
+  { submit: string; sending: string; doneTitle: string; doneBody: string; ask: string }
+> = {
+  demo: {
+    submit: "Request my demo",
+    sending: "Sending...",
+    doneTitle: "Thanks, we have your request",
+    doneBody:
+      "Our team will reach out within one business day to schedule your walkthrough.",
+    ask: "What would you like to see? (optional)",
+  },
+  quote: {
+    submit: "Get my quote",
+    sending: "Sending...",
+    doneTitle: "Thanks, we have your request",
+    doneBody:
+      "Our team will reach out within one business day with a tailored quote for your team.",
+    ask: "Anything we should know for your quote? (optional)",
+  },
+};
+
+export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const t = copy[intent];
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -42,13 +66,8 @@ export function DemoForm() {
         <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-tint text-accent-dark">
           <Icon name="check" className="h-6 w-6" />
         </span>
-        <h3 className="mt-4 text-xl font-semibold text-ink">
-          Thanks, we have your request
-        </h3>
-        <p className="mt-2 text-sm text-body">
-          Our team will reach out within one business day to schedule your
-          walkthrough.
-        </p>
+        <h3 className="mt-4 text-xl font-semibold text-ink">{t.doneTitle}</h3>
+        <p className="mt-2 text-sm text-body">{t.doneBody}</p>
       </div>
     );
   }
@@ -67,6 +86,7 @@ export function DemoForm() {
         className="hidden"
         aria-hidden="true"
       />
+      <input type="hidden" name="intent" value={intent} />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" name="name" required autoComplete="name" />
         <Field
@@ -103,7 +123,7 @@ export function DemoForm() {
       </div>
       <div className="mt-5 flex flex-col gap-1.5">
         <label htmlFor="message" className="text-sm font-medium text-ink">
-          What would you like to see? (optional)
+          {t.ask}
         </label>
         <textarea
           id="message"
@@ -121,7 +141,7 @@ export function DemoForm() {
 
       <div className="mt-6">
         <Button type="submit" size="lg" className="w-full">
-          {status === "submitting" ? "Sending..." : "Request my demo"}
+          {status === "submitting" ? t.sending : t.submit}
         </Button>
         <p className="mt-3 text-center text-xs text-muted">
           By submitting you agree to be contacted about NeevHR. We respect the

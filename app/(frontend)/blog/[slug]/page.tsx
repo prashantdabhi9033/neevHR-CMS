@@ -8,6 +8,7 @@ import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical
 import { Container } from "@/components/ui/Container";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { mdToHtml, readMins, categoryOf } from "@/lib/blog";
+import { site } from "@/lib/site";
 
 export const revalidate = 60;
 
@@ -33,11 +34,31 @@ async function getPost(slug: string) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Post not found" };
+  if (!post) return { title: "Post not found", robots: { index: false } };
+  const cover =
+    typeof post.coverImage === "object" && post.coverImage?.url
+      ? post.coverImage.url
+      : undefined;
   return {
     title: post.title,
     description: post.excerpt || undefined,
-    openGraph: { title: post.title, description: post.excerpt || undefined },
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt || undefined,
+      url: `${site.url}/blog/${slug}`,
+      publishedTime: post.publishedAt || undefined,
+      modifiedTime: post.updatedAt || undefined,
+      authors: post.author ? [post.author] : undefined,
+      images: cover ? [cover] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || undefined,
+      images: cover ? [cover] : undefined,
+    },
   };
 }
 
@@ -60,8 +81,46 @@ export default async function PostPage({ params }: Params) {
       ? post.coverImage
       : null;
 
+  const url = `${site.url}/blog/${slug}`;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt || undefined,
+    image: cover?.url ? [cover.url] : undefined,
+    datePublished: post.publishedAt || undefined,
+    dateModified: post.updatedAt || post.publishedAt || undefined,
+    author: post.author
+      ? { "@type": "Person", name: post.author }
+      : { "@type": "Organization", name: site.name },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en-IN",
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
+    ],
+  };
+
   return (
     <article className="py-14 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Container className="max-w-3xl">
         <Link
           href="/blog"
@@ -91,6 +150,9 @@ export default async function PostPage({ params }: Params) {
               <img
                 src={cover.url}
                 alt={cover.alt || post.title}
+                width={cover.width || 1600}
+                height={cover.height || 900}
+                fetchPriority="high"
                 className="w-full object-cover"
               />
             </div>

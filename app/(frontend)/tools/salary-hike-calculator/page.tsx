@@ -6,6 +6,7 @@ import { toolBySlug } from "@/lib/tools";
 const t = toolBySlug["salary-hike-calculator"];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tools/salary-hike-calculator" },
   title: t.name,
   description: t.metaDesc,
 };

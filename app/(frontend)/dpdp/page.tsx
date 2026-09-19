@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/dpdp" },
   title: "DPDP Notice",
   description:
     "How NeevHR aligns with the Digital Personal Data Protection Act, 2023.",

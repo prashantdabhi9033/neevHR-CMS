@@ -11,6 +11,7 @@ import type { Post } from "@/payload-types";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog & resources",
   description:
     "Guides on Indian HR, payroll and statutory compliance from the NeevHR team, plus product updates.",
@@ -74,6 +75,9 @@ export default async function BlogPage() {
                         <img
                           src={cover.url}
                           alt={cover.alt || post.title}
+                          width={cover.width || 768}
+                          height={cover.height || 480}
+                          loading="lazy"
                           className="aspect-[16/10] h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                         />
                       ) : (

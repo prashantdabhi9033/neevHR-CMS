@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/integrations" },
   title: "Integrations",
   description:
     "How NeevHR connects to your world: biometric attendance devices, email, SMS and WhatsApp notifications, bulk CSV import and export, and API access.",

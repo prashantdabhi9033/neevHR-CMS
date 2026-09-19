@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { compliancePoints } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/security" },
   title: "Security & compliance",
   description:
     "How NeevHR protects employee data: row-level tenant isolation, role-based access, audit trail, encryption, India data residency and DPDP Act 2023 alignment.",

@@ -8,7 +8,7 @@ export const Leads: CollectionConfig = {
   slug: "leads",
   admin: {
     useAsTitle: "name",
-    defaultColumns: ["name", "company", "email", "size", "createdAt"],
+    defaultColumns: ["name", "company", "intent", "email", "size", "createdAt"],
     description: "Demo requests submitted from the website.",
     group: "Sales",
   },
@@ -22,6 +22,16 @@ export const Leads: CollectionConfig = {
     { name: "name", type: "text", required: true },
     { name: "email", type: "email", required: true },
     { name: "company", type: "text", required: true },
+    {
+      name: "intent",
+      type: "select",
+      defaultValue: "demo",
+      admin: { position: "sidebar" },
+      options: [
+        { label: "Demo request", value: "demo" },
+        { label: "Quote request", value: "quote" },
+      ],
+    },
     {
       name: "size",
       type: "select",

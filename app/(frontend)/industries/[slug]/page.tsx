@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { industries, industryBySlug } from "@/lib/industries";
+import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -16,11 +17,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const ind = industryBySlug[slug];
-  if (!ind) return { title: "Industry not found" };
+  if (!ind) return { title: "Industry not found", robots: { index: false } };
   return {
     title: `HRMS for ${ind.name}`,
     description: ind.intro,
-    openGraph: { title: `NeevHR for ${ind.name}`, description: ind.intro },
+    alternates: { canonical: `/industries/${slug}` },
+    openGraph: {
+      title: `NeevHR for ${ind.name}`,
+      description: ind.intro,
+      url: `${site.url}/industries/${slug}`,
+    },
   };
 }
 
@@ -29,8 +35,22 @@ export default async function IndustryPage({ params }: Params) {
   const ind = industryBySlug[slug];
   if (!ind) notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Industries", item: `${site.url}/industries` },
+      { "@type": "ListItem", position: 3, name: ind.name, item: `${site.url}/industries/${slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />

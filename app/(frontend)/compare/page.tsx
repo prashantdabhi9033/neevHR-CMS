@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { differentiators } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/compare" },
   title: "Why NeevHR",
   description:
     "How NeevHR compares to global tier-one HR suites and to point tools and spreadsheets, for Indian mid-market companies that need statutory accuracy without the overhead.",

@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { industries } from "@/lib/industries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/industries" },
   title: "Industries",
   description:
     "NeevHR works across Indian mid-market industries: manufacturing, IT and ITES, retail, healthcare, BFSI, logistics, pharma, hospitality and more.",

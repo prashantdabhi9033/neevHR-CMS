@@ -7,6 +7,7 @@ import { platformCapabilities } from "@/lib/site";
 import { moduleGroups } from "@/lib/module-nav";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/features" },
   title: "The platform",
   description:
     "One India-first HR platform: core HR, attendance, leave, payroll, talent and employee experience on a single effective-dated employee record, with a configurable platform underneath.",

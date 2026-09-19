@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/company" },
   title: "Company",
   description:
     "NeevHR is a new-generation, India-first HRMS founded by an HR practitioner. Built by HR people, for HR teams.",

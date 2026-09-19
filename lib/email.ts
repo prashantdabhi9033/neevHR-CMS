@@ -4,6 +4,7 @@ export type LeadEmail = {
   name: string;
   email: string;
   company: string;
+  intent?: "demo" | "quote";
   size?: string;
   phone?: string;
   role?: string;
@@ -28,17 +29,20 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     auth: { user, pass },
   });
 
+  const isQuote = lead.intent === "quote";
+  const kind = isQuote ? "quote" : "demo";
   const rows: [string, string | undefined][] = [
     ["Name", lead.name],
     ["Work email", lead.email],
     ["Company", lead.company],
+    ["Request type", isQuote ? "Quote request" : "Demo request"],
     ["Company size", lead.size],
     ["Phone", lead.phone],
     ["Role", lead.role],
     ["Message", lead.message],
   ];
   const html = `
-    <h2 style="margin:0 0 12px">New demo request</h2>
+    <h2 style="margin:0 0 12px">New ${kind} request</h2>
     <table cellpadding="6" style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
       ${rows
         .filter(([, v]) => v)
@@ -54,7 +58,7 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     from: `"NeevHR Website" <${user}>`,
     to,
     replyTo: lead.email,
-    subject: `New demo request: ${lead.company} (${lead.name})`,
+    subject: `New ${kind} request: ${lead.company} (${lead.name})`,
     html,
   });
 }
