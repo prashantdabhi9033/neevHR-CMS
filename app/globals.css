@@ -94,11 +94,21 @@ body {
 .prose-neev li + li {
   margin-top: 0.4rem;
 }
+/* Pull-quote: prominent, quotable block for AI/answer-engine extraction. */
 .prose-neev blockquote {
-  border-left: 3px solid var(--color-brand);
-  padding-left: 1rem;
-  color: var(--color-muted);
+  margin: 2rem 0;
+  border-left: 4px solid var(--color-brand);
+  background: var(--color-brand-tint);
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-ink);
+  font-size: 1.15rem;
+  line-height: 1.6;
   font-style: italic;
+  font-weight: 500;
+}
+.prose-neev blockquote p {
+  margin: 0;
 }
 .prose-neev strong {
   color: var(--color-ink);
@@ -221,3 +231,7 @@ body {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
+
+/* Anchor targets clear of any sticky header when jumping via the TOC. */
+html { scroll-behavior: smooth; }
+.prose-neev h2, .prose-neev h3 { scroll-margin-top: 90px; }

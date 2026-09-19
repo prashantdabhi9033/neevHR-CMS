@@ -133,12 +133,29 @@ export default function HomePage() {
     offers: { "@type": "Offer", priceCurrency: "INR" },
     areaServed: "IN",
   };
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${site.url}/#webpage`,
+    url: site.url,
+    name: `${site.name} - India-first HRMS for growing teams`,
+    isPartOf: { "@id": `${site.url}/#website` },
+    inLanguage: "en-IN",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".hero-intro"],
+    },
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       {/* Hero */}
@@ -151,7 +168,7 @@ export default function HomePage() {
               One platform to run{" "}
               <span className="text-brand">all of HR</span>, the India way.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
+            <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
               NeevHR is a configurable, India-only HRMS that brings payroll,
               attendance, leave, performance and recruitment onto one
               effective-dated employee record, with India&apos;s statutory rules

@@ -2,6 +2,7 @@ import { BrandMark } from "@/components/brand/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { StoreBadges } from "@/components/site/StoreBadges";
+import { SocialIcon } from "@/components/site/SocialIcon";
 import { site } from "@/lib/site";
 
 const cols = [
@@ -106,16 +107,18 @@ export function Footer() {
                 {site.phone}
               </a>
             </div>
-            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+            <ul className="mt-4 flex items-center gap-3">
               {site.socials.map((s) => (
                 <li key={s.href}>
                   <a
                     href={s.href}
                     target="_blank"
                     rel="me noopener noreferrer"
-                    className="text-sm font-medium text-muted transition-colors hover:text-brand"
+                    aria-label={s.label}
+                    title={s.label}
+                    className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white text-muted transition-colors hover:border-brand hover:text-brand"
                   >
-                    {s.label}
+                    <SocialIcon name={s.icon} className="h-[18px] w-[18px]" />
                   </a>
                 </li>
               ))}

@@ -7,7 +7,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Container } from "@/components/ui/Container";
 import { BlogCover } from "@/components/blog/BlogCover";
-import { mdToHtml, readMins, categoryOf } from "@/lib/blog";
+import { renderArticle, readMins, categoryOf } from "@/lib/blog";
 import { site } from "@/lib/site";
 
 export const revalidate = 60;
@@ -88,6 +88,8 @@ export default async function PostPage({ params }: Params) {
       ? post.coverImage
       : null;
 
+  const article = post.bodyMarkdown ? renderArticle(post.bodyMarkdown) : null;
+
   const url = `${site.url}/blog/${slug}`;
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -95,6 +97,10 @@ export default async function PostPage({ params }: Params) {
     headline: post.title,
     description: post.excerpt || undefined,
     image: cover?.url ? [cover.url] : undefined,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".article-excerpt"],
+    },
     datePublished: post.publishedAt || undefined,
     dateModified: post.updatedAt || post.publishedAt || undefined,
     author: post.author
@@ -156,7 +162,7 @@ export default async function PostPage({ params }: Params) {
           {post.title}
         </h1>
         {post.excerpt && (
-          <p className="mt-4 text-lg leading-relaxed text-body">
+          <p className="article-excerpt mt-4 text-lg leading-relaxed text-body">
             {post.excerpt}
           </p>
         )}
@@ -177,10 +183,35 @@ export default async function PostPage({ params }: Params) {
             <BlogCover category={post.category} />
           )}
         </div>
-        {post.bodyMarkdown ? (
+        {article && article.toc.length >= 3 && (
+          <nav
+            aria-label="On this page"
+            className="mt-10 rounded-2xl border border-line bg-surface-soft p-5"
+          >
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+              On this page
+            </p>
+            <ol className="mt-3 space-y-2">
+              {article.toc.map((t) => (
+                <li
+                  key={t.id}
+                  className={t.level === 3 ? "ml-4" : ""}
+                >
+                  <a
+                    href={`#${t.id}`}
+                    className="text-sm text-body transition-colors hover:text-brand"
+                  >
+                    {t.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+        {article ? (
           <div
             className="prose-neev mt-10"
-            dangerouslySetInnerHTML={{ __html: mdToHtml(post.bodyMarkdown) }}
+            dangerouslySetInnerHTML={{ __html: article.html }}
           />
         ) : (
           post.content && (

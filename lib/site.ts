@@ -16,10 +16,10 @@ export const site = {
   // Official profiles for schema.org sameAs (Knowledge Graph cross-reference)
   // and the footer social links.
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/neevhr-37b432438/" },
-    { label: "Instagram", href: "https://www.instagram.com/neevhr" },
-    { label: "YouTube", href: "https://www.youtube.com/channel/UC4cUg0HifDHTwf0JqXYz4aw" },
-    { label: "X", href: "https://x.com/neevhr" },
+    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/neevhr-37b432438/" },
+    { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/neevhr" },
+    { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/channel/UC4cUg0HifDHTwf0JqXYz4aw" },
+    { label: "X", icon: "x", href: "https://x.com/neevhr" },
   ],
 } as const;
 
@@ -158,6 +158,26 @@ export const faqs = [
   {
     q: "How is our employee data protected?",
     a: "Row-level tenant isolation, role-based access, an audit trail and DPDP Act 2023 alignment with consent and data-principal rights are built into the platform.",
+  },
+  {
+    q: "Can we migrate our existing payroll and employee data?",
+    a: "Yes. Your employee master, opening balances and documents are imported and validated with a dry-run, then a parallel payroll cycle reconciles NeevHR against your current process before you go live.",
+  },
+  {
+    q: "Does NeevHR integrate with biometric devices and bank files?",
+    a: "Yes. NeevHR ingests punches from biometric attendance devices and generates NEFT and RTGS bank files for salary payouts, along with ECR, challan and return outputs for statutory filings.",
+  },
+  {
+    q: "Is NeevHR available in Hindi?",
+    a: "Yes. NeevHR is a first-class experience in both English and Hindi, so every employee can use self-service and mobile in the language they prefer.",
+  },
+  {
+    q: "Where is our data hosted?",
+    a: "Your data stays in India, in line with the DPDP Act 2023. Data residency and India-only statutory handling are part of the product by design.",
+  },
+  {
+    q: "How does NeevHR pricing work?",
+    a: "NeevHR uses simple, edition-based packaging priced in INR for the Indian mid-market, not a per-module licensing maze. Final pricing depends on your headcount and scope, so we put together a quote for your team.",
   },
 ];
 
