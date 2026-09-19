@@ -40,6 +40,10 @@ export function GET() {
     "",
     "## Contact",
     `- Email: ${site.email}`,
+    ...(site.phone ? [`- Phone: ${site.phone}`] : []),
+    ...(site.socials.length
+      ? [`- Social: ${site.socials.map((s) => s.href).join(", ")}`]
+      : []),
     "",
     "## Notes",
     "- India-only product: INR, the India financial year and India statutory law (PF, ESI, PT, LWF, TDS, gratuity, bonus, POSH, DPDP Act 2023).",

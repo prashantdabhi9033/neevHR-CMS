@@ -2,6 +2,7 @@ import { BrandMark } from "@/components/brand/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { StoreBadges } from "@/components/site/StoreBadges";
+import { site } from "@/lib/site";
 
 const cols = [
   {
@@ -91,8 +92,36 @@ export function Footer() {
               Payroll, attendance, talent and compliance on one employee record.
             </p>
             <StoreBadges className="mt-6" />
+            <div className="mt-6 space-y-1.5 text-sm text-muted">
+              <a
+                href={`mailto:${site.email}`}
+                className="block transition-colors hover:text-brand"
+              >
+                {site.email}
+              </a>
+              <a
+                href={`tel:${site.phone.replace(/\s/g, "")}`}
+                className="block transition-colors hover:text-brand"
+              >
+                {site.phone}
+              </a>
+            </div>
+            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+              {site.socials.map((s) => (
+                <li key={s.href}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="text-sm font-medium text-muted transition-colors hover:text-brand"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <p className="mt-6 text-xs font-medium text-muted">
-              Made in India · English & Hindi
+              Made in India · English &amp; Hindi
             </p>
           </div>
           {cols.map((col) => (

@@ -99,7 +99,9 @@ export default function FrontendLayout({
       areaServed: "IN",
       availableLanguage: ["en", "hi"],
     },
-    ...(site.socials.length ? { sameAs: site.socials } : {}),
+    ...(site.socials.length
+      ? { sameAs: site.socials.map((s) => s.href) }
+      : {}),
   };
   const siteJsonLd = {
     "@context": "https://schema.org",

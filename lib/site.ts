@@ -11,13 +11,16 @@ export const site = {
     "India-only HRMS for 500 to 5,000 employees. Payroll with PF, ESI, PT and TDS accuracy, plus attendance, leave and performance. Live in 4 to 8 weeks.",
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
-  // Real-world entity signals used in Organization JSON-LD. Fill these in as
-  // they go live; only non-empty values are emitted (no fabricated identity).
-  phone: "", // e.g. "+91-..." — leave empty until a real line exists
+  phone: "+91 9274752634",
   addressCountry: "IN",
-  // Official profiles for schema.org sameAs (Knowledge Graph cross-reference).
-  // Add real URLs only: LinkedIn, X/Twitter, YouTube, Crunchbase, etc.
-  socials: [] as string[],
+  // Official profiles for schema.org sameAs (Knowledge Graph cross-reference)
+  // and the footer social links.
+  socials: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/neevhr-37b432438/" },
+    { label: "Instagram", href: "https://www.instagram.com/neevhr" },
+    { label: "YouTube", href: "https://www.youtube.com/channel/UC4cUg0HifDHTwf0JqXYz4aw" },
+    { label: "X", href: "https://x.com/neevhr" },
+  ],
 } as const;
 
 export const primaryNav = [
