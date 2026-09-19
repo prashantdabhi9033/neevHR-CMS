@@ -54,7 +54,7 @@ export default function Image() {
               maxWidth: 980,
             }}
           >
-            Run all of HR, the India way.
+            HR built on a stronger foundation.
           </div>
           <div
             style={{
@@ -86,7 +86,7 @@ export default function Image() {
               background: "#10b981",
             }}
           />
-          Configurable HRMS for 500 to 5,000 employees · www.neevhr.com
+          The India-first HR and payroll platform · www.neevhr.com
         </div>
       </div>
     ),

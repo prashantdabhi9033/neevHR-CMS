@@ -16,7 +16,7 @@ export default function CompanyPage() {
       <PageHeader
         eyebrow="Company"
         title="Built by HR people, for HR teams"
-        sub="NeevHR is an early-stage, India-first HRMS. We are building the platform we always wished we had while running HR ourselves."
+        sub="NeevHR is a modern, India-first HR and payroll platform, built by HR practitioners who wanted the system they always wished they had while running HR themselves."
       />
       <section className="py-16">
         <Container className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
@@ -24,11 +24,11 @@ export default function CompanyPage() {
             <div>
               <h2 className="text-xl font-semibold text-ink">Why we exist</h2>
               <p className="mt-3">
-                Mid-market Indian companies are stuck between spreadsheets and
-                point tools on one side, and heavy global suites that need
-                certified consultants and year-long rollouts on the other.
-                NeevHR is built for the gap in between, teams of 500 to 5,000
-                that need process discipline and statutory accuracy without the
+                Indian companies are stuck between spreadsheets and point tools
+                on one side, and heavy global suites that need certified
+                consultants and year-long rollouts on the other. NeevHR is built
+                for the gap in between: growing and enterprise companies that
+                need process discipline and statutory accuracy without the
                 overhead.
               </p>
             </div>
@@ -44,13 +44,13 @@ export default function CompanyPage() {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-ink">Where we are</h2>
+              <h2 className="text-xl font-semibold text-ink">Where we&apos;re headed</h2>
               <p className="mt-3">
-                We are an early-stage company actively building and hardening
-                the platform. We would rather be honest about that than pretend
-                to be an incumbent. If you are an HR or finance leader who wants
-                to shape a product around your real needs, this is a good time
-                to talk to us.
+                We are building NeevHR into the most configurable,
+                statutory-accurate HR and payroll platform for India, and
+                hardening it with every release. If you are an HR or finance
+                leader who wants a platform shaped around how Indian HR actually
+                works, this is a good time to talk to us.
               </p>
             </div>
           </div>

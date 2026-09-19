@@ -118,7 +118,7 @@ export default function ProductOverviewPage() {
         <Container>
           <div className="rounded-3xl bg-brand px-8 py-12 text-center shadow-[var(--shadow-float)]">
             <h2 className="text-3xl font-bold text-white">
-              One platform, priced for the mid-market
+              One platform for all of HR
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-white/80">
               See how NeevHR maps to how your team actually runs HR.

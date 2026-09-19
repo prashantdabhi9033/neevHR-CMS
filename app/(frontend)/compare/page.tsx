@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/compare" },
   title: "Why NeevHR",
   description:
-    "How NeevHR compares to global tier-one HR suites and to point tools and spreadsheets, for Indian mid-market companies that need statutory accuracy without the overhead.",
+    "How NeevHR compares to global tier-one HR suites and to point tools and spreadsheets, for Indian companies that need statutory accuracy without the overhead.",
 };
 
 const rows: { dim: string; neev: string; tier1: string; point: string }[] = [
   {
     dim: "Built for",
-    neev: "Indian mid-market, 500 to 5,000 employees",
+    neev: "Growing & enterprise companies across India",
     tier1: "Large global enterprises",
     point: "Small teams or a single function",
   },
@@ -45,7 +45,7 @@ const rows: { dim: string; neev: string; tier1: string; point: string }[] = [
   },
   {
     dim: "Commercials",
-    neev: "Mid-market pricing, edition-based",
+    neev: "Transparent, edition-based pricing",
     tier1: "Enterprise pricing",
     point: "Low, but adds up across tools",
   },
@@ -56,7 +56,7 @@ export default function ComparePage() {
     <>
       <PageHeader
         eyebrow="Why NeevHR"
-        title="The middle ground Indian mid-market teams were missing"
+        title="The HR platform India's growing companies were missing"
         sub="Global suites are powerful but heavy and consultant-led. Point tools and spreadsheets are quick but shallow and siloed. NeevHR is built for the gap in between."
       />
 

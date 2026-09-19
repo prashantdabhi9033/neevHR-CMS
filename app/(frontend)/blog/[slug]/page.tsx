@@ -228,7 +228,7 @@ export default async function PostPage({ params }: Params) {
                 Run all of this on one platform
               </h3>
               <p className="mt-1 text-sm text-white/80">
-                NeevHR handles payroll, attendance and compliance for Indian teams of 500 to 5,000.
+                NeevHR handles payroll, attendance and compliance for growing and enterprise companies across India.
               </p>
             </div>
             <Link

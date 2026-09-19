@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "attendance management software",
     "greytHR alternative",
     "Keka alternative",
-    "mid-market HRMS",
+    "HR and payroll software India",
   ],
   openGraph: {
     type: "website",

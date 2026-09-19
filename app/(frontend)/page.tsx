@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const comparisonRows = [
   {
     dim: "Built for",
-    neev: "Indian mid-market, 500 to 5,000",
+    neev: "Growing & enterprise India",
     tier1: "Large global enterprises",
     point: "One team or function",
   },
@@ -194,15 +194,14 @@ export default function HomePage() {
         <Container className="relative pt-16 text-center lg:pt-24">
           <div className="animate-fade-up mx-auto max-w-3xl">
             <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
-              One platform to run{" "}
-              <span className="text-brand">all of HR</span>, the India way.
+              HR built on a{" "}
+              <span className="text-brand">stronger foundation</span>.
             </h1>
             <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
-              NeevHR is a configurable, India-only HRMS. It runs payroll,
-              attendance, leave, performance and recruitment on one employee
-              record. India&apos;s statutory rules (PF, ESI, PT and TDS) are
-              built in. It is made for companies with 500 to 5,000 employees.
-              You can go live in 4 to 8 weeks, run by your own HR admin.
+              NeevHR runs payroll, attendance, leave, performance and
+              recruitment on one intelligent employee record, with India&apos;s
+              statutory rules (PF, ESI, PT and TDS) built into the core.
+              Configurable by your own HR admin and live in 4 to 8 weeks.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">

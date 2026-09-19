@@ -1235,7 +1235,7 @@ NeevHR manages notice periods by grade, supports early release with a knowledge 
     category: "payroll",
     author: "NeevHR Team",
     publishedAt: "2026-09-14",
-    body: `Payroll feels chaotic when it is a monthly scramble and calm when it is a repeatable process. The difference is not the tool alone; it is a disciplined cycle that the same person can run the same way every month. Here is a five-stage cycle that works for mid-market companies.
+    body: `Payroll feels chaotic when it is a monthly scramble and calm when it is a repeatable process. The difference is not the tool alone; it is a disciplined cycle that the same person can run the same way every month. Here is a five-stage cycle that works for growing and enterprise companies.
 
 ## Stage 1: Inputs
 

@@ -89,8 +89,8 @@ export function Footer() {
           <div>
             <BrandMark />
             <p className="mt-4 max-w-xs text-sm text-muted">
-              A configurable, India-first HRMS for teams of 500 to 5,000.
-              Payroll, attendance, talent and compliance on one employee record.
+              HR built on a stronger foundation. One configurable, India-first
+              platform for payroll, people, attendance and compliance.
             </p>
             <StoreBadges className="mt-6" />
             <div className="mt-6 space-y-1.5 text-sm text-muted">

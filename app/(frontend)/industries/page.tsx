@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/industries" },
   title: "Industries",
   description:
-    "NeevHR works across Indian mid-market industries: manufacturing, IT and ITES, retail, healthcare, BFSI, logistics, pharma, hospitality and more.",
+    "NeevHR works across Indian industries: manufacturing, IT and ITES, retail, healthcare, BFSI, logistics, pharma, hospitality and more.",
 };
 
 export default function IndustriesPage() {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
-    "NeevHR is priced for the Indian mid-market with simple, edition-based packaging, not a per-module licensing maze. Talk to us for a quote.",
+    "NeevHR uses simple, edition-based packaging priced in INR, not a per-module licensing maze. Talk to us for a quote.",
 };
 
 const editions = [
@@ -52,7 +52,7 @@ export default function PricingPage() {
     <>
       <PageHeader
         eyebrow="Pricing"
-        title="Simple, edition-based pricing for the mid-market"
+        title="Simple, edition-based pricing"
         sub="No per-module licensing maze. Pick an edition sized to where you are, priced in INR. Final pricing depends on headcount and scope, so let us put together a quote."
       />
       <section className="py-16">

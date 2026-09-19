@@ -3,12 +3,12 @@
 
 export const site = {
   name: "NeevHR",
-  tagline: "The HR foundation for growing Indian teams",
+  tagline: "HR built on a stronger foundation",
   description:
-    "NeevHR is a configurable, India-only HRMS for companies with 500 to 5,000 employees. Payroll with PF, ESI, PT and TDS accuracy, attendance, leave, performance, recruitment and more, live in 4 to 8 weeks.",
+    "NeevHR is the configurable, India-first HR and payroll platform. Run payroll, attendance, leave, performance and recruitment on one employee record, with PF, ESI, PT and TDS accuracy built into the core. Live in 4 to 8 weeks.",
   // Kept under 155 chars so search snippets are not truncated.
   metaDescription:
-    "India-only HRMS for 500 to 5,000 employees. Payroll with PF, ESI, PT and TDS accuracy, plus attendance, leave and performance. Live in 4 to 8 weeks.",
+    "The India-first HR and payroll platform. Payroll, attendance, leave, performance and recruitment on one employee record, with PF, ESI, PT and TDS built in.",
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
   phone: "+91 9274752634",
@@ -39,8 +39,8 @@ export const differentiators = [
     icon: "flag",
   },
   {
-    title: "Right-sized for the mid-market",
-    body: "Process discipline and statutory accuracy for 500 to 5,000 employees, without the cost or the multi-year rollout of a tier-one suite.",
+    title: "Enterprise depth, without the drag",
+    body: "Process discipline and statutory accuracy for growing and enterprise companies across India, without the cost or the multi-year rollout of a tier-one suite.",
     icon: "users",
   },
   {
@@ -144,8 +144,8 @@ export const faqs = [
     a: "No. Leave, attendance, payroll, expense and appraisal are configurable rule sets a trained HR admin can own and assign to employee groups. No code change per business unit.",
   },
   {
-    q: "What company size is NeevHR for?",
-    a: "Mid-market companies with roughly 500 to 5,000 employees, large enough to need process discipline and statutory accuracy, without the cost of a tier-one suite.",
+    q: "What kind of companies is NeevHR for?",
+    a: "Growing and enterprise companies across India that need real process discipline and statutory accuracy, without the cost or complexity of a tier-one global suite.",
   },
   {
     q: "Does it handle PF, ESI, PT and TDS?",
@@ -177,7 +177,7 @@ export const faqs = [
   },
   {
     q: "How does NeevHR pricing work?",
-    a: "NeevHR uses simple, edition-based packaging priced in INR for the Indian mid-market, not a per-module licensing maze. Final pricing depends on your headcount and scope, so we put together a quote for your team.",
+    a: "NeevHR uses simple, edition-based packaging priced in INR, not a per-module licensing maze. Final pricing depends on your headcount and scope, so we put together a quote for your team.",
   },
 ];
 
