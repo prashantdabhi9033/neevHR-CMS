@@ -64,6 +64,15 @@ const nextConfig: NextConfig = {
         source: "/api/:path*",
         headers: [{ key: "Content-Security-Policy", value: adminCsp }],
       },
+      // Far-future cache for static asset files (fonts, images, icons) served
+      // from the app or /public. Excludes /_next, which Next.js already serves
+      // immutable, so no duplicate Cache-Control is emitted there.
+      {
+        source: "/:path((?!_next/).*)\\.(svg|png|jpg|jpeg|gif|webp|avif|ico|woff|woff2|ttf|otf)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=2592000" },
+        ],
+      },
     ];
   },
   async redirects() {
