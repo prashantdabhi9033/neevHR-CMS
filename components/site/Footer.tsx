@@ -149,7 +149,13 @@ export function Footer() {
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} NeevHR. Made in India for Indian teams.</p>
-          <p>Prices in INR. India statutory compliance built in.</p>
+          <p>
+            Prices in INR. India statutory compliance built in. · Last updated{" "}
+            {new Date().toLocaleDateString("en-IN", {
+              month: "short",
+              year: "numeric",
+            })}
+          </p>
         </div>
       </Container>
     </footer>

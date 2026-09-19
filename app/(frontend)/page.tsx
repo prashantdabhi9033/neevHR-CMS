@@ -24,6 +24,33 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const comparisonRows = [
+  {
+    dim: "Built for",
+    neev: "Indian mid-market, 500 to 5,000",
+    tier1: "Large global enterprises",
+    point: "One team or function",
+  },
+  {
+    dim: "India statutory",
+    neev: "PF, ESI, PT, TDS in the core",
+    tier1: "Add-on or partner",
+    point: "Manual or partial",
+  },
+  {
+    dim: "Go live",
+    neev: "4 to 8 weeks",
+    tier1: "6 to 18 months",
+    point: "Fast, but limited",
+  },
+  {
+    dim: "Configured by",
+    neev: "Your trained HR admin",
+    tier1: "Certified consultant",
+    point: "Limited options",
+  },
+];
+
 const valueProps = [
   {
     icon: "flag",
@@ -141,6 +168,8 @@ export default function HomePage() {
     name: `${site.name} - India-first HRMS for growing teams`,
     isPartOf: { "@id": `${site.url}/#website` },
     inLanguage: "en-IN",
+    datePublished: "2026-09-01",
+    dateModified: new Date().toISOString().slice(0, 10),
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],
@@ -169,12 +198,11 @@ export default function HomePage() {
               <span className="text-brand">all of HR</span>, the India way.
             </h1>
             <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
-              NeevHR is a configurable, India-only HRMS that brings payroll,
-              attendance, leave, performance and recruitment onto one
-              effective-dated employee record, with India&apos;s statutory rules
-              (PF, ESI, PT and TDS) in the core. Built for companies with 500 to
-              5,000 employees, it goes live in 4 to 8 weeks and is run by your
-              own HR admin.
+              NeevHR is a configurable, India-only HRMS. It runs payroll,
+              attendance, leave, performance and recruitment on one employee
+              record. India&apos;s statutory rules (PF, ESI, PT and TDS) are
+              built in. It is made for companies with 500 to 5,000 employees.
+              You can go live in 4 to 8 weeks, run by your own HR admin.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">
@@ -213,7 +241,7 @@ export default function HomePage() {
               Why NeevHR
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Built the way Indian HR actually works
+              Why do Indian teams choose NeevHR?
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-body">
               Enough depth to run real HR and payroll at scale, with the ease of
@@ -238,6 +266,41 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-12">
+            <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-[var(--shadow-card)]">
+              <table className="w-full min-w-[560px] text-left text-sm">
+                <caption className="sr-only">
+                  How NeevHR compares to tier-one suites and point tools
+                </caption>
+                <thead>
+                  <tr className="border-b border-line bg-surface-soft text-ink">
+                    <th scope="col" className="px-5 py-3 font-semibold">What matters</th>
+                    <th scope="col" className="px-5 py-3 font-semibold text-brand">NeevHR</th>
+                    <th scope="col" className="px-5 py-3 font-semibold">Tier-one suites</th>
+                    <th scope="col" className="px-5 py-3 font-semibold">Point tools</th>
+                  </tr>
+                </thead>
+                <tbody className="text-body">
+                  {comparisonRows.map((r) => (
+                    <tr key={r.dim} className="border-b border-line last:border-0">
+                      <th scope="row" className="px-5 py-3 font-medium text-ink">{r.dim}</th>
+                      <td className="px-5 py-3 font-medium text-ink">{r.neev}</td>
+                      <td className="px-5 py-3">{r.tier1}</td>
+                      <td className="px-5 py-3">{r.point}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-sm text-muted">
+              See the{" "}
+              <Link href="/compare" className="font-medium text-brand hover:text-brand-dark">
+                full comparison
+              </Link>
+              .
+            </p>
+          </Reveal>
         </Container>
       </section>
 
@@ -312,7 +375,7 @@ export default function HomePage() {
               India statutory compliance
             </span>
             <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
-              Compliance is in the core, not an afterthought
+              How does NeevHR handle India statutory compliance?
             </h2>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/70">
               Statutory thresholds, returns and challans are built for Indian
@@ -343,6 +406,15 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            <p className="mt-5 text-xs leading-relaxed text-white/50">
+              Built to the rules published by{" "}
+              <a href="https://www.epfindia.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">EPFO</a>,{" "}
+              <a href="https://www.esic.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">ESIC</a>,{" "}
+              the{" "}
+              <a href="https://www.incometax.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">Income Tax Department</a>{" "}
+              and the{" "}
+              <a href="https://www.meity.gov.in/data-protection-framework" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">DPDP Act 2023</a>.
+            </p>
           </Reveal>
         </Container>
       </section>
