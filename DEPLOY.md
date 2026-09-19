@@ -131,6 +131,16 @@ server {
     server_name neevhr.com www.neevhr.com;
     client_max_body_size 20M;
 
+    server_tokens off;   # do not expose the nginx version in headers/errors
+    http2 on;            # HTTP/2 (applies to the 443 server certbot adds)
+
+    # Long-cache Next.js immutable static assets (content-hashed filenames).
+    location /_next/static/ {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
     location / {
         proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;
@@ -141,6 +151,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_cache_bypass $http_upgrade;
+        proxy_hide_header X-Powered-By;   # strip Payload's tech-stack header
     }
 }
 NGINX
@@ -149,6 +160,18 @@ rm -f /etc/nginx/sites-enabled/default
 nginx -t && systemctl reload nginx
 ufw allow 'Nginx Full'
 ```
+
+> Also hide the version globally (covers every server block and error page).
+> In `/etc/nginx/nginx.conf`, inside the `http { ... }` block, ensure this line
+> is present and uncommented, then reload:
+>
+> ```bash
+> grep -q '^\s*server_tokens off;' /etc/nginx/nginx.conf \
+>   || sed -i 's/^\(\s*\)# *server_tokens off;/\1server_tokens off;/' /etc/nginx/nginx.conf
+> grep -q 'server_tokens off;' /etc/nginx/nginx.conf \
+>   || sed -i '/^http {/a\    server_tokens off;' /etc/nginx/nginx.conf
+> nginx -t && systemctl reload nginx
+> ```
 
 Now http://neevhr.com should load (once DNS has propagated).
 
