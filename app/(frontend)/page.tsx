@@ -152,10 +152,12 @@ export default function HomePage() {
               <span className="text-brand">all of HR</span>, the India way.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
-              NeevHR brings payroll, attendance, leave, performance, recruitment
-              and employee experience onto one effective-dated employee record,
-              with India&apos;s statutory rules in the core. Live in 4 to 8
-              weeks, run by your own HR admin.
+              NeevHR is a configurable, India-only HRMS that brings payroll,
+              attendance, leave, performance and recruitment onto one
+              effective-dated employee record, with India&apos;s statutory rules
+              (PF, ESI, PT and TDS) in the core. Built for companies with 500 to
+              5,000 employees, it goes live in 4 to 8 weeks and is run by your
+              own HR admin.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">

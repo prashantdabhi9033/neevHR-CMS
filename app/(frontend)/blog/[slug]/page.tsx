@@ -62,6 +62,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
+// True when the post was meaningfully edited after publishing (> 1 day later),
+// so the visible "Last updated" line only appears when it adds information.
+function isUpdated(published?: string | null, updated?: string | null) {
+  if (!published || !updated) return false;
+  return new Date(updated).getTime() - new Date(published).getTime() > 86400000;
+}
+
 function formatDate(d?: string | null) {
   if (!d) return "";
   return new Date(d).toLocaleDateString("en-IN", {
@@ -91,10 +98,15 @@ export default async function PostPage({ params }: Params) {
     datePublished: post.publishedAt || undefined,
     dateModified: post.updatedAt || post.publishedAt || undefined,
     author: post.author
-      ? { "@type": "Person", name: post.author }
-      : { "@type": "Organization", name: site.name },
+      ? {
+          "@type": "Person",
+          name: post.author,
+          worksFor: { "@type": "Organization", name: site.name, url: site.url },
+        }
+      : { "@type": "Organization", name: site.name, url: site.url },
     publisher: {
       "@type": "Organization",
+      "@id": `${site.url}/#organization`,
       name: site.name,
       logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
     },
@@ -135,6 +147,11 @@ export default async function PostPage({ params }: Params) {
           {post.author ? ` · ${post.author}` : ""}
           {post.bodyMarkdown ? ` · ${readMins(post.bodyMarkdown)} min read` : ""}
         </p>
+        {isUpdated(post.publishedAt, post.updatedAt) && (
+          <p className="mt-1 text-xs text-muted">
+            Last updated: {formatDate(post.updatedAt)}
+          </p>
+        )}
         <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
           {post.title}
         </h1>

@@ -23,6 +23,14 @@ const controls = [
   { title: "DPDP rights", body: "Consent capture and data-principal rights (access, correction, erasure) for the DPDP Act 2023." },
 ];
 
+// Authoritative government sources for the statutory rules NeevHR implements.
+const references = [
+  { label: "EPFO (Provident Fund)", href: "https://www.epfindia.gov.in/" },
+  { label: "ESIC (Employees' State Insurance)", href: "https://www.esic.gov.in/" },
+  { label: "Income Tax Department (TDS, Form 16/24Q)", href: "https://www.incometax.gov.in/" },
+  { label: "DPDP Act 2023 (MeitY)", href: "https://www.meity.gov.in/data-protection-framework" },
+];
+
 export default function SecurityPage() {
   return (
     <>
@@ -92,7 +100,35 @@ export default function SecurityPage() {
         </Container>
       </section>
 
-      <section className="py-14">
+      {/* Official statutory references */}
+      <section className="py-16">
+        <Container className="max-w-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-ink">
+            Official statutory references
+          </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-body">
+            NeevHR follows the rules published by India&apos;s statutory
+            authorities. For the source regulations, see:
+          </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {references.map((r) => (
+              <li key={r.href}>
+                <a
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-dark"
+                >
+                  <Icon name="arrow" className="h-3.5 w-3.5" />
+                  {r.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="border-t border-line py-14">
         <Container className="max-w-3xl text-center">
           <p className="text-sm text-muted">
             As an early-stage company we are transparent about our roadmap:

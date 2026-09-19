@@ -6,8 +6,18 @@ export const site = {
   tagline: "The HR foundation for growing Indian teams",
   description:
     "NeevHR is a configurable, India-only HRMS for companies with 500 to 5,000 employees. Payroll with PF, ESI, PT and TDS accuracy, attendance, leave, performance, recruitment and more, live in 4 to 8 weeks.",
+  // Kept under 155 chars so search snippets are not truncated.
+  metaDescription:
+    "India-only HRMS for 500 to 5,000 employees. Payroll with PF, ESI, PT and TDS accuracy, plus attendance, leave and performance. Live in 4 to 8 weeks.",
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
+  // Real-world entity signals used in Organization JSON-LD. Fill these in as
+  // they go live; only non-empty values are emitted (no fabricated identity).
+  phone: "", // e.g. "+91-..." — leave empty until a real line exists
+  addressCountry: "IN",
+  // Official profiles for schema.org sameAs (Knowledge Graph cross-reference).
+  // Add real URLs only: LinkedIn, X/Twitter, YouTube, Crunchbase, etc.
+  socials: [] as string[],
 } as const;
 
 export const primaryNav = [

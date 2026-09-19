@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: `${site.name} - India-first HRMS for growing teams`,
     template: `%s · ${site.name}`,
   },
-  description: site.description,
+  description: site.metaDescription,
   applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
@@ -70,29 +70,53 @@ export default function FrontendLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const orgId = `${site.url}/#organization`;
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": orgId,
     name: site.name,
+    legalName: `${site.name} (NeevHR)`,
     url: site.url,
-    logo: `${site.url}/icon.svg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${site.url}/icon.svg`,
+      width: 64,
+      height: 64,
+    },
     email: site.email,
-    description: site.description,
-    areaServed: "IN",
-    sameAs: [] as string[],
+    description: site.metaDescription,
+    areaServed: { "@type": "Country", name: "India" },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: site.addressCountry,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: site.email,
+      ...(site.phone ? { telephone: site.phone } : {}),
+      areaServed: "IN",
+      availableLanguage: ["en", "hi"],
+    },
+    ...(site.socials.length ? { sameAs: site.socials } : {}),
   };
   const siteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${site.url}/#website`,
     name: site.name,
     url: site.url,
     inLanguage: "en-IN",
-    publisher: { "@type": "Organization", name: site.name },
+    publisher: { "@id": orgId },
   };
 
   return (
     <html lang="en-IN">
       <body className={`${inter.variable} antialiased`}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -102,7 +126,7 @@ export default function FrontendLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <Analytics />
       </body>
