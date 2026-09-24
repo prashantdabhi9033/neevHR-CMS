@@ -150,7 +150,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Does NeevHR calculate PF?",
-        a: "Yes. Employee and employer PF, the EPS split, EDLI and admin charges are computed, with the ₹15,000 wage ceiling or actual basic as configured. The PF ECR text file and PF challan are generated from the published run.",
+        a: "Yes. Employee and employer PF, the EPS split, EDLI and admin charges are computed, with the ₹25,000 wage ceiling (from 17 Sep 2026) or actual basic as configured. The PF ECR text file and PF challan are generated from the published run.",
       },
       {
         q: "Does NeevHR calculate ESI?",

@@ -4,7 +4,8 @@ import { useState } from "react";
 import { NumberField, SegField } from "./CalcUI";
 import { inr } from "@/lib/format";
 
-const PF_CEILING = 15000;
+import { PF_WAGE_CEILING as PF_CEILING } from "@/lib/statutory";
+
 const ESI_LIMIT = 21000;
 const ESI_EMPLOYER = 0.0325;
 const GRATUITY_RATE = 0.0481;
@@ -70,7 +71,7 @@ export function CtcCalculator() {
           value={pfBasis}
           onChange={setPfBasis}
           options={[
-            { label: "₹15,000 ceiling", value: "cap" },
+            { label: "₹25,000 ceiling", value: "cap" },
             { label: "Actual basic", value: "actual" },
           ]}
         />

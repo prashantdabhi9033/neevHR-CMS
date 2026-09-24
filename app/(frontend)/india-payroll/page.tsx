@@ -36,8 +36,9 @@ const sections: Section[] = [
     id: "epf",
     title: "EPF / PF",
     rule: [
-      "Employee and employer each contribute 12% of PF wages (basic plus DA). Of the employer's share, 8.33% goes to EPS on wages up to ₹15,000 (at most ₹1,250 a month).",
-      "The statutory wage ceiling is ₹15,000 a month; employers may contribute on higher actual wages.",
+      "Employee and employer each contribute 12% of PF wages (basic plus DA). Of the employer's share, 8.33% goes to EPS on wages up to the ceiling (at most ₹2,083 a month).",
+      "The wage ceiling is ₹25,000 a month from 17 September 2026 (it was ₹15,000), and employees earning up to ₹25,000 are now covered compulsorily. Employers may contribute on higher actual wages. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
+      "EPF now runs under the EPF Scheme 2026, EPS 2026 and EDLI Scheme 2026, framed under the Code on Social Security, 2020.",
       "Employers also pay EDLI (0.5%) and administration charges (0.5%).",
       "Contributions and the ECR are due by the 15th of the following month.",
     ],

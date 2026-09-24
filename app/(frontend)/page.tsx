@@ -90,7 +90,7 @@ const features: Feature[] = [
   {
     eyebrow: "Payroll",
     title: "Run payroll accurately, every single cycle",
-    body: "Attendance, leave and salary inputs flow into a run that moves from compute to verify, approve and publish, and the person who computed a run cannot approve it. PF with the ₹15,000 ceiling, ESI on gross up to ₹21,000, state PT, LWF and TDS are calculated in the same run, with an audit trail behind every change.",
+    body: "Attendance, leave and salary inputs flow into a run that moves from compute to verify, approve and publish, and the person who computed a run cannot approve it. PF with the ₹25,000 wage ceiling, ESI on gross up to ₹21,000, state PT, LWF and TDS are calculated in the same run, with an audit trail behind every change.",
     highlights: [
       "Configurable pay structures assigned to employee groups",
       "LOP, arrears and loan EMIs flow in automatically",

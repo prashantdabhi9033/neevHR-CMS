@@ -101,20 +101,20 @@ export const glossary: GlossaryTerm[] = [
       "The Employees' Provident Fund is a statutory retirement savings scheme administered by the Employees' Provident Fund Organisation (EPFO). Covered establishments deduct the employee's share from salary, add the employer's share, and remit both every month through an Electronic Challan cum Return (ECR).",
     howItWorks: [
       "Employee contribution: 12% of PF wages (basic plus dearness allowance).",
-      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to ₹15,000 (a maximum of ₹1,250 a month) and the balance to EPF.",
-      "The statutory wage ceiling is ₹15,000 a month. Employers may contribute on actual wages above the ceiling if they choose.",
-      "Employers also pay EDLI (0.5%, on wages up to ₹15,000) and EPF administration charges (0.5%).",
+      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to ₹25,000 (a maximum of ₹2,083 a month) and the balance to EPF.",
+      "The wage ceiling is ₹25,000 a month from 17 September 2026 (it was ₹15,000). Employees earning up to ₹25,000 must be covered; employers may contribute on actual wages above the ceiling.",
+      "Employers also pay EDLI (0.5%, on wages up to ₹25,000) and EPF administration charges (0.5%).",
       "Each member has a Universal Account Number (UAN) that stays with them across employers.",
     ],
     whyHrCares:
-      "PF is due monthly, is audited by EPFO, and attracts interest and damages when paid late. The choice of PF basis (capped at ₹15,000 or on actual basic) also changes take-home pay and cost to company, so it must be applied consistently.",
+      "PF is due monthly, is audited by EPFO, and attracts interest and damages when paid late. The choice of PF basis (capped at ₹25,000 or on actual basic) also changes take-home pay and cost to company, so it must be applied consistently.",
     example: {
-      title: "Basic of ₹25,000, contribution capped at ₹15,000",
+      title: "Basic of ₹30,000, contribution capped at ₹25,000",
       lines: [
-        "Employee PF: 12% × ₹15,000 = ₹1,800",
-        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
-        "Employer EPF: ₹1,800 − ₹1,250 = ₹550",
-        "Total remitted to EPF and EPS: ₹3,600, plus EDLI and admin charges",
+        "Employee PF: 12% × ₹25,000 = ₹3,000",
+        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
+        "Employer EPF: ₹3,000 − ₹2,083 = ₹917",
+        "Total remitted to EPF and EPS: ₹6,000, plus EDLI and admin charges",
       ],
     },
     product: [
@@ -285,8 +285,8 @@ export const glossary: GlossaryTerm[] = [
     example: {
       title: "Annual CTC of ₹9,00,000",
       lines: [
-        "Employer PF of ₹21,600 a year is included in CTC.",
-        "Gross salary = ₹9,00,000 − ₹21,600 = ₹8,78,400 (₹73,200 a month).",
+        "Employer PF of ₹36,000 a year (12% of the ₹25,000 ceiling) is included in CTC.",
+        "Gross salary = ₹9,00,000 − ₹36,000 = ₹8,64,000 (₹72,000 a month).",
         "Take-home is gross minus employee PF, PT and TDS.",
       ],
     },
@@ -344,7 +344,7 @@ export const glossary: GlossaryTerm[] = [
     example: {
       title: "From gross to net",
       lines: [
-        "Gross ₹65,000 − PF ₹1,800 − PT ₹200 − TDS ₹3,000 = Net ₹60,000",
+        "Gross ₹65,000 − PF ₹3,000 − PT ₹200 − TDS ₹3,000 = Net ₹58,800",
       ],
     },
     product: [
@@ -365,7 +365,7 @@ export const glossary: GlossaryTerm[] = [
     definition:
       "Basic salary is the foundation of an Indian salary structure. It usually forms a significant share of gross pay. The Labour Codes define 'wages' so that, if excluded allowances exceed 50% of total remuneration, the excess is added back to wages, which pushes structures towards a higher basic.",
     howItWorks: [
-      "PF is computed on basic plus DA (subject to the ₹15,000 ceiling where the employer caps it).",
+      "PF is computed on basic plus DA (subject to the ₹25,000 ceiling where the employer caps it).",
       "Gratuity uses last drawn basic plus DA.",
       "HRA exemption uses basic as one of its three limbs.",
     ],
@@ -375,7 +375,7 @@ export const glossary: GlossaryTerm[] = [
       title: "Basic at 50% of gross",
       lines: [
         "Gross ₹60,000, basic ₹30,000.",
-        "PF on actual basic: 12% × ₹30,000 = ₹3,600; PF capped: ₹1,800.",
+        "PF on actual basic: 12% × ₹30,000 = ₹3,600; PF capped at ₹25,000: ₹3,000.",
       ],
     },
     product: [

@@ -5,7 +5,7 @@ import { NumberField, SegField, ResultRow } from "./CalcUI";
 import { inr } from "@/lib/format";
 import { newRegimeTax, NEW_STD_DEDUCTION } from "@/lib/tax";
 
-const PF_CEILING = 15000;
+import { PF_WAGE_CEILING as PF_CEILING } from "@/lib/statutory";
 
 export function TakeHomeCalculator() {
   const [ctc, setCtc] = useState("1200000");

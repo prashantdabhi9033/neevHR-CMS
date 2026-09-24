@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMeta({
 
 // Every row is verified against the product code (24 Sep 2026).
 const capabilities: { name: string; detail: string; href?: string }[] = [
-  { name: "PF / EPF", detail: "Employee and employer PF, EPS split, EDLI and admin charges; ₹15,000 ceiling or actual basic, elected per financial year.", href: "/glossary/pf" },
+  { name: "PF / EPF", detail: "Employee and employer PF, EPS split, EDLI and admin charges; ₹25,000 wage ceiling or actual basic, elected per financial year.", href: "/glossary/pf" },
   { name: "ESI", detail: "Eligibility on gross wages up to ₹21,000, employee 0.75% and employer 3.25%, contribution-period aware.", href: "/glossary/esi" },
   { name: "Professional Tax", detail: "Per-state slabs from configurable tables, applied by work location.", href: "/glossary/pt" },
   { name: "Labour Welfare Fund", detail: "Monthly, half-yearly or annual deductions per state, with LWF challan.", href: "/glossary/lwf" },

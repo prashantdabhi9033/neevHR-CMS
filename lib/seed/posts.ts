@@ -34,7 +34,7 @@ export const seedPosts: SeedPost[] = [
 
 The EPF scheme is mandatory for establishments employing 20 or more people, across most scheduled industries. Once an establishment is covered, it stays covered even if the headcount later drops below 20.
 
-Within a covered establishment, any employee earning basic wages of ₹15,000 per month or less at the time of joining must be enrolled. Employees earning above that threshold are called "excluded employees" and are not compulsorily covered, but the employer can, and usually does, extend membership to them voluntarily. In practice most established employers cover their entire workforce, because a split scheme is harder to administer and worse for the employee.
+Within a covered establishment, any employee earning basic wages up to the wage ceiling at the time of joining must be enrolled. The ceiling is ₹25,000 per month from 17 September 2026 (notification S.O. 5109(E) under the Code on Social Security, 2020); it was ₹15,000 before that, so employees earning between ₹15,001 and ₹25,000 are now covered compulsorily. Employees earning above that threshold are called "excluded employees" and are not compulsorily covered, but the employer can, and usually does, extend membership to them voluntarily. In practice most established employers cover their entire workforce, because a split scheme is harder to administer and worse for the employee.
 
 ## How the 12% contribution is split
 
@@ -43,12 +43,12 @@ Both the employee and the employer contribute 12% of PF wages. PF wages generall
 | Component | Rate | Applied on |
 | --- | --- | --- |
 | Employee share (EPF) | 12% | PF wages |
-| Employer share to pension (EPS) | 8.33% | PF wages, capped at ₹15,000 (so up to about ₹1,250) |
+| Employer share to pension (EPS) | 8.33% | PF wages, capped at ₹25,000 (so up to ₹2,083) |
 | Employer share to EPF | 3.67% and any balance | Remainder after EPS |
 
-On top of the 12% each, the employer also pays small charges: EDLI (a life insurance component) and administrative charges, together roughly 0.5% of PF wages. Because the EPS portion is capped at 8.33% of ₹15,000, a high earner still has their pension contribution capped at around ₹1,250 a month, with the rest of the employer share flowing to EPF.
+On top of the 12% each, the employer also pays small charges: EDLI (a life insurance component) and administrative charges, together roughly 0.5% of PF wages. Because the EPS portion is capped at 8.33% of the ₹25,000 ceiling, a high earner's pension contribution is capped at ₹2,083 a month, with the rest of the employer share flowing to EPF. EPFO's operational guidance on applying the new ceiling within September 2026 was awaited at the time of review.
 
-Many employers choose to cap PF wages at the ₹15,000 statutory ceiling even for employees whose basic exceeds it. That makes the minimum contribution ₹1,800 per side per month. Others contribute on actual basic, which builds a larger retirement corpus. Both are valid; what matters is that the policy is consistent and correctly reflected in payroll.
+Many employers choose to cap PF wages at the ₹25,000 statutory ceiling even for employees whose basic exceeds it. That makes the contribution for such employees ₹3,000 per side per month. Others contribute on actual basic, which builds a larger retirement corpus. Both are valid; what matters is that the policy is consistent and correctly reflected in payroll.
 
 ## What is the UAN
 
@@ -84,14 +84,14 @@ The ECR is the single filing that reconciles wages and contributions, so it must
 ## Common mistakes to avoid
 
 - Applying PF on gross instead of on Basic + DA.
-- Forgetting to cap the EPS share at 8.33% of ₹15,000 for high earners.
+- Still applying the old ₹15,000 ceiling after 17 September 2026, or not capping the EPS share at 8.33% of ₹25,000 for high earners.
 - Missing the UAN for a new joiner, which delays transfers later.
 - Filing the ECR late, which triggers interest and damages.
 - Inconsistent policy on capping versus contributing on actual basic across employee groups.
 
 ## Frequently asked questions
 
-**Is EPF compulsory above ₹15,000 basic?** Not strictly. Employees above the threshold are excluded, but most employers cover them voluntarily.
+**Is EPF compulsory above ₹25,000 basic?** Not strictly. Employees above the ceiling when they join are excluded, but most employers cover them voluntarily. Up to ₹25,000, coverage is compulsory from 17 September 2026.
 
 **Can an employee opt out of EPF?** Only an employee who has never been an EPF member and joins above the wage threshold can be treated as excluded. An existing member generally cannot opt out.
 
@@ -99,7 +99,7 @@ The ECR is the single filing that reconciles wages and contributions, so it must
 
 ## Key takeaways
 
-- EPF is mandatory for establishments with 20 or more employees, and for members earning up to ₹15,000 basic.
+- EPF is mandatory for establishments with 20 or more employees, and for members earning up to ₹25,000 basic (₹15,000 before 17 September 2026).
 - Both sides contribute 12%; the employer's share splits into EPS (pension, capped) and EPF.
 - The UAN unifies an employee's PF across jobs.
 - Withdrawals after five years of continuous service are tax-free.
@@ -614,21 +614,21 @@ Take a CTC of ₹12,00,000 with Basic set at 50% of CTC.
 | Component | Amount per year |
 | --- | --- |
 | Basic (50% of CTC) | ₹6,00,000 |
-| HRA and other allowances | ₹5,49,540 |
-| Employer PF (12% of basic, capped at ₹15,000 wage) | ₹21,600 |
+| HRA and other allowances | ₹5,35,140 |
+| Employer PF (12% of basic, capped at the ₹25,000 wage ceiling) | ₹36,000 |
 | Gratuity accrual (4.81% of basic) | ₹28,860 |
-| Gross (CTC minus employer PF and gratuity) | ₹11,49,540 |
+| Gross (CTC minus employer PF and gratuity) | ₹11,35,140 |
 
 From the gross, the employee's own deductions come off to reach in-hand:
 
 | Deduction from gross | Amount per year |
 | --- | --- |
-| Employee PF | ₹21,600 |
+| Employee PF | ₹36,000 |
 | Professional tax | ₹2,400 |
 | TDS (new regime, few deductions) | ₹0 (below the ₹12 lakh rebate) |
-| In-hand per year | ₹11,25,540 |
+| In-hand per year | ₹10,96,740 |
 
-So a ₹12 lakh CTC yields roughly ₹93,800 per month in-hand for this profile. Change the assumptions (a different Basic percentage, a home loan, the old regime) and the in-hand shifts.
+So a ₹12 lakh CTC yields roughly ₹91,400 per month in-hand for this profile, using the ₹25,000 PF wage ceiling in force from 17 September 2026. Change the assumptions (a different Basic percentage, a home loan, the old regime) and the in-hand shifts.
 
 ## Designing good structures
 

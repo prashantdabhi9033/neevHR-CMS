@@ -149,44 +149,44 @@ export const tools: Tool[] = [
   {
     slug: "pf-calculator",
     name: "PF calculator",
-    seoTitle: "PF Calculator: EPF & EPS Contribution with ₹15,000 Ceiling",
+    seoTitle: "PF Calculator: EPF & EPS with the New ₹25,000 Ceiling",
     tagline: "Estimate monthly EPF and EPS contributions for employee and employer.",
     metaDesc:
-      "Free EPF / PF calculator for India. Estimate employee and employer provident fund contributions at 12%, the EPS split and the ₹15,000 wage ceiling, with a worked example.",
+      "Free EPF / PF calculator for India. Estimate employee and employer provident fund contributions at 12%, the EPS split and the ₹25,000 wage ceiling in force from 17 September 2026.",
     explanation: [
       "Employees' Provident Fund (EPF) is a statutory retirement scheme run by EPFO. Employee and employer each contribute 12% of PF wages (basic + DA). The employer's share is split between the Employees' Pension Scheme (EPS) and EPF.",
-      "The statutory wage ceiling is ₹15,000 a month. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently.",
+      "The wage ceiling is ₹25,000 a month from 17 September 2026 (S.O. 5109(E) under the Code on Social Security, 2020); it was ₹15,000 before that. Employees earning up to ₹25,000 are now covered compulsorily. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
     ],
     formula: [
-      "PF wage = basic + DA (capped at ₹15,000 if the employer caps)",
+      "PF wage = basic + DA (capped at ₹25,000 if the employer caps)",
       "Employee PF = 12% × PF wage",
-      "Employer EPS = 8.33% × min(PF wage, ₹15,000), so at most ₹1,250",
+      "Employer EPS = 8.33% × min(PF wage, ₹25,000), so at most ₹2,083",
       "Employer EPF = 12% × PF wage − employer EPS",
-      "Employer also pays EDLI at 0.5% (on wages up to ₹15,000) and admin charges at 0.5%",
+      "Employer also pays EDLI at 0.5% (on wages up to ₹25,000) and admin charges at 0.5%",
     ],
     example: {
       title: "Basic + DA of ₹30,000, contribution on actual basic",
       lines: [
         "Employee PF: 12% × ₹30,000 = ₹3,600",
-        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
-        "Employer EPF: ₹3,600 − ₹1,250 = ₹2,350",
+        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
+        "Employer EPF: ₹3,600 − ₹2,083 = ₹1,517",
         "Total to EPF and EPS: ₹7,200 a month, plus EDLI and admin charges",
       ],
     },
     mistakes: [
-      "Computing EPS on wages above ₹15,000 for members not eligible for higher pension.",
+      "Still applying the old ₹15,000 ceiling after 17 September 2026, or computing EPS on wages above the ceiling.",
       "Leaving allowances out of PF wages when the Labour Codes' 50% wage rule applies.",
       "Switching between capped and actual basis mid-year without a documented policy.",
       "Forgetting EDLI and admin charges when budgeting employer cost.",
     ],
     faqs: [
       {
-        q: "Is PF mandatory above ₹15,000 basic?",
-        a: "Employees whose PF wages exceed ₹15,000 when they first join are not compulsorily covered, but employers commonly extend membership. Once a member, contributions continue.",
+        q: "Is PF mandatory above ₹25,000 basic?",
+        a: "From 17 September 2026, employees with PF wages up to ₹25,000 must be covered. Those above it when they first join are not compulsorily covered, but employers commonly extend membership. Once a member, contributions continue.",
       },
       {
         q: "What is the minimum PF contribution?",
-        a: "When wages are capped at ₹15,000, the employee contribution is ₹1,800 a month, matched by the employer.",
+        a: "When wages are capped at the ₹25,000 ceiling, the employee contribution is ₹3,000 a month, matched by the employer (₹2,083 to EPS and ₹917 to EPF).",
       },
       {
         q: "When is PF due?",
@@ -279,7 +279,7 @@ export const tools: Tool[] = [
     ],
     formula: [
       "Basic = 40% or 50% of CTC",
-      "Employer PF = 12% × min(monthly basic, ₹15,000) × 12",
+      "Employer PF = 12% × min(monthly basic, ₹25,000) × 12",
       "Gratuity provision = 4.81% × basic",
       "Gross = CTC − employer PF − gratuity provision",
       "Taxable = gross − ₹75,000 standard deduction; tax nil up to ₹12 lakh taxable after rebate",
@@ -288,10 +288,10 @@ export const tools: Tool[] = [
     example: {
       title: "Annual CTC of ₹12,00,000 with basic at 50%",
       lines: [
-        "Basic: ₹6,00,000; employer PF: ₹21,600; gratuity: ₹28,860",
-        "Gross: ₹11,49,540",
-        "Taxable after standard deduction: ₹10,74,540, so TDS is nil after the rebate",
-        "In-hand: about ₹93,795 a month after employee PF and PT",
+        "Basic: ₹6,00,000; employer PF: ₹36,000; gratuity: ₹28,860",
+        "Gross: ₹11,35,140",
+        "Taxable after standard deduction: ₹10,60,140, so TDS is nil after the rebate",
+        "In-hand: about ₹91,395 a month after employee PF and PT",
       ],
     },
     mistakes: [
@@ -495,7 +495,7 @@ export const tools: Tool[] = [
     formula: [
       "Basic = 40% or 50% of CTC",
       "HRA = 50% of basic (metro) or 40% (non-metro)",
-      "Employer PF = 12% of basic, or of ₹15,000 if capped",
+      "Employer PF = 12% of basic, or of ₹25,000 if capped",
       "Gratuity provision = 4.81% of basic",
       "Gross = CTC − employer PF − gratuity (− employer ESI if gross ≤ ₹21,000 a month)",
       "Special allowance = gross − basic − HRA",
@@ -504,8 +504,8 @@ export const tools: Tool[] = [
       title: "Annual CTC ₹6,00,000, basic 40%, metro, PF capped",
       lines: [
         "Monthly CTC ₹50,000; basic ₹20,000; HRA ₹10,000",
-        "Employer PF ₹1,800; gratuity provision ₹962",
-        "Gross ₹47,238; special allowance ₹17,238",
+        "Employer PF ₹2,400 (12% of basic, below the ₹25,000 ceiling); gratuity provision ₹962",
+        "Gross ₹46,638; special allowance ₹16,638",
       ],
     },
     mistakes: [

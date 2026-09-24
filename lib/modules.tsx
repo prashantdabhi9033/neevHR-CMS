@@ -334,7 +334,7 @@ export const modules: Record<string, ModuleContent> = {
       "Run monthly payroll with PF, ESI, PT, LWF and TDS in the core. Configure pay structures once, and let LOP, arrears, loans and reimbursements flow in automatically, with an audit trail behind every change.",
     capabilities: [
       { title: "Governed run", body: "Compute, verify, approve and publish, with separation of duties and a post-compute exception report of anomaly and statutory checks." },
-      { title: "India statutory built in", body: "PF at the ₹15,000 ceiling, ESI to ₹21,000 gross, state PT, LWF and TDS, with ECR, challan and Form 16 outputs." },
+      { title: "India statutory built in", body: "PF at the ₹25,000 wage ceiling, ESI to ₹21,000 gross, state PT, LWF and TDS, with ECR, challan and Form 16 outputs." },
       { title: "LOP, arrears & loans", body: "Loss of pay reduces the statutory base correctly; arrears recompute; loan EMIs appear only when active." },
       { title: "Bank-ready disbursement", body: "NEFT and RTGS files and a GL journal, with a payroll register and per-component YTD." },
     ],
