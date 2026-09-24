@@ -142,7 +142,7 @@ export const statesA: StateGuide[] = [
     neevhr: [
       ...COMMON_NEEVHR,
       "The February ₹300 PT levy and half-yearly June and December LWF are supported.",
-      "The women's ₹25,000 nil-PT threshold is not applied automatically today; your implementation team will cover how to handle it.",
+      "PT slabs can be set separately for women, so the nil PT for women earning up to ₹25,000 is applied from the employee record.",
     ],
     faqs: [
       { q: "Is professional tax different for women in Maharashtra?", a: "Yes. Women earning up to ₹25,000 a month pay no PT. Above that, the same ₹200 a month and ₹300 in February applies as for men." },
@@ -255,7 +255,7 @@ export const statesA: StateGuide[] = [
     neevhr: [
       "LWF follows each employee's work location, with the annual December deduction supported.",
       "State tables are configurable settings, and challan data is produced from the published payroll run.",
-      "Tamil Nadu's local-body, half-yearly PT has its own deduction months and income basis; your implementation team will confirm the set-up for your local body.",
+      "PT rules can be set per local body and tagged to each work location, with half-yearly income slabs and August and January deduction months. Half-yearly income is taken as six months of the current monthly salary.",
     ],
     faqs: [
       { q: "Why is Tamil Nadu PT different?", a: "It is levied by local bodies, not the state, on half-yearly income, and deducted from August and January salaries. Rates vary by corporation or municipality." },
@@ -480,7 +480,7 @@ export const statesB: StateGuide[] = [
     ],
     neevhr: [
       "No PT is deducted for employees whose work location is Haryana.",
-      "Haryana's percentage-based LWF, capped and indexed each January, is set up with your implementation team, since NeevHR's LWF tables use fixed amounts.",
+      "LWF can be set as a percentage of wages with a monthly cap for each side, so the 0.2% employee share and twice-that employer share are calculated each month. The January cap revision is a new dated rule in settings.",
       "Holiday calendars and leave policies can be configured for Haryana factories' festival and leave entitlements.",
     ],
     faqs: [
@@ -536,7 +536,7 @@ export const statesB: StateGuide[] = [
     neevhr: [
       "The monthly shops and establishments welfare fund is supported as a fixed monthly contribution by work location.",
       "Holiday calendars accept ad hoc paid holidays, such as election holidays.",
-      "Kerala's local-body, half-yearly PT has its own deduction months and income basis; your implementation team will confirm the set-up for your local body.",
+      "PT rules can be set per municipality or panchayat and tagged to each work location, with half-yearly income slabs and the deduction months your local body uses. Half-yearly income is taken as six months of the current monthly salary.",
     ],
     faqs: [
       { q: "Is Kerala professional tax monthly?", a: "No. It is half-yearly, paid to the municipality or panchayat, based on half-yearly income, with a maximum of ₹1,250 per half-year." },
