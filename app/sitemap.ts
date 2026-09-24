@@ -5,6 +5,9 @@ import { site } from "@/lib/site";
 import { moduleList } from "@/lib/modules";
 import { tools } from "@/lib/tools";
 import { industries } from "@/lib/industries";
+import { guides } from "@/lib/guides";
+import { glossary } from "@/lib/glossary";
+import { LAST_REVIEWED_ISO } from "@/lib/seo";
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -31,59 +34,54 @@ async function blogEntries(now: Date): Promise<Entry[]> {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  // Static pages carry the date their content was last reviewed, not the
+  // build time, so lastmod stays a meaningful signal for crawlers.
+  const reviewed = new Date(LAST_REVIEWED_ISO);
+  const entry = (path: string, priority: number): Entry => ({
+    url: `${site.url}${path}`,
+    lastModified: reviewed,
+    changeFrequency: "monthly",
+    priority,
+  });
 
-  const home: Entry = {
-    url: site.url,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 1,
-  };
+  const home: Entry = { ...entry("", 1), changeFrequency: "weekly" };
 
-  // High-intent commercial pages.
-  const primary: Entry[] = [
+  // Pillar and high-intent commercial pages.
+  const primary = [
+    "/hrms",
+    "/payroll",
+    "/india-payroll",
     "/features",
     "/pricing",
-    "/compare",
+    "/demo",
     "/security",
-    "/mobile",
     "/integrations",
     "/industries",
-    "/tools",
-    "/demo",
-    "/contact",
-  ].map((r) => ({
-    url: `${site.url}${r}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+    "/compare",
+    "/mobile",
+  ].map((r) => entry(r, 0.9));
 
-  const secondary: Entry[] = [
-    "/blog",
-    "/faq",
-    "/company",
-    "/privacy",
-    "/terms",
-    "/dpdp",
-  ].map((r) => ({
-    url: `${site.url}${r}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
-
-  const detail: Entry[] = [
-    ...moduleList.map((m) => `/features/${m.slug}`),
+  const detail = [
+    ...moduleList.filter((m) => m.slug !== "payroll").map((m) => `/features/${m.slug}`),
     ...industries.map((i) => `/industries/${i.slug}`),
     ...tools.map((t) => `/tools/${t.slug}`),
-  ].map((r) => ({
-    url: `${site.url}${r}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+    ...guides.map((g) => `/${g.slug}`),
+  ].map((r) => entry(r, 0.7));
+
+  const resources = [
+    "/resources",
+    "/tools",
+    "/glossary",
+    ...glossary.map((g) => `/glossary/${g.slug}`),
+    "/blog",
+    "/faq",
+  ].map((r) => entry(r, 0.6));
+
+  const company = ["/company", "/contact", "/privacy", "/terms", "/dpdp"].map((r) =>
+    entry(r, 0.4)
+  );
 
   const blog = await blogEntries(now);
 
-  return [home, ...primary, ...detail, ...secondary, ...blog];
+  return [home, ...primary, ...detail, ...resources, ...company, ...blog];
 }

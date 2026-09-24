@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import Link from "next/link";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -10,12 +12,13 @@ import type { Post } from "@/payload-types";
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/blog" },
-  title: "Blog & resources",
+export const metadata: Metadata = pageMeta({
+  title: "HR, Payroll & Compliance Resources | NeevHR",
+  absoluteTitle: true,
   description:
-    "Guides on Indian HR, payroll and statutory compliance from the NeevHR team, plus product updates.",
-};
+    "Articles on Indian HR, payroll and statutory compliance: EPF, ESI, professional tax, gratuity, TDS, Form 16, leave, POSH, DPDP Act and more, from the NeevHR team.",
+  path: "/blog",
+});
 
 function formatDate(d?: string | null) {
   if (!d) return "";
@@ -43,6 +46,7 @@ export default async function BlogPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
       <PageHeader
         eyebrow="Blog & resources"
         title="Practical notes on Indian HR, payroll and compliance"

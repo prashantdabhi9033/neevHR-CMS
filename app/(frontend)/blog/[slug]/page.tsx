@@ -9,6 +9,61 @@ import { Container } from "@/components/ui/Container";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { renderArticle, readMins, categoryOf } from "@/lib/blog";
 import { site } from "@/lib/site";
+import { pageMeta, OG_IMAGE } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { Disclaimer } from "@/components/site/Disclaimer";
+import { TrackView } from "@/components/site/TrackView";
+
+// Internal links per category (spec §33, §75): article -> tool -> product
+// page -> demo. Kept short so they read as help, not link stuffing.
+const relatedByCategory: Record<string, { label: string; href: string }[]> = {
+  payroll: [
+    { label: "Payroll software for Indian companies", href: "/payroll" },
+    { label: "India payroll: PF, ESI, PT, LWF, TDS", href: "/india-payroll" },
+    { label: "Take-home salary calculator", href: "/tools/take-home-salary-calculator" },
+    { label: "PF calculator", href: "/tools/pf-calculator" },
+  ],
+  compliance: [
+    { label: "India payroll: PF, ESI, PT, LWF, TDS", href: "/india-payroll" },
+    { label: "Statutory compliance in NeevHR", href: "/features/compliance" },
+    { label: "ESI calculator", href: "/tools/esi-calculator" },
+    { label: "HR & payroll glossary", href: "/glossary" },
+  ],
+  time: [
+    { label: "Attendance management", href: "/features/attendance" },
+    { label: "Leave management", href: "/features/leave" },
+    { label: "Biometric integration", href: "/integrations" },
+    { label: "Payroll software", href: "/payroll" },
+  ],
+  performance: [
+    { label: "Performance management", href: "/features/performance" },
+    { label: "Compensation", href: "/features/compensation" },
+    { label: "Salary hike calculator", href: "/tools/salary-hike-calculator" },
+  ],
+  recruitment: [
+    { label: "Recruitment", href: "/features/recruitment" },
+    { label: "Onboarding", href: "/features/onboarding" },
+  ],
+  "hr-strategy": [
+    { label: "HRMS software for Indian companies", href: "/hrms" },
+    { label: "Exit and full & final settlement", href: "/features/exit" },
+    { label: "How to choose an HRMS in India", href: "/best-hrms-software-india" },
+  ],
+  product: [
+    { label: "HRMS overview", href: "/hrms" },
+    { label: "All features", href: "/features" },
+  ],
+};
+
+const STATUTORY_SOURCES = [
+  { label: "EPFO", href: "https://www.epfindia.gov.in/" },
+  { label: "ESIC", href: "https://www.esic.gov.in/" },
+  { label: "Income Tax Department", href: "https://www.incometax.gov.in/" },
+  { label: "Ministry of Labour & Employment", href: "https://labour.gov.in/" },
+];
+
+// "NeevHR Team" style bylines are the organisation, not a person.
+const isOrgAuthor = (a?: string | null) => !a || /neevhr/i.test(a);
 
 export const revalidate = 60;
 
@@ -39,27 +94,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     typeof post.coverImage === "object" && post.coverImage?.url
       ? post.coverImage.url
       : undefined;
-  return {
+  return pageMeta({
     title: post.title,
-    description: post.excerpt || undefined,
-    alternates: { canonical: `/blog/${slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.excerpt || undefined,
-      url: `${site.url}/blog/${slug}`,
-      publishedTime: post.publishedAt || undefined,
-      modifiedTime: post.updatedAt || undefined,
-      authors: post.author ? [post.author] : undefined,
-      images: cover ? [cover] : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt || undefined,
-      images: cover ? [cover] : undefined,
-    },
-  };
+    description: post.excerpt || post.title,
+    path: `/blog/${slug}`,
+    type: "article",
+    publishedTime: post.publishedAt || undefined,
+    modifiedTime: post.updatedAt || undefined,
+    authors: [post.author || `${site.name} Team`],
+    image: cover,
+  });
 }
 
 // True when the post was meaningfully edited after publishing (> 1 day later),
@@ -96,71 +140,58 @@ export default async function PostPage({ params }: Params) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt || undefined,
-    image: cover?.url ? [cover.url] : undefined,
+    image: [cover?.url || OG_IMAGE.url],
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".article-excerpt"],
     },
     datePublished: post.publishedAt || undefined,
     dateModified: post.updatedAt || post.publishedAt || undefined,
-    author: post.author
-      ? {
+    author: isOrgAuthor(post.author)
+      ? { "@type": "Organization", name: post.author || `${site.name} Team`, url: site.url }
+      : {
           "@type": "Person",
           name: post.author,
           worksFor: { "@type": "Organization", name: site.name, url: site.url },
-        }
-      : { "@type": "Organization", name: site.name, url: site.url },
+        },
     publisher: {
       "@type": "Organization",
       "@id": `${site.url}/#organization`,
       name: site.name,
-      logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
+      logo: { "@type": "ImageObject", url: `${site.url}/logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "en-IN",
   };
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
-      { "@type": "ListItem", position: 3, name: post.title, item: url },
-    ],
-  };
-
   return (
     <article className="py-14 lg:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <TrackView event="blog_read" params={{ slug }} />
       <Container className="max-w-3xl">
-        <Link
-          href="/blog"
-          className="text-sm font-medium text-brand hover:text-brand-dark"
-        >
-          ← All posts
-        </Link>
+        <Breadcrumbs
+          bare
+          items={[
+            { name: "Blog", href: "/blog" },
+            { name: post.title, href: `/blog/${slug}` },
+          ]}
+        />
         <p className="mt-6 text-sm font-medium text-muted">
           <span className="text-brand">{categoryOf(post.category).label}</span>
-          {" · "}
-          {formatDate(post.publishedAt)}
-          {post.author ? ` · ${post.author}` : ""}
           {post.bodyMarkdown ? ` · ${readMins(post.bodyMarkdown)} min read` : ""}
         </p>
-        {isUpdated(post.publishedAt, post.updatedAt) && (
-          <p className="mt-1 text-xs text-muted">
-            Last updated: {formatDate(post.updatedAt)}
-          </p>
-        )}
         <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
           {post.title}
         </h1>
+        <p className="mt-3 text-sm text-muted">
+          Published: {formatDate(post.publishedAt)}
+          {isUpdated(post.publishedAt, post.updatedAt) && (
+            <> · Updated: {formatDate(post.updatedAt)}</>
+          )}
+          {" · "}Author: {post.author || `${site.name} Team`}
+        </p>
         {post.excerpt && (
           <p className="article-excerpt mt-4 text-lg leading-relaxed text-body">
             {post.excerpt}
@@ -221,14 +252,42 @@ export default async function PostPage({ params }: Params) {
           )
         )}
 
+        {(post.category === "payroll" || post.category === "compliance") && (
+          <Disclaimer
+            className="mt-12"
+            reviewed={formatDate(post.updatedAt || post.publishedAt)}
+            sources={STATUTORY_SOURCES}
+          />
+        )}
+
+        {(relatedByCategory[post.category ?? ""] ?? relatedByCategory["hr-strategy"]).length > 0 && (
+          <nav aria-label="Related" className="mt-10">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">
+              Related on NeevHR
+            </h2>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {(relatedByCategory[post.category ?? ""] ?? relatedByCategory["hr-strategy"]).map((r) => (
+                <li key={r.href}>
+                  <Link
+                    href={r.href}
+                    className="block rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink hover:border-brand/40 hover:text-brand"
+                  >
+                    {r.label} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
         <div className="mt-12 rounded-2xl bg-brand px-7 py-7 text-center sm:text-left">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div>
-              <h3 className="text-lg font-bold text-white">
+              <p className="text-lg font-bold text-white">
                 Run all of this on one platform
-              </h3>
+              </p>
               <p className="mt-1 text-sm text-white/80">
-                NeevHR handles payroll, attendance and compliance for growing and enterprise companies across India.
+                NeevHR is an India-first HRMS and payroll platform for growing and mid-market businesses.
               </p>
             </div>
             <Link

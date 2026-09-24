@@ -8,8 +8,15 @@ export type LeadEmail = {
   size?: string;
   phone?: string;
   role?: string;
+  currentHrms?: string;
+  requirement?: string;
+  preferredDate?: string;
   message?: string;
 };
+
+// Form input is untrusted: escape before placing it in the HTML body.
+const esc = (v: string) =>
+  v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 // Sends a notification email for a new demo request. No-ops (does not throw)
 // if SMTP is not configured, so a missing config never breaks the form.
@@ -39,6 +46,9 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     ["Company size", lead.size],
     ["Phone", lead.phone],
     ["Role", lead.role],
+    ["Current HRMS", lead.currentHrms],
+    ["Primary requirement", lead.requirement],
+    ["Preferred demo date", lead.preferredDate],
     ["Message", lead.message],
   ];
   const html = `
@@ -48,7 +58,7 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
         .filter(([, v]) => v)
         .map(
           ([k, v]) =>
-            `<tr><td style="color:#64748b">${k}</td><td style="font-weight:600">${v}</td></tr>`,
+            `<tr><td style="color:#64748b">${k}</td><td style="font-weight:600">${esc(String(v))}</td></tr>`,
         )
         .join("")}
     </table>

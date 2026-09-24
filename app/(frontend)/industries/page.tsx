@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { industries } from "@/lib/industries";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/industries" },
-  title: "Industries",
+export const metadata: Metadata = pageMeta({
+  title: "HRMS by Industry: Manufacturing, IT, Retail & More",
   description:
-    "NeevHR works across Indian industries: manufacturing, IT and ITES, retail, healthcare, BFSI, logistics, pharma, hospitality and more.",
-};
+    "How NeevHR HRMS fits manufacturing, IT and ITES, retail, healthcare, BFSI, logistics, pharma, hospitality, professional services and staffing.",
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Industries", href: "/industries" }]} />
       <PageHeader
         eyebrow="Industries"
         title="Built for how your industry actually runs HR"

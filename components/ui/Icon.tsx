@@ -41,6 +41,42 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M8 15l3-4 3 2 4-6" />
     </>
   ),
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 2" />
+    </>
+  ),
+  wallet: (
+    <>
+      <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3" />
+      <rect x="4" y="8" width="16" height="11" rx="2.5" />
+      <path d="M16 13.5h1.5" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="12" cy="12" r="1" />
+    </>
+  ),
+  sparkle: (
+    <path d="M12 3.5 13.8 9l5.7 1.5-5.7 1.7L12 18l-1.8-5.8-5.7-1.7L10.2 9 12 3.5Z" />
+  ),
+  layers: (
+    <>
+      <path d="m12 4 8.5 4.5L12 13 3.5 8.5 12 4Z" />
+      <path d="m3.5 12.5 8.5 4.5 8.5-4.5" />
+      <path d="m3.5 16.5 8.5 4.5 8.5-4.5" />
+    </>
+  ),
+  book: (
+    <>
+      <path d="M5 4.5h9.5A3.5 3.5 0 0 1 18 8v11.5H8.5A3.5 3.5 0 0 1 5 16V4.5Z" />
+      <path d="M5 16a3.5 3.5 0 0 1 3.5-3.5H18" />
+    </>
+  ),
 };
 
 export function Icon({

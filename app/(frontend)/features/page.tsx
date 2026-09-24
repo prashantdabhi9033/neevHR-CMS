@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -6,16 +8,17 @@ import { Icon } from "@/components/ui/Icon";
 import { platformCapabilities } from "@/lib/site";
 import { moduleGroups } from "@/lib/module-nav";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/features" },
-  title: "The platform",
+export const metadata: Metadata = pageMeta({
+  title: "HRMS Features: All NeevHR Modules",
   description:
-    "One India-first HR platform: core HR, attendance, leave, payroll, talent and employee experience on a single effective-dated employee record, with a configurable platform underneath.",
-};
+    "Every NeevHR module on one effective-dated employee record: core HR, attendance, leave, payroll and compliance, talent, employee experience and analytics.",
+  path: "/features",
+});
 
 export default function ProductOverviewPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Features", href: "/features" }]} />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_65%)]" />

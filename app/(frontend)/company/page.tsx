@@ -1,89 +1,117 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/site/PageHeader";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { JsonLd } from "@/components/site/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/company" },
-  title: "Company",
+export const metadata: Metadata = pageMeta({
+  title: "About NeevHR: India-first HRMS & Payroll Software",
   description:
-    "NeevHR is a new-generation, India-first HRMS founded by an HR practitioner. Built by HR people, for HR teams.",
-};
+    "NeevHR is an India-first HRMS and payroll software platform for growing and mid-market Indian businesses, built by HR practitioners. Who we serve, what we build and how to reach us.",
+  path: "/company",
+});
+
+const capabilities = [
+  "HR", "Payroll", "Attendance", "Leave", "Recruitment", "Performance",
+  "Expenses", "Compliance", "Analytics", "Employee Self Service",
+];
 
 export default function CompanyPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          url: `${site.url}/company`,
+          name: "About NeevHR",
+          mainEntity: { "@id": `${site.url}/#organization` },
+          inLanguage: "en-IN",
+        }}
+      />
+      <Breadcrumbs items={[{ name: "Company", href: "/company" }]} />
       <PageHeader
         eyebrow="Company"
-        title="Built by HR people, for HR teams"
-        sub="NeevHR is a modern, India-first HR and payroll platform, built by HR practitioners who wanted the system they always wished they had while running HR themselves."
+        title="About NeevHR"
+        sub={site.entity}
       />
       <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-6 text-[15px] leading-relaxed text-body">
+        <Container className="max-w-3xl">
+          <div className="space-y-8 text-[15px] leading-relaxed text-body">
             <div>
-              <h2 className="text-xl font-semibold text-ink">Why we exist</h2>
+              <h2 className="text-xl font-semibold text-ink">Why NeevHR exists</h2>
               <p className="mt-3">
-                Indian companies are stuck between spreadsheets and point tools
-                on one side, and heavy global suites that need certified
-                consultants and year-long rollouts on the other. NeevHR is built
-                for the gap in between: growing and enterprise companies that
-                need process discipline and statutory accuracy without the
-                overhead.
+                Indian companies are often stuck between spreadsheets and point
+                tools on one side, and heavy global suites that need certified
+                consultants and long rollouts on the other. NeevHR is built for
+                the gap in between: growing and mid-market companies that need
+                process discipline and statutory accuracy without the overhead.
+              </p>
+              <p className="mt-3">
+                &ldquo;Neev&rdquo; means foundation. The idea is simple: HR,
+                payroll and compliance work better when they are built on one
+                accurate employee record.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-ink">Who is behind it</h2>
+              <h2 className="text-xl font-semibold text-ink">Who builds it</h2>
               <p className="mt-3">
-                NeevHR is founded by an HR practitioner with 15 years of
-                hands-on HR experience, alongside a background in pre-sales and
-                solution consulting. That means the product is shaped by how
-                Indian HR and payroll actually work day to day, statutory names,
-                lifecycle stages and edge cases included, not by a generic
-                global template.
+                NeevHR was founded by an HR practitioner with 15 years of
+                hands-on HR experience and a background in pre-sales and
+                solution consulting. The product is shaped by how Indian HR and
+                payroll actually work day to day: statutory names, lifecycle
+                stages and edge cases included.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-ink">Where we&apos;re headed</h2>
+              <h2 className="text-xl font-semibold text-ink">What we build</h2>
               <p className="mt-3">
-                We are building NeevHR into the most configurable,
-                statutory-accurate HR and payroll platform for India, and
-                hardening it with every release. If you are an HR or finance
-                leader who wants a platform shaped around how Indian HR actually
-                works, this is a good time to talk to us.
+                One platform that covers the employee lifecycle from hiring to
+                exit, with Indian payroll at its core:
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {capabilities.map((c) => (
+                  <li key={c} className="inline-flex items-center gap-1.5 rounded-lg bg-surface-soft px-3 py-1.5 text-sm text-body">
+                    <Icon name="check" className="h-3.5 w-3.5 text-accent" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4">
+                Explore the <Link href="/hrms" className="font-medium text-brand hover:text-brand-dark">HRMS</Link>,{" "}
+                <Link href="/payroll" className="font-medium text-brand hover:text-brand-dark">payroll software</Link> and{" "}
+                <Link href="/security" className="font-medium text-brand hover:text-brand-dark">security</Link> pages for detail.
               </p>
             </div>
-          </div>
-          <aside className="h-fit rounded-2xl border border-line bg-surface-soft p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand">
-              What we believe
-            </h3>
-            <ul className="mt-4 space-y-4 text-sm text-body">
-              <li>
-                <span className="font-semibold text-ink">
-                  Configuration over customization.
-                </span>{" "}
-                Every policy is a rule set, not a code change.
-              </li>
-              <li>
-                <span className="font-semibold text-ink">
-                  One employee record.
-                </span>{" "}
-                Effective-dated history that you can report on as of any date.
-              </li>
-              <li>
-                <span className="font-semibold text-ink">
-                  Analytics everywhere.
-                </span>{" "}
-                Every list becomes a report, every report a chart.
-              </li>
-            </ul>
-            <div className="mt-6">
-              <Button href="/demo" className="w-full">
-                Talk to us
+            <div>
+              <h2 className="text-xl font-semibold text-ink">What we believe</h2>
+              <ul className="mt-3 space-y-3">
+                <li>
+                  <span className="font-semibold text-ink">Configuration over customization.</span>{" "}
+                  Every policy is a rule set assigned to employee groups, not a code change.
+                </li>
+                <li>
+                  <span className="font-semibold text-ink">One employee record.</span>{" "}
+                  Effective-dated history you can report on as of any date.
+                </li>
+                <li>
+                  <span className="font-semibold text-ink">Analytics everywhere.</span>{" "}
+                  Every list can become a report, and reports drill to records.
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button href="/demo">Book a Demo</Button>
+              <Button href="/contact" variant="secondary">
+                Contact us
               </Button>
             </div>
-          </aside>
+          </div>
         </Container>
       </section>
     </>

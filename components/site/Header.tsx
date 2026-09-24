@@ -7,9 +7,9 @@ import { ProductMenu } from "@/components/site/ProductMenu";
 import { IndustriesMenu } from "@/components/site/IndustriesMenu";
 
 const secondaryNav = [
-  { label: "Why NeevHR", href: "/compare" },
+  { label: "Payroll", href: "/payroll" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Blog", href: "/blog" },
+  { label: "Resources", href: "/resources" },
   { label: "Company", href: "/company" },
 ];
 
@@ -19,7 +19,7 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between">
         <BrandMark />
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-6 lg:flex">
           <ProductMenu />
           <IndustriesMenu />
 
@@ -36,7 +36,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Button href="/demo" className="hidden sm:inline-flex">
-            Book a demo
+            Book a Demo
           </Button>
           <MobileNav secondaryNav={secondaryNav} />
         </div>

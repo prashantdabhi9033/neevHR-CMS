@@ -1,9 +1,9 @@
 import { ProductFrame } from "./ProductFrame";
 
 const plans = [
-  { key: "GMC", name: "Group medical", insurer: "Star Health", sum: "5 L", enrolled: 96 },
-  { key: "GPA", name: "Personal accident", insurer: "ICICI Lombard", sum: "25 L", enrolled: 100 },
-  { key: "GTL", name: "Group term life", insurer: "HDFC Life", sum: "50 L", enrolled: 94 },
+  { key: "GMC", name: "Group medical", insurer: "Health insurer", sum: "5 L", enrolled: 96 },
+  { key: "GPA", name: "Personal accident", insurer: "General insurer", sum: "25 L", enrolled: 100 },
+  { key: "GTL", name: "Group term life", insurer: "Life insurer", sum: "50 L", enrolled: 94 },
 ];
 const fbp = [
   ["Fuel & vehicle", "₹1,800/mo", "Exempt with proof"],

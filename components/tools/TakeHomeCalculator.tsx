@@ -3,24 +3,9 @@
 import { useState } from "react";
 import { NumberField, SegField, ResultRow } from "./CalcUI";
 import { inr } from "@/lib/format";
+import { newRegimeTax, NEW_STD_DEDUCTION } from "@/lib/tax";
 
 const PF_CEILING = 15000;
-
-// New regime FY 2026-27: standard deduction 75,000; 87A rebate makes tax nil
-// up to taxable 12,00,000; slabs 5/10/15/20/25/30% in 4L bands; 4% cess.
-function newRegimeTax(taxable: number): number {
-  if (taxable <= 1200000) return 0;
-  const bounds = [400000, 800000, 1200000, 1600000, 2000000, 2400000, Infinity];
-  const rates = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3];
-  let tax = 0;
-  let prev = 0;
-  for (let i = 0; i < bounds.length; i++) {
-    if (taxable <= prev) break;
-    tax += (Math.min(taxable, bounds[i]) - prev) * rates[i];
-    prev = bounds[i];
-  }
-  return tax * 1.04;
-}
 
 export function TakeHomeCalculator() {
   const [ctc, setCtc] = useState("1200000");
@@ -36,8 +21,8 @@ export function TakeHomeCalculator() {
 
   const employeePf = 0.12 * pfWageM * 12;
   const pt = 2400;
-  const taxable = Math.max(0, gross - 75000);
-  const tds = newRegimeTax(taxable);
+  const taxable = Math.max(0, gross - NEW_STD_DEDUCTION);
+  const tds = newRegimeTax(taxable).total;
   const inHandAnnual = Math.max(0, gross - employeePf - pt - tds);
   const inHandMonthly = inHandAnnual / 12;
 
@@ -76,7 +61,7 @@ export function TakeHomeCalculator() {
         </div>
         <p className="mt-4 text-xs text-muted">
           Indicative only, not tax advice. TDS assumes the new regime with the
-          ₹75,000 standard deduction and the Section 87A rebate.
+          ₹75,000 standard deduction and the rebate (with marginal relief).
         </p>
       </div>
     </div>

@@ -98,15 +98,24 @@ export function ProductMenu() {
         </div>
         <div className="mt-4 flex items-center justify-between border-t border-line pt-4">
           <span className="text-xs text-muted">
-            20+ modules on one employee record.
+            30+ modules on one employee record.
           </span>
-          <Link
-            href="/features"
-            onClick={() => setOpen(false)}
-            className="text-xs font-semibold text-brand hover:text-brand-dark"
-          >
-            View the full platform →
-          </Link>
+          <div className="flex gap-4">
+            <Link
+              href="/hrms"
+              onClick={() => setOpen(false)}
+              className="text-xs font-semibold text-brand hover:text-brand-dark"
+            >
+              HRMS overview →
+            </Link>
+            <Link
+              href="/features"
+              onClick={() => setOpen(false)}
+              className="text-xs font-semibold text-brand hover:text-brand-dark"
+            >
+              All features →
+            </Link>
+          </div>
         </div>
       </div>
     </div>

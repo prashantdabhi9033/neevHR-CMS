@@ -93,14 +93,14 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Core HR",
     title: "The living picture of how your company is organised",
     intro:
-      "An interactive reporting structure with live headcount analytics, matrix and dotted-line reporting, open positions and point-in-time reconstruction as of any date.",
+      "An interactive reporting structure with span-of-control insights, dotted-line reporting, open seats from the workforce plan and point-in-time reconstruction as of any date.",
     capabilities: [
       { title: "Tree & focused views", body: "Explore the whole tree or focus on one person and their chain, across all legal entities." },
       { title: "As-of-date reconstruction", body: "Rebuild the org exactly as it stood on any past date from reporting-line history." },
       { title: "Drag to reassign", body: "Reassign managers by drag, or bulk re-parent, and import reporting lines from CSV." },
-      { title: "Open positions", body: "Vacant seats appear as ghost nodes that link straight into recruitment." },
+      { title: "Open seats", body: "Open seats per department from the workforce plan appear alongside the tree." },
     ],
-    configPoints: ["Legal entities and business units", "Matrix & dotted-line reporting", "Consolidated vs entity view", "Export as CSV, SVG, PNG or PDF"],
+    configPoints: ["Legal entities and business units", "Dotted-line reporting", "Consolidated vs entity view", "Export as CSV, SVG or PNG"],
     reports: ["Span of control & layers", "Manager to IC ratio", "Headcount by unit"],
     related: ["employees", "positions", "planning"],
     Visual: OrgVisual,
@@ -136,7 +136,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Cost-centre budgets", body: "Budget envelopes per cost centre with committed-cost tracking." },
       { title: "Roll forward", body: "Copy last year's plan and adjust, with an effective-dated change history per cell." },
     ],
-    configPoints: ["Financial-year plan periods", "Department and cost-centre structure", "Budget envelopes", "Plan-change approval"],
+    configPoints: ["Financial-year plan periods", "Department and cost-centre structure", "Budget envelopes", "Over-plan override permission"],
     reports: ["Plan vs actual headcount", "Open vs over plan", "Recruitment budget burn"],
     related: ["positions", "org-chart", "recruitment"],
     Visual: PlanningVisual,
@@ -157,6 +157,24 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Notice periods by grade", "Clearance departments and owners", "Severance and F&F rules", "Letter templates"],
     reports: ["Attrition & reasons", "F&F settlement register", "Clearance ageing"],
     related: ["employees", "payroll", "compliance"],
+    Visual: ExitVisual,
+  },
+  "full-and-final-settlement": {
+    slug: "full-and-final-settlement",
+    name: "Full & final settlement",
+    eyebrow: "Core HR",
+    title: "Full and final settlement, computed and paid through payroll",
+    intro:
+      "An F&F worksheet that works out final salary, leave encashment, gratuity, pro-rata bonus and reimbursements, less notice, loan and asset recoveries and final-month statutory deductions, then posts to a full and final payroll run.",
+    capabilities: [
+      { title: "Earnings", body: "Salary to the last working day, leave encashment per leave type, gratuity with the ₹20 lakh ceiling, pro-rata statutory bonus, severance and unpaid approved expenses." },
+      { title: "Recoveries", body: "Notice shortfall (waived or leave-adjusted lines shown at nil), loans and advances, unreturned assets at book value, excess salary and final-month LOP." },
+      { title: "Statutory in the same step", body: "TDS on the settlement plus final-month PF, ESI, PT and LWF, with gratuity and leave-encashment exemptions calculated." },
+      { title: "Controls", body: "Settlement is blocked while assets are still assigned, and the person who gave final sign-off cannot also settle." },
+    ],
+    configPoints: ["Leave encashment base and day divisor", "Gratuity, encashment and bonus on or off per entity", "Notice recovery policy by exit type", "F&F due days after the last working day"],
+    reports: ["F&F settlement register", "Pending settlements", "Gratuity forfeiture approvals"],
+    related: ["exit", "loans", "assets"],
     Visual: ExitVisual,
   },
   documents: {
@@ -185,9 +203,9 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Time & attendance",
     title: "From biometric punches to a clean, payroll-ready day",
     intro:
-      "Capture attendance from biometric devices, web and mobile, apply your shift and grace rules, and close each day into numbers payroll can trust, with regularisation and approvals where they belong.",
+      "Capture attendance from biometric devices and the web, apply your shift and grace rules, and close each day into numbers payroll can trust, with regularisation and approvals where they belong.",
     capabilities: [
-      { title: "Biometric device ingestion", body: "Punches stream in with live device health, deduplicated and mapped to the right employee and shift." },
+      { title: "Biometric device ingestion", body: "Punches arrive over the ADMS push protocol, with device last-seen status, deduplicated and mapped to the right employee and shift." },
       { title: "Configurable day-close", body: "Grace windows, half-day and short-day rules turn raw punches into present, absent, late and overtime." },
       { title: "Regularisation & approvals", body: "Employees raise regularisation for missed punches; managers approve in one inbox." },
       { title: "Pay at risk", body: "Unjustified exceptions surface as loss-of-pay before payroll runs." },
@@ -257,7 +275,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Time & attendance",
     title: "GPS attendance and geofences for your field workforce",
     intro:
-      "Live location, geofence boundaries, tracking policies and alerts for field staff, with consent handling and time-in-boundary reporting.",
+      "Location during duty hours, geofence boundaries, tracking policies and alerts for field staff, with consent handling and time-in-boundary reporting. Tracking runs from the NeevHR mobile app, which is coming soon.",
     capabilities: [
       { title: "Live team map", body: "See every field worker on a map, coloured by inside, outside or stale location." },
       { title: "Geofences", body: "Draw polygon or circular boundaries and assign them to workers." },
@@ -275,14 +293,14 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Time & attendance",
     title: "Weekly time capture against projects, approved and billable",
     intro:
-      "Weekly or daily time capture against projects, with manager approvals and billable-utilisation analytics. Approved time flows to client invoicing exports.",
+      "Weekly time capture against assigned projects, with approval chains, submission locks and billable-utilisation analytics. Timesheets are kept separate from payroll.",
     capabilities: [
       { title: "Weekly time grid", body: "Employees log hours per project per day; submitted days lock." },
       { title: "Approvals", body: "Managers approve or send back, in an org-routed inbox with no self-approval." },
       { title: "Billable utilisation", body: "See billable versus non-billable share and hours by project." },
-      { title: "Invoicing exports", body: "Approved time feeds client-invoicing exports." },
+      { title: "Reminders & locks", body: "Overdue reminders, a grace period and a lock window after which late submissions are refused." },
     ],
-    configPoints: ["Daily or weekly cadence", "Project and cost-centre list", "Billable rules", "Approval chain"],
+    configPoints: ["Off, optional or mandatory mode", "Cadence, due day and lock window", "Minimum and maximum hours per day", "Approval chain"],
     reports: ["Utilisation %", "Billable vs non-billable", "Hours by project"],
     related: ["projects", "attendance"],
     Visual: TimesheetsVisual,
@@ -293,7 +311,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Time & attendance",
     title: "The project master your timesheets book time against",
     intro:
-      "Projects with clients, bill and cost rates, budgets and members. Rates here drive billable utilisation and client invoicing.",
+      "Projects with clients, bill and cost rates, budgets and members. Membership controls who can book time, and the billable flag drives utilisation reporting.",
     capabilities: [
       { title: "Project master", body: "Code, client, billable flag, bill and cost rates, budget in hours and rupees." },
       { title: "Members", body: "Assign employees who can book time to each project." },
@@ -301,7 +319,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Lifecycle", body: "Active, on hold and closed, archived rather than deleted." },
     ],
     configPoints: ["Clients and internal projects", "Bill and cost rates", "Budgets", "Members"],
-    reports: ["Budget vs actual", "Project profitability", "Utilisation by project"],
+    reports: ["Hours by project", "Billable vs non-billable", "Utilisation by project"],
     related: ["timesheets"],
     Visual: ProjectsVisual,
   },
@@ -313,9 +331,9 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Payroll & pay",
     title: "Payroll that is statutory-accurate, on time, every cycle",
     intro:
-      "Run payroll for thousands of employees with PF, ESI, PT and TDS in the core. Configure pay structures once, and let LOP, arrears, loans and reimbursements flow in automatically, with a full audit trail behind every rupee.",
+      "Run monthly payroll with PF, ESI, PT, LWF and TDS in the core. Configure pay structures once, and let LOP, arrears, loans and reimbursements flow in automatically, with an audit trail behind every change.",
     capabilities: [
-      { title: "Five-stage run", body: "Inputs, compute, verify, approve and publish, with a per-employee last-net versus this-net check." },
+      { title: "Governed run", body: "Compute, verify, approve and publish, with separation of duties and a post-compute exception report of anomaly and statutory checks." },
       { title: "India statutory built in", body: "PF at the ₹15,000 ceiling, ESI to ₹21,000 gross, state PT, LWF and TDS, with ECR, challan and Form 16 outputs." },
       { title: "LOP, arrears & loans", body: "Loss of pay reduces the statutory base correctly; arrears recompute; loan EMIs appear only when active." },
       { title: "Bank-ready disbursement", body: "NEFT and RTGS files and a GL journal, with a payroll register and per-component YTD." },
@@ -347,9 +365,9 @@ export const modules: Record<string, ModuleContent> = {
     slug: "expenses",
     name: "Expenses",
     eyebrow: "Payroll & pay",
-    title: "Policy-checked claims, reimbursed outside payroll",
+    title: "Policy-checked claims, reimbursed with control",
     intro:
-      "Expense and travel claims with receipts, policy checks, partial sanction and out-of-payroll reimbursement, with separation of duties between the approver and the payer.",
+      "Expense and travel claims with receipts, policy checks, partial sanction and reimbursement through payroll or settled separately, with separation of duties between the approver and the payer.",
     capabilities: [
       { title: "Claims & receipts", body: "Employees submit claims with receipts; approvers sanction, return or reject." },
       { title: "Policy checks", body: "Per-category caps, submission windows and pre-approval, with a recorded override for breaches." },
@@ -385,7 +403,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Payroll & pay",
     title: "Incentives, recoveries and statutory bonus, done right",
     intro:
-      "Ad-hoc pay additions and deductions with ring-fence limits and an approval chain, plus statutory annual bonus disbursement under the Payment of Bonus Act, 1965.",
+      "Ad-hoc pay additions and deductions with ring-fence limits and an approval chain, plus statutory annual bonus disbursement at 8.33% to 20% with the statutory registers.",
     capabilities: [
       { title: "Variable inputs", body: "Assign incentives, commissions, recoveries and fines, single or in bulk, with min/max ring-fencing." },
       { title: "Approval chain", body: "Every input is approved before it reaches payroll." },
@@ -403,11 +421,11 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Payroll & pay",
     title: "Group insurance and flexible benefits, administered in one place",
     intro:
-      "Group-insurance and flexible-benefit administration, a plan catalog across insurance, medical and wellness, an enrolment register, insurer endorsements, and the FBP declaration-to-proof workflow.",
+      "Group-insurance and flexible-benefit administration, a plan catalog across insurance, medical and wellness, an enrolment register, endorsement approvals, and the FBP declaration-to-proof workflow.",
     capabilities: [
       { title: "Plan catalog", body: "GMC, GPA and GTL plus OPD, health check-up and wellness, with contribution splits and dependent rules." },
       { title: "Enrolment register", body: "One row per employee per plan, single or bulk enrolment with eligibility checks." },
-      { title: "Endorsements", body: "Add spouse or child and correct names, sent to the insurer with approvals." },
+      { title: "Endorsements", body: "Dependent additions and corrections raised as endorsements, approved in NeevHR and queued for your insurer." },
       { title: "FBP workflow", body: "Declare, submit proof and verify to reduce taxable income from the next payroll run." },
     ],
     configPoints: ["Plans, insurers and premiums", "Eligibility and auto-enrol", "Dependent rules", "FBP components and tax treatment"],
@@ -441,11 +459,11 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Talent",
     title: "Reviews, calibration and increments on one record",
     intro:
-      "Set weighted goals, run appraisal cycles with 360 feedback and 9-box calibration, and turn ratings into increment and bonus decisions, with the right sign-off authority at every step.",
+      "Set weighted goals, run appraisal cycles with 360 feedback and a 9-box talent view, and turn ratings into increment and bonus decisions, with the right sign-off authority at every step.",
     capabilities: [
       { title: "Weighted goals", body: "Goals carry weights that sum to the plan; weighted achievement rolls up automatically." },
       { title: "360 & 9-box", body: "Nominate peer, manager and report reviewers, and calibrate talent on a 9-box grid." },
-      { title: "Bell-curve calibration", body: "A rating distribution across the A+ to C scale keeps ratings honest at sign-off." },
+      { title: "Rating distribution", body: "See ratings across the A+ to C scale against the expected curve to support calibration discussions at sign-off." },
       { title: "Increment & bonus", body: "Ratings map to increment and bonus matrices, with final sign-off repricing the number." },
     ],
     configPoints: ["Review cadence and stages", "Goal templates and weightings", "Rating scale and HiPo rule", "Increment matrices per department"],
@@ -477,14 +495,14 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Talent",
     title: "Training and compliance completion you can prove",
     intro:
-      "A course catalog, mandatory compliance training with department completion tracking, classroom sessions with seats, competencies and an annual training plan.",
+      "A course catalog, mandatory compliance training with department completion tracking, quizzes and certificates, skills earned from courses and an annual training plan.",
     capabilities: [
       { title: "Course catalog", body: "E-learning and classroom courses, mandatory or elective, with a course builder and player." },
       { title: "Compliance tracking", body: "POSH, DPDP and code-of-conduct completion tracked by department." },
-      { title: "Classroom sessions", body: "Sessions with seat limits, self-registration and capacity checks." },
+      { title: "Quizzes & certificates", body: "Pass marks on quizzes and a PDF certificate with a verification link and optional expiry." },
       { title: "Training plan", body: "An annual, per-department training plan with budgets." },
     ],
-    configPoints: ["Courses and mandatory flags", "Competency catalog", "Session capacity", "Training budgets"],
+    configPoints: ["Courses and mandatory flags", "Audiences and due dates", "Pass marks and certificate expiry", "Planned training budgets"],
     reports: ["Compliance completion by department", "Hours per employee", "Active learners"],
     related: ["performance", "onboarding"],
     Visual: LearningVisual,
@@ -517,12 +535,12 @@ export const modules: Record<string, ModuleContent> = {
     intro:
       "Announcements, celebrations, pulse surveys and peer recognition in one place, with eNPS and engagement scores you can act on.",
     capabilities: [
-      { title: "Recognition (kudos)", body: "Peer-to-peer kudos with categories, visible across the company." },
+      { title: "Recognition (kudos)", body: "Peer-to-peer kudos with badges and a chosen audience, from the recipient only to the whole company." },
       { title: "Announcements", body: "Targeted announcements with read receipts." },
       { title: "Celebrations", body: "Birthdays and work anniversaries surfaced automatically." },
       { title: "Pulse & eNPS", body: "Pulse participation and eNPS trends over survey waves." },
     ],
-    configPoints: ["Kudos categories", "Announcement audiences", "Pulse cadence", "eNPS thresholds"],
+    configPoints: ["Kudos badge labels", "Announcement audiences and expiry", "Kudos visibility", "Survey anonymity threshold"],
     reports: ["eNPS trend", "Pulse by dimension", "Recognition activity"],
     related: ["surveys", "mobile"],
     Visual: EngagementVisual,
@@ -531,9 +549,9 @@ export const modules: Record<string, ModuleContent> = {
     slug: "surveys",
     name: "Surveys",
     eyebrow: "Employee experience",
-    title: "Listen to employees, with anonymity protected",
+    title: "Listen to employees, with an anonymity threshold",
     intro:
-      "Design and run eNPS, rating, Likert, choice and text surveys with anonymity-protected analytics, so people answer honestly.",
+      "Design and run eNPS, rating, Likert, choice and text surveys, with results for small groups suppressed below an anonymity threshold.",
     capabilities: [
       { title: "Survey builder", body: "eNPS, rating, agreement, choice and open-text questions with department targeting." },
       { title: "Anonymity threshold", body: "Results below a respondent floor are suppressed to protect identity." },
@@ -555,10 +573,10 @@ export const modules: Record<string, ModuleContent> = {
     capabilities: [
       { title: "Ticket queue", body: "Categorised tickets with priority, assignee and status." },
       { title: "SLA engine", body: "Live countdowns, first-response and resolution SLAs with breach flags." },
-      { title: "Escalation", body: "Automatic escalation to the next tier when an SLA is at risk." },
+      { title: "Escalation", body: "Overdue tickets escalate automatically up a configured L1, L2, L3 ladder." },
       { title: "Threaded resolution", body: "A conversation thread per ticket with reassignment." },
     ],
-    configPoints: ["Categories and priorities", "SLA targets", "Escalation tiers", "Assignment rules"],
+    configPoints: ["Categories and priorities", "SLA targets", "Escalation tiers", "Canned responses and knowledge base"],
     reports: ["Open & breaching SLA", "Resolution time", "Volume by category"],
     related: ["mobile", "assets"],
     Visual: HelpdeskVisual,
@@ -587,7 +605,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Employee experience",
     title: "Track every company asset from issue to return",
     intro:
-      "IT and company-asset lifecycle from procurement to assignment to repair and retirement, with warranty, depreciation and custody tracking.",
+      "IT and company-asset lifecycle from registration to assignment, repair and retirement, with warranty, depreciation and custody tracking.",
     capabilities: [
       { title: "Asset lifecycle", body: "Assigned, in stock, reserved, in repair, damaged, lost and retired, with safe state changes." },
       { title: "Custody & history", body: "A full custody timeline per asset: issue, reassign, repair and return." },

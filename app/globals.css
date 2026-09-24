@@ -8,7 +8,7 @@
   --color-brand-tint: #eef2ff;
 
   --color-accent: #10b981;
-  --color-accent-dark: #059669;
+  --color-accent-dark: #047857; /* emerald-700: 5.5:1 on white for small text (WCAG AA) */
   --color-accent-tint: #ecfdf5;
 
   --color-ink: #0f172a;
@@ -235,3 +235,12 @@ body {
 /* Anchor targets clear of any sticky header when jumping via the TOC. */
 html { scroll-behavior: smooth; }
 .prose-neev h2, .prose-neev h3 { scroll-margin-top: 90px; }
+
+/* Grid items default to min-width:auto, so a wide product mockup could
+   stretch a single-column mobile grid past the viewport and clip the hero
+   copy beside it. Base layer, so explicit min-w-* utilities still win. */
+@layer base {
+  .grid > * {
+    min-width: 0;
+  }
+}

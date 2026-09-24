@@ -4,8 +4,20 @@ import config from "@payload-config";
 import { sendLeadNotification } from "@/lib/email";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const dateRe = /^\d{4}-\d{2}-\d{2}$/;
 
-const SIZES = ["500 - 1,000", "1,000 - 2,500", "2,500 - 5,000", "Other"] as const;
+// Trimmed optional text, capped so a crafted request cannot bloat a row.
+const opt = (v: unknown, max = 200) => String(v ?? "").trim().slice(0, max) || undefined;
+
+const SIZES = [
+  "Under 100",
+  "100 - 500",
+  "500 - 1,000",
+  "1,000 - 2,500",
+  "2,500 - 5,000",
+  "5,000+",
+  "Other",
+] as const;
 type Size = (typeof SIZES)[number];
 
 function toSize(v: unknown): Size | undefined {
@@ -35,6 +47,8 @@ export async function POST(req: Request) {
   const email = String(body.email ?? "").trim();
   const company = String(body.company ?? "").trim();
   const intent = toIntent(body.intent);
+  const rawDate = String(body.preferredDate ?? "").trim();
+  const preferredDate = dateRe.test(rawDate) ? rawDate : undefined;
 
   if (!name || !company || !emailRe.test(email)) {
     return NextResponse.json(
@@ -54,9 +68,12 @@ export async function POST(req: Request) {
         company,
         intent,
         size: toSize(body.size),
-        phone: String(body.phone ?? "").trim() || undefined,
-        role: String(body.role ?? "").trim() || undefined,
-        message: String(body.message ?? "").trim().slice(0, 2000) || undefined,
+        phone: opt(body.phone, 40),
+        role: opt(body.role),
+        currentHrms: opt(body.currentHrms),
+        requirement: opt(body.requirement),
+        preferredDate: preferredDate,
+        message: opt(body.message, 2000),
         status: "new",
       },
     });
@@ -76,9 +93,12 @@ export async function POST(req: Request) {
       company,
       intent,
       size: toSize(body.size),
-      phone: String(body.phone ?? "").trim() || undefined,
-      role: String(body.role ?? "").trim() || undefined,
-      message: String(body.message ?? "").trim().slice(0, 2000) || undefined,
+      phone: opt(body.phone, 40),
+      role: opt(body.role),
+      currentHrms: opt(body.currentHrms),
+      requirement: opt(body.requirement),
+      preferredDate,
+      message: opt(body.message, 2000),
     });
   } catch (err) {
     console.error("Lead email failed:", err);

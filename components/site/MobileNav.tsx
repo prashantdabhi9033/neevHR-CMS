@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { moduleGroups } from "@/lib/module-nav";
-import { industries } from "@/lib/industries";
+import { industryNav as industries } from "@/lib/industry-nav";
 
 export function MobileNav({
   secondaryNav,
@@ -64,13 +64,22 @@ export function MobileNav({
                   </div>
                 </div>
               ))}
-              <Link
-                href="/features"
-                onClick={() => setOpen(false)}
-                className="inline-block text-xs font-semibold text-brand"
-              >
-                View the full platform →
-              </Link>
+              <div className="flex gap-4">
+                <Link
+                  href="/hrms"
+                  onClick={() => setOpen(false)}
+                  className="inline-block text-xs font-semibold text-brand"
+                >
+                  HRMS overview →
+                </Link>
+                <Link
+                  href="/features"
+                  onClick={() => setOpen(false)}
+                  className="inline-block text-xs font-semibold text-brand"
+                >
+                  All features →
+                </Link>
+              </div>
             </div>
           )}
 
@@ -112,7 +121,7 @@ export function MobileNav({
 
           <div className="mt-5">
             <Button href="/demo" className="w-full" size="lg">
-              Book a demo
+              Book a Demo
             </Button>
           </div>
         </div>

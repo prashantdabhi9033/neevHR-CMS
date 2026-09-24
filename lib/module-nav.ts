@@ -17,6 +17,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "positions", name: "Positions", desc: "Position management and headcount control." },
       { slug: "planning", name: "Workforce planning", desc: "Headcount plans and open seats by department." },
       { slug: "exit", name: "Exit management", desc: "Notice, clearance, knowledge handover and F&F." },
+      { slug: "full-and-final-settlement", name: "Full & final settlement", desc: "F&F worksheet paid through payroll." },
       { slug: "documents", name: "Documents", desc: "Policies and employee files with acknowledgement." },
     ],
   },
@@ -37,7 +38,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     group: "Payroll & pay",
     blurb: "Statutory-accurate pay, on time.",
     items: [
-      { slug: "payroll", name: "Payroll", desc: "Configurable structures, LOP, arrears, payslips." },
+      { slug: "payroll", name: "Payroll", desc: "Configurable structures, LOP, arrears, payslips.", href: "/payroll" },
       { slug: "compliance", name: "Statutory compliance", desc: "PF, ESI, PT, LWF, TDS returns and challans." },
       { slug: "expenses", name: "Expenses", desc: "Claims and reimbursement with separation of duties." },
       { slug: "loans", name: "Loans & advances", desc: "Loans, advances and EMI recovery in payroll." },
@@ -50,7 +51,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     blurb: "Hire, review, reward and grow.",
     items: [
       { slug: "recruitment", name: "Recruitment", desc: "Requisitions, panels, offers, hire-to-onboard." },
-      { slug: "performance", name: "Performance", desc: "Goals, 360, calibration, increment sign-off." },
+      { slug: "performance", name: "Performance", desc: "Goals, 360, 9-box, increment sign-off." },
       { slug: "compensation", name: "Compensation", desc: "Increment and bonus planning with budgets." },
       { slug: "learning", name: "Learning", desc: "Courses, assignments and completions." },
       { slug: "succession", name: "Succession", desc: "Talent pools, 9-box and successors." },
@@ -58,9 +59,9 @@ export const moduleGroups: ModuleNavGroup[] = [
   },
   {
     group: "Employee experience",
-    blurb: "Self-service on web and mobile.",
+    blurb: "Self-service for every employee.",
     items: [
-      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on web and a mobile app for everyone.", href: "/mobile" },
+      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app coming soon.", href: "/mobile" },
       { slug: "engagement", name: "Engagement", desc: "Recognition, pulse and engagement scores." },
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
       { slug: "helpdesk", name: "HR helpdesk", desc: "Employee tickets with SLA tracking." },
@@ -79,3 +80,9 @@ export const moduleGroups: ModuleNavGroup[] = [
 
 // Flat set of slugs that have their own /features/[slug] page.
 export const moduleSlugs = moduleGroups.flatMap((g) => g.items.map((i) => i.slug));
+
+// Canonical URL for a module slug (a few modules live outside /features).
+const hrefOverrides = Object.fromEntries(
+  moduleGroups.flatMap((g) => g.items.filter((i) => i.href).map((i) => [i.slug, i.href as string]))
+) as Record<string, string>;
+export const moduleHref = (slug: string) => hrefOverrides[slug] ?? `/features/${slug}`;

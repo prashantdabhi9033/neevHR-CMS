@@ -7,7 +7,11 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { modules, moduleList } from "@/lib/modules";
 import { moduleGroups } from "@/lib/module-nav";
-import { differentiators, site } from "@/lib/site";
+import { differentiators } from "@/lib/site";
+import { moduleExtras } from "@/lib/module-extras";
+import { pageMeta } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { Faq } from "@/components/site/Faq";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -18,23 +22,19 @@ const navLookup = Object.fromEntries(
 type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return moduleList.map((m) => ({ slug: m.slug }));
+  // Payroll's canonical page is /payroll (redirected in next.config).
+  return moduleList.filter((m) => m.slug !== "payroll").map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const m = modules[slug];
   if (!m) return { title: "Module not found", robots: { index: false } };
-  return {
-    title: `${m.name} software for India`,
-    description: m.intro,
-    alternates: { canonical: `/features/${slug}` },
-    openGraph: {
-      title: `${m.name} · NeevHR`,
-      description: m.intro,
-      url: `${site.url}/features/${slug}`,
-    },
-  };
+  const x = moduleExtras[slug];
+  const desc = x?.metaDesc ?? (m.intro.length > 160 ? `${m.intro.slice(0, 157).replace(/\s+\S*$/, "")}...` : m.intro);
+  return x
+    ? pageMeta({ title: x.seoTitle, absoluteTitle: true, description: desc, path: `/features/${slug}` })
+    : pageMeta({ title: `${m.name} Software for Indian Companies`, description: desc, path: `/features/${slug}` });
 }
 
 export default async function ModulePage({ params }: Params) {
@@ -43,21 +43,15 @@ export default async function ModulePage({ params }: Params) {
   if (!m) notFound();
   const Visual = m.Visual;
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Product", item: `${site.url}/features` },
-      { "@type": "ListItem", position: 3, name: m.name, item: `${site.url}/features/${slug}` },
-    ],
-  };
+  const x = moduleExtras[slug];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <Breadcrumbs
+        items={[
+          { name: "Features", href: "/features" },
+          { name: m.name, href: `/features/${slug}` },
+        ]}
       />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
@@ -84,11 +78,11 @@ export default async function ModulePage({ params }: Params) {
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/demo" size="lg">
-                Book a demo
+                Book a Demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/features" variant="secondary" size="lg">
-                All modules
+              <Button href="/hrms" variant="secondary" size="lg">
+                Explore HRMS Features
               </Button>
             </div>
           </div>
@@ -128,6 +122,56 @@ export default async function ModulePage({ params }: Params) {
           </div>
         </Container>
       </section>
+
+      {x && (
+        <section className="border-t border-line py-16 lg:py-20">
+          <Container>
+            <Reveal className="max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                Workflow
+              </span>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">
+                How {m.name.toLowerCase()} works, step by step
+              </h2>
+            </Reveal>
+            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {x.workflow.map((w, i) => (
+                <li key={w.step} className="rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-card)]">
+                  <span className="tnum grid h-7 w-7 place-items-center rounded-full bg-brand text-xs font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <h3 className="mt-3 text-[15px] font-semibold text-ink">{w.step}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">{w.body}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              <div className="rounded-2xl border border-line bg-surface-soft p-6">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-brand">Benefits</h3>
+                <ul className="mt-4 space-y-2.5">
+                  {x.benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-2.5 text-sm text-body">
+                      <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-line bg-surface-soft p-6">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-brand">Who uses it</h3>
+                <dl className="mt-4 space-y-3">
+                  {x.whoUses.map((w) => (
+                    <div key={w.role}>
+                      <dt className="text-sm font-semibold text-ink">{w.role}</dt>
+                      <dd className="text-sm text-body">{w.does}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Config + Reports */}
       <section className="border-y border-line bg-surface-soft py-16 lg:py-20">
@@ -209,6 +253,12 @@ export default async function ModulePage({ params }: Params) {
         </Container>
       </section>
 
+      {x && (
+        <section className="border-t border-line bg-surface-soft">
+          <Faq items={x.faqs} withSchema heading={`${m.name}: frequently asked questions`} />
+        </section>
+      )}
+
       {/* Related + CTA */}
       <section className="border-t border-line py-16 lg:py-20">
         <Container>
@@ -238,9 +288,9 @@ export default async function ModulePage({ params }: Params) {
 
           <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-3xl bg-brand px-8 py-10 text-center shadow-[var(--shadow-float)] sm:flex-row sm:text-left">
             <div>
-              <h3 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-white">
                 See {m.name.toLowerCase()} on your own data
-              </h3>
+              </h2>
               <p className="mt-2 text-sm text-white/80">
                 A tailored walkthrough for your team, no generic deck.
               </p>

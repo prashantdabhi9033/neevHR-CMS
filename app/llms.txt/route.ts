@@ -1,10 +1,13 @@
 import { site } from "@/lib/site";
 import { moduleList } from "@/lib/modules";
+import { moduleHref } from "@/lib/module-nav";
 import { tools } from "@/lib/tools";
 import { industries } from "@/lib/industries";
+import { guides } from "@/lib/guides";
+import { glossary } from "@/lib/glossary";
 
 // llms.txt (llmstxt.org): a curated, machine-readable map of the site for
-// AI crawlers and LLMs. Served as text/markdown from /llms.txt.
+// AI crawlers and LLMs. Facts here must match the verified product claims.
 export const dynamic = "force-static";
 
 export function GET() {
@@ -12,42 +15,61 @@ export function GET() {
   const lines: string[] = [
     `# ${site.name}`,
     "",
-    `> ${site.description}`,
+    `> ${site.entity}`,
     "",
-    `${site.name} is the configurable, India-first HR and payroll platform for growing and enterprise companies across India. It covers payroll with PF, ESI, PT and TDS statutory accuracy, attendance, leave, performance, recruitment and employee self-service on web and mobile, on one effective-dated employee record. Implementations go live in 4 to 8 weeks and are configured by a trained HR admin.`,
+    `${site.description}`,
+    "",
+    "## Facts",
+    "- Category: HRMS software; payroll software; HR and payroll platform",
+    "- Market: India only (INR, Indian financial year, Indian statutory law)",
+    "- Built for: growing and mid-market Indian businesses, roughly 100 to several thousand employees",
+    "- Payroll statutory coverage: PF/EPF, ESI, Professional Tax, Labour Welfare Fund, TDS (old and new regime), gratuity, statutory bonus",
+    "- Statutory outputs: PF ECR file, ESIC contribution file, PF/TDS/PT/LWF challans, Form 24Q return file (FVU format), Form 16 Part A and B, bank payment files",
+    "- Platform: one effective-dated employee record, configurable policies by employee group, approval workflows, RBAC with data scopes, field-level masking, audit log",
+    "- Security: Postgres row-level tenant isolation, field-level AES-256-GCM encryption of PAN/Aadhaar/UAN/bank details, TOTP MFA, hosted in India (Bengaluru region)",
+    "- Integrations available: biometric devices over ADMS (iClock) push, email, SMS, WhatsApp, browser push, API keys, signed webhooks, CSV import/export, journal voucher CSV",
+    `- Implementation: ${site.implementation}`,
+    "- Pricing: based on employee count, modules, implementation and integrations; edition-based, in INR; quote on request",
+    "",
+    "## Not available today (stated for accuracy)",
+    "- Mobile app: coming soon (not yet in the App Store or Google Play); web self-service is available",
+    "- Hindi interface: planned; the product is in English today",
+    "- Single sign-on (SAML/OIDC): not available",
+    "- SOC 2 / ISO 27001 certification: not held",
     "",
     "## Key pages",
-    `- [Product overview](${u}/features): All HR modules on one platform`,
-    `- [Pricing](${u}/pricing): Simple, edition-based packaging priced in INR`,
-    `- [Why NeevHR](${u}/compare): How NeevHR compares to tier-one suites and point tools`,
-    `- [Security & compliance](${u}/security): Tenant isolation, RBAC, audit trail, DPDP Act 2023`,
-    `- [Mobile app](${u}/mobile): Employee self-service on any phone`,
-    `- [Integrations](${u}/integrations): How NeevHR connects to your stack`,
-    `- [Company](${u}/company): Who builds NeevHR`,
-    `- [Book a demo](${u}/demo): Request a personalised walkthrough`,
-    `- [Get a quote](${u}/demo?intent=quote): Request pricing sized to your team`,
-    `- [FAQ](${u}/faq): Common questions about NeevHR`,
-    `- [Blog](${u}/blog): Guides on Indian HR, payroll and compliance`,
+    `- [HRMS software for Indian companies](${u}/hrms)`,
+    `- [Payroll software](${u}/payroll)`,
+    `- [India payroll: PF, ESI, PT, LWF, TDS, Form 16](${u}/india-payroll)`,
+    `- [All features](${u}/features)`,
+    `- [Security & compliance](${u}/security)`,
+    `- [Integrations](${u}/integrations)`,
+    `- [Pricing](${u}/pricing)`,
+    `- [HRMS comparison](${u}/compare)`,
+    `- [Employee self-service](${u}/mobile)`,
+    `- [About NeevHR](${u}/company)`,
+    `- [FAQ](${u}/faq)`,
+    `- [Book a demo](${u}/demo)`,
+    "",
+    "## Guides",
+    ...guides.map((g) => `- [${g.h1}](${u}/${g.slug}): ${g.description}`),
     "",
     "## Modules",
-    ...moduleList.map((m) => `- [${m.name}](${u}/features/${m.slug})`),
-    "",
-    "## Free HR & payroll calculators",
-    ...tools.map((t) => `- [${t.name}](${u}/tools/${t.slug})`),
+    ...moduleList.map((m) => `- [${m.name}](${u}${moduleHref(m.slug)})`),
     "",
     "## Industries",
-    ...industries.map((i) => `- [${site.name} for ${i.name}](${u}/industries/${i.slug})`),
+    ...industries.map((i) => `- [${i.h1}](${u}/industries/${i.slug})`),
+    "",
+    "## Free HR & payroll calculators",
+    ...tools.map((t) => `- [${t.name}](${u}/tools/${t.slug}): ${t.tagline}`),
+    "",
+    "## Glossary",
+    ...glossary.map((g) => `- [${g.term}](${u}/glossary/${g.slug}): ${g.short}`),
     "",
     "## Contact",
     `- Email: ${site.email}`,
-    ...(site.phone ? [`- Phone: ${site.phone}`] : []),
-    ...(site.socials.length
-      ? [`- Social: ${site.socials.map((s) => s.href).join(", ")}`]
-      : []),
-    "",
-    "## Notes",
-    "- India-only product: INR, the India financial year and India statutory law (PF, ESI, PT, LWF, TDS, gratuity, bonus, POSH, DPDP Act 2023).",
-    "- Available in English and Hindi.",
+    `- Phone: ${site.phone}`,
+    `- Social: ${site.socials.map((s) => s.href).join(", ")}`,
     "",
   ];
 

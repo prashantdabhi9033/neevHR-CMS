@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { industries } from "@/lib/industries";
+import { industryNav as industries } from "@/lib/industry-nav";
 
 export function IndustriesMenu() {
   const [open, setOpen] = useState(false);

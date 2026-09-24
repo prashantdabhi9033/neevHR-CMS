@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/terms" },
+export const metadata: Metadata = pageMeta({
   title: "Terms of Use",
-  description: "Terms governing use of the NeevHR website.",
-};
+  description:
+    "Terms governing use of the NeevHR website and its free tools.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

@@ -214,9 +214,12 @@ export interface Lead {
   email: string;
   company: string;
   intent?: ('demo' | 'quote') | null;
-  size?: ('500 - 1,000' | '1,000 - 2,500' | '2,500 - 5,000' | 'Other') | null;
+  size?: ('Under 100' | '100 - 500' | '500 - 1,000' | '1,000 - 2,500' | '2,500 - 5,000' | '5,000+' | 'Other') | null;
   phone?: string | null;
   role?: string | null;
+  currentHrms?: string | null;
+  requirement?: string | null;
+  preferredDate?: string | null;
   message?: string | null;
   status?: ('new' | 'contacted' | 'qualified' | 'closed') | null;
   updatedAt: string;
@@ -402,6 +405,9 @@ export interface LeadsSelect<T extends boolean = true> {
   size?: T;
   phone?: T;
   role?: T;
+  currentHrms?: T;
+  requirement?: T;
+  preferredDate?: T;
   message?: T;
   status?: T;
   updatedAt?: T;

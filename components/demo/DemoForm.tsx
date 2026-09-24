@@ -1,10 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { track } from "@/lib/track";
 
-const sizes = ["500 - 1,000", "1,000 - 2,500", "2,500 - 5,000", "Other"];
+const sizes = [
+  "Under 100",
+  "100 - 500",
+  "500 - 1,000",
+  "1,000 - 2,500",
+  "2,500 - 5,000",
+  "5,000+",
+];
+
+const requirements = [
+  "Complete HRMS",
+  "Payroll & statutory compliance",
+  "Attendance, shifts & leave",
+  "Recruitment & onboarding",
+  "Performance & compensation",
+  "Switching from another HRMS",
+  "Other",
+];
 
 type Status = "idle" | "submitting" | "done" | "error";
 export type Intent = "demo" | "quote";
@@ -35,6 +53,14 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const t = copy[intent];
+  const started = useRef(false);
+  const today = new Date().toISOString().slice(0, 10);
+
+  function onStart() {
+    if (started.current) return;
+    started.current = true;
+    track("demo_start", { intent });
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -53,6 +79,11 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
         throw new Error(body.error || "Something went wrong.");
       }
       setStatus("done");
+      track(intent === "quote" ? "quote_submit" : "demo_submit", {
+        intent,
+        company_size: String(data.size ?? ""),
+        requirement: String(data.requirement ?? ""),
+      });
       form.reset();
     } catch (err) {
       setStatus("error");
@@ -75,6 +106,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
   return (
     <form
       onSubmit={onSubmit}
+      onFocusCapture={onStart}
       className="rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)] sm:p-8"
     >
       {/* honeypot */}
@@ -99,7 +131,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
         <Field label="Company" name="company" required autoComplete="organization" />
         <div className="flex flex-col gap-1.5">
           <label htmlFor="size" className="text-sm font-medium text-ink">
-            Company size
+            Employee count <span className="text-brand"> *</span>
           </label>
           <select
             id="size"
@@ -109,7 +141,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
             className="h-11 rounded-xl border border-line bg-white px-3 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
           >
             <option value="" disabled>
-              Select employees
+              Select employee count
             </option>
             {sizes.map((s) => (
               <option key={s} value={s}>
@@ -119,6 +151,28 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
           </select>
         </div>
         <Field label="Phone" name="phone" type="tel" autoComplete="tel" />
+        <Field label="Current HRMS or payroll tool" name="currentHrms" placeholder="e.g. Excel, another HRMS" />
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="requirement" className="text-sm font-medium text-ink">
+            Primary requirement
+          </label>
+          <select
+            id="requirement"
+            name="requirement"
+            defaultValue=""
+            className="h-11 rounded-xl border border-line bg-white px-3 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+          >
+            <option value="">Select one</option>
+            {requirements.map((r) => (
+              <option key={r} value={r}>
+                {r}
+              </option>
+            ))}
+          </select>
+        </div>
+        {intent === "demo" && (
+          <Field label="Preferred demo date" name="preferredDate" type="date" min={today} />
+        )}
         <Field label="Role (optional)" name="role" autoComplete="organization-title" />
       </div>
       <div className="mt-5 flex flex-col gap-1.5">
@@ -134,13 +188,13 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
           {error}
         </p>
       )}
 
       <div className="mt-6">
-        <Button type="submit" size="lg" className="w-full">
+        <Button type="submit" size="lg" className="w-full" disabled={status === "submitting"}>
           {status === "submitting" ? t.sending : t.submit}
         </Button>
         <p className="mt-3 text-center text-xs text-muted">
@@ -158,12 +212,16 @@ function Field({
   type = "text",
   required,
   autoComplete,
+  placeholder,
+  min,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
   autoComplete?: string;
+  placeholder?: string;
+  min?: string;
 }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -177,6 +235,8 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
+        placeholder={placeholder}
+        min={min}
         className="h-11 rounded-xl border border-line bg-white px-3 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
       />
     </div>

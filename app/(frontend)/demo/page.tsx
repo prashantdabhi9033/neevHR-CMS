@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { DemoForm, type Intent } from "@/components/demo/DemoForm";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { TrackView } from "@/components/site/TrackView";
+import { pageMeta } from "@/lib/seo";
 
 type Search = { searchParams: Promise<{ intent?: string }> };
 
@@ -11,13 +14,13 @@ const intents: Record<
 > = {
   demo: {
     eyebrow: "Book a demo",
-    title: "See NeevHR on your own numbers",
-    lead: "Tell us about your team, and we will tailor the session to your size, structure and statutory needs. No generic slide deck.",
+    title: "See NeevHR in Action",
+    lead: "See how NeevHR manages employees, attendance, leave, payroll, compliance and employee self-service in one platform.",
     points: [
-      "A walkthrough on your headcount and pay structure",
-      "How PF, ESI, PT and TDS are handled end to end",
+      "A walkthrough shaped around your headcount and pay structure",
+      "How PF, ESI, PT, LWF and TDS are handled end to end",
       "Attendance, leave and approval flows for your teams",
-      "A realistic 4 to 8 week implementation plan",
+      "An implementation plan based on your data and integrations",
     ],
   },
   quote: {
@@ -27,7 +30,7 @@ const intents: Record<
     points: [
       "Pricing sized to your headcount and edition",
       "What is included at each edition, no per-module maze",
-      "Implementation and onboarding scope for 4 to 8 weeks",
+      "Implementation scope based on your entities, data and integrations",
       "Answers on PF, ESI, PT, TDS and DPDP compliance",
     ],
   },
@@ -42,13 +45,13 @@ export async function generateMetadata({
 }: Search): Promise<Metadata> {
   const intent = toIntent((await searchParams).intent);
   const isQuote = intent === "quote";
-  return {
-    alternates: { canonical: "/demo" },
-    title: isQuote ? "Get a quote" : "Book a demo",
+  return pageMeta({
+    title: isQuote ? "Get an HRMS Quote" : "Book an HRMS Demo",
     description: isQuote
-      ? "Get a tailored NeevHR quote for your team, sized to your headcount and scope, in INR. India-compliant payroll, attendance, leave and performance."
-      : "Book a personalised NeevHR walkthrough. See India-compliant payroll, attendance, leave and performance mapped to how your team runs HR.",
-  };
+      ? "Get a NeevHR quote in INR, based on your employee count, modules, implementation requirements and integrations."
+      : "See NeevHR in action: employees, attendance, leave, payroll with PF, ESI, PT and TDS, compliance and self-service in one India-first HRMS.",
+    path: "/demo",
+  });
 }
 
 export default async function DemoPage({ searchParams }: Search) {
@@ -56,7 +59,10 @@ export default async function DemoPage({ searchParams }: Search) {
   const c = intents[intent];
 
   return (
-    <section className="border-b border-line bg-surface-soft py-16 lg:py-20">
+    <>
+    <TrackView event={intent === "quote" ? "quote_view" : "demo_view"} />
+    <Breadcrumbs items={[{ name: intent === "quote" ? "Get a quote" : "Book a demo", href: "/demo" }]} />
+    <section className="border-b border-line bg-surface-soft py-12 lg:py-16">
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-start">
         <div className="lg:pt-4">
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">
@@ -83,5 +89,6 @@ export default async function DemoPage({ searchParams }: Search) {
         <DemoForm intent={intent} />
       </Container>
     </section>
+    </>
   );
 }

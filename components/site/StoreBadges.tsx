@@ -1,7 +1,6 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
+// The NeevHR mobile app is not yet published to either store (verified
+// 24 Sep 2026), so the badges are static "coming soon" labels, not links or
+// buttons that imply availability. Swap in real store links at launch.
 function AppleIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="currentColor" aria-hidden="true">
@@ -21,63 +20,26 @@ function PlayIcon() {
   );
 }
 
-function Badge({
-  icon,
-  top,
-  bottom,
-  onClick,
-}: {
-  icon: React.ReactNode;
-  top: string;
-  bottom: string;
-  onClick: () => void;
-}) {
+function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white transition-transform hover:scale-[1.03] active:scale-95"
-    >
+    <span className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white opacity-90">
       {icon}
       <span className="flex flex-col leading-tight">
-        <span className="text-[10px] font-medium text-white/70">{top}</span>
-        <span className="text-sm font-semibold">{bottom}</span>
+        <span className="text-[10px] font-medium text-white/70">Coming soon on</span>
+        <span className="text-sm font-semibold">{store}</span>
       </span>
-    </button>
+    </span>
   );
 }
 
 export function StoreBadges({ className = "" }: { className?: string }) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (!open) return;
-    const t = setTimeout(() => setOpen(false), 3000);
-    return () => clearTimeout(t);
-  }, [open]);
-
   return (
     <div className={className}>
+      <p className="mb-2 text-xs font-semibold text-ink">Mobile App: Coming Soon</p>
       <div className="flex flex-wrap gap-3">
-        <Badge
-          icon={<AppleIcon />}
-          top="Download on the"
-          bottom="App Store"
-          onClick={() => setOpen(true)}
-        />
-        <Badge
-          icon={<PlayIcon />}
-          top="Get it on"
-          bottom="Google Play"
-          onClick={() => setOpen(true)}
-        />
+        <Badge icon={<AppleIcon />} store="App Store" />
+        <Badge icon={<PlayIcon />} store="Google Play" />
       </div>
-      <p
-        aria-live="polite"
-        className={`mt-2 text-xs font-semibold text-accent transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
-      >
-        Coming soon. The NeevHR mobile app is launching shortly.
-      </p>
     </div>
   );
 }

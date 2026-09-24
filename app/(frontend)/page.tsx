@@ -14,20 +14,32 @@ import { RecruitmentVisual } from "@/components/product/RecruitmentVisual";
 import { MobileVisual } from "@/components/product/MobileVisual";
 import { ReportsVisual } from "@/components/product/ReportsVisual";
 import {
+  CompleteHrmsSection,
+  OneRecordSection,
+  SizeSection,
+  WhatIsHrmsSection,
+} from "@/components/home/HrmsSections";
+import { JsonLd } from "@/components/site/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import {
   compliancePoints,
   implementationSteps,
   platformCapabilities,
   site,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = pageMeta({
+  title: "NeevHR - India-first HRMS & Payroll Software",
+  absoluteTitle: true,
+  description:
+    "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system.",
+  path: "/",
+});
 
 const comparisonRows = [
   {
     dim: "Built for",
-    neev: "Growing & enterprise India",
+    neev: "Growing & mid-market India",
     tier1: "Large global enterprises",
     point: "One team or function",
   },
@@ -39,8 +51,8 @@ const comparisonRows = [
   },
   {
     dim: "Go live",
-    neev: "4 to 8 weeks",
-    tier1: "6 to 18 months",
+    neev: "Typically 4 to 8 weeks",
+    tier1: "Often several months",
     point: "Fast, but limited",
   },
   {
@@ -55,7 +67,7 @@ const valueProps = [
   {
     icon: "flag",
     title: "Built for India, only India",
-    body: "PF, ESI, PT, LWF and TDS, gratuity, bonus, POSH and the DPDP Act 2023 live in the core, not a country pack bolted on. INR, the India financial year and state-wise statutory rules throughout, kept current with the law.",
+    body: "PF, ESI, PT, LWF and TDS, gratuity, bonus and the DPDP Act 2023 live in the core, not a country pack bolted on. INR, the India financial year and state-wise PT and LWF tables throughout.",
   },
   {
     icon: "users",
@@ -69,8 +81,8 @@ const valueProps = [
   },
   {
     icon: "bolt",
-    title: "Live in 4 to 8 weeks",
-    body: "Guided migration moves your employee master, balances and documents across cleanly. You run a parallel payroll cycle to reconcile, then go live, in weeks, not quarters.",
+    title: "Implemented in weeks",
+    body: "Guided migration moves your employee master, opening balances and documents across with dry-run validation. You run a parallel payroll cycle to reconcile, then go live. A typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity.",
   },
 ];
 
@@ -78,21 +90,21 @@ const features: Feature[] = [
   {
     eyebrow: "Payroll",
     title: "Run payroll accurately, every single cycle",
-    body: "Attendance, leave and salary inputs sync into a five-stage run. PF at the ₹15,000 ceiling, ESI to ₹21,000 gross, state PT and TDS are computed at current rates, with a last-net versus this-net check before you approve and a full audit trail behind every rupee.",
+    body: "Attendance, leave and salary inputs flow into a run that moves from compute to verify, approve and publish, and the person who computed a run cannot approve it. PF with the ₹15,000 ceiling, ESI on gross up to ₹21,000, state PT, LWF and TDS are calculated in the same run, with an audit trail behind every change.",
     highlights: [
       "Configurable pay structures assigned to employee groups",
       "LOP, arrears and loan EMIs flow in automatically",
-      "NEFT and RTGS files, register, ECR, challans and Form 16",
+      "Bank files, salary register, ECR, challans, Form 24Q and Form 16",
     ],
-    href: "/features/payroll",
+    href: "/payroll",
     Visual: PayrollVisual,
   },
   {
     eyebrow: "Time & attendance",
     title: "Turn every punch into a payroll-ready day",
-    body: "Capture attendance from biometric devices, web and mobile, apply your shift and grace rules, and close each day into numbers payroll can trust. Regularisation and overtime are approved in the same inbox as everything else.",
+    body: "Capture attendance from biometric devices and the web, apply your shift and grace rules, and close each day into numbers payroll can trust. Regularisation and overtime are approved in the same inbox as everything else.",
     highlights: [
-      "Biometric device ingestion with live health monitoring",
+      "Biometric punches over the ADMS push protocol",
       "Configurable day-close, grace and overtime rules",
       "Pay-at-risk surfaces before payroll runs",
     ],
@@ -102,10 +114,10 @@ const features: Feature[] = [
   {
     eyebrow: "Performance",
     title: "Reviews, calibration and increments on one record",
-    body: "Set weighted goals, gather 360 feedback, and calibrate talent on a 9-box grid and a rating bell curve, so ratings stay honest. Sign-off maps straight to increment and bonus decisions, with the right authority at every step.",
+    body: "Set weighted goals, gather 360 feedback, and review talent on a 9-box grid and a rating distribution curve. Final sign-off maps straight to increment and bonus decisions, with the right authority at every step.",
     highlights: [
       "Weighted goals with a 100% validator",
-      "360 feedback, 9-box and bell-curve calibration",
+      "360 feedback, 9-box and rating distribution",
       "Ratings reprice increments at final sign-off",
     ],
     href: "/features/performance",
@@ -125,12 +137,12 @@ const features: Feature[] = [
   },
   {
     eyebrow: "Employee experience",
-    title: "HR in every employee's pocket",
-    body: "Self-service should not need a desk. Employees punch attendance, apply for leave, view payslips and act on approvals from a mobile app, in English and Hindi, while managers approve on the go.",
+    title: "Self-service for every employee",
+    body: "Employees check attendance, apply for leave, download payslips, submit tax declarations and claim expenses themselves, while managers act on approvals from one inbox. The NeevHR mobile app is coming soon.",
     highlights: [
-      "Attendance, leave, payslips and approvals on mobile",
+      "Attendance, leave, payslips and tax declarations",
       "A unified inbox of everything awaiting you",
-      "First-class in English and Hindi",
+      "Mobile app: coming soon",
     ],
     href: "/mobile",
     Visual: MobileVisual,
@@ -138,7 +150,7 @@ const features: Feature[] = [
   {
     eyebrow: "Analytics",
     title: "Every list a report, every report a chart",
-    body: "A report catalog across every module plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and drill from any chart straight to the underlying records, then export to CSV, Excel or PDF.",
+    body: "A report catalog across modules plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and drill from a chart to the underlying records, then export it or schedule it by email.",
     highlights: [
       "Report builder with group-by and aggregate",
       "Drill from any chart to the records behind it",
@@ -153,23 +165,41 @@ export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${site.url}/#software`,
     name: site.name,
+    url: site.url,
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, Android, iOS",
+    applicationSubCategory: "Human Resource Management Software",
+    operatingSystem: "Web",
     description: site.description,
-    offers: { "@type": "Offer", priceCurrency: "INR" },
-    areaServed: "IN",
+    areaServed: { "@type": "Country", name: "India" },
+    inLanguage: "en-IN",
+    publisher: { "@id": `${site.url}/#organization` },
+    featureList: [
+      "Employee management with effective-dated history",
+      "Attendance, shifts, rosters and biometric integration",
+      "Leave management",
+      "Payroll with PF, ESI, PT, LWF and TDS",
+      "PF ECR, ESI return, challans, Form 24Q and Form 16",
+      "Recruitment and onboarding",
+      "Performance and compensation",
+      "Expenses, loans and variable pay",
+      "Employee self-service",
+      "HR reports and dashboards",
+    ],
   };
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${site.url}/#webpage`,
     url: site.url,
-    name: `${site.name} - India-first HRMS for growing teams`,
+    name: "NeevHR - India-first HRMS & Payroll Software",
+    description: site.metaDescription,
     isPartOf: { "@id": `${site.url}/#website` },
+    about: { "@id": `${site.url}/#software` },
     inLanguage: "en-IN",
     datePublished: "2026-09-01",
-    dateModified: new Date().toISOString().slice(0, 10),
+    dateModified: "2026-09-24",
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],
@@ -178,14 +208,8 @@ export default function HomePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={webPageJsonLd} />
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
@@ -193,30 +217,33 @@ export default function HomePage() {
         <div className="pointer-events-none absolute -top-48 left-1/2 h-[620px] w-[960px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/15 via-brand-soft/10 to-accent/10 blur-3xl" />
         <Container className="relative pt-16 text-center lg:pt-24">
           <div className="animate-fade-up mx-auto max-w-3xl">
-            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
-              HR built on a{" "}
-              <span className="text-brand">stronger foundation</span>.
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand">
+              {site.tagline}
+            </p>
+            <h1 className="mt-3 text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
+              India-first HRMS &amp; Payroll Software for{" "}
+              <span className="text-brand">Growing Businesses</span>
             </h1>
             <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
-              NeevHR runs payroll, attendance, leave, performance and
-              recruitment on a single employee record, with India&apos;s
-              statutory rules (PF, ESI, PT and TDS) built into the core.
-              Configured by your own HR team, and live in weeks.
+              NeevHR is a complete HRMS platform for employee management,
+              attendance, leave, payroll, recruitment, performance, expenses
+              and statutory compliance. Built for Indian companies with payroll
+              and HR workflows at the core.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button href="/demo" size="lg">
-                Book a demo
+                Book a Demo
                 <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/features" variant="secondary" size="lg">
-                Explore the platform
+              <Button href="/hrms" variant="secondary" size="lg">
+                Explore HRMS Features
               </Button>
             </div>
             <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
               {[
-                "PF, ESI, PT & TDS accuracy",
-                "20+ modules, one record",
-                "Web & mobile self-service",
+                "PF, ESI, PT, LWF & TDS",
+                "One effective-dated employee record",
+                "Data hosted in India",
               ].map((t) => (
                 <li key={t} className="inline-flex items-center gap-1.5">
                   <Icon name="check" className="h-4 w-4 text-accent" />
@@ -231,6 +258,11 @@ export default function HomePage() {
           </Reveal>
         </Container>
       </section>
+
+      <CompleteHrmsSection />
+      <WhatIsHrmsSection />
+      <OneRecordSection />
+      <SizeSection />
 
       {/* Value props */}
       <section id="why" className="scroll-mt-16 border-b border-line bg-surface-soft py-20">
@@ -314,7 +346,7 @@ export default function HomePage() {
               Unify people, pay and processes, without the silos
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-body">
-              Twenty-plus modules share one employee record, so a change made
+              More than 30 modules share one employee record, so a change made
               once flows everywhere it belongs. A few of them below.
             </p>
           </Reveal>
@@ -326,7 +358,7 @@ export default function HomePage() {
 
         <Container className="pb-20 text-center">
           <Button href="/features" variant="secondary" size="lg">
-            See all 20+ modules
+            See all modules
             <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </Container>
@@ -377,9 +409,11 @@ export default function HomePage() {
               How does NeevHR handle India statutory compliance?
             </h2>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/70">
-              Statutory thresholds, returns and challans are built for Indian
-              law and kept current. Row-level tenant isolation and the DPDP Act
-              2023 protect employee data by design.
+              PF, ESI, PT, LWF and TDS are calculated in every payroll run, and
+              the filing outputs are generated from it: PF ECR, the ESIC
+              contribution file, challans, the Form 24Q return file and Form 16.
+              Statutory tables are configurable, so a rate change is a settings
+              update, not a code change.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/security" variant="inverse">
@@ -426,11 +460,20 @@ export default function HomePage() {
               Implementation
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              From kickoff to first live payroll in 4 to 8 weeks
+              From kickoff to first live payroll
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-body">
-              A focused rollout your HR admin can own, benchmarked against your
-              current process before you go live.
+              A focused rollout your HR admin can own, reconciled against your
+              current process before you go live. {site.implementation}
+            </p>
+            <p className="mt-3 text-sm">
+              <Link href="/hrms-implementation" className="font-medium text-brand hover:text-brand-dark">
+                Read the implementation guide
+              </Link>
+              {" · "}
+              <Link href="/hrms-data-migration" className="font-medium text-brand hover:text-brand-dark">
+                How data migration works
+              </Link>
             </p>
           </Reveal>
           <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

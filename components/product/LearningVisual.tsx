@@ -17,7 +17,7 @@ export function LearningVisual() {
       <div className="grid gap-4 sm:grid-cols-3">
         <StatTile label="Completion" value="94%" tone="accent" />
         <StatTile label="Hrs / employee" value="11.4" />
-        <StatTile label="Sessions" value="7" sub="this month" />
+        <StatTile label="Certificates" value="46" sub="issued this month" />
       </div>
 
       <div className="mt-4 rounded-xl border border-line p-4">

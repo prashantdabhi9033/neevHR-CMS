@@ -42,14 +42,16 @@ export function SegField<T extends string>({
   options: { label: string; value: T }[];
   onChange: (v: T) => void;
 }) {
+  const cols = options.length === 3 ? "grid-cols-3" : "grid-cols-2";
   return (
-    <div>
+    <div role="group" aria-label={label}>
       <span className="text-sm font-medium text-ink">{label}</span>
-      <div className="mt-1.5 grid grid-cols-2 gap-1 rounded-xl border border-line bg-surface-soft p-1">
+      <div className={`mt-1.5 grid ${cols} gap-1 rounded-xl border border-line bg-surface-soft p-1`}>
         {options.map((o) => (
           <button
             key={o.value}
             type="button"
+            aria-pressed={value === o.value}
             onClick={() => onChange(o.value)}
             className={`h-9 rounded-lg text-sm font-medium transition-colors ${
               value === o.value
@@ -91,5 +93,30 @@ export function ResultRow({
         {value}
       </span>
     </div>
+  );
+}
+
+export function DateField({
+  label,
+  value,
+  onChange,
+  hint,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  hint?: string;
+}) {
+  return (
+    <label className="block">
+      <span className="text-sm font-medium text-ink">{label}</span>
+      <input
+        type="date"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-1.5 h-11 w-full rounded-xl border border-line bg-white px-3 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+      />
+      {hint && <span className="mt-1 block text-xs text-muted">{hint}</span>}
+    </label>
   );
 }

@@ -22,7 +22,8 @@ const cspFor = (allowEval: boolean) =>
     "upgrade-insecure-requests",
   ].join("; ");
 
-const frontendCsp = cspFor(false);
+// React dev tooling needs eval; production builds never do.
+const frontendCsp = cspFor(process.env.NODE_ENV === "development");
 const adminCsp = cspFor(true);
 
 const baseSecurityHeaders = [
@@ -76,7 +77,85 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [{ source: "/about", destination: "/company", permanent: true }];
+    // Descriptive /hrms/<topic> URLs (the SEO spec's naming) resolve to the
+    // canonical pages that already exist, instead of duplicating content.
+    const hrmsAliases: Record<string, string> = {
+      "employee-management": "/features/employees",
+      onboarding: "/features/onboarding",
+      attendance: "/features/attendance",
+      "leave-management": "/features/leave",
+      "shift-management": "/features/rostering",
+      payroll: "/payroll",
+      "payroll-compliance": "/features/compliance",
+      recruitment: "/features/recruitment",
+      "performance-management": "/features/performance",
+      "expense-management": "/features/expenses",
+      "loan-management": "/features/loans",
+      compensation: "/features/compensation",
+      "employee-self-service": "/mobile",
+      "hr-analytics": "/features/reports",
+      "employee-documents": "/features/documents",
+      "exit-management": "/features/exit",
+      "full-and-final-settlement": "/features/full-and-final-settlement",
+      manufacturing: "/industries/manufacturing",
+      "it-ites": "/industries/it-ites",
+      retail: "/industries/retail-qsr",
+      healthcare: "/industries/healthcare",
+      bfsi: "/industries/bfsi",
+      logistics: "/industries/logistics",
+      pharma: "/industries/pharma",
+      hospitality: "/industries/hospitality",
+      "professional-services": "/industries/professional-services",
+      staffing: "/industries/staffing-bpo",
+    };
+    const toolAliases = [
+      "pf-calculator",
+      "esi-calculator",
+      "gratuity-calculator",
+      "hra-calculator",
+      "bonus-calculator",
+      "salary-hike-calculator",
+      "tds-calculator",
+      "ctc-calculator",
+      "leave-encashment-calculator",
+      "overtime-calculator",
+      "notice-period-calculator",
+      "full-and-final-calculator",
+    ];
+    return [
+      // Single canonical host: apex -> www (the canonical tags use www).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "neevhr.com" }],
+        destination: "https://www.neevhr.com/:path*",
+        permanent: true,
+      },
+      { source: "/about", destination: "/company", permanent: true },
+      { source: "/features/payroll", destination: "/payroll", permanent: true },
+      { source: "/hrms-comparison", destination: "/compare", permanent: true },
+      { source: "/full-and-final-settlement", destination: "/features/full-and-final-settlement", permanent: true },
+      { source: "/employee-management", destination: "/features/employees", permanent: true },
+      { source: "/attendance", destination: "/features/attendance", permanent: true },
+      { source: "/leave-management", destination: "/features/leave", permanent: true },
+      { source: "/recruitment", destination: "/features/recruitment", permanent: true },
+      { source: "/performance-management", destination: "/features/performance", permanent: true },
+      { source: "/employee-self-service", destination: "/mobile", permanent: true },
+      { source: "/hr-analytics", destination: "/features/reports", permanent: true },
+      { source: "/industries/retail", destination: "/industries/retail-qsr", permanent: true },
+      { source: "/industries/staffing", destination: "/industries/staffing-bpo", permanent: true },
+      { source: "/in-hand-salary-calculator", destination: "/tools/take-home-salary-calculator", permanent: true },
+      { source: "/tools/in-hand-salary-calculator", destination: "/tools/take-home-salary-calculator", permanent: true },
+      ...toolAliases.map((t) => ({
+        source: `/${t}`,
+        destination: `/tools/${t}`,
+        permanent: true,
+      })),
+      ...Object.entries(hrmsAliases).map(([from, to]) => ({
+        source: `/hrms/${from}`,
+        destination: to,
+        permanent: true,
+      })),
+    ];
   },
 };
 

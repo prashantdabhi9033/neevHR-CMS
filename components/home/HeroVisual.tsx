@@ -15,6 +15,9 @@ export function HeroVisual() {
           <span className="ml-3 text-xs font-medium text-muted">
             NeevHR · HR Dashboard
           </span>
+          <span className="ml-auto rounded-full border border-line bg-white px-2 py-0.5 text-[10px] font-medium text-muted">
+            Illustrative data
+          </span>
         </div>
 
         <div className="grid gap-4 p-5 sm:grid-cols-2">

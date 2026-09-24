@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/dpdp" },
-  title: "DPDP Notice",
+export const metadata: Metadata = pageMeta({
+  title: "DPDP Act 2023 Notice",
   description:
-    "How NeevHR aligns with the Digital Personal Data Protection Act, 2023.",
-};
+    "How NeevHR processes personal data under India's Digital Personal Data Protection Act, 2023, and how to contact us about your rights.",
+  path: "/dpdp",
+});
 
 export default function DpdpPage() {
   return (

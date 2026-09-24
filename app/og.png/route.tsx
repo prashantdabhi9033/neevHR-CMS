@@ -1,13 +1,14 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name} - India-first HRMS for growing teams`;
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+const size = { width: 1200, height: 630 };
 
-// Default Open Graph / Twitter card image for every frontend page.
-// Individual pages can override by exporting their own opengraph-image.
-export default function Image() {
+// Stable URL (/og.png) for the shared Open Graph / X card image. A file-based
+// opengraph-image inside the (frontend) route group gets a hashed path, which
+// per-page metadata cannot reference reliably.
+export const dynamic = "force-static";
+
+export function GET() {
   return new ImageResponse(
     (
       <div
@@ -54,7 +55,7 @@ export default function Image() {
               maxWidth: 980,
             }}
           >
-            HR built on a stronger foundation.
+            India-first HRMS & Payroll Software
           </div>
           <div
             style={{
@@ -64,8 +65,8 @@ export default function Image() {
               maxWidth: 940,
             }}
           >
-            Payroll with PF, ESI, PT and TDS accuracy, attendance, leave,
-            performance and recruitment. Live in 4 to 8 weeks.
+            Employees, attendance, leave, payroll with PF, ESI, PT and TDS,
+            recruitment and performance, on one platform.
           </div>
         </div>
 
@@ -86,7 +87,7 @@ export default function Image() {
               background: "#10b981",
             }}
           />
-          The India-first HR and payroll platform · www.neevhr.com
+          HR built on a stronger foundation · www.neevhr.com
         </div>
       </div>
     ),

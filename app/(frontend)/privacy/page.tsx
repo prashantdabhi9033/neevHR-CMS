@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/privacy" },
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
-  description: "How NeevHR handles personal data.",
-};
+  description:
+    "How NeevHR collects, uses and protects personal data on this website, and how to exercise your rights.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

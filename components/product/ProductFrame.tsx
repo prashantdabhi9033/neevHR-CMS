@@ -13,7 +13,11 @@ export function ProductFrame({
   glow?: boolean;
 }) {
   return (
-    <div className="relative">
+    <figure className="relative">
+      <figcaption className="sr-only">
+        Illustration of the NeevHR {title} screen, shown with illustrative
+        sample data.
+      </figcaption>
       {glow && (
         <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-brand/10 blur-2xl" />
       )}
@@ -22,11 +26,14 @@ export function ProductFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
-          <span className="ml-3 text-xs font-medium text-muted">{title}</span>
+          <span className="ml-3 truncate text-xs font-medium text-muted">{title}</span>
+          <span className="ml-auto shrink-0 rounded-full border border-line bg-white px-2 py-0.5 text-[10px] font-medium text-muted">
+            Illustrative data
+          </span>
         </div>
-        <div className="p-5">{children}</div>
+        <div className="overflow-x-auto p-5">{children}</div>
       </div>
-    </div>
+    </figure>
   );
 }
 

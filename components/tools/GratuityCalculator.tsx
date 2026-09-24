@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NumberField, ResultRow } from "./CalcUI";
 import { inr } from "@/lib/format";
 
-const CAP = 2000000; // Rs 20 lakh max under the Payment of Gratuity Act
+const CAP = 2000000; // Rs 20 lakh statutory ceiling
 
 export function GratuityCalculator() {
   const [salary, setSalary] = useState("60000");
@@ -29,7 +29,7 @@ export function GratuityCalculator() {
           value={years}
           onChange={setYears}
           suffix="yrs"
-          hint="6 months or more counts as a full year."
+          hint="Enter completed years; a part year of more than 6 months counts as a full year."
         />
       </div>
 
@@ -41,7 +41,8 @@ export function GratuityCalculator() {
         {!eligible && (
           <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
             Gratuity is generally payable only after 5 years of continuous
-            service.
+            service (1 year for fixed-term employees under the Code on Social
+            Security, 2020), except on death or disablement.
           </p>
         )}
         <div className="mt-5">
@@ -53,8 +54,8 @@ export function GratuityCalculator() {
           <ResultRow label="Payable" value={inr(payable)} strong />
         </div>
         <p className="mt-4 text-xs text-muted">
-          Based on the Payment of Gratuity Act, 1972 (covered establishments).
-          The maximum is {inr(CAP)}. Indicative only.
+          Standard formula for covered establishments, now under the Code on
+          Social Security, 2020. The maximum is {inr(CAP)}. Indicative only.
         </p>
       </div>
     </div>

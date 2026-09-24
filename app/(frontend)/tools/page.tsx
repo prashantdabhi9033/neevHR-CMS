@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/site/PageHeader";
 import { tools } from "@/lib/tools";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/tools" },
-  title: "Free HR & payroll tools",
+export const metadata: Metadata = pageMeta({
+  title: "Free HR & Payroll Calculators for India",
   description:
-    "Free India HR and payroll calculators from NeevHR: gratuity, HRA exemption and PF contribution calculators.",
-};
+    "Free Indian HR and payroll calculators: PF, ESI, gratuity, HRA exemption, take-home salary, statutory bonus and salary hike, each with formula, example and sources.",
+  path: "/tools",
+});
 
 export default function ToolsPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Free tools", href: "/tools" }]} />
       <PageHeader
         eyebrow="Free HR tools"
         title="Free calculators for Indian HR and payroll"

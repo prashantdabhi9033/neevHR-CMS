@@ -35,10 +35,21 @@ export const Leads: CollectionConfig = {
     {
       name: "size",
       type: "select",
-      options: ["500 - 1,000", "1,000 - 2,500", "2,500 - 5,000", "Other"],
+      options: [
+        "Under 100",
+        "100 - 500",
+        "500 - 1,000",
+        "1,000 - 2,500",
+        "2,500 - 5,000",
+        "5,000+",
+        "Other",
+      ],
     },
     { name: "phone", type: "text" },
     { name: "role", type: "text" },
+    { name: "currentHrms", type: "text", label: "Current HRMS" },
+    { name: "requirement", type: "text", label: "Primary requirement" },
+    { name: "preferredDate", type: "text", label: "Preferred demo date" },
     { name: "message", type: "textarea" },
     {
       name: "status",
