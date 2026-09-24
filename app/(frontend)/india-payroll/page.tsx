@@ -9,6 +9,7 @@ import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { pageMeta, LAST_REVIEWED, LAST_REVIEWED_ISO } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { states } from "@/lib/states";
 
 export const metadata: Metadata = pageMeta({
   title: "India Payroll Software: PF, ESI, PT, LWF, TDS & Form 16",
@@ -341,6 +342,22 @@ export default function IndiaPayrollPage() {
               </div>
             </div>
           ))}
+
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-ink">State payroll guides</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-body">
+              Professional tax, Labour Welfare Fund, minimum wages and shops and establishments rules, state by state.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {states.map((st) => (
+                <li key={st.slug}>
+                  <Link href={`/india/payroll/${st.slug}`} className="inline-block rounded-full border border-line bg-white px-3 py-1.5 text-sm font-medium text-body hover:border-brand/40 hover:text-brand">
+                    {st.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <Disclaimer sources={[EPFO, ESIC, ITD, TIN, MOLE]} />
         </Container>

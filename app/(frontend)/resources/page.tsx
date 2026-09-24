@@ -8,6 +8,7 @@ import { guides } from "@/lib/guides";
 import { tools } from "@/lib/tools";
 import { glossary } from "@/lib/glossary";
 import { pageMeta } from "@/lib/seo";
+import { states } from "@/lib/states";
 
 export const metadata: Metadata = pageMeta({
   title: "HR, Payroll & Compliance Resources for India",
@@ -87,6 +88,16 @@ export default function ResourcesPage() {
             <Link href="/glossary" className="mt-4 inline-block text-sm font-semibold text-brand hover:text-brand-dark">
               Full glossary →
             </Link>
+            <h2 className="mt-10 text-2xl font-bold tracking-tight text-ink">State payroll guides</h2>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {states.map((st) => (
+                <li key={st.slug}>
+                  <Link href={`/india/payroll/${st.slug}`} className="inline-block rounded-full border border-line bg-white px-3 py-1.5 text-sm font-medium text-body hover:border-brand/40 hover:text-brand">
+                    {st.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>

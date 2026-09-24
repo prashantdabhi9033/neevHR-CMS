@@ -7,6 +7,7 @@ import { tools } from "@/lib/tools";
 import { industries } from "@/lib/industries";
 import { guides } from "@/lib/guides";
 import { glossary } from "@/lib/glossary";
+import { states } from "@/lib/states";
 import { LAST_REVIEWED_ISO } from "@/lib/seo";
 
 type Entry = MetadataRoute.Sitemap[number];
@@ -66,6 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...industries.map((i) => `/industries/${i.slug}`),
     ...tools.map((t) => `/tools/${t.slug}`),
     ...guides.map((g) => `/${g.slug}`),
+    ...states.map((st) => `/india/payroll/${st.slug}`),
   ].map((r) => entry(r, 0.7));
 
   const resources = [

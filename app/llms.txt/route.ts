@@ -5,6 +5,7 @@ import { tools } from "@/lib/tools";
 import { industries } from "@/lib/industries";
 import { guides } from "@/lib/guides";
 import { glossary } from "@/lib/glossary";
+import { states } from "@/lib/states";
 
 // llms.txt (llmstxt.org): a curated, machine-readable map of the site for
 // AI crawlers and LLMs. Facts here must match the verified product claims.
@@ -53,6 +54,9 @@ export function GET() {
     "",
     "## Guides",
     ...guides.map((g) => `- [${g.h1}](${u}/${g.slug}): ${g.description}`),
+    "",
+    "## State payroll guides",
+    ...states.map((st) => `- [${st.name} payroll: PT, LWF and rules](${u}/india/payroll/${st.slug})`),
     "",
     "## Modules",
     ...moduleList.map((m) => `- [${m.name}](${u}${moduleHref(m.slug)})`),
