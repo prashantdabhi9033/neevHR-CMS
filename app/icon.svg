@@ -1,5 +1,1 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="16" fill="#4338ca"/>
-  <path d="M18 46V19.5C18 18.6716 18.6716 18 19.5 18H23.2C23.7113 18 24.1876 18.2606 24.4635 18.6912L41.5 45.2V19.5C41.5 18.6716 42.1716 18 43 18H44.5C45.3284 18 46 18.6716 46 19.5V45.5C46 46.3284 45.3284 47 44.5 47H40.8C40.2887 47 39.8124 46.7394 39.5365 46.3088L22.5 19.8V46C22.5 46.8284 21.8284 47.5 21 47.5H19.5C18.6716 47.5 18 46.8284 18 46Z" fill="white"/>
-  <rect x="22" y="50" width="20" height="4.5" rx="2.25" fill="#10b981"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="NeevHR" ><rect width="1024" height="1024" rx="230" fill="#15147B"/><g transform="translate(-77.72 -80.99) scale(0.93237)"><path d="M349 840 L349 700 C349 620 410 566 484 566 C540 566 578 600 603 645 L692 800 Q734 874 792 800 L917 641" fill="none" stroke="#FFFFFF" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/><g fill="#FFFFFF"><ellipse cx="779" cy="603.5" rx="125" ry="44.5" transform="rotate(-3.5 779 603.5)"/><ellipse cx="797.5" cy="509.5" rx="94.5" ry="39" transform="rotate(-3 797.5 509.5)"/><ellipse cx="808.5" cy="428.5" rx="60" ry="22" transform="rotate(-18 808.5 428.5)"/></g></g></svg>

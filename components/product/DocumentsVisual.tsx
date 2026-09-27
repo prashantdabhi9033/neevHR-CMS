@@ -45,7 +45,7 @@ export function DocumentsVisual() {
                 <td className={`px-3 py-2 text-xs ${r.expiry !== "-" ? "text-amber-600" : "text-muted"}`}>{r.expiry}</td>
                 <td className="px-3 py-2 text-right">
                   {r.verified ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-accent-dark">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-success-dark">
                       <Icon name="check" className="h-3.5 w-3.5" /> Verified
                     </span>
                   ) : (

@@ -34,7 +34,7 @@ export function EngagementVisual() {
       </div>
 
       <div className="mt-3 flex items-center gap-2 rounded-xl border border-line bg-surface-soft px-4 py-2.5">
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-tint text-sm">🎉</span>
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-success-tint text-sm">🎉</span>
         <p className="text-xs text-body">
           <span className="font-semibold text-ink">Kudos</span> to Ananya for shipping the payroll release
         </p>

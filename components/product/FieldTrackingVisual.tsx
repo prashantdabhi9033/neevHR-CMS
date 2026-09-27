@@ -29,7 +29,7 @@ export function FieldTrackingVisual() {
           {/* geofence */}
           <polygon
             points="70,50 280,40 300,160 90,175"
-            fill="rgba(67,56,202,0.10)"
+            fill="rgba(21,20,123,0.08)"
             stroke="var(--color-brand)"
             strokeWidth="2"
             strokeDasharray="5 4"

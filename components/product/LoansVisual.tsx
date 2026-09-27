@@ -17,7 +17,7 @@ export function LoansVisual() {
           <span className="tnum text-muted">₹8,264 of ₹1,00,000 · 12% p.a.</span>
         </div>
         <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-surface-soft">
-          <div className="h-full rounded-full bg-accent" style={{ width: "8%" }} />
+          <div className="h-full rounded-full bg-success" style={{ width: "8%" }} />
         </div>
       </div>
 

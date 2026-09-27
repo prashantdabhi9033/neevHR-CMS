@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { site } from "@/lib/site";
+import { BRAND, WORDMARK_RATIO, svgDataUri, wordmarkSvg } from "@/lib/brand";
 
 const size = { width: 1200, height: 630 };
 
@@ -20,29 +20,19 @@ export function GET() {
           justifyContent: "space-between",
           padding: "72px",
           background:
-            "linear-gradient(135deg, #312e81 0%, #4338ca 55%, #4f46e5 100%)",
+            `linear-gradient(135deg, ${BRAND.night} 0%, ${BRAND.blue} 55%, ${BRAND.pebble} 100%)`,
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 16,
-              background: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#4338ca",
-              fontSize: 40,
-              fontWeight: 800,
-            }}
-          >
-            N
-          </div>
-          <div style={{ fontSize: 40, fontWeight: 700 }}>{site.name}</div>
+        <div style={{ display: "flex" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={svgDataUri(wordmarkSvg("#FFFFFF"))}
+            height={64}
+            width={Math.round(64 * WORDMARK_RATIO)}
+            alt="NeevHR"
+          />
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -61,7 +51,7 @@ export function GET() {
             style={{
               fontSize: 30,
               lineHeight: 1.35,
-              color: "#c7d2fe",
+              color: BRAND.mist,
               maxWidth: 940,
             }}
           >
@@ -76,7 +66,7 @@ export function GET() {
             alignItems: "center",
             gap: 16,
             fontSize: 26,
-            color: "#e0e7ff",
+            color: "#E7E6F8",
           }}
         >
           <div
@@ -84,7 +74,7 @@ export function GET() {
               width: 14,
               height: 14,
               borderRadius: 7,
-              background: "#10b981",
+              background: BRAND.orange,
             }}
           />
           HR built on a stronger foundation · www.neevhr.com

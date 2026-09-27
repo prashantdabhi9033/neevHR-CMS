@@ -35,7 +35,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button href="/demo" className="hidden sm:inline-flex">
+          <Button href="/demo" variant="cta" className="hidden sm:inline-flex">
             Book a Demo
           </Button>
           <MobileNav secondaryNav={secondaryNav} />

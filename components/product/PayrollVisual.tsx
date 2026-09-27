@@ -26,7 +26,7 @@ export function PayrollVisual() {
           <p className="text-sm font-semibold text-ink">
             Payslip · Ishita Gandhi
           </p>
-          <span className="rounded-md bg-accent-tint px-2 py-0.5 text-xs font-semibold text-accent-dark">
+          <span className="rounded-md bg-success-tint px-2 py-0.5 text-xs font-semibold text-success-dark">
             Finalised
           </span>
         </div>

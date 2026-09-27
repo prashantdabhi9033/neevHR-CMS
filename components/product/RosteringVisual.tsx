@@ -4,7 +4,7 @@ import { ProductFrame } from "./ProductFrame";
 // coloured shift chips, off/leave states, and a weekly hours column.
 type Cell = "M" | "E" | "N" | "O" | "L";
 const shifts: Record<Cell, { label: string; time: string; bg: string; fg: string }> = {
-  M: { label: "Morning", time: "09:30", bg: "rgba(67,56,202,0.12)", fg: "var(--color-brand)" },
+  M: { label: "Morning", time: "09:30", bg: "rgba(21,20,123,0.10)", fg: "var(--color-brand)" },
   E: { label: "Evening", time: "14:00", bg: "rgba(245,158,11,0.16)", fg: "#b45309" },
   N: { label: "Night", time: "22:00", bg: "rgba(139,92,246,0.14)", fg: "#7c3aed" },
   O: { label: "Off", time: "", bg: "var(--color-surface-soft)", fg: "var(--color-muted)" },

@@ -21,7 +21,7 @@ export function SurveysVisual() {
         <div className="mt-3 flex h-7 overflow-hidden rounded-lg">
           <div className="flex items-center justify-center bg-red-400 text-[11px] font-semibold text-white" style={{ width: "18%" }}>18%</div>
           <div className="flex items-center justify-center bg-slate-200 text-[11px] font-semibold text-slate-600" style={{ width: "22%" }}>22%</div>
-          <div className="flex items-center justify-center bg-accent text-[11px] font-semibold text-white" style={{ width: "60%" }}>60%</div>
+          <div className="flex items-center justify-center bg-success text-[11px] font-semibold text-white" style={{ width: "60%" }}>60%</div>
         </div>
         <div className="mt-2 flex justify-between text-[11px] text-muted">
           <span>Detractors 18%</span><span>Passives 22%</span><span>Promoters 60%</span>

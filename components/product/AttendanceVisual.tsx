@@ -12,7 +12,7 @@ const days: S[] = [
 ];
 
 const tone: Record<S, string> = {
-  p: "bg-accent text-white",
+  p: "bg-success text-white",
   l: "bg-amber-400 text-white",
   w: "bg-brand text-white",
   wo: "bg-line text-muted",

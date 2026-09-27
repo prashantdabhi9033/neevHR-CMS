@@ -1,25 +1,36 @@
 import Link from "next/link";
+import { BRAND, WORDMARK_RATIO, wordmarkSvg } from "@/lib/brand";
 
-// NeevHR wordmark: an "N" resting on an emerald foundation bar (neev = foundation).
+type Tone = "brand" | "white" | "charcoal" | "twotone";
+
+const COLORS: Record<Tone, [string, string]> = {
+  brand: [BRAND.blue, BRAND.blue],
+  white: ["#FFFFFF", "#FFFFFF"],
+  charcoal: [BRAND.charcoal, BRAND.charcoal],
+  twotone: [BRAND.charcoal, BRAND.pebble],
+};
+
+// NeevHR brand lockup (brand v2.0): the "neevHR" wordmark with the three pebbles on the v. It IS the name,
+// so it is never paired with a separate "NeevHR" text label or the pebble mark.
 export function BrandMark({
   href = "/",
   className = "",
+  height = 30,
+  tone = "brand",
 }: {
   href?: string | null;
   className?: string;
+  height?: number;
+  tone?: Tone;
 }) {
+  const [color, pebble] = COLORS[tone];
   const mark = (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <span className="relative inline-flex h-9 w-9 flex-col items-center justify-end rounded-xl bg-brand shadow-sm">
-        <span className="absolute top-1.5 text-[17px] font-bold leading-none text-white">
-          N
-        </span>
-        <span className="mb-1.5 h-1 w-5 rounded-full bg-accent" />
-      </span>
-      <span className="text-[19px] font-bold tracking-tight text-ink">
-        Neev<span className="text-brand">HR</span>
-      </span>
-    </span>
+    <span
+      className={`inline-block shrink-0 [&>svg]:block [&>svg]:h-full [&>svg]:w-full ${className}`}
+      style={{ height, width: Math.round(height * WORDMARK_RATIO) }}
+      // Static brand artwork from lib/brand.ts (no user input).
+      dangerouslySetInnerHTML={{ __html: wordmarkSvg(color, pebble) }}
+    />
   );
 
   if (!href) return mark;

@@ -25,7 +25,7 @@ export function HeroVisual() {
           <div className="rounded-xl border border-line bg-white p-4">
             <p className="text-xs text-muted">Active headcount</p>
             <p className="tnum mt-1 text-2xl font-bold text-ink">2,847</p>
-            <p className="mt-1 text-xs font-medium text-accent-dark">
+            <p className="mt-1 text-xs font-medium text-success-dark">
               +32 this month
             </p>
           </div>
@@ -52,7 +52,7 @@ export function HeroVisual() {
                     height: `${h}%`,
                     background:
                       i === bars.length - 1
-                        ? "var(--color-accent)"
+                        ? "var(--color-success)"
                         : "var(--color-brand)",
                     opacity: i === bars.length - 1 ? 1 : 0.28 + i * 0.1,
                   }}
@@ -72,7 +72,7 @@ export function HeroVisual() {
                 <p className="text-xs text-muted">Ananya Kulkarni · 2 days</p>
               </div>
             </div>
-            <span className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white">
+            <span className="rounded-lg bg-success px-3 py-1.5 text-xs font-semibold text-white">
               Approve
             </span>
           </div>

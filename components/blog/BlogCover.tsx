@@ -11,7 +11,7 @@ function Motif({ category }: { category: string }) {
       return (
         <g>
           <rect x="212" y="34" width="150" height="92" rx="10" fill={white} opacity="0.95" />
-          <rect x="226" y="48" width="70" height="8" rx="4" fill="#4338ca" opacity="0.35" />
+          <rect x="226" y="48" width="70" height="8" rx="4" fill="#15147b" opacity="0.35" />
           <rect x="226" y="66" width="122" height="6" rx="3" fill="#94a3b8" />
           <rect x="226" y="80" width="122" height="6" rx="3" fill="#94a3b8" />
           <rect x="226" y="98" width="60" height="14" rx="4" fill="#10b981" />
@@ -76,10 +76,10 @@ function Motif({ category }: { category: string }) {
       return (
         <g>
           <rect x="70" y="40" width="220" height="96" rx="12" fill={white} opacity="0.95" />
-          <rect x="70" y="40" width="220" height="22" rx="12" fill="#4338ca" opacity="0.4" />
-          <rect x="86" y="74" width="60" height="44" rx="6" fill="#eef2ff" />
+          <rect x="70" y="40" width="220" height="22" rx="12" fill="#15147b" opacity="0.4" />
+          <rect x="86" y="74" width="60" height="44" rx="6" fill="#eeeafe" />
           <rect x="156" y="74" width="60" height="44" rx="6" fill="#ecfdf5" />
-          <rect x="226" y="74" width="48" height="44" rx="6" fill="#eef2ff" />
+          <rect x="226" y="74" width="48" height="44" rx="6" fill="#eeeafe" />
         </g>
       );
     default: // HR strategy: connected nodes

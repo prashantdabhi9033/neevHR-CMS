@@ -32,7 +32,7 @@ export function VariablePayVisual() {
                     {r.comp}
                   </span>
                 </td>
-                <td className={`tnum px-3 py-2 text-right font-semibold ${r.type === "add" ? "text-accent-dark" : "text-red-600"}`}>
+                <td className={`tnum px-3 py-2 text-right font-semibold ${r.type === "add" ? "text-success-dark" : "text-red-600"}`}>
                   {r.type === "add" ? "+" : "−"}₹{r.amt}
                 </td>
               </tr>

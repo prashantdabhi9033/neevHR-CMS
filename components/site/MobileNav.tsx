@@ -120,7 +120,7 @@ export function MobileNav({
           </div>
 
           <div className="mt-5">
-            <Button href="/demo" className="w-full" size="lg">
+            <Button href="/demo" variant="cta" className="w-full" size="lg">
               Book a Demo
             </Button>
           </div>

@@ -14,7 +14,7 @@ const matrix: number[][] = [
 
 function heat(v: number) {
   if (v >= 14) return { bg: "rgba(16,185,129,0.16)", fg: "#047857" };
-  if (v >= 8) return { bg: "rgba(67,56,202,0.12)", fg: "var(--color-brand)" };
+  if (v >= 8) return { bg: "rgba(21,20,123,0.10)", fg: "var(--color-brand)" };
   if (v >= 4) return { bg: "rgba(245,158,11,0.16)", fg: "#b45309" };
   return { bg: "var(--color-surface-soft)", fg: "var(--color-muted)" };
 }
@@ -70,9 +70,9 @@ export function CompensationVisual() {
           <span className="tnum text-muted">₹2.1 Cr of ₹2.4 Cr</span>
         </div>
         <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-surface-soft">
-          <div className="h-full rounded-full bg-accent" style={{ width: "88%" }} />
+          <div className="h-full rounded-full bg-success" style={{ width: "88%" }} />
         </div>
-        <p className="mt-1.5 text-[11px] font-medium text-accent-dark">
+        <p className="mt-1.5 text-[11px] font-medium text-success-dark">
           ₹30 L left in pool
         </p>
       </div>

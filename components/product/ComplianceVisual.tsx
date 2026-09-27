@@ -15,7 +15,7 @@ const rows = [
   { due: "15 Oct", ob: "PF ECR · Sep", st: "PF", amt: "12,46,900", status: "Due", tone: "text-amber-600" },
   { due: "15 Oct", ob: "ESI return · Sep", st: "ESI", amt: "3,18,400", status: "Due", tone: "text-amber-600" },
   { due: "21 Oct", ob: "PT return · Sep", st: "PT", amt: "40,000", status: "Upcoming", tone: "text-muted" },
-  { due: "15 Sep", ob: "PF ECR · Aug", st: "PF", amt: "12,11,700", status: "Filed", tone: "text-accent-dark" },
+  { due: "15 Sep", ob: "PF ECR · Aug", st: "PF", amt: "12,11,700", status: "Filed", tone: "text-success-dark" },
 ];
 
 export function ComplianceVisual() {

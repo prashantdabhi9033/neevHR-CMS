@@ -3,13 +3,13 @@ import { marked } from "marked";
 export type CategoryMeta = { label: string; from: string; to: string; fg: string };
 
 const CATEGORY: Record<string, CategoryMeta> = {
-  payroll: { label: "Payroll", from: "#4338ca", to: "#6366f1", fg: "#fff" },
+  payroll: { label: "Payroll", from: "#15147b", to: "#5b45e8", fg: "#fff" },
   compliance: { label: "Compliance", from: "#059669", to: "#10b981", fg: "#fff" },
   time: { label: "Attendance & leave", from: "#0891b2", to: "#22d3ee", fg: "#fff" },
   performance: { label: "Performance", from: "#7c3aed", to: "#a78bfa", fg: "#fff" },
   recruitment: { label: "Recruitment", from: "#b45309", to: "#f59e0b", fg: "#fff" },
   "hr-strategy": { label: "HR strategy", from: "#0f172a", to: "#334155", fg: "#fff" },
-  product: { label: "Product", from: "#4338ca", to: "#10b981", fg: "#fff" },
+  product: { label: "Product", from: "#0c0b4a", to: "#5b45e8", fg: "#fff" },
 };
 
 export function categoryOf(c?: string | null): CategoryMeta {

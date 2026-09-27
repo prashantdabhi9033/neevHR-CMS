@@ -9,7 +9,7 @@ const cards = [
   { label: "Damaged", value: "12", tone: "bg-red-100 text-red-700" },
 ];
 const timeline = [
-  { t: "Issued to Ishita Gandhi", d: "12 Aug 2026", c: "bg-accent" },
+  { t: "Issued to Ishita Gandhi", d: "12 Aug 2026", c: "bg-success" },
   { t: "Reassigned to Rohan Nair", d: "02 Sep 2026", c: "bg-brand" },
   { t: "Sent to repair", d: "15 Sep 2026", c: "bg-amber-400" },
 ];

@@ -55,7 +55,7 @@ export function StatTile({
       {sub && (
         <p
           className={`mt-1 text-xs font-medium ${
-            tone === "accent" ? "text-accent-dark" : "text-muted"
+            tone === "accent" ? "text-success-dark" : "text-muted"
           }`}
         >
           {sub}

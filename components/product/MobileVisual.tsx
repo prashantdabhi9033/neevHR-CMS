@@ -26,7 +26,7 @@ export function MobileVisual() {
             </div>
             <p className="mt-1 text-lg font-bold">Rupal Sharma</p>
             <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white py-2.5 text-sm font-semibold text-brand">
-              <span className="h-2 w-2 rounded-full bg-accent" />
+              <span className="h-2 w-2 rounded-full bg-success" />
               Punch in
             </button>
           </div>
@@ -53,7 +53,7 @@ export function MobileVisual() {
                 <p className="text-[11px] text-muted">Latest payslip</p>
                 <p className="tnum text-sm font-semibold text-ink">₹78,940</p>
               </div>
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-tint text-accent-dark">
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-success-tint text-success-dark">
                 <Icon name="arrow" className="h-4 w-4" />
               </span>
             </div>

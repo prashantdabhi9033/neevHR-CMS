@@ -3,7 +3,7 @@ import { ProductFrame } from "./ProductFrame";
 const segs = [
   { label: "Engineering", pct: 40, color: "var(--color-brand)" },
   { label: "Operations", pct: 25, color: "var(--color-brand-soft)" },
-  { label: "Sales", pct: 20, color: "var(--color-accent)" },
+  { label: "Sales", pct: 20, color: "var(--color-success)" },
   { label: "Support", pct: 15, color: "#f59e0b" },
 ];
 const C = 2 * Math.PI * 40;

@@ -94,7 +94,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
   if (status === "done") {
     return (
       <div className="rounded-2xl border border-line bg-white p-8 text-center shadow-[var(--shadow-card)]">
-        <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-tint text-accent-dark">
+        <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-success-tint text-success-dark">
           <Icon name="check" className="h-6 w-6" />
         </span>
         <h3 className="mt-4 text-xl font-semibold text-ink">{t.doneTitle}</h3>

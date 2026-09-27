@@ -11,7 +11,7 @@ const stages: { name: string; count: number; people: string[] }[] = [
 const chip = "grid h-8 w-8 place-items-center rounded-full text-[11px] font-semibold ring-2 ring-white";
 const tones = [
   "bg-brand-tint text-brand",
-  "bg-accent-tint text-accent-dark",
+  "bg-success-tint text-success-dark",
   "bg-amber-100 text-amber-700",
 ];
 

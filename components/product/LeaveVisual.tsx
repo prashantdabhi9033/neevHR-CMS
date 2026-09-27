@@ -4,7 +4,7 @@ import { Icon } from "@/components/ui/Icon";
 // Designed leave mock: balances with usage + a pending approval.
 const balances = [
   { name: "Casual leave", used: 4, total: 12, color: "var(--color-brand)" },
-  { name: "Sick leave", used: 2, total: 8, color: "var(--color-accent)" },
+  { name: "Sick leave", used: 2, total: 8, color: "var(--color-success)" },
   { name: "Earned leave", used: 6, total: 18, color: "#f59e0b" },
 ];
 
@@ -48,7 +48,7 @@ export function LeaveVisual() {
             <p className="text-xs text-muted">24-25 Sep 2026 · 2 days</p>
           </div>
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white">
+        <span className="inline-flex items-center gap-1.5 rounded-lg bg-success px-3 py-1.5 text-xs font-semibold text-white">
           <Icon name="check" className="h-3.5 w-3.5" />
           Approve
         </span>

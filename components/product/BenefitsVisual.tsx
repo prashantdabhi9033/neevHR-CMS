@@ -24,7 +24,7 @@ export function BenefitsVisual() {
             <p className="mt-1.5 text-[12px] font-semibold text-ink">{p.name}</p>
             <p className="text-[10px] text-muted">{p.insurer}</p>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-soft">
-              <div className="h-full rounded-full bg-accent" style={{ width: `${p.enrolled}%` }} />
+              <div className="h-full rounded-full bg-success" style={{ width: `${p.enrolled}%` }} />
             </div>
             <p className="mt-1 text-[10px] text-muted">{p.enrolled}% enrolled</p>
           </div>

@@ -47,7 +47,7 @@ export function ExpensesVisual() {
                   )}
                 </td>
                 <td className="px-3 py-2">
-                  <span className={`text-[11px] font-semibold ${r.checks === "Clear" ? "text-accent-dark" : "text-amber-600"}`}>
+                  <span className={`text-[11px] font-semibold ${r.checks === "Clear" ? "text-success-dark" : "text-amber-600"}`}>
                     {r.checks}
                   </span>
                 </td>

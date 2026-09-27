@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "ghost" | "inverse";
+type Variant = "primary" | "secondary" | "ghost" | "inverse" | "cta";
 type Size = "md" | "lg";
 
 const base =
@@ -13,6 +13,8 @@ const variants: Record<Variant, string> = {
     "bg-white text-ink ring-1 ring-line hover:bg-surface-soft hover:ring-brand/30",
   ghost: "text-brand hover:bg-brand-tint",
   inverse: "bg-white text-brand hover:bg-white/90 shadow-sm",
+  // Brand v2.0 Warm Orange: the single key CTA per screen (Book a demo), Charcoal text for contrast.
+  cta: "bg-cta text-cta-ink hover:bg-cta-dark shadow-sm",
 };
 
 const sizes: Record<Size, string> = {

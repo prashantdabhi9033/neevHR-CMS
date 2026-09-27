@@ -32,7 +32,7 @@ export function OnboardingVisual() {
 
       <div className="mt-3 h-2 overflow-hidden rounded-full bg-surface-soft">
         <div
-          className="h-full rounded-full bg-accent"
+          className="h-full rounded-full bg-success"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -45,7 +45,7 @@ export function OnboardingVisual() {
           >
             <span
               className={`grid h-5 w-5 shrink-0 place-items-center rounded-full ${
-                t.done ? "bg-accent text-white" : "bg-surface-soft text-muted"
+                t.done ? "bg-success text-white" : "bg-surface-soft text-muted"
               }`}
             >
               {t.done ? (

@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
+import { appIconSvg, svgDataUri } from "@/lib/brand";
 
 // 512×512 raster logo for schema.org Organization.logo (Google requires a
 // raster image of at least 112px; the favicon SVG is too small for that).
+// The brand v2.0 app icon: the Neev mark in white on a Neev Blue tile.
 export const dynamic = "force-static";
 
 export function GET() {
@@ -17,39 +19,8 @@ export function GET() {
           background: "#ffffff",
         }}
       >
-        <div
-          style={{
-            width: 448,
-            height: 448,
-            borderRadius: 112,
-            background: "#4338ca",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              color: "#ffffff",
-              fontSize: 300,
-              fontWeight: 800,
-              lineHeight: 1,
-              marginTop: -20,
-            }}
-          >
-            N
-          </div>
-          <div
-            style={{
-              width: 150,
-              height: 34,
-              borderRadius: 17,
-              background: "#10b981",
-              marginTop: 18,
-            }}
-          />
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={svgDataUri(appIconSvg())} width={448} height={448} alt="NeevHR" />
       </div>
     ),
     { width: 512, height: 512 },
