@@ -42,12 +42,16 @@ export type ModuleContent = {
   reports: string[];
   related: string[];
   Visual: ComponentType;
+  /** Flagship modules show their product scene full-width under the hero (big, readable); the rest
+   *  use the split hero with the scene beside the copy. Keep this list short so big images stay special. */
+  showcase?: "wide";
 };
 
 export const modules: Record<string, ModuleContent> = {
   // ---------------------------------------------------------------- Core HR
   employees: {
     slug: "employees",
+    showcase: "wide",
     name: "Employee records",
     eyebrow: "Core HR",
     title: "One employee record, effective-dated, for everything",
@@ -199,6 +203,7 @@ export const modules: Record<string, ModuleContent> = {
   // ---------------------------------------------------------- Time & attendance
   attendance: {
     slug: "attendance",
+    showcase: "wide",
     name: "Attendance",
     eyebrow: "Time & attendance",
     title: "From biometric punches to a clean, payroll-ready day",
@@ -235,6 +240,7 @@ export const modules: Record<string, ModuleContent> = {
   },
   leave: {
     slug: "leave",
+    showcase: "wide",
     name: "Leave",
     eyebrow: "Time & attendance",
     title: "Leave policies configured once, applied everywhere",
@@ -327,6 +333,7 @@ export const modules: Record<string, ModuleContent> = {
   // -------------------------------------------------------------- Payroll & pay
   payroll: {
     slug: "payroll",
+    showcase: "wide",
     name: "Payroll",
     eyebrow: "Payroll & pay",
     title: "Payroll that is statutory-accurate, on time, every cycle",
@@ -345,6 +352,7 @@ export const modules: Record<string, ModuleContent> = {
   },
   compliance: {
     slug: "compliance",
+    showcase: "wide",
     name: "Statutory compliance",
     eyebrow: "Payroll & pay",
     title: "Never miss a statutory filing again",
@@ -437,6 +445,7 @@ export const modules: Record<string, ModuleContent> = {
   // ------------------------------------------------------------------- Talent
   recruitment: {
     slug: "recruitment",
+    showcase: "wide",
     name: "Recruitment",
     eyebrow: "Talent",
     title: "From requisition to a signed offer, then straight to onboarding",
@@ -455,6 +464,7 @@ export const modules: Record<string, ModuleContent> = {
   },
   performance: {
     slug: "performance",
+    showcase: "wide",
     name: "Performance",
     eyebrow: "Talent",
     title: "Reviews, calibration and increments on one record",
@@ -621,6 +631,7 @@ export const modules: Record<string, ModuleContent> = {
   // ------------------------------------------------------------------ Insights
   reports: {
     slug: "reports",
+    showcase: "wide",
     name: "Reports & analytics",
     eyebrow: "Insights",
     title: "Every list a report, every report a chart",

@@ -129,7 +129,7 @@ export function WhatIsHrmsSection() {
 export function OneRecordSection() {
   return (
     <section id="one-record" className="scroll-mt-16 border-b border-line py-20">
-      <Container className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+      <Container wide className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">
             The NeevHR difference

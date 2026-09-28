@@ -8,7 +8,6 @@ import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { TaxonomyGrid, OneRecordSection } from "@/components/home/HrmsSections";
-import { PayrollVisual } from "@/components/product/PayrollVisual";
 import { AttendanceVisual } from "@/components/product/AttendanceVisual";
 import { pageMeta } from "@/lib/seo";
 import { site, implementationSteps } from "@/lib/site";
@@ -279,7 +278,7 @@ export default function HrmsPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <Container className="relative grid items-center gap-12 py-12 lg:grid-cols-[1fr_1.05fr] lg:py-16">
+        <Container wide className="relative grid items-center gap-10 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:py-16">
           <div className="animate-fade-up">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand">
               HRMS
@@ -303,7 +302,7 @@ export default function HrmsPage() {
               </Button>
             </div>
           </div>
-          <div className="animate-fade-up lg:pl-4">
+          <div className="animate-fade-up">
             <AttendanceVisual />
           </div>
         </Container>
@@ -368,18 +367,16 @@ export default function HrmsPage() {
               </div>
             </Reveal>
             <Reveal delay={60}>
-              {b.id === "payroll" ? (
-                <PayrollVisual />
-              ) : (
-                <ul className="space-y-3 rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
-                  {b.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2.5 text-sm text-body">
-                      <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {/* Text-only blocks on purpose: the page hero carries the product scene, and payroll has
+                  its own large scene on /payroll. A half-column scene here would be too small to read. */}
+              <ul className="space-y-3 rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+                {b.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-body">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           </Container>
         </section>

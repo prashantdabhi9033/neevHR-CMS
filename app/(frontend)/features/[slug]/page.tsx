@@ -44,6 +44,38 @@ export default async function ModulePage({ params }: Params) {
   const Visual = m.Visual;
 
   const x = moduleExtras[slug];
+  const wide = m.showcase === "wide";
+
+  const heroCopy = (
+    <>
+      <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+        {m.eyebrow}
+      </span>
+      <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+        {m.title}
+      </h1>
+      <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
+        {m.intro}
+      </p>
+      <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+        {m.capabilities.slice(0, 3).map((c) => (
+          <li key={c.title} className="inline-flex items-center gap-1.5">
+            <Icon name="check" className="h-4 w-4 text-accent" />
+            {c.title}
+          </li>
+        ))}
+      </ul>
+      <div className="hero-ctas mt-8 flex flex-wrap gap-3">
+        <Button href="/demo" size="lg">
+          Book a Demo
+          <Icon name="arrow" className="h-4 w-4" />
+        </Button>
+        <Button href="/hrms" variant="secondary" size="lg">
+          Explore HRMS Features
+        </Button>
+      </div>
+    </>
+  );
 
   return (
     <>
@@ -57,39 +89,23 @@ export default async function ModulePage({ params }: Params) {
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
         <div className="pointer-events-none absolute -top-32 left-1/2 h-[440px] w-[720px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/12 via-brand-soft/8 to-accent/10 blur-3xl" />
-        <Container className="relative grid items-center gap-12 py-14 lg:grid-cols-[1fr_1.05fr] lg:py-20">
-          <div className="animate-fade-up">
-            <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-              {m.eyebrow}
-            </span>
-            <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
-              {m.title}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
-              {m.intro}
-            </p>
-            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-              {m.capabilities.slice(0, 3).map((c) => (
-                <li key={c.title} className="inline-flex items-center gap-1.5">
-                  <Icon name="check" className="h-4 w-4 text-accent" />
-                  {c.title}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/demo" size="lg">
-                Book a Demo
-                <Icon name="arrow" className="h-4 w-4" />
-              </Button>
-              <Button href="/hrms" variant="secondary" size="lg">
-                Explore HRMS Features
-              </Button>
+        {wide ? (
+          <Container wide className="relative py-14 lg:py-20">
+            <div className="animate-fade-up mx-auto max-w-3xl text-center [&_ul]:justify-center [&_.hero-ctas]:justify-center [&_p]:mx-auto">
+              {heroCopy}
             </div>
-          </div>
-          <div className="animate-fade-up lg:pl-4">
-            <Visual />
-          </div>
-        </Container>
+            <div className="animate-fade-up mx-auto mt-10 max-w-[1080px] lg:mt-12">
+              <Visual />
+            </div>
+          </Container>
+        ) : (
+          <Container wide className="relative grid items-center gap-10 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:py-20">
+            <div className="animate-fade-up">{heroCopy}</div>
+            <div className="animate-fade-up">
+              <Visual />
+            </div>
+          </Container>
+        )}
       </section>
 
       {/* Capabilities */}

@@ -51,7 +51,7 @@ export default function MobilePage() {
       <Breadcrumbs items={[{ name: "Employee self-service", href: "/mobile" }]} />
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <Container className="relative grid items-center gap-12 py-12 lg:grid-cols-[1.05fr_1fr] lg:py-16">
+        <Container wide className="relative grid items-center gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:py-16">
           <div className="animate-fade-up">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand">
               Employee self-service

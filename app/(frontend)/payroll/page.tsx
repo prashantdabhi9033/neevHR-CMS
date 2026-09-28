@@ -109,21 +109,21 @@ export default function PayrollPage() {
 
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <Container className="relative grid items-center gap-12 py-12 lg:grid-cols-[1fr_1.05fr] lg:py-16">
-          <div className="animate-fade-up">
+        <Container wide className="relative py-12 lg:py-16">
+          <div className="animate-fade-up mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand">
               Payroll
             </span>
             <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
               Payroll Software for Indian Companies
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-body">
               NeevHR payroll software automates monthly salary processing,
               earnings and deductions, attendance inputs, leave, LOP, arrears,
               loans, variable pay and statutory calculations for Indian
               businesses.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button href="/demo" size="lg">
                 Book a Demo
                 <Icon name="arrow" className="h-4 w-4" />
@@ -133,7 +133,7 @@ export default function PayrollPage() {
               </Button>
             </div>
           </div>
-          <div className="animate-fade-up lg:pl-4">
+          <div className="animate-fade-up mx-auto mt-10 max-w-[1080px] lg:mt-12">
             <PayrollVisual />
           </div>
         </Container>

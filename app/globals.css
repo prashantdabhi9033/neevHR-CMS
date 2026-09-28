@@ -258,3 +258,42 @@ html { scroll-behavior: smooth; }
     min-width: 0;
   }
 }
+
+/* Product showcase depth (components/showcase). Focal cards are lifted out of the screen, secondary
+   UI sits back in soft focus, notifications are frosted glass. Motion respects reduced-motion. */
+.emboss {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    inset 0 -2px 0 rgba(21, 20, 123, 0.05),
+    0 0 0 1px rgba(21, 20, 123, 0.07),
+    0 2px 4px rgba(15, 23, 42, 0.06),
+    0 14px 28px -8px rgba(21, 20, 123, 0.2),
+    0 44px 90px -24px rgba(12, 11, 74, 0.45);
+}
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 20px 50px -20px rgba(12, 11, 74, 0.5);
+}
+.depth-blur {
+  filter: blur(2.5px);
+  opacity: 0.75;
+}
+.depth-blur-soft {
+  filter: blur(1.2px);
+  opacity: 0.9;
+}
+@keyframes neev-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-a { animation: neev-float 7s ease-in-out infinite; }
+.float-b { animation: neev-float 8s ease-in-out -2s infinite; }
+.float-c { animation: neev-float 6s ease-in-out -4s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .float-a, .float-b, .float-c { animation: none; }
+}

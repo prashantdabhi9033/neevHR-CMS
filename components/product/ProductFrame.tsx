@@ -1,39 +1,44 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { AppWindow, ShowcaseStage, type Floater } from "@/components/showcase/Showcase";
 
-// Shared browser-window chrome for the designed product mockups.
-// These are illustrations built in code (not screenshots), with realistic
-// dummy data that matches each module's content.
+// Every module visual renders as a layered product screen (see components/showcase/Showcase.tsx): the
+// module page inside the real app shell, with its signature pieces lifted out as embossed / glass
+// floaters. Built in code with illustrative data that matches each module, never a screenshot.
+//
+// Stage geometry is shared by all module scenes so they read as one family; how LARGE a scene shows is
+// decided by the page layout (full-width for flagship modules, split column elsewhere).
+export const MODULE_STAGE = {
+  width: 880,
+  estHeight: 620,
+  bleed: { top: 40, right: 56, bottom: 44, left: 56 },
+} as const;
+
 export function ProductFrame({
   title,
   children,
-  glow = true,
+  floaters,
+  actions,
 }: {
+  /** "NeevHR · <Module> · <context>" */
   title: string;
   children: ReactNode;
-  glow?: boolean;
+  floaters?: Floater[];
+  /** Page-header buttons (WinButton). */
+  actions?: ReactNode;
 }) {
+  const [, module = title, ...rest] = title.split(" · ");
   return (
-    <figure className="relative">
-      <figcaption className="sr-only">
-        Illustration of the NeevHR {title} screen, shown with illustrative
-        sample data.
-      </figcaption>
-      {glow && (
-        <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-brand/10 blur-2xl" />
-      )}
-      <div className="relative overflow-hidden rounded-2xl border border-line bg-white shadow-[var(--shadow-float)]">
-        <div className="flex items-center gap-2 border-b border-line bg-surface-soft px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-line" />
-          <span className="h-2.5 w-2.5 rounded-full bg-line" />
-          <span className="h-2.5 w-2.5 rounded-full bg-line" />
-          <span className="ml-3 truncate text-xs font-medium text-muted">{title}</span>
-          <span className="ml-auto shrink-0 rounded-full border border-line bg-white px-2 py-0.5 text-[10px] font-medium text-muted">
-            Illustrative data
-          </span>
-        </div>
-        <div className="overflow-x-auto p-5">{children}</div>
-      </div>
-    </figure>
+    <ShowcaseStage
+      width={MODULE_STAGE.width}
+      estHeight={MODULE_STAGE.estHeight}
+      bleed={MODULE_STAGE.bleed}
+      floaters={floaters}
+      label={`The NeevHR ${module} screen${rest.length ? ` (${rest.join(", ")})` : ""}.`}
+    >
+      <AppWindow module={module} heading={module} sub={rest.join(" · ") || undefined} actions={actions}>
+        {children}
+      </AppWindow>
+    </ShowcaseStage>
   );
 }
 

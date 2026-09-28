@@ -22,8 +22,12 @@ export function FeatureSection({
 }) {
   const { eyebrow, title, body, highlights, href, Visual } = feature;
   return (
-    <Container className="py-14 lg:py-20">
-      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <Container wide className="py-14 lg:py-20">
+      <div
+        className={`grid items-center gap-10 lg:gap-12 ${
+          flip ? "lg:grid-cols-[1.2fr_0.8fr]" : "lg:grid-cols-[0.8fr_1.2fr]"
+        }`}
+      >
         <Reveal className={flip ? "lg:order-2" : ""}>
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">
             {eyebrow}
@@ -54,9 +58,7 @@ export function FeatureSection({
         </Reveal>
 
         <Reveal delay={80} className={flip ? "lg:order-1" : ""}>
-          <div className="relative rounded-3xl bg-gradient-to-br from-brand-tint via-white to-accent-tint/50 p-5 sm:p-8">
-            <Visual />
-          </div>
+          <Visual />
         </Reveal>
       </div>
     </Container>

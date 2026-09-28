@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
-import { HeroVisual } from "@/components/home/HeroVisual";
+import { DashboardShowcase } from "@/components/showcase/DashboardShowcase";
 import { FeatureSection, type Feature } from "@/components/home/FeatureSection";
 import { Reveal } from "@/components/site/Reveal";
 import { Faq } from "@/components/site/Faq";
@@ -253,9 +253,12 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <Reveal className="mx-auto mt-14 max-w-5xl pb-16 lg:mt-16 lg:pb-20">
-            <HeroVisual />
-          </Reveal>
+          {/* Breaks out of the text container so the dashboard scene shows large and readable. */}
+          <div className="relative left-1/2 mt-12 w-[min(1360px,calc(100vw-24px))] -translate-x-1/2 pb-16 lg:mt-14 lg:pb-20">
+            <Reveal>
+              <DashboardShowcase />
+            </Reveal>
+          </div>
         </Container>
       </section>
 
