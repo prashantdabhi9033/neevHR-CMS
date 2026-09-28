@@ -11,6 +11,7 @@ import { SuccessionVisual } from "@/components/product/SuccessionVisual";
 import { ComplianceVisual } from "@/components/product/ComplianceVisual";
 import { EmployeesVisual } from "@/components/product/EmployeesVisual";
 import { ExitVisual } from "@/components/product/ExitVisual";
+import { FnfVisual } from "@/components/product/FnfVisual";
 import { LoansVisual } from "@/components/product/LoansVisual";
 import { FieldTrackingVisual } from "@/components/product/FieldTrackingVisual";
 import { SurveysVisual } from "@/components/product/SurveysVisual";
@@ -179,7 +180,7 @@ export const modules: Record<string, ModuleContent> = {
     configPoints: ["Leave encashment base and day divisor", "Gratuity, encashment and bonus on or off per entity", "Notice recovery policy by exit type", "F&F due days after the last working day"],
     reports: ["F&F settlement register", "Pending settlements", "Gratuity forfeiture approvals"],
     related: ["exit", "loans", "assets"],
-    Visual: ExitVisual,
+    Visual: FnfVisual,
   },
   documents: {
     slug: "documents",
@@ -473,7 +474,7 @@ export const modules: Record<string, ModuleContent> = {
     capabilities: [
       { title: "Weighted goals", body: "Goals carry weights that sum to the plan; weighted achievement rolls up automatically." },
       { title: "360 & 9-box", body: "Nominate peer, manager and report reviewers, and calibrate talent on a 9-box grid." },
-      { title: "Rating distribution", body: "See ratings across the A+ to C scale against the expected curve to support calibration discussions at sign-off." },
+      { title: "Rating distribution", body: "See how ratings spread across the A+ to C scale as a bell curve, to support calibration discussions at sign-off." },
       { title: "Increment & bonus", body: "Ratings map to increment and bonus matrices, with final sign-off repricing the number." },
     ],
     configPoints: ["Review cadence and stages", "Goal templates and weightings", "Rating scale and HiPo rule", "Increment matrices per department"],

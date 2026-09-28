@@ -265,7 +265,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       {
         q: "Does NeevHR force a bell curve?",
-        a: "No. NeevHR shows the rating distribution against a reference curve to support calibration; it does not force ratings into it.",
+        a: "No. NeevHR shows how ratings are distributed, as a bell curve, to support calibration; it does not force ratings into a set distribution.",
       },
       {
         q: "Does NeevHR support 360 feedback?",

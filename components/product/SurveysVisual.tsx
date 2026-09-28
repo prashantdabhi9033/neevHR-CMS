@@ -1,128 +1,169 @@
-import { ProductFrame, StatTile } from "./ProductFrame";
-import { Soft, WinButton, type Floater } from "@/components/showcase/Showcase";
-import { FloatCard, Tag, Toast } from "@/components/showcase/parts";
+import { Card, Eyebrow, VisualStage } from "@/components/visuals/Stage";
 
-// Designed survey results mock: the eNPS distribution and dimension scores, with the question set behind.
-// Lifted pieces: by-department segments with a group suppressed under the anonymity floor, and the survey closing.
-// 175 of 201 responded (87%): 105 promoters (60%), 39 passives (22%), 31 detractors (18%) = eNPS +42.
-const dims = [
-  { label: "Leadership", score: 4.2 },
-  { label: "Growth", score: 3.6 },
-  { label: "Recognition", score: 3.9 },
-  { label: "Work-life", score: 4.4 },
+// A survey is one honest answer becoming a trustworthy number, so the image runs left to right on mint:
+// an employee answering the 0-10 eNPS question, the answer passing through the anonymity gate, and the
+// live results it lands in (eNPS split and the by-department view, where a group under the threshold is
+// hidden). 175 of 201 responded (87%): 105 promoters (60%), 39 passives (22%), 31 detractors (18%),
+// eNPS = (105 - 31) / 175 = +42. Departments 68 + 44 + 42 + 18 + 3 = 175; Legal (3) sits under the floor of 5.
+
+const likert = ["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"];
+
+const segments: { dept: string; n: number; enps: number; hidden?: boolean }[] = [
+  { dept: "Engineering", n: 68, enps: 49 },
+  { dept: "Operations", n: 44, enps: 41 },
+  { dept: "Sales", n: 42, enps: 36 },
+  { dept: "Support", n: 18, enps: 33 },
+  { dept: "Legal", n: 3, enps: 0, hidden: true },
 ];
 
-const questions = [
-  { q: "How likely are you to recommend Aikyora as a place to work?", type: "eNPS 0-10" },
-  { q: "My manager supports my growth.", type: "Agreement" },
-  { q: "I am recognised for good work.", type: "Rating 1-5" },
-  { q: "What one thing should we change?", type: "Open text" },
-];
+function Lock({ size = 12, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 12 12" fill="none" aria-hidden>
+      <rect x="2" y="5.2" width="8" height="5.6" rx="1.4" fill={color} />
+      <path d="M3.9 5.2V3.9a2.1 2.1 0 0 1 4.2 0v1.3" stroke={color} strokeWidth="1.3" />
+    </svg>
+  );
+}
 
-// By-department eNPS: (promoters - detractors) / responses. Legal has 3 responses, below the floor of 5.
-const segments: { dept: string; n: number; enps: string; hidden?: boolean }[] = [
-  { dept: "Engineering", n: 68, enps: "+49" },
-  { dept: "Operations", n: 44, enps: "+41" },
-  { dept: "Sales", n: 42, enps: "+36" },
-  { dept: "Support", n: 18, enps: "+33" },
-  { dept: "Legal", n: 3, enps: "", hidden: true },
-];
+function Respond() {
+  return (
+    <Card className="p-5">
+      <div className="flex items-center justify-between">
+        <p className="text-[14px] font-bold text-ink">Q3 pulse</p>
+        <span className="text-[11px] text-slate-400">closes 30 Sep 2026</span>
+      </div>
+      <p className="mt-4 text-[13px] font-semibold leading-snug text-ink">
+        1. How likely are you to recommend Aikyora as a place to work? <span className="text-red-500">*</span>
+      </p>
+      <div className="mt-3 grid grid-cols-11 gap-1">
+        {Array.from({ length: 11 }).map((_, i) => (
+          <span
+            key={i}
+            className={`tnum grid h-[27px] place-items-center rounded-md text-[11.5px] font-semibold ${
+              i === 9 ? "bg-[#15147B] text-white shadow-[0_6px_14px_-6px_rgba(21,20,123,0.7)]" : "border border-slate-200 text-slate-600"
+            }`}
+          >
+            {i}
+          </span>
+        ))}
+      </div>
 
-const floaters: Floater[] = [
-  {
-    width: 300,
-    pos: { right: 0, top: 150 },
-    mobile: true,
-    node: (
-      <FloatCard eyebrow="Segment analysis" title="eNPS by department" meta="Q3 pulse · anonymity floor 5 responses" tag={<Tag tone="info">Protected</Tag>}>
-        <div className="rounded-xl bg-slate-50/80 p-3 ring-1 ring-slate-100">
-          <div className="mb-1.5 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-            <span>Department</span>
-            <span>Responses · eNPS</span>
+      <p className="mt-5 text-[13px] font-semibold leading-snug text-ink">2. My manager supports my growth.</p>
+      <div className="mt-2.5 space-y-1.5">
+        {likert.map((l, i) => (
+          <div key={l} className="flex items-center gap-2 text-[12px] text-slate-600">
+            <span className={`grid h-3.5 w-3.5 place-items-center rounded-full border ${i === 3 ? "border-[#15147B]" : "border-slate-300"}`}>
+              {i === 3 && <span className="h-2 w-2 rounded-full bg-[#15147B]" />}
+            </span>
+            <span className={i === 3 ? "font-semibold text-ink" : ""}>{l}</span>
           </div>
-          {segments.map((s) => (
-            <div key={s.dept} className="flex items-center justify-between py-1 text-[12px]">
-              <span className={s.hidden ? "text-slate-400" : "text-slate-600"}>{s.dept}</span>
-              {s.hidden ? (
-                <span className="rounded-md bg-slate-200/70 px-1.5 py-0.5 text-[10.5px] font-semibold text-slate-500">Suppressed · under 5</span>
-              ) : (
-                <span className="tnum font-medium text-slate-700">
-                  {s.n} · <span className="font-bold text-emerald-700">{s.enps}</span>
-                </span>
-              )}
-            </div>
-          ))}
-          <div className="mt-2 flex items-baseline justify-between border-t border-dashed border-slate-200 pt-2">
-            <span className="text-[12.5px] font-semibold text-ink">All responses · 175</span>
-            <span className="tnum text-[18px] font-bold text-ink">+42</span>
+        ))}
+      </div>
+
+      <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3.5">
+        <span className="flex items-center gap-1.5 text-[11.5px] text-slate-500">
+          <Lock size={11} color="#64748B" />
+          Your response is anonymous.
+        </span>
+        <span className="rounded-lg bg-[#15147B] px-3.5 py-1.5 text-[12px] font-semibold text-white">Submit</span>
+      </div>
+    </Card>
+  );
+}
+
+function Gate() {
+  return (
+    <div className="relative flex h-full flex-col items-center justify-center">
+      <svg className="absolute inset-0" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 60 100" aria-hidden>
+        <line x1="0" y1="50" x2="60" y2="50" stroke="#10B981" strokeWidth="0.8" strokeDasharray="2 2.5" vectorEffect="non-scaling-stroke" />
+      </svg>
+      <span className="relative grid h-11 w-11 place-items-center rounded-full bg-white shadow-[0_10px_24px_-10px_rgba(4,120,87,0.55)] ring-4 ring-emerald-100">
+        <Lock size={16} color="#047857" />
+      </span>
+      <span className="relative mt-2 rounded-full bg-emerald-600 px-2 py-0.5 text-[10.5px] font-bold text-white">≥ 5</span>
+    </div>
+  );
+}
+
+function Results() {
+  return (
+    <Card className="p-5">
+      <div className="flex items-start justify-between">
+        <div>
+          <Eyebrow>Live results</Eyebrow>
+          <p className="mt-1 text-[14px] font-bold text-ink">How likely are you to recommend Aikyora?</p>
+        </div>
+        <span className="tnum shrink-0 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">87% · 175 of 201</span>
+      </div>
+
+      <div className="mt-4 flex items-center gap-4">
+        <div>
+          <p className="text-[11px] text-slate-500">eNPS</p>
+          <p className="tnum text-[36px] font-bold leading-none text-emerald-600">+42</p>
+        </div>
+        <div className="flex-1">
+          <div className="flex h-7 overflow-hidden rounded-md text-[11px] font-semibold">
+            <span className="grid place-items-center bg-red-500 text-white" style={{ width: "18%" }}>18%</span>
+            <span className="grid place-items-center bg-slate-200 text-slate-600" style={{ width: "22%" }}>22%</span>
+            <span className="grid place-items-center bg-emerald-500 text-white" style={{ width: "60%" }}>60%</span>
+          </div>
+          <div className="mt-1.5 flex justify-between text-[10.5px] text-slate-500">
+            <span>Detractors 31</span>
+            <span>Passives 39</span>
+            <span>Promoters 105</span>
           </div>
         </div>
-        <p className="mt-2.5 text-[11px] text-slate-500">Groups under 5 responses are hidden to protect identity.</p>
-      </FloatCard>
-    ),
-  },
-  {
-    width: 280,
-    pos: { left: 0, bottom: 24 },
-    look: "glass",
-    node: <Toast tone="info" glyph="✓" title="Q3 pulse closed" sub="175 of 201 responded · 87%" />,
-  },
-];
+      </div>
+
+      <div className="mt-5 flex items-center justify-between">
+        <p className="text-[12.5px] font-semibold text-ink">By department</p>
+        <span className="text-[10.5px] text-slate-400">Responses · eNPS</span>
+      </div>
+      <div className="mt-2 divide-y divide-slate-100 rounded-xl ring-1 ring-slate-100">
+        {segments.map((s) => (
+          <div key={s.dept} className={`flex items-center gap-3 px-3 py-2 text-[12px] ${s.hidden ? "bg-slate-50" : ""}`}>
+            <span className={`w-[82px] shrink-0 ${s.hidden ? "text-slate-400" : "text-slate-700"}`}>{s.dept}</span>
+            {s.hidden ? (
+              <>
+                <span className="tnum w-7 text-right text-slate-400">&lt;5</span>
+                <span className="ml-1 flex items-center gap-1.5 rounded-md bg-slate-200/70 px-2 py-0.5 text-[10.5px] font-semibold text-slate-500">
+                  <Lock size={10} color="#64748B" />
+                  Hidden, below threshold
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="tnum w-7 text-right text-slate-500">{s.n}</span>
+                <span className="tnum ml-1 w-8 font-bold text-emerald-600">+{s.enps}</span>
+                <span className="h-1.5 flex-1 rounded-full bg-slate-100">
+                  <span className="block h-full rounded-full bg-emerald-500" style={{ width: `${(s.enps + 100) / 2}%` }} />
+                </span>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+      <p className="mt-2.5 text-[11px] text-slate-500">Anonymity threshold 5: a group with fewer responses is never shown.</p>
+    </Card>
+  );
+}
 
 export function SurveysVisual() {
   return (
-    <ProductFrame title="NeevHR · Surveys · Q3 pulse" floaters={floaters} actions={<><WinButton>Duplicate</WinButton><WinButton primary>New survey</WinButton></>}>
-      <Soft className="grid grid-cols-3 gap-4">
-        <StatTile label="eNPS" value="+42" sub="promoters minus detractors" tone="accent" />
-        <StatTile label="Response rate" value="87%" sub="175 of 201" />
-        <StatTile label="Anonymity floor" value="5" sub="responses per group" />
-      </Soft>
-
-      <div className="mt-4 grid grid-cols-[1.15fr_1fr] gap-4">
-        <div className="space-y-3">
-          <div className="rounded-xl border border-line bg-white p-4">
-            <p className="text-sm font-semibold text-ink">eNPS distribution</p>
-            <div className="mt-3 flex h-8 overflow-hidden rounded-lg">
-              <div className="flex items-center justify-center bg-red-400 text-[11px] font-semibold text-white" style={{ width: "18%" }}>18%</div>
-              <div className="flex items-center justify-center bg-slate-200 text-[11px] font-semibold text-slate-600" style={{ width: "22%" }}>22%</div>
-              <div className="flex items-center justify-center bg-success text-[11px] font-semibold text-white" style={{ width: "60%" }}>60%</div>
-            </div>
-            <div className="mt-2 flex justify-between text-[11px] text-muted">
-              <span>Detractors 31</span><span>Passives 39</span><span>Promoters 105</span>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-line bg-white p-4">
-            <p className="text-sm font-semibold text-ink">Score by dimension</p>
-            <div className="mt-3 space-y-2.5">
-              {dims.map((d) => (
-                <div key={d.label} className="flex items-center gap-3">
-                  <span className="w-20 shrink-0 text-xs text-body">{d.label}</span>
-                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-soft">
-                    <div className="h-full rounded-full bg-brand" style={{ width: `${(d.score / 5) * 100}%` }} />
-                  </div>
-                  <span className="tnum w-7 text-right text-xs font-semibold text-ink">{d.score}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <VisualStage
+      width={880}
+      estHeight={620}
+      backdrop="mint"
+      padding={52}
+      label="An employee answering a NeevHR eNPS survey question, the anonymity threshold, and the live results with a department hidden below the threshold."
+    >
+      <div className="grid grid-cols-[330px_58px_1fr] items-stretch">
+        <div className="self-center">
+          <Respond />
         </div>
-
-        <Soft className="rounded-xl border border-line bg-white p-4">
-          <p className="text-sm font-semibold text-ink">Questions · 4</p>
-          <div className="mt-3 space-y-2.5">
-            {questions.map((q, i) => (
-              <div key={q.q} className="rounded-lg border border-line px-3 py-2.5">
-                <p className="text-[12px] text-ink">
-                  <span className="mr-1 font-semibold text-muted">Q{i + 1}</span>
-                  {q.q}
-                </p>
-                <span className="mt-1.5 inline-block rounded-md bg-surface-soft px-1.5 py-0.5 text-[10px] font-semibold text-muted">{q.type}</span>
-              </div>
-            ))}
-          </div>
-        </Soft>
+        <Gate />
+        <Results />
       </div>
-    </ProductFrame>
+    </VisualStage>
   );
 }

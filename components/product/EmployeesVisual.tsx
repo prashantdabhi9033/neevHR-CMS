@@ -1,151 +1,276 @@
-import { ProductFrame, StatTile } from "./ProductFrame";
-import { Soft, WinButton, type Floater } from "@/components/showcase/Showcase";
-import { Actions, Chip, FloatCard, Rows, Tag, Toast } from "@/components/showcase/parts";
+import { Avatar, Card, Eyebrow, VisualStage } from "@/components/visuals/Stage";
 
-// Mirrors the product's employee-360 pay progression: a step-line of CTC over time with purple
-// promotion pins, beside the effective-dated job & timeline. Lifted pieces: a scheduled promotion
-// saved as a dated event, a mass transfer and a PII-safe (CTC-redacted) directory export.
-const pts = [
-  { yr: "2021", ctc: 6.5, promo: false },
-  { yr: "2022", ctc: 7.2, promo: false },
-  { yr: "2023", ctc: 9.0, promo: true },
-  { yr: "2024", ctc: 9.8, promo: false },
-  { yr: "2025", ctc: 12.5, promo: true },
-  { yr: "2026", ctc: 13.4, promo: false },
+// An employee record MEANS one person on one dated timeline: every change is an event, nothing is
+// overwritten, so the record can be read "as of" any date. The canvas shows today's profile, the
+// timeline ribbon of employment events under the CTC step line (purple promotion pins), and an as-of
+// pin whose card rebuilds the record on 15 Jan 2024. Promotion 01 Oct 2026: 13.4 L to 15.3 L = +14.2%.
+
+type Kind = "joined" | "confirmed" | "pay" | "promotion" | "transfer";
+
+const TONE: Record<Kind, string> = {
+  joined: "#15147B",
+  confirmed: "#10B981",
+  pay: "#64748B",
+  promotion: "#7C3AED",
+  transfer: "#0EA5E9",
+};
+
+// Timeline geometry (design px inside the ribbon card).
+const TW = 584;
+const T0 = 2021.45;
+const T1 = 2027.0;
+const x = (t: number) => ((t - T0) / (T1 - T0)) * TW;
+const dt = (y: number, m: number, d: number) => y + (m - 1) / 12 + (d - 1) / 365;
+
+const CHART_TOP = 26;
+const CHART_BOT = 200;
+const yC = (lakh: number) => CHART_BOT - ((lakh - 5) / (16 - 5)) * (CHART_BOT - CHART_TOP - 10);
+const RIBBON_Y = 268;
+const H = 336;
+
+// ctc in lakh per year after the event (null = no pay change). row: label above (a) or below (b) the ribbon.
+const events: {
+  t: number;
+  date: string;
+  kind: Kind;
+  title: string;
+  detail: string;
+  ctc: number | null;
+  row: "a" | "b";
+  scheduled?: boolean;
+}[] = [
+  { t: dt(2021, 7, 5), date: "05 Jul 2021", kind: "joined", title: "Joined", detail: "Engineer", ctc: 6.5, row: "a" },
+  { t: dt(2021, 10, 3), date: "03 Oct 2021", kind: "confirmed", title: "Confirmed", detail: "Probation 90 days", ctc: null, row: "b" },
+  { t: dt(2022, 4, 1), date: "01 Apr 2022", kind: "pay", title: "Pay revision", detail: "₹7.2 L", ctc: 7.2, row: "a" },
+  { t: dt(2023, 4, 1), date: "01 Apr 2023", kind: "promotion", title: "Promoted · L3", detail: "Engineer II", ctc: 9.0, row: "a" },
+  { t: dt(2024, 4, 1), date: "01 Apr 2024", kind: "pay", title: "Pay revision", detail: "₹9.8 L", ctc: 9.8, row: "b" },
+  { t: dt(2024, 7, 15), date: "15 Jul 2024", kind: "transfer", title: "Transfer", detail: "Pune → Bengaluru", ctc: null, row: "a" },
+  { t: dt(2025, 4, 1), date: "01 Apr 2025", kind: "promotion", title: "Promoted · L4", detail: "Senior Engineer", ctc: 12.5, row: "b" },
+  { t: dt(2026, 4, 1), date: "01 Apr 2026", kind: "pay", title: "Pay revision", detail: "₹13.4 L", ctc: 13.4, row: "a" },
+  { t: dt(2026, 10, 1), date: "01 Oct 2026", kind: "promotion", title: "Lead · L5", detail: "Scheduled", ctc: 15.3, row: "b", scheduled: true },
 ];
-const W = 300;
-const H = 110;
-const maxC = 15;
-const stepX = W / (pts.length - 1);
-const y = (c: number) => H - (c / maxC) * (H - 12);
 
-// Step path (step-end).
-let d = `M 0 ${y(pts[0].ctc)}`;
-for (let i = 1; i < pts.length; i++) {
-  d += ` L ${i * stepX} ${y(pts[i - 1].ctc)} L ${i * stepX} ${y(pts[i].ctc)}`;
+const AS_OF = dt(2024, 1, 15);
+
+function stepPath() {
+  const pay = events.filter((e) => e.ctc !== null && !e.scheduled);
+  let d = `M ${x(pay[0].t)} ${yC(pay[0].ctc!)}`;
+  for (let i = 1; i < pay.length; i++) d += ` H ${x(pay[i].t)} V ${yC(pay[i].ctc!)}`;
+  const sched = events[events.length - 1];
+  d += ` H ${x(sched.t)}`;
+  return { d, lastX: x(sched.t), lastY: yC(13.4) };
 }
 
-// The same events as the chart, newest first: every change is a dated row, never an overwrite.
-const timeline = [
-  ["01 Apr 2026", "Pay revision", "₹13.4 L"],
-  ["01 Apr 2025", "Promoted · Senior Engineer", "₹12.5 L"],
-  ["01 Apr 2024", "Pay revision", "₹9.8 L"],
-  ["01 Apr 2023", "Promoted · Engineer II", "₹9.0 L"],
-  ["01 Apr 2022", "Pay revision", "₹7.2 L"],
-  ["05 Jul 2021", "Joined · Engineer", "₹6.5 L"],
-];
+function Timeline() {
+  const { d, lastX, lastY } = stepPath();
+  const years = [2022, 2023, 2024, 2025, 2026];
+  const pinX = x(AS_OF);
+  return (
+    <div className="relative" style={{ width: TW, height: H }}>
+      <svg width={TW} height={H} viewBox={`0 0 ${TW} ${H}`} className="absolute inset-0" fill="none" aria-hidden>
+        {years.map((yr) => (
+          <g key={yr}>
+            <line x1={x(yr)} x2={x(yr)} y1={CHART_TOP} y2={CHART_BOT} stroke="#15147B" strokeOpacity={0.07} />
+            <text x={x(yr) - 4} y={CHART_BOT - 4} textAnchor="end" fontSize={10.5} fill="#94A3B8" className="tnum">
+              {yr}
+            </text>
+          </g>
+        ))}
+        <path d={`${d} V ${CHART_BOT} H ${x(events[0].t)} Z`} fill="#15147B" opacity={0.06} />
+        <path d={d} stroke="#15147B" strokeWidth={2.25} />
+        <path d={`M ${lastX} ${lastY} V ${yC(15.3)} H ${TW}`} stroke="#7C3AED" strokeWidth={2} strokeDasharray="4 4" />
+        {events
+          .filter((e) => e.ctc !== null)
+          .map((e) => (
+            <g key={e.date}>
+              {e.kind === "promotion" && !e.scheduled && (
+                <circle cx={x(e.t)} cy={yC(e.ctc!)} r={7} stroke="#7C3AED" strokeWidth={2} fill="#fff" />
+              )}
+              <circle cx={x(e.t)} cy={yC(e.ctc!)} r={3} fill={e.kind === "promotion" ? "#7C3AED" : "#15147B"} />
+              <text
+                x={e.scheduled ? TW : x(e.t) + 6}
+                y={yC(e.ctc!) - 10}
+                textAnchor={e.scheduled ? "end" : "start"}
+                fontSize={10.5}
+                fontWeight={600}
+                fill={e.scheduled ? "#7C3AED" : "#24242B"}
+                className="tnum"
+              >
+                ₹{e.ctc!.toFixed(1)} L
+              </text>
+            </g>
+          ))}
 
-const floaters: Floater[] = [
-  {
-    width: 320,
-    pos: { right: 0, top: 80 },
-    mobile: true,
-    node: (
-      <FloatCard eyebrow="Effective-dated change" title="Promotion to Lead Engineer" meta="Aditi Rao · effective 01 Oct 2026" tag={<Tag tone="brand">Scheduled</Tag>}>
-        <Rows
-          rows={[
-            ["Grade", "L3 → L4"],
-            ["Annual CTC", "₹13.4 L → ₹15.3 L"],
-            ["Previous record", "Kept for as-of reports"],
-          ]}
-          total={["Increase", "+14.2%"]}
-        />
-        <Actions primary="Save dated event" secondary="History" tone="brand" />
-      </FloatCard>
-    ),
-  },
-  {
-    width: 280,
-    pos: { left: 0, bottom: 22 },
-    look: "glass",
-    node: <Toast title="Mass transfer applied" sub="12 employees · Pune office from 01 Oct 2026" />,
-  },
-  {
-    width: 270,
-    pos: { left: 250, top: 0 },
-    node: <Chip badge="CSV" tone="info" title="Directory export ready" sub="201 rows · CTC redacted for your role" />,
-  },
-];
+        {/* The as-of pin: a date on the timeline, not a separate report. */}
+        <line x1={pinX} x2={pinX} y1={14} y2={RIBBON_Y} stroke="#E88938" strokeWidth={1.5} strokeDasharray="3 3" />
+        <circle cx={pinX} cy={yC(9.0)} r={4} fill="#E88938" stroke="#fff" strokeWidth={1.5} />
+
+        {/* Ribbon */}
+        <line x1={0} x2={TW} y1={RIBBON_Y} y2={RIBBON_Y} stroke="#15147B" strokeOpacity={0.14} strokeWidth={6} strokeLinecap="round" />
+        <line x1={x(events[0].t)} x2={x(dt(2026, 9, 28))} y1={RIBBON_Y} y2={RIBBON_Y} stroke="#15147B" strokeOpacity={0.55} strokeWidth={6} strokeLinecap="round" />
+        {events.map((e) => (
+          <g key={e.date}>
+            <line
+              x1={x(e.t)}
+              x2={x(e.t)}
+              y1={e.row === "a" ? RIBBON_Y - 16 : RIBBON_Y + 7}
+              y2={e.row === "a" ? RIBBON_Y - 7 : RIBBON_Y + 16}
+              stroke={TONE[e.kind]}
+              strokeWidth={1.5}
+            />
+            <circle
+              cx={x(e.t)}
+              cy={RIBBON_Y}
+              r={6}
+              fill={e.scheduled ? "#fff" : TONE[e.kind]}
+              stroke={e.scheduled ? TONE[e.kind] : "#fff"}
+              strokeWidth={2}
+              strokeDasharray={e.scheduled ? "3 2" : undefined}
+            />
+          </g>
+        ))}
+      </svg>
+
+      <span
+        className="absolute -translate-x-1/2 whitespace-nowrap rounded-full bg-[#E88938] px-2 py-0.5 text-[10.5px] font-semibold text-[#24242B]"
+        style={{ left: pinX, top: 0 }}
+      >
+        As of 15 Jan 2024
+      </span>
+
+      {events.map((e) => {
+        const alignEnd = e.scheduled;
+        return (
+          <div
+            key={e.date}
+            className={`absolute leading-tight ${alignEnd ? "text-right" : ""}`}
+            style={{
+              left: alignEnd ? undefined : x(e.t) - 3,
+              right: alignEnd ? 0 : undefined,
+              top: e.row === "a" ? RIBBON_Y - 60 : RIBBON_Y + 18,
+            }}
+          >
+            <p className="tnum whitespace-nowrap text-[10.5px] text-slate-400">{e.date}</p>
+            <p className="whitespace-nowrap text-[11.5px] font-semibold" style={{ color: TONE[e.kind] === "#64748B" ? "#24242B" : TONE[e.kind] }}>
+              {e.title}
+            </p>
+            <p className="whitespace-nowrap text-[10.5px] text-slate-500">{e.detail}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function Row({ k, v }: { k: string; v: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-3 py-[5px] text-[12px]">
+      <span className="text-slate-500">{k}</span>
+      <span className="tnum text-right font-medium text-ink">{v}</span>
+    </div>
+  );
+}
 
 export function EmployeesVisual() {
   return (
-    <ProductFrame
-      title="NeevHR · Employee 360 · Aditi Rao"
-      floaters={floaters}
-      actions={<><WinButton>Bulk actions</WinButton><WinButton primary>Add event</WinButton></>}
+    <VisualStage
+      width={1000}
+      estHeight={640}
+      backdrop="canvas"
+      label="One effective-dated NeevHR employee record: today's profile, a timeline of employment events under a CTC step line with promotion pins, and the same record rebuilt as of 15 Jan 2024."
     >
-      <div className="flex items-center gap-3 rounded-xl border border-line bg-white p-3">
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-brand text-sm font-semibold text-white">AR</span>
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-ink">Aditi Rao</p>
-          <p className="text-xs text-muted">Senior Engineer · Engineering · EMP-0142 · joined 05 Jul 2021</p>
+      <div className="grid grid-cols-[264px_1fr] gap-7">
+        <div className="flex flex-col gap-4">
+          <Card className="p-5">
+            <div className="flex items-center gap-3">
+              <Avatar initials="AR" size={52} />
+              <div>
+                <p className="text-[16px] font-bold tracking-tight text-ink">Aditi Rao</p>
+                <p className="text-[12px] text-slate-500">Senior Engineer · L4</p>
+              </div>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {["EMP-0142", "Engineering"].map((c) => (
+                <span key={c} className="rounded-md bg-[#F4F3FE] px-2 py-0.5 text-[10.5px] font-semibold text-[#4A34D1]">
+                  {c}
+                </span>
+              ))}
+            </div>
+            <div className="mt-3 border-t border-slate-100 pt-2">
+              <Row k="Location" v="Bengaluru" />
+              <Row k="Reports to" v="Meera Krishnan" />
+              <Row k="Joined" v="05 Jul 2021" />
+              <Row k="Tenure" v="5 yrs 2 mths" />
+              <Row k="Annual CTC" v="₹13.4 L" />
+            </div>
+            <p className="mt-2 text-[10.5px] text-slate-400">Today · 28 Sep 2026</p>
+          </Card>
+
+          <Card className="p-5" style={{ borderColor: "rgba(232,137,56,0.65)", borderWidth: 2 }}>
+            <Eyebrow>
+              <span className="text-[#B45309]">As of 15 Jan 2024</span>
+            </Eyebrow>
+            <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
+              {[
+                ["Designation", "Engineer II"],
+                ["Grade", "L3"],
+                ["Location", "Pune"],
+                ["Annual CTC", "₹9.0 L"],
+                ["Department", "Engineering"],
+                ["Reports to", "Sanjay Kulkarni"],
+              ].map(([k, v]) => (
+                <div key={k}>
+                  <p className="text-[10.5px] text-slate-400">{k}</p>
+                  <p className="tnum whitespace-nowrap text-[12.5px] font-semibold text-ink">{v}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-[10.5px] leading-snug text-slate-500">Rebuilt from dated history. Nothing was overwritten.</p>
+          </Card>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <Card className="px-6 pb-5 pt-5">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <Eyebrow>Job & timeline</Eyebrow>
+                <p className="mt-1 text-[15px] font-semibold text-ink">Every change is a dated event</p>
+              </div>
+              <div className="flex gap-3 text-[10.5px] text-slate-500">
+                {(
+                  [
+                    ["joined", "Joined"],
+                    ["confirmed", "Confirmed"],
+                    ["promotion", "Promotion"],
+                    ["transfer", "Transfer"],
+                    ["pay", "Pay revision"],
+                  ] as [Kind, string][]
+                ).map(([k, l]) => (
+                  <span key={k} className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full" style={{ background: TONE[k] }} />
+                    {l}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <Timeline />
+          </Card>
+
+          <Card className="flex items-center gap-4 px-5 py-4">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-dashed border-[#7C3AED] text-[11px] font-bold text-[#7C3AED]">
+              L5
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[13px] font-semibold text-ink">Promotion to Lead Engineer · effective 01 Oct 2026</p>
+              <p className="text-[11.5px] text-slate-500">Saved as a scheduled event. Payroll and reports pick it up on the date.</p>
+            </div>
+            <div className="text-right">
+              <p className="tnum text-[13px] font-semibold text-ink">₹13.4 L → ₹15.3 L</p>
+              <p className="tnum text-[11px] font-semibold text-[#7C3AED]">+14.2% · L4 → L5</p>
+            </div>
+          </Card>
         </div>
       </div>
-      <Soft className="mt-3 flex gap-1.5 text-[11px] font-medium">
-        {["Overview", "Job & timeline", "Compensation", "Statutory & bank", "Documents", "Assets"].map((t) => (
-          <span
-            key={t}
-            className={`rounded-md px-2.5 py-1 ${t === "Job & timeline" ? "bg-brand-tint text-brand" : "text-muted"}`}
-          >
-            {t}
-          </span>
-        ))}
-      </Soft>
-
-      <div className="mt-3 grid grid-cols-[400px_1fr] gap-6">
-        <div className="rounded-xl border border-line bg-white p-4">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-ink">Pay & promotion progression</p>
-            <span className="tnum text-xs text-muted">₹13.4 LPA</span>
-          </div>
-          <svg viewBox={`0 0 ${W} ${H + 8}`} className="mt-2 w-full" role="img" aria-label="CTC progression">
-            <path d={`${d} L ${W} ${H} L 0 ${H} Z`} fill="var(--color-brand)" opacity={0.06} />
-            <path d={d} fill="none" stroke="var(--color-brand)" strokeWidth={2} />
-            {pts.map((p, i) => (
-              <g key={p.yr}>
-                <circle cx={i * stepX} cy={y(p.ctc)} r={3} fill="var(--color-brand)" />
-                {p.promo && (
-                  <circle cx={i * stepX} cy={y(p.ctc)} r={6} fill="none" stroke="#7c3aed" strokeWidth={2} />
-                )}
-              </g>
-            ))}
-          </svg>
-          <div className="tnum mt-1 flex justify-between text-[10px] text-muted">
-            {pts.map((p) => (
-              <span key={p.yr}>{p.yr}</span>
-            ))}
-          </div>
-          <div className="mt-2 flex gap-4 text-[11px] text-muted">
-            <span className="flex items-center gap-1.5">
-              <span className="h-2 w-3 rounded-sm bg-brand" /> CTC
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full border-2 border-[#7c3aed]" /> Promotion
-            </span>
-          </div>
-        </div>
-
-        <Soft strong className="rounded-xl border border-line bg-white p-4">
-          <p className="text-sm font-semibold text-ink">Job & timeline</p>
-          <ul className="mt-2 space-y-2">
-            {timeline.map(([date, what, ctc]) => (
-              <li key={date} className="text-[11px]">
-                <p className="text-muted">{date}</p>
-                <p className="flex justify-between gap-2 font-medium text-ink">
-                  <span className="truncate">{what}</span>
-                  <span className="tnum">{ctc}</span>
-                </p>
-              </li>
-            ))}
-          </ul>
-        </Soft>
-      </div>
-
-      <Soft className="mt-4 grid grid-cols-3 gap-4">
-        <StatTile label="Active headcount" value="201" sub="+4 this month" tone="accent" />
-        <StatTile label="Avg tenure" value="3.4 yrs" />
-        <StatTile label="Profiles complete" value="96%" />
-      </Soft>
-    </ProductFrame>
+    </VisualStage>
   );
 }

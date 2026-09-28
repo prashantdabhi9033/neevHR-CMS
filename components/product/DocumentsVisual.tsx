@@ -1,142 +1,142 @@
 import type { ReactNode } from "react";
-import { ProductFrame } from "./ProductFrame";
-import { Soft, WinButton, type Floater } from "@/components/showcase/Showcase";
-import { Actions, Chip, FloatCard, Tag, Toast } from "@/components/showcase/parts";
-import { Icon } from "@/components/ui/Icon";
+import { Avatar, Card, Eyebrow, Paper, VisualStage } from "@/components/visuals/Stage";
 
-// The document vault with verification status and expiry tracking. Lifted pieces: a server-side
-// mail-merge run of increment letters, a tamper-proof check on an issued letter and policy
-// acknowledgement. Vault totals: 1,846 = 1,792 verified + 54 pending; 14 expiring in 90 days.
-const catTone: Record<string, string> = {
-  KYC: "bg-blue-100 text-blue-700",
-  Contract: "bg-purple-100 text-purple-700",
-  Letter: "bg-indigo-100 text-indigo-700",
-  "Form 16": "bg-emerald-100 text-emerald-700",
-  Certificate: "bg-slate-200 text-slate-600",
-};
-const rows = [
-  { doc: "PAN card", cat: "KYC", who: "Ishita Gandhi", verified: true },
-  { doc: "Appointment letter", cat: "Letter", who: "Rohan Nair", verified: true },
-  { doc: "Contract (FTC)", cat: "Contract", who: "Neel Mishra", verified: false },
-  { doc: "Form 16 · FY 2025-26", cat: "Form 16", who: "Kavya Mehta", verified: true },
-  { doc: "Degree certificate", cat: "Certificate", who: "Aman Bhatt", verified: false },
-];
-const expiring = [
-  ["Contract (FTC)", "Neel Mishra", "30 Nov 2026"],
-  ["Driving licence", "Suresh Yadav", "14 Dec 2026"],
-  ["First-aid certificate", "Pooja Singh", "09 Jan 2027"],
-];
+// Documents MEANS paper HR issues and keeps. So the image is a desk: a letter template with its merge
+// fields on the left sheet, the server-side merge in the middle, and the issued letter on the right sheet,
+// filed to the employee's vault with a tamper-evidence code. Aman Bhatt joined 01 Jul 2026; 90-day
+// probation ends 29 Sep 2026, the letter's date. Only the curated merge fields the product supports appear.
 
-function Token({ children }: { children: ReactNode }) {
-  return <span className="rounded bg-[#EEEAFE] px-1 font-semibold text-[#4A34D1]">{children}</span>;
+function Tok({ children }: { children: ReactNode }) {
+  return <span className="rounded bg-[#EEEAFE] px-1 py-px font-mono text-[10.5px] font-semibold text-[#4A34D1]">{`{{${children}}}`}</span>;
 }
 
-const floaters: Floater[] = [
-  {
-    width: 330,
-    pos: { right: 0, top: 80 },
-    mobile: true,
-    node: (
-      <FloatCard eyebrow="Letter generation" title="Increment letters · Oct 2026" meta="Mail-merge · 38 employees · template v4" tag={<Tag tone="brand">Ready</Tag>}>
-        <div className="rounded-xl bg-slate-50/80 p-3 text-[11.5px] leading-relaxed text-slate-600 ring-1 ring-slate-100">
-          Dear <Token>Kavya</Token>, your annual CTC is revised to <Token>₹26,40,000</Token> with effect from{" "}
-          <Token>01 Oct 2026</Token>.
-        </div>
-        <p className="mt-2 text-[11px] text-slate-500">Each letter is filed to the employee&apos;s vault and sealed against edits.</p>
-        <Actions primary="Generate 38 letters" secondary="Preview" tone="brand" />
-      </FloatCard>
-    ),
-  },
-  {
-    width: 285,
-    pos: { left: 0, bottom: 22 },
-    look: "glass",
-    node: <Toast title="Letter verified as original" sub="Appointment letter · Rohan Nair · unaltered" />,
-  },
-  {
-    width: 260,
-    pos: { left: 260, top: 0 },
-    node: <Chip badge="92%" tone="success" title="POSH policy 2026" sub="185 of 201 acknowledged" />,
-  },
-];
+function Val({ children }: { children: ReactNode }) {
+  return <span className="rounded-sm bg-[#FFF1DC] px-0.5 font-semibold text-ink shadow-[inset_0_-2px_0_#E88938]">{children}</span>;
+}
+
+const SHEET_W = 292;
+
+function Arrow({ className }: { className: string }) {
+  return (
+    <svg className={className} width={24} height={16} viewBox="0 0 24 16" fill="none" aria-hidden>
+      <path d="M1 8 H21" stroke="#5B45E8" strokeWidth={2} strokeDasharray="4 4" />
+      <path d="M16 3 L22 8 L16 13" stroke="#5B45E8" strokeWidth={2} />
+    </svg>
+  );
+}
 
 export function DocumentsVisual() {
   return (
-    <ProductFrame
-      title="NeevHR · Documents · Vault"
-      floaters={floaters}
-      actions={<><WinButton>Upload</WinButton><WinButton primary>Generate letters</WinButton></>}
+    <VisualStage
+      width={880}
+      estHeight={640}
+      backdrop="cream"
+      label="A NeevHR letter template with merge fields becoming an issued confirmation letter for one employee, filed to their document vault with a verification code."
     >
-      <div className="grid grid-cols-[410px_1fr] gap-6">
-        <div className="overflow-hidden rounded-xl border border-line bg-white">
-          <table className="w-full text-left text-[12.5px]">
-            <thead>
-              <tr className="bg-surface-soft text-[10px] uppercase text-muted">
-                <th className="px-3 py-2 font-semibold">Document</th>
-                <th className="px-3 py-2 font-semibold">Employee</th>
-                <th className="px-3 py-2" />
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.doc} className="border-t border-line">
-                  <td className="px-3 py-2">
-                    <div className="flex items-center gap-2">
-                      <span className="grid h-5 w-4 shrink-0 place-items-center rounded-sm bg-red-100 text-[8px] font-bold text-red-600">
-                        PDF
-                      </span>
-                      <div className="min-w-0">
-                        <p className="truncate font-medium text-ink">{r.doc}</p>
-                        <span className={`rounded px-1 py-px text-[9.5px] font-semibold ${catTone[r.cat]}`}>{r.cat}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-3 py-2 text-body">{r.who}</td>
-                  <td className="px-3 py-2 text-right">
-                    {r.verified ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-success-dark">
-                        <Icon name="check" className="h-3.5 w-3.5" /> Verified
-                      </span>
-                    ) : (
-                      <span className="text-[11px] text-muted">Pending</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="flex items-start justify-between">
+        <Paper rotate={-2} className="px-6 pb-7 pt-5" style={{ width: SHEET_W }}>
+          <div className="flex items-center justify-between">
+            <Eyebrow>Letter template</Eyebrow>
+            <span className="rounded bg-slate-100 px-1.5 py-px text-[10.5px] font-semibold text-slate-600">Confirmation</span>
+          </div>
+          <p className="mt-1 text-[14px] font-semibold text-ink">Confirmation letter</p>
+          <div className="mt-4 space-y-3 text-[11.5px] leading-[1.75] text-slate-600">
+            <p>
+              <Tok>companyName</Tok>
+              <br />
+              <Tok>companyAddress</Tok>
+            </p>
+            <p>
+              Date: <Tok>today</Tok>
+            </p>
+            <p>
+              Dear <Tok>name</Tok> (<Tok>code</Tok>),
+            </p>
+            <p>
+              With reference to your appointment as <Tok>designation</Tok> in <Tok>department</Tok> from <Tok>doj</Tok>, we
+              are pleased to confirm your services on successful completion of probation.
+            </p>
+            <p>
+              You will continue to report to <Tok>managerName</Tok>.
+            </p>
+          </div>
+        </Paper>
+
+        <div className="flex w-[172px] flex-col items-center pt-24">
+          <Card className="w-full p-3.5">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[#5B45E8]">Generate for</p>
+            <div className="mt-2 flex items-center gap-2">
+              <Avatar initials="AB" size={28} />
+              <div className="min-w-0">
+                <p className="truncate text-[12px] font-semibold text-ink">Aman Bhatt</p>
+                <p className="text-[10.5px] text-slate-500">EMP-0231</p>
+              </div>
+            </div>
+          </Card>
+          <div className="relative mt-4 w-full rounded-xl bg-[#15147B] px-3.5 py-3 text-white">
+            <Arrow className="absolute -left-[27px] top-1/2 -translate-y-1/2" />
+            <Arrow className="absolute -right-[27px] top-1/2 -translate-y-1/2" />
+            <p className="text-[12px] font-semibold">Merged on the server</p>
+            <p className="mt-1 text-[10.5px] leading-snug text-[#C9C8F2]">16 curated fields from the employee record. An unknown field is rejected when the template is saved.</p>
+          </div>
         </div>
 
-        <Soft strong className="rounded-xl border border-line bg-white p-4">
-          <p className="text-sm font-semibold text-ink">Expiring in 90 days</p>
-          <ul className="mt-3 space-y-2.5">
-            {expiring.map(([doc, who, date]) => (
-              <li key={doc} className="text-[11px]">
-                <p className="font-medium text-ink">{doc}</p>
-                <p className="flex justify-between gap-2 text-muted">
-                  <span className="truncate">{who}</span>
-                  <span className="tnum text-amber-600">{date}</span>
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3 text-[10px] font-medium text-muted">+11 more</p>
-        </Soft>
+        <div className="flex flex-col items-end">
+          <Paper rotate={1.5} className="px-6 pb-7 pt-5" style={{ width: SHEET_W }}>
+            <div className="flex items-center justify-between">
+              <p className="text-[12px] font-bold text-[#15147B]">Aikyora Pvt Ltd</p>
+              <p className="text-[10.5px] text-slate-400">Baner, Pune</p>
+            </div>
+            <div className="mt-4 space-y-3 text-[11.5px] leading-[1.75] text-slate-600">
+              <p>
+                Date: <Val>29 Sep 2026</Val>
+              </p>
+              <p>
+                Dear <Val>Aman Bhatt</Val> (<Val>EMP-0231</Val>),
+              </p>
+              <p>
+                With reference to your appointment as <Val>Engineer</Val> in <Val>Engineering</Val> from <Val>01 Jul 2026</Val>,
+                we are pleased to confirm your services on successful completion of probation.
+              </p>
+              <p>
+                You will continue to report to <Val>Meera Krishnan</Val>.
+              </p>
+            </div>
+            <div className="mt-5 border-t border-slate-100 pt-2 text-[10.5px] text-slate-400">For Aikyora Pvt Ltd · Human Resources</div>
+          </Paper>
+
+          <Card className="-mt-3 mr-3 w-[276px] p-3.5">
+            <div className="flex items-center justify-between">
+              <p className="text-[12px] font-semibold text-ink">Filed to Aman&apos;s vault</p>
+              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10.5px] font-semibold text-emerald-700">Company-issued</span>
+            </div>
+            <div className="mt-2 rounded-lg bg-slate-50 px-2.5 py-2">
+              <div className="flex items-baseline justify-between gap-2">
+                <p className="text-[10.5px] text-slate-500">SHA-256 verify code</p>
+                <p className="tnum whitespace-nowrap font-mono text-[12px] font-semibold text-ink">7F3A-91C2-0D4E</p>
+              </div>
+              <p className="mt-1 flex items-center gap-1 text-[10.5px] font-semibold text-emerald-700">
+                <span className="grid h-4 w-4 place-items-center rounded-full bg-[#10B981] text-[10.5px] text-white">✓</span>
+                Unaltered since issue
+              </p>
+            </div>
+          </Card>
+        </div>
       </div>
 
-      <Soft className="mt-4 grid grid-cols-4 gap-2 text-center">
-        {[
-          ["1,846", "Documents"],
-          ["1,792", "Verified"],
-          ["54", "Pending"],
-          ["14", "Expiring"],
-        ].map(([v, l]) => (
-          <div key={l} className="rounded-lg bg-surface-soft py-2">
-            <p className="tnum text-sm font-bold text-ink">{v}</p>
-            <p className="text-[10px] text-muted">{l}</p>
-          </div>
+      <div className="mt-7 flex flex-wrap items-center gap-2">
+        <span className="mr-1 text-[11px] font-semibold text-slate-500">Letter types</span>
+        {["Offer", "Appointment", "Confirmation", "Increment", "Transfer", "Relieving", "Experience", "Warning", "Asset handover"].map((t) => (
+          <span
+            key={t}
+            className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${
+              t === "Confirmation" ? "bg-[#15147B] text-white" : "bg-white text-slate-600 ring-1 ring-slate-200"
+            }`}
+          >
+            {t}
+          </span>
         ))}
-      </Soft>
-    </ProductFrame>
+      </div>
+    </VisualStage>
   );
 }

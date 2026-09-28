@@ -1,113 +1,175 @@
-import { ProductFrame } from "./ProductFrame";
-import { Soft, WinButton, type Floater } from "@/components/showcase/Showcase";
-import { Actions, Chip, FloatCard, Rows, Tag, Toast } from "@/components/showcase/parts";
+import { Avatar, Card, Paper, VisualStage } from "@/components/visuals/Stage";
 
-// Mirrors the product's asset register (status counts) and a single asset's custody timeline, with
-// warranty and straight-line book value: ₹1,80,000 over 3 years = ₹5,000/month, 18 months to
-// Sep 2026 = ₹90,000 book value.
-// Lifted pieces: the repair-closed decision for this asset, a joiner reservation and expiring warranties.
-const cards = [
-  { label: "Total", value: "478", tone: "bg-brand-tint text-brand" },
-  { label: "Assigned", value: "402", tone: "bg-blue-100 text-blue-700" },
-  { label: "In stock", value: "51", tone: "bg-emerald-100 text-emerald-700" },
-  { label: "Reserved", value: "12", tone: "bg-purple-100 text-purple-700" },
-  { label: "In repair", value: "9", tone: "bg-amber-100 text-amber-700" },
-  { label: "Damaged", value: "4", tone: "bg-red-100 text-red-700" },
-];
-const timeline = [
-  { t: "Issued to Ishita Gandhi", d: "24 Mar 2025", c: "bg-success" },
-  { t: "Reassigned to Rohan Nair", d: "02 Sep 2026", c: "bg-brand" },
-  { t: "Sent to repair · keyboard, warranty claim", d: "15 Sep 2026", c: "bg-amber-400" },
-];
-const specs = [
-  ["Category", "Laptop"],
-  ["Serial", "C02XK4471"],
-  ["Purchased", "18 Mar 2025"],
-  ["Cost", "₹1,80,000"],
-  ["Depreciation", "3 yrs · straight-line"],
-  ["Warranty till", "17 Mar 2028"],
+// An asset is a physical thing that passes from hand to hand, so the image is the thing and its chain of
+// custody on a dotted canvas: the printed asset tag (tag, model, serial) and the custody timeline from the
+// asset's own event log (registered, issued, returned needing repair with condition photos, repair out
+// and back, reissued), with warranty and book value beside it. Book value: ₹1,80,000 over 3 years
+// straight-line = ₹5,000 a month; Mar 2025 to Sep 2026 is 18 months, so ₹1,80,000 - ₹90,000 = ₹90,000.
+
+type Ev = { title: string; date: string; note: string; person?: string; dot: string; photos?: boolean; now?: boolean };
+
+const events: Ev[] = [
+  { title: "Registered", date: "18 Mar 2025", note: "Laptop · Apple MacBook Pro 14", dot: "#94A3B8" },
+  { title: "Issued", date: "24 Mar 2025", note: "Condition Good", person: "Ishita Gandhi", dot: "#10B981" },
+  { title: "Returned · needs repair", date: "02 Sep 2026", note: "Keyboard keys unresponsive · held as damaged", dot: "#EF4444", photos: true },
+  { title: "Sent for repair", date: "04 Sep 2026", note: "Authorised service centre · warranty claim", dot: "#F59E0B" },
+  { title: "Back from repair", date: "24 Sep 2026", note: "Keyboard replaced · repair cost ₹0", dot: "#0EA5E9" },
+  { title: "Issued", date: "28 Sep 2026", note: "Condition Good", person: "Rohan Nair", dot: "#5B45E8", now: true },
 ];
 
-const floaters: Floater[] = [
-  {
-    width: 320,
-    pos: { right: 0, top: 92 },
-    mobile: true,
-    node: (
-      <FloatCard eyebrow="Back from repair" title="LAP-4471 · MacBook Pro 14" meta="Returned 26 Sep 2026 · keyboard replaced" tag={<Tag tone="success">Under warranty</Tag>}>
-        <Rows rows={[["Repair cost", "₹0 · warranty claim"], ["Book value", "₹90,000"], ["Last custodian", "Rohan Nair"]]} />
-        <Actions primary="Reissue to Rohan Nair" secondary="To stock" tone="brand" />
-      </FloatCard>
-    ),
-  },
-  {
-    width: 290,
-    pos: { left: 0, bottom: 24 },
-    look: "glass",
-    node: <Toast tone="brand" glyph="✓" title="Reserved for joiner · Aditi Bhatt" sub="LAP-4502 · issue on day one, 05 Oct 2026" />,
-  },
-  {
-    width: 260,
-    pos: { left: 250, top: 0 },
-    node: <Chip badge="7" tone="warning" title="7 warranties expire in 30 days" sub="5 laptops · 2 monitors" />,
-  },
-];
+const AREA_H = 318;
+const LINE_Y = 160;
+const STEP = 130;
+const X0 = 74;
+
+function Tag() {
+  return (
+    <Paper rotate={-2.5} className="overflow-hidden" style={{ width: 330 }}>
+      <div className="flex items-center justify-between bg-[#15147B] px-4 py-2">
+        <p className="text-[11px] font-bold tracking-wide text-white">Aikyora Pvt Ltd</p>
+        <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[#A9A8E8]">Asset tag</p>
+      </div>
+      <div className="px-4 pb-4 pt-3">
+        <p className="font-mono text-[34px] font-bold leading-none tracking-[0.06em] text-ink">LAP-4471</p>
+        <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-dashed border-slate-200 pt-3">
+          {[
+            ["Model", "MacBook Pro 14"],
+            ["Brand", "Apple"],
+            ["Serial no.", "C02XK4471"],
+            ["Category", "Laptop"],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <p className="text-[10.5px] uppercase tracking-wider text-slate-400">{k}</p>
+              <p className="font-mono text-[12.5px] font-semibold text-ink">{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Paper>
+  );
+}
+
+function Now() {
+  return (
+    <Card className="p-5">
+      <div className="flex items-center gap-3">
+        <Avatar initials="RN" size={40} />
+        <div className="min-w-0 flex-1">
+          <p className="text-[11px] text-slate-500">With</p>
+          <p className="text-[15px] font-bold text-ink">Rohan Nair</p>
+        </div>
+        <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-semibold text-blue-700 ring-1 ring-blue-200">Assigned</span>
+        <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-200">Good</span>
+      </div>
+      <div className="mt-4 grid grid-cols-3 gap-3 border-t border-slate-100 pt-4">
+        <div>
+          <p className="text-[10.5px] uppercase tracking-wider text-slate-400">Warranty</p>
+          <p className="mt-0.5 text-[12.5px] font-semibold text-emerald-600">In warranty</p>
+          <p className="tnum text-[11px] text-slate-500">till 17 Mar 2028</p>
+        </div>
+        <div>
+          <p className="text-[10.5px] uppercase tracking-wider text-slate-400">Cost</p>
+          <p className="tnum mt-0.5 text-[12.5px] font-semibold text-ink">₹1,80,000</p>
+          <p className="text-[11px] text-slate-500">3 yrs · straight-line</p>
+        </div>
+        <div>
+          <p className="text-[10.5px] uppercase tracking-wider text-slate-400">Book value</p>
+          <p className="tnum mt-0.5 text-[18px] font-bold leading-tight text-[#15147B]">₹90,000</p>
+          <p className="tnum text-[11px] text-slate-500">after 18 months</p>
+        </div>
+      </div>
+      <p className="tnum mt-3 text-[11px] text-slate-500">Lifetime repair cost ₹0 · 1 repair under warranty</p>
+    </Card>
+  );
+}
+
+function Photo({ tilt }: { tilt: number }) {
+  return (
+    <span
+      className="grid h-9 w-11 place-items-center rounded-md bg-slate-700 ring-2 ring-white"
+      style={{ transform: `rotate(${tilt}deg)` }}
+      aria-hidden
+    >
+      <svg width="30" height="18" viewBox="0 0 30 18">
+        {Array.from({ length: 3 }).map((_, r) =>
+          Array.from({ length: 6 }).map((__, c) => (
+            <rect key={`${r}-${c}`} x={1 + c * 4.8} y={2 + r * 5} width="3.8" height="3.8" rx="0.8" fill={r === 1 && c === 3 ? "#EF4444" : "#CBD5E1"} />
+          )),
+        )}
+      </svg>
+    </span>
+  );
+}
+
+function Chain() {
+  const last = X0 + (events.length - 1) * STEP;
+  return (
+    <div className="relative" style={{ height: AREA_H }}>
+      <svg className="absolute inset-0" width="800" height={AREA_H} aria-hidden>
+        <line x1={X0} x2={last} y1={LINE_Y} y2={LINE_Y} stroke="#CBD5E1" strokeWidth="2" />
+        <line x1={last} x2={last + 44} y1={LINE_Y} y2={LINE_Y} stroke="#5B45E8" strokeWidth="3" strokeDasharray="4 5" />
+      </svg>
+      {events.map((e, i) => {
+        const x = X0 + i * STEP;
+        const up = i % 2 === 0;
+        return (
+          <div key={i}>
+            <span
+              className={`absolute grid place-items-center rounded-full ring-4 ring-white ${e.now ? "h-5 w-5" : "h-3.5 w-3.5"}`}
+              style={{ left: x, top: LINE_Y, transform: "translate(-50%, -50%)", background: e.dot }}
+            />
+            <span
+              className="absolute w-px bg-slate-300"
+              style={{ left: x, top: up ? LINE_Y - 18 : LINE_Y + 8, height: 10 }}
+            />
+            <div
+              className={`absolute rounded-xl border bg-white px-3 py-2.5 shadow-[0_10px_24px_-16px_rgba(21,20,123,0.5)] ${
+                e.now ? "border-[#5B45E8] ring-4 ring-[#5B45E8]/15" : "border-slate-200"
+              }`}
+              style={{ left: x - 72, width: 144, ...(up ? { bottom: AREA_H - LINE_Y + 18 } : { top: LINE_Y + 18 }) }}
+            >
+              <p className="tnum text-[10.5px] font-semibold text-slate-400">{e.date}</p>
+              <p className="text-[12px] font-bold leading-snug text-ink">{e.title}</p>
+              {e.person && (
+                <p className="mt-1 flex items-center gap-1.5 text-[11.5px] font-semibold text-ink">
+                  <Avatar initials={e.person.split(" ").map((w) => w[0]).join("")} size={18} />
+                  {e.person}
+                </p>
+              )}
+              <p className="mt-0.5 text-[11px] leading-snug text-slate-500">{e.note}</p>
+              {e.photos && (
+                <div className="mt-2 flex items-center gap-1">
+                  <Photo tilt={-4} />
+                  <Photo tilt={3} />
+                  <span className="ml-1 text-[10.5px] text-slate-400">2 photos</span>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export function AssetsVisual() {
   return (
-    <ProductFrame
-      title="NeevHR · Assets · LAP-4471 (MacBook Pro 14)"
-      floaters={floaters}
-      actions={<><WinButton>Register</WinButton><WinButton primary>Issue asset</WinButton></>}
+    <VisualStage
+      width={880}
+      estHeight={620}
+      backdrop="canvas"
+      label="A NeevHR asset tag for laptop LAP-4471 and its custody timeline from registration through issue, a repair return with condition photos, repair and reissue, with warranty and book value."
     >
-      <div className="grid grid-cols-[1fr_224px] gap-4">
-        <div>
-          <Soft className="grid grid-cols-3 gap-2">
-            {cards.map((c) => (
-              <div key={c.label} className="rounded-xl border border-line bg-white p-2.5 text-center">
-                <span className={`inline-block rounded-md px-1.5 py-0.5 text-[9px] font-semibold ${c.tone}`}>{c.label}</span>
-                <p className="tnum mt-1 text-base font-bold text-ink">{c.value}</p>
-              </div>
-            ))}
-          </Soft>
-
-          <div className="mt-4 rounded-xl border border-line bg-white p-4">
-            <p className="text-sm font-semibold text-ink">Custody history</p>
-            <div className="mt-3 space-y-3">
-              {timeline.map((e, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="flex flex-col items-center">
-                    <span className={`h-2.5 w-2.5 rounded-full ${e.c}`} />
-                    {i < timeline.length - 1 && <span className="mt-1 h-6 w-px bg-line" />}
-                  </div>
-                  <div className="-mt-0.5">
-                    <p className="text-[13px] text-ink">{e.t}</p>
-                    <p className="text-[11px] text-muted">{e.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className="grid grid-cols-[360px_1fr] items-center gap-6">
+        <div className="pl-3">
+          <Tag />
         </div>
-
-        <Soft strong className="rounded-xl border border-line bg-white p-3">
-          <p className="text-xs font-semibold text-ink">Asset details</p>
-          <div className="mt-3 space-y-2 text-[11px]">
-            {specs.map(([k, v]) => (
-              <div key={k} className="flex justify-between gap-2">
-                <span className="text-muted">{k}</span>
-                <span className="tnum text-right font-medium text-ink">{v}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 border-t border-dashed border-line pt-2 text-[11px]">
-            <div className="flex justify-between">
-              <span className="text-muted">Book value</span>
-              <span className="tnum font-semibold text-ink">₹90,000</span>
-            </div>
-          </div>
-        </Soft>
+        <Now />
       </div>
-    </ProductFrame>
+      <p className="mt-8 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#5B45E8]">Custody history · LAP-4471</p>
+      <div className="mt-2">
+        <Chain />
+      </div>
+    </VisualStage>
   );
 }

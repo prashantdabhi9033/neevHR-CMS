@@ -6,7 +6,8 @@ import { StoreBadges } from "@/components/site/StoreBadges";
 import { Icon } from "@/components/ui/Icon";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
-import { MobileVisual } from "@/components/product/MobileVisual";
+import { ESS_SCREENS, MobileVisual } from "@/components/product/MobileVisual";
+import { Phone } from "@/components/visuals/Stage";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -80,10 +81,32 @@ export default function MobilePage() {
           <div className="animate-fade-up">
             <MobileVisual />
             <p className="mt-4 text-center text-xs text-muted">
-              Preview of the upcoming mobile app, shown with illustrative data.
+              Screens from the upcoming NeevHR mobile app, shown with illustrative data.
             </p>
           </div>
         </Container>
+      </section>
+
+      <section className="border-b border-line bg-[#F3F0FF] py-16 lg:py-20">
+        <Container>
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand">Inside the app</span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">The screens employees will use every day</h2>
+          <p className="mt-3 max-w-2xl text-body">
+            These are real screens from the NeevHR mobile app, rendered with demo data. The app is
+            built and coming soon to the stores; the same features run in web self-service today.
+          </p>
+        </Container>
+        <div className="mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-4 pb-4 sm:px-6 lg:justify-center lg:overflow-visible">
+          {[ESS_SCREENS.leave, ESS_SCREENS.applyLeave, ESS_SCREENS.payslipDetail, ESS_SCREENS.approvals, ESS_SCREENS.expenses].map((s) => (
+            <figure key={s.src} className="w-[200px] shrink-0 snap-center">
+              <Phone src={s.src} alt={`NeevHR mobile app ${s.title} screen`} width={200} />
+              <figcaption className="mt-5">
+                <p className="text-sm font-semibold text-ink">{s.title}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-body">{s.body}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="py-16 lg:py-20">

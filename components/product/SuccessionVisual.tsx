@@ -1,174 +1,181 @@
-import { ProductFrame } from "./ProductFrame";
-import { Soft, WinButton, type Floater } from "@/components/showcase/Showcase";
-import { Actions, Chip, FloatCard, Rows, Tag, Toast } from "@/components/showcase/parts";
+import { Avatar, Card, Eyebrow, VisualStage } from "@/components/visuals/Stage";
 
-// Mirrors the product's succession skill-gap heatmap: pipeline members x leadership competencies,
-// each cell a 1-5 score on a red->amber->green scale, beside a critical role's ranked bench.
-// Lifted pieces: a committee calibration move on the 9-box, a HiPo flag and bench-depth cover.
-const cols = ["Vision", "P&L", "People", "Domain", "Influence", "Delivery"];
-const rows: { name: string; scores: number[] }[] = [
-  { name: "Kavya Mehta", scores: [4, 3, 5, 5, 4, 5] },
-  { name: "Rohan Nair", scores: [3, 2, 4, 5, 3, 4] },
-  { name: "Isha Desai", scores: [5, 4, 4, 3, 5, 4] },
-  { name: "Neel Mishra", scores: [2, 2, 3, 4, 3, 3] },
-];
-const bench = [
-  ["Kavya Mehta", "Ready now"],
-  ["Isha Desai", "Ready in 1-2 yrs"],
-  ["Neel Mishra", "Ready in 3+ yrs"],
+// Succession MEANS knowing who could step into a critical role, and how soon. So the image is the talent
+// map itself: a large calibrated 9-box with people placed by performance and potential (one committee
+// move shown in flight), beside the critical role it feeds, with its ranked successors and readiness.
+// 9-box population: 2 + 2 + 1 + 3 + 5 + 1 + 2 + 1 + 1 = 18 people (Kavya still in High performer until sign-off).
+
+type Cell = { perf: 1 | 2 | 3; pot: 1 | 2 | 3; name: string; people: string[] };
+
+// Box names as the product labels them (Performance → 9-box).
+const cells: Cell[] = [
+  { perf: 1, pot: 3, name: "Rough diamond", people: ["TB"] },
+  { perf: 2, pot: 3, name: "Emerging talent", people: ["ID", "PK"] },
+  { perf: 3, pot: 3, name: "Star", people: ["AS", "VR"] },
+  { perf: 1, pot: 2, name: "Inconsistent", people: ["YT"] },
+  { perf: 2, pot: 2, name: "Core player", people: ["NM", "SG", "DV", "HP", "AK"] },
+  { perf: 3, pot: 2, name: "High performer", people: ["RS", "MJ", "KM"] },
+  { perf: 1, pot: 1, name: "Underperformer", people: ["BK"] },
+  { perf: 2, pot: 1, name: "Solid performer", people: ["FQ"] },
+  { perf: 3, pot: 1, name: "Trusted professional", people: ["LS", "GP"] },
 ];
 
-function cell(v: number) {
-  if (v >= 5) return { bg: "#059669", fg: "#fff" };
-  if (v === 4) return { bg: "#34d399", fg: "#064e3b" };
-  if (v === 3) return { bg: "#fcd34d", fg: "#713f12" };
-  if (v === 2) return { bg: "#fb923c", fg: "#7c2d12" };
-  return { bg: "#f87171", fg: "#7f1d1d" };
+const CW = 128;
+const CH = 124;
+const G = 8;
+
+function tint(perf: number, pot: number) {
+  const score = perf + pot;
+  if (score >= 6) return "rgba(91,69,232,0.55)";
+  if (score === 5) return "rgba(91,69,232,0.32)";
+  if (score === 4) return "rgba(255,255,255,0.10)";
+  return "rgba(255,255,255,0.05)";
 }
 
-// Mini 9-box: rows are potential (high at top), columns performance (low to high).
-// Kavya moves from high performance / medium potential to high / high.
-function NineBox() {
+const HIPO = new Set(["ID", "AS", "VR", "PK", "TB"]);
+
+function StarBadge({ size = 14 }: { size?: number }) {
   return (
-    <div className="flex items-stretch gap-2">
-      <span className="flex items-center text-[9.5px] font-semibold uppercase tracking-wider text-slate-400 [writing-mode:vertical-rl] rotate-180">
-        Potential
-      </span>
-      <div className="flex-1">
-        <div className="grid grid-cols-3 gap-1">
-          {Array.from({ length: 9 }).map((_, i) => {
-            const row = Math.floor(i / 3);
-            const col = i % 3;
-            const to = row === 0 && col === 2;
-            const from = row === 1 && col === 2;
-            return (
-              <span
-                key={i}
-                className={`grid h-7 place-items-center rounded-md text-[10px] font-bold ${
-                  to
-                    ? "bg-[#5B45E8] text-white"
-                    : from
-                      ? "border border-dashed border-[#5B45E8] bg-[#EEEAFE] text-[#4A34D1]"
-                      : "bg-slate-100"
-                }`}
-              >
-                {to ? "KM" : from ? "↑" : ""}
-              </span>
-            );
-          })}
+    <svg width={size} height={size} viewBox="0 0 14 14" aria-hidden>
+      <circle cx={7} cy={7} r={7} fill="#E88938" />
+      <path d="M7 3.2 L8.1 5.6 L10.7 5.8 L8.7 7.5 L9.3 10 L7 8.7 L4.7 10 L5.3 7.5 L3.3 5.8 L5.9 5.6 Z" fill="#24242B" />
+    </svg>
+  );
+}
+
+function NineBox() {
+  // column x and row y (potential 3 at the top).
+  const cx = (perf: number) => (perf - 1) * (CW + G);
+  const cy = (pot: number) => (3 - pot) * (CH + G);
+  // KM is the third avatar in High performer; the dashed ghost is the third slot in Star.
+  const slotX = cx(3) + 10 + 2 * 34 + 14;
+  const from = { x: slotX, y: cy(2) + 35 };
+  const to = { x: slotX, y: cy(3) + 67 };
+  return (
+    <div className="flex gap-3">
+      <div className="flex flex-col justify-between py-2 text-right text-[10.5px] font-semibold text-[#A9A8E8]" style={{ height: 3 * CH + 2 * G }}>
+        <span>High</span>
+        <span className="-rotate-90 whitespace-nowrap uppercase tracking-[0.16em]">Potential</span>
+        <span>Low</span>
+      </div>
+      <div>
+        <div className="relative" style={{ width: 3 * CW + 2 * G, height: 3 * CH + 2 * G }}>
+          {cells.map((c) => (
+            <div
+              key={c.name}
+              className={`absolute rounded-xl p-2.5 ring-1 ${c.name === "Star" ? "ring-[#8B7BFF]" : "ring-white/10"}`}
+              style={{ left: cx(c.perf), top: cy(c.pot), width: CW, height: CH, background: tint(c.perf, c.pot) }}
+            >
+              <div className="flex items-baseline justify-between">
+                <p className="text-[11px] font-semibold text-white">{c.name}</p>
+                <p className="tnum text-[11px] font-semibold text-white/60">{c.people.length}</p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {c.people.map((p) => (
+                  <span key={p} className="relative">
+                    <Avatar initials={p} size={28} />
+                    {HIPO.has(p) && c.pot === 3 && (
+                      <span className="absolute -right-1 -top-1">
+                        <StarBadge />
+                      </span>
+                    )}
+                  </span>
+                ))}
+                {c.name === "Star" && (
+                  <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-dashed border-white/40 text-[10px] font-semibold text-white/50">
+                    KM
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+          {/* Calibration move: Kavya Mehta, potential 2 → 3, pending committee sign-off. */}
+          <svg className="pointer-events-none absolute inset-0" width={3 * CW + 2 * G} height={3 * CH + 2 * G} fill="none" aria-hidden>
+            <path
+              d={`M ${from.x} ${from.y} C ${from.x + 34} ${from.y - 30}, ${to.x + 34} ${to.y + 30}, ${to.x} ${to.y + 4}`}
+              stroke="#E88938"
+              strokeWidth={2}
+              strokeDasharray="4 4"
+            />
+            <path d={`M ${to.x - 5} ${to.y + 12} L ${to.x} ${to.y + 4} L ${to.x + 7} ${to.y + 10}`} stroke="#E88938" strokeWidth={2} />
+          </svg>
         </div>
-        <p className="mt-1 text-center text-[9.5px] font-semibold uppercase tracking-wider text-slate-400">Performance</p>
+        <div className="mt-2 flex justify-between px-1 text-[10.5px] font-semibold text-[#A9A8E8]" style={{ width: 3 * CW + 2 * G }}>
+          <span>Low</span>
+          <span className="uppercase tracking-[0.16em]">Performance</span>
+          <span>High</span>
+        </div>
       </div>
     </div>
   );
 }
 
-const floaters: Floater[] = [
-  {
-    width: 320,
-    pos: { right: 0, top: 80 },
-    mobile: true,
-    node: (
-      <FloatCard eyebrow="Talent calibration" title="Move Kavya Mehta to HiPo" meta="Leadership committee · 30 Sep 2026" tag={<Tag tone="warning">Sign-off</Tag>}>
-        <NineBox />
-        <div className="mt-3">
-          <Rows rows={[["Performance", "High · unchanged"], ["Potential", "Medium → High"], ["Rationale", "Led Pune expansion"]]} />
-        </div>
-        <Actions primary="Sign off move" secondary="Hold" tone="brand" />
-      </FloatCard>
-    ),
-  },
-  {
-    width: 280,
-    pos: { left: 0, bottom: 22 },
-    look: "glass",
-    node: <Toast tone="brand" glyph="★" title="Isha Desai flagged HiPo" sub="HiPo rule met · added to 2 benches" />,
-  },
-  {
-    width: 260,
-    pos: { left: 260, top: 0 },
-    node: <Chip badge="3/14" tone="warning" title="No ready-now successor" sub="3 of 14 critical roles · review bench" />,
-  },
+const bench = [
+  { i: "KM", name: "Kavya Mehta", ready: "Ready now", type: "Planned", tone: "bg-emerald-100 text-emerald-800", dev: "Shadow the quarterly business reviews" },
+  { i: "ID", name: "Isha Desai", ready: "1-2 years", type: "Planned", tone: "bg-sky-100 text-sky-800", dev: "Lead the Pune key accounts" },
+  { i: "NM", name: "Neel Mishra", ready: "3+ years", type: "Emergency cover", tone: "bg-amber-100 text-amber-800", dev: "Regional P&L exposure" },
 ];
 
 export function SuccessionVisual() {
   return (
-    <ProductFrame
-      title="NeevHR · Succession · Leadership bench"
-      floaters={floaters}
-      actions={<><WinButton>Critical roles</WinButton><WinButton primary>Start calibration</WinButton></>}
+    <VisualStage
+      width={880}
+      estHeight={620}
+      backdrop="night"
+      label="A NeevHR calibrated 9-box with 18 people placed by performance and potential, one committee move in progress, and the Head of Sales critical role with three ranked successors and their readiness."
     >
-      <div className="grid grid-cols-[410px_1fr] gap-6">
-        <div className="rounded-xl border border-line bg-white p-4">
-          <p className="mb-3 text-sm font-semibold text-ink">Skill-gap heatmap</p>
-          <div className="grid grid-cols-[76px_repeat(6,1fr)] gap-1">
-            <span />
-            {cols.map((c) => (
-              <span key={c} className="text-center text-[9.5px] font-semibold text-muted" title={c}>
-                {c}
-              </span>
-            ))}
-          </div>
-          <div className="mt-1 space-y-1">
-            {rows.map((r) => (
-              <div key={r.name} className="grid grid-cols-[76px_repeat(6,1fr)] items-center gap-1">
-                <span className="truncate text-[11px] font-semibold text-ink">{r.name.split(" ")[0]}</span>
-                {r.scores.map((v, i) => {
-                  const c = cell(v);
-                  return (
-                    <div
-                      key={i}
-                      className="tnum flex h-9 items-center justify-center rounded-md text-[11px] font-bold"
-                      style={{ background: c.bg, color: c.fg }}
-                    >
-                      {v}
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 flex items-center gap-1.5 text-[11px] text-muted">
-            <span>Gap</span>
-            {[1, 2, 3, 4, 5].map((v) => (
-              <span key={v} className="h-3 w-4 rounded-sm" style={{ background: cell(v).bg }} />
-            ))}
-            <span>Strong</span>
-          </div>
+      <div className="flex items-start gap-6">
+        <div>
+          <Eyebrow dark>Talent map · leadership pipeline</Eyebrow>
+          <p className="mb-4 mt-1 text-[18px] font-bold tracking-tight text-white">Calibrated 9-box</p>
+          <NineBox />
         </div>
 
-        <Soft strong className="rounded-xl border border-line bg-white p-4">
-          <div className="flex items-center justify-between gap-2">
-            <p className="text-sm font-semibold text-ink">Head of Sales</p>
-            <span className="rounded-md bg-red-100 px-1.5 py-0.5 text-[10px] font-semibold text-red-700">High loss risk</span>
-          </div>
-          <p className="mt-0.5 text-[11px] text-muted">Critical role · ranked bench</p>
-          <ol className="mt-3 space-y-2.5">
-            {bench.map(([name, ready], i) => (
-              <li key={name} className="flex items-center gap-2 text-[11px]">
-                <span className="tnum grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-tint text-[10px] font-bold text-brand">
-                  {i + 1}
-                </span>
-                <span className="flex-1 truncate font-medium text-ink">{name}</span>
-                <span className="text-muted">{ready}</span>
-              </li>
-            ))}
-          </ol>
-        </Soft>
-      </div>
+        <div className="flex flex-1 flex-col gap-4 pt-1">
+          <Card className="p-4">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <Eyebrow>Critical role</Eyebrow>
+                <p className="mt-0.5 text-[16px] font-bold text-ink">Head of Sales</p>
+                <p className="text-[11px] text-slate-500">Incumbent Sunil Menon · Customer relationship</p>
+              </div>
+              <span className="shrink-0 rounded-full bg-red-50 px-2 py-0.5 text-[10.5px] font-semibold text-red-700">High loss risk</span>
+            </div>
+            <ol className="mt-3 space-y-2.5">
+              {bench.map((b, idx) => (
+                <li key={b.name} className="rounded-lg border border-slate-100 p-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="tnum w-3 text-[11px] font-bold text-slate-400">{idx + 1}</span>
+                    <Avatar initials={b.i} size={26} />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] font-semibold text-ink">{b.name}</p>
+                      <p className="text-[10.5px] text-slate-500">{b.type}</p>
+                    </div>
+                    <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10.5px] font-semibold ${b.tone}`}>{b.ready}</span>
+                  </div>
+                  <p className="mt-1.5 pl-5 text-[10.5px] text-slate-500">Development: {b.dev}</p>
+                </li>
+              ))}
+            </ol>
+          </Card>
 
-      <Soft className="mt-4 grid grid-cols-3 gap-2 text-center">
-        {[
-          ["Critical roles", "14"],
-          ["Ready-now cover", "11"],
-          ["HiPos", "9"],
-        ].map(([l, v]) => (
-          <div key={l} className="rounded-lg bg-surface-soft py-2">
-            <p className="tnum text-sm font-bold text-ink">{v}</p>
-            <p className="text-[10px] text-muted">{l}</p>
+          <div className="rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-[12px] font-semibold text-white">Talent calibration</p>
+              <span className="whitespace-nowrap rounded-full bg-[#E88938] px-2 py-0.5 text-[10.5px] font-semibold text-[#24242B]">Awaiting sign-off</span>
+            </div>
+            <p className="mt-0.5 text-[10.5px] text-[#A9A8E8]">Leadership committee · 30 Sep 2026</p>
+            <p className="mt-1.5 text-[11.5px] text-[#C9C8F2]">
+              Kavya Mehta · potential 2 → 3 · High performer to Star
+            </p>
+            <p className="mt-1 text-[10.5px] text-[#A9A8E8]">Rationale: led the Pune expansion. Sign-off stamps the 9-box and the bench.</p>
+            <p className="mt-2.5 flex items-center gap-1.5 text-[10.5px] text-[#A9A8E8]">
+              <StarBadge />
+              HiPo by the configured 9-box rule
+            </p>
           </div>
-        ))}
-      </Soft>
-    </ProductFrame>
+        </div>
+      </div>
+    </VisualStage>
   );
 }
