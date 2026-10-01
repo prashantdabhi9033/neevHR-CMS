@@ -72,7 +72,6 @@ export function GET() {
     "",
     "## Contact",
     `- Email: ${site.email}`,
-    `- Phone: ${site.phone}`,
     `- Social: ${site.socials.map((s) => s.href).join(", ")}`,
     "",
   ];

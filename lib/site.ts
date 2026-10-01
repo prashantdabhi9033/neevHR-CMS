@@ -17,7 +17,6 @@ export const site = {
     "NeevHR is an India-first HRMS and payroll platform. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system.",
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
-  phone: "+91 9274752634",
   addressCountry: "IN",
   // Qualified implementation claim (spec §45).
   implementation:
