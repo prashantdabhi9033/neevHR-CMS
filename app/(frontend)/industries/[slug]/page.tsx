@@ -199,13 +199,22 @@ export default async function IndustryPage({ params }: Params) {
 
       {slug === "healthcare" && (
         <section className="pb-12">
-          <Container className="flex justify-center">
+          <Container className="flex flex-wrap items-center justify-center gap-6">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://sellwithboost.com/badge/listing.svg"
                 alt="Listed on Sell With boost"
                 style={{ height: 40, width: "auto" }}
+              />
+            </a>
+            <a href="https://launchkiwi.com/p/neevhr" target="_blank" rel="noopener">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://launchkiwi.com/badge-light.svg"
+                alt="Featured on LaunchKiwi"
+                width={198}
+                height={62}
               />
             </a>
           </Container>
