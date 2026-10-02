@@ -196,6 +196,21 @@ export default async function IndustryPage({ params }: Params) {
           </div>
         </Container>
       </section>
+
+      {slug === "healthcare" && (
+        <section className="pb-12">
+          <Container className="flex justify-center">
+            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://sellwithboost.com/badge/listing.svg"
+                alt="Listed on Sell With boost"
+                style={{ height: 40, width: "auto" }}
+              />
+            </a>
+          </Container>
+        </section>
+      )}
     </>
   );
 }
