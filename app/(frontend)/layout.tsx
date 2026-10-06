@@ -4,6 +4,7 @@ import "../globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Analytics } from "@/components/site/Analytics";
+import { LeadPopup } from "@/components/site/LeadPopup";
 import { site } from "@/lib/site";
 import { OG_IMAGE } from "@/lib/seo";
 
@@ -147,6 +148,7 @@ export default function FrontendLayout({
         <main id="main-content" className="overflow-x-clip">{children}</main>
         <Footer />
         <Analytics />
+        <LeadPopup />
       </body>
     </html>
   );

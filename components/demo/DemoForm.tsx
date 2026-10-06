@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/track";
 
-const sizes = [
+export const sizes = [
   "Under 100",
   "100 - 500",
   "500 - 1,000",

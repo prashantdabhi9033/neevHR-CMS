@@ -30,6 +30,7 @@ export function Button({
   className = "",
   type,
   disabled,
+  onClick,
 }: {
   href?: string;
   children: ReactNode;
@@ -38,6 +39,7 @@ export function Button({
   className?: string;
   type?: "button" | "submit";
   disabled?: boolean;
+  onClick?: () => void;
 }) {
   const cls = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
   if (href) {
@@ -48,7 +50,7 @@ export function Button({
     );
   }
   return (
-    <button type={type ?? "button"} className={cls} disabled={disabled}>
+    <button type={type ?? "button"} className={cls} disabled={disabled} onClick={onClick}>
       {children}
     </button>
   );
