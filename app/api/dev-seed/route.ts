@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { seedPosts } from "@/lib/seed/posts";
-import { articleBatch2 } from "@/lib/seed/articles";
+import { articleBatch2, articleBatch3 } from "@/lib/seed/articles";
 
 // Seeds blog posts. In production it runs only when the ?key= query matches
 // the SEED_KEY env var (set it once, seed, then unset it). Idempotent.
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
   const payload = await getPayload({ config });
   const results: string[] = [];
 
-  for (const p of [...seedPosts, ...articleBatch2]) {
+  for (const p of [...seedPosts, ...articleBatch2, ...articleBatch3]) {
     const existing = await payload.find({
       collection: "posts",
       where: { slug: { equals: p.slug } },

@@ -21,6 +21,28 @@ import uan_explained from "./uan-explained";
 import what_is_hrms_software from "./what-is-hrms-software";
 import what_should_an_hrms_include from "./what-should-an-hrms-include";
 
+// Batch 3 articles (06 Oct 2026).
+import bell_curve_performance_appraisal from "./bell-curve-performance-appraisal";
+import comp_off_policy from "./comp-off-policy";
+import contract_labour_compliance_principal_employer from "./contract-labour-compliance-principal-employer";
+import employee_attrition_rate from "./employee-attrition-rate";
+import employee_background_verification_india from "./employee-background-verification-india";
+import hybrid_work_attendance_policy from "./hybrid-work-attendance-policy";
+import labour_codes_wage_definition_fifty_percent_rule from "./labour-codes-wage-definition-50-percent-rule";
+import labour_welfare_fund_state_wise from "./labour-welfare-fund-state-wise";
+import merit_increase_matrix from "./merit-increase-matrix";
+import offer_letter_vs_appointment_letter from "./offer-letter-vs-appointment-letter";
+import payslip_format_india from "./payslip-format-india";
+import performance_appraisal_process from "./performance-appraisal-process";
+import prorated_salary_mid_month_joiners_leavers from "./prorated-salary-mid-month-joiners-leavers";
+import reduce_offer_dropouts from "./reduce-offer-dropouts";
+import relieving_letter_vs_experience_letter from "./relieving-letter-vs-experience-letter";
+import salary_advance_employee_loan_policy from "./salary-advance-employee-loan-policy";
+import salary_arrears_calculation from "./salary-arrears-calculation";
+import shift_management_and_rostering from "./shift-management-and-rostering";
+import shops_and_establishments_act_registration from "./shops-and-establishments-act-registration";
+import wage_payment_deadlines_and_deductions from "./wage-payment-deadlines-and-deductions";
+
 export const articleBatch2: SeedPost[] = [
   ecr_explained,
   employee_onboarding_checklist,
@@ -41,4 +63,27 @@ export const articleBatch2: SeedPost[] = [
   uan_explained,
   what_is_hrms_software,
   what_should_an_hrms_include,
+];
+
+export const articleBatch3: SeedPost[] = [
+  bell_curve_performance_appraisal,
+  comp_off_policy,
+  contract_labour_compliance_principal_employer,
+  employee_attrition_rate,
+  employee_background_verification_india,
+  hybrid_work_attendance_policy,
+  labour_codes_wage_definition_fifty_percent_rule,
+  labour_welfare_fund_state_wise,
+  merit_increase_matrix,
+  offer_letter_vs_appointment_letter,
+  payslip_format_india,
+  performance_appraisal_process,
+  prorated_salary_mid_month_joiners_leavers,
+  reduce_offer_dropouts,
+  relieving_letter_vs_experience_letter,
+  salary_advance_employee_loan_policy,
+  salary_arrears_calculation,
+  shift_management_and_rostering,
+  shops_and_establishments_act_registration,
+  wage_payment_deadlines_and_deductions,
 ];

@@ -37,7 +37,7 @@ export default async function BlogPage() {
       collection: "posts",
       where: { _status: { equals: "published" } },
       sort: "-publishedAt",
-      limit: 50,
+      limit: 200,
       depth: 1,
     }));
   } catch {
