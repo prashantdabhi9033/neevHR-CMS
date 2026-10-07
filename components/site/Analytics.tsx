@@ -5,7 +5,7 @@ import { AnalyticsListener } from "@/components/site/AnalyticsListener";
 // Google Analytics 4. Set NEXT_PUBLIC_GA_ID (e.g. G-XXXXXXXXXX) in the
 // environment to enable. Renders nothing until an ID is provided.
 export function Analytics() {
-  const id = process.env.NEXT_PUBLIC_GA_ID;
+  const id = process.env.NEXT_PUBLIC_GA_ID || "G-ZDBTJ2CRCZ";
   if (!id) return null;
 
   return (
