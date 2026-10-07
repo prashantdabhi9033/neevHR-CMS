@@ -22,7 +22,10 @@ function PlayIcon() {
 
 function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
   return (
-    <span className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white opacity-90">
+    <span
+      data-store={store}
+      className="inline-flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white opacity-90 transition-opacity hover:opacity-100"
+    >
       {icon}
       <span className="flex flex-col leading-tight">
         <span className="text-[10px] font-medium text-white/70">Coming soon on</span>
