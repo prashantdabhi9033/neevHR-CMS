@@ -19,14 +19,14 @@ export const metadata: Metadata = pageMeta({
 // and keep the sub-processor table in step with what is actually configured.
 const lastUpdated = "17 Oct 2026";
 
-// OWNER TO CONFIRM before the app-store submission: the registered legal entity name,
-// its registered address and the named Grievance Officer (IT Rules 2011, rule 5(9)).
-// Until then the policy names the brand and a role-based contact.
+// Legal entity and registered address confirmed by the owner on 17 Oct 2026.
+// OWNER TO CONFIRM: the named Grievance Officer (IT Rules 2011, rule 5(9)); until then a role-based contact.
 const contact = {
-  controller: "NeevHR",
+  controller: "NeevHR Technologies LLP",
   email: site.email,
-  grievanceOfficer: "Grievance Officer, NeevHR",
-  address: "India",
+  grievanceOfficer: "Grievance Officer, NeevHR Technologies LLP",
+  address:
+    "L-1601, Aster, Adani Shantigram, near Shoppers Plaza, Vaishnodevi Circle, Ahmedabad, Gujarat 382421, India",
 };
 
 const toc = [
@@ -119,7 +119,8 @@ export default function PrivacyPage() {
         <Container className="max-w-3xl space-y-12 text-[15px] leading-relaxed text-body">
           <Section id="scope" title="1. Who we are and what this policy covers">
             <p>
-              {contact.controller} (&ldquo;NeevHR&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) provides an India-first HRMS and
+              {contact.controller}, a limited liability partnership registered in India (&ldquo;NeevHR&rdquo;,
+              &ldquo;we&rdquo;, &ldquo;us&rdquo;), provides an India-first HRMS and
               payroll platform for businesses. This policy explains how we handle personal data when you:
             </p>
             <ul className="list-disc space-y-1 pl-5">
