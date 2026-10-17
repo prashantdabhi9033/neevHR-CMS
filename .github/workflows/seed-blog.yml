@@ -1,0 +1,59 @@
+name: Seed blog posts
+
+# Manual only. Publishes any seed articles missing from the database
+# (create-only: posts edited in /admin are never overwritten). A random
+# SEED_KEY is written to .env for the duration of the run and removed after.
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Seed over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          command_timeout: 10m
+          script: |
+            set -euo pipefail
+            cd /var/www/neevhr
+
+            cleanup() {
+              sed -i '/^SEED_KEY=/d' .env
+              pm2 restart neevhr >/dev/null
+              echo "==> Temporary SEED_KEY removed, app restarted"
+            }
+            trap cleanup EXIT
+
+            KEY="$(openssl rand -hex 24)"
+            sed -i '/^SEED_KEY=/d' .env
+            echo "SEED_KEY=\"$KEY\"" >> .env
+            pm2 restart neevhr >/dev/null
+
+            echo "==> Waiting for the app"
+            PORT=""
+            for i in $(seq 1 30); do
+              for p in 3000 3100; do
+                if curl -sf -o /dev/null "http://127.0.0.1:$p/"; then PORT=$p; break 2; fi
+              done
+              sleep 2
+            done
+            [ -n "$PORT" ] || { echo "App did not come up"; exit 1; }
+
+            echo "==> Seeding via port $PORT"
+            curl -sf "http://127.0.0.1:$PORT/api/dev-seed?key=$KEY" > /tmp/seed-result.json
+            node -e '
+              const r = require("/tmp/seed-result.json");
+              const c = (s) => r.results.filter((x) => x.startsWith(s)).length;
+              console.log(`ok=${r.ok} total=${r.count} created=${c("created")} kept=${c("kept")}`);
+              r.results.filter((x) => x.startsWith("created")).forEach((x) => console.log("  " + x));
+            '
+            rm -f /tmp/seed-result.json
