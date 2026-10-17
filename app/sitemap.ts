@@ -10,6 +10,10 @@ import { glossary } from "@/lib/glossary";
 import { states } from "@/lib/states";
 import { LAST_REVIEWED_ISO } from "@/lib/seo";
 
+// Regenerate hourly so posts published in /admin or by the seed route reach
+// the sitemap without waiting for a redeploy.
+export const revalidate = 3600;
+
 type Entry = MetadataRoute.Sitemap[number];
 
 async function blogEntries(now: Date): Promise<Entry[]> {
