@@ -119,12 +119,12 @@ Because HR and payroll software impacts financial payouts and legal compliance:
 
 ## 4. Production Database Seeding Action Item
 
-The repository contains 39 high-value pre-written articles in `marketing-site/lib/seed/articles/`. 
+The repository contains 59 high-value pre-written articles (batches 2–4) in `marketing-site/lib/seed/articles/`. 
 To publish them to the live blog:
 1. Ensure `SEED_KEY` is set in the server environment `/var/www/neevhr/.env`.
 2. Execute a single authorized HTTP request:
    ```bash
    curl -s "https://www.neevhr.com/api/dev-seed?key=YOUR_SEED_KEY"
    ```
-3. This creates all 39 missing articles in PostgreSQL without overwriting any manual edits.
-4. Payload CMS and `/sitemap.xml` will immediately reflect all 58 total published articles.
+3. This creates all missing articles (59 pre-written) in PostgreSQL without overwriting any manual edits.
+4. Payload CMS and `/sitemap.xml` will immediately reflect all 78 total published articles.

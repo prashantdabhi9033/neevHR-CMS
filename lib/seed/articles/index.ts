@@ -43,6 +43,28 @@ import shift_management_and_rostering from "./shift-management-and-rostering";
 import shops_and_establishments_act_registration from "./shops-and-establishments-act-registration";
 import wage_payment_deadlines_and_deductions from "./wage-payment-deadlines-and-deductions";
 
+// Batch 4 articles (17 Oct 2026): HRMS buyer-intent and HR operations topics.
+import hrms_rfp_vendor_evaluation_questions from "./hrms-rfp-vendor-evaluation-questions";
+import hrms_roi_business_case from "./hrms-roi-business-case";
+import cloud_hrms_vs_on_premise from "./cloud-hrms-vs-on-premise";
+import hr_helpdesk_employee_query_management from "./hr-helpdesk-employee-query-management";
+import hr_metrics_and_kpis from "./hr-metrics-and-kpis";
+import biometric_attendance_integration from "./biometric-attendance-integration";
+import geo_fencing_attendance_field_staff from "./geo-fencing-attendance-field-staff";
+import employee_handbook_hr_policies_india from "./employee-handbook-hr-policies-india";
+import leave_encashment_tax_exemption from "./leave-encashment-tax-exemption";
+import three_sixty_degree_feedback from "./360-degree-feedback";
+import okr_vs_kpi from "./okr-vs-kpi";
+import nine_box_grid_succession_planning from "./nine-box-grid-succession-planning";
+import employee_engagement_survey_questions from "./employee-engagement-survey-questions";
+import exit_interview_questions from "./exit-interview-questions";
+import employee_offboarding_checklist from "./employee-offboarding-checklist";
+import applicant_tracking_system_guide from "./applicant-tracking-system-guide";
+import flexible_benefit_plan_india from "./flexible-benefit-plan-india";
+import investment_declaration_proof_submission from "./investment-declaration-proof-submission";
+import expense_reimbursement_policy from "./expense-reimbursement-policy";
+import hr_audit_checklist_india from "./hr-audit-checklist-india";
+
 export const articleBatch2: SeedPost[] = [
   ecr_explained,
   employee_onboarding_checklist,
@@ -86,4 +108,27 @@ export const articleBatch3: SeedPost[] = [
   shift_management_and_rostering,
   shops_and_establishments_act_registration,
   wage_payment_deadlines_and_deductions,
+];
+
+export const articleBatch4: SeedPost[] = [
+  hrms_rfp_vendor_evaluation_questions,
+  hrms_roi_business_case,
+  cloud_hrms_vs_on_premise,
+  hr_helpdesk_employee_query_management,
+  hr_metrics_and_kpis,
+  biometric_attendance_integration,
+  geo_fencing_attendance_field_staff,
+  employee_handbook_hr_policies_india,
+  leave_encashment_tax_exemption,
+  three_sixty_degree_feedback,
+  okr_vs_kpi,
+  nine_box_grid_succession_planning,
+  employee_engagement_survey_questions,
+  exit_interview_questions,
+  employee_offboarding_checklist,
+  applicant_tracking_system_guide,
+  flexible_benefit_plan_india,
+  investment_declaration_proof_submission,
+  expense_reimbursement_policy,
+  hr_audit_checklist_india,
 ];
