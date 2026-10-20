@@ -1,5 +1,6 @@
 import * as migration_20260918_164819_initial from './20260918_164819_initial';
 import * as migration_20260924_120000_lead_demo_fields from './20260924_120000_lead_demo_fields';
+import * as migration_20261020_120000_lead_intent from './20261020_120000_lead_intent';
 
 export const migrations = [
   {
@@ -11,5 +12,10 @@ export const migrations = [
     up: migration_20260924_120000_lead_demo_fields.up,
     down: migration_20260924_120000_lead_demo_fields.down,
     name: '20260924_120000_lead_demo_fields'
+  },
+  {
+    up: migration_20261020_120000_lead_intent.up,
+    down: migration_20261020_120000_lead_intent.down,
+    name: '20261020_120000_lead_intent'
   },
 ];
