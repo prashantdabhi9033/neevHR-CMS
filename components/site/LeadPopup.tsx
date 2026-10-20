@@ -212,7 +212,8 @@ export function LeadPopup() {
       const res = await fetch("/api/demo-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        // channel + page tell the sales CRM where the lead came from.
+        body: JSON.stringify({ ...data, channel: "popup", page: window.location.pathname }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));

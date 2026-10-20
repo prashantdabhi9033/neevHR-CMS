@@ -18,7 +18,12 @@ jobs:
     steps:
       - name: Deploy over SSH
         uses: appleboy/ssh-action@v1.2.0
+        env:
+          # Sales Lead CRM: where website demo / quote requests are pushed (admin console → Leads).
+          HRMS_LEAD_INTAKE_URL: ${{ secrets.HRMS_LEAD_INTAKE_URL }}
+          HRMS_LEAD_INTAKE_KEY: ${{ secrets.HRMS_LEAD_INTAKE_KEY }}
         with:
+          envs: HRMS_LEAD_INTAKE_URL,HRMS_LEAD_INTAKE_KEY
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
@@ -28,4 +33,10 @@ jobs:
             set -euo pipefail
             cd /var/www/neevhr
             git pull
+            # Keep the CRM intake settings in .env in step with the repo secrets (skipped when a secret is unset).
+            for k in HRMS_LEAD_INTAKE_URL HRMS_LEAD_INTAKE_KEY; do
+              v="${!k:-}"
+              [ -n "$v" ] || continue
+              if grep -q "^$k=" .env; then sed -i "s|^$k=.*|$k=\"$v\"|" .env; else echo "$k=\"$v\"" >> .env; fi
+            done
             bash deploy.sh
