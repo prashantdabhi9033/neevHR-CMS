@@ -33,10 +33,10 @@ The table below is **illustrative only. The figures are round assumptions chosen
 
 | Cost line (3 years) | Cloud HRMS | On-premise HRMS |
 | --- | --- | --- |
-| Subscription (1,500 × ₹100 × 12 × 3) | ₹54,00,000 | — |
-| Perpetual licence | — | ₹30,00,000 |
-| Annual maintenance charge (years 2 and 3) | — | ₹12,00,000 |
-| Servers, storage, database and OS licences | — | ₹10,00,000 |
+| Subscription (1,500 × ₹100 × 12 × 3) | ₹54,00,000 | - |
+| Perpetual licence | - | ₹30,00,000 |
+| Annual maintenance charge (years 2 and 3) | - | ₹12,00,000 |
+| Servers, storage, database and OS licences | - | ₹10,00,000 |
 | Implementation | ₹5,00,000 | ₹8,00,000 |
 | IT administration effort | ₹3,00,000 | ₹18,00,000 |
 | Backup, disaster recovery and security tooling | Included in subscription (confirm) | ₹6,00,000 |

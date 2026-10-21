@@ -93,7 +93,7 @@ Benefits ramp up: the model assumes 50% of the annual benefit in year 1, because
 | Hard savings and risk reduction | ₹10,80,000 | ₹21,60,000 | ₹21,60,000 | ₹54,00,000 |
 | Soft savings | ₹4,50,000 | ₹9,00,000 | ₹9,00,000 | ₹22,50,000 |
 | **Total benefits** | **₹15,30,000** | **₹30,60,000** | **₹30,60,000** | **₹76,50,000** |
-| One-time costs | ₹10,00,000 | — | — | ₹10,00,000 |
+| One-time costs | ₹10,00,000 | - | - | ₹10,00,000 |
 | Recurring costs | ₹12,50,000 | ₹12,50,000 | ₹12,50,000 | ₹37,50,000 |
 | **Total costs** | **₹22,50,000** | **₹12,50,000** | **₹12,50,000** | **₹47,50,000** |
 
