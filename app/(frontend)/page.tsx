@@ -20,6 +20,7 @@ import {
   WhatIsHrmsSection,
 } from "@/components/home/HrmsSections";
 import { JsonLd } from "@/components/site/JsonLd";
+import { Testimonials } from "@/components/home/Testimonials";
 import { pageMeta } from "@/lib/seo";
 import {
   compliancePoints,
@@ -503,6 +504,8 @@ export default function HomePage() {
           </ol>
         </Container>
       </section>
+
+      <Testimonials />
 
       {/* FAQ */}
       <section className="border-b border-line bg-surface-soft">
