@@ -51,9 +51,9 @@ ufw --force enable
 ## Step 4. Install Node, pnpm, Postgres, Nginx, git
 
 ```bash
-# Node 24
+# Node 24 LTS: 24.22.1 or a later 24.x (deploy.sh checks this on every deploy and upgrades when older)
 curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-apt install -y nodejs git nginx postgresql
+apt install -y nodejs=24.22.1-1nodesource1 git nginx postgresql || apt install -y nodejs git nginx postgresql
 # pnpm via corepack
 corepack enable
 corepack prepare pnpm@11.2.2 --activate
