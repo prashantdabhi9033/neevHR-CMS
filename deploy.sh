@@ -69,7 +69,14 @@ if [ "$NODE_CHANGED" = "1" ]; then
   # The PM2 daemon keeps running on the Node it started with; reload it onto the new Node first.
   pm2 update
 fi
-pm2 restart neevhr --update-env
+# Start the app if PM2 does not know it (for example after a daemon reload with an old saved list), else restart it;
+# then save the list so a reboot or the next daemon reload brings the site back.
+if pm2 describe neevhr >/dev/null 2>&1; then
+  pm2 restart neevhr --update-env
+else
+  pm2 start pnpm --name neevhr --cwd "$APP_DIR" -- start
+fi
+pm2 save
 
 echo "==> Ensuring Nginx is running"
 systemctl restart nginx || true
