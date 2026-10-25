@@ -1,5 +1,7 @@
 # NeevHR marketing site: deploy to a Hostinger VPS
 
+> **Superseded (25 Oct 2026).** The site now runs on the NeevHR HostingRaja server (103.118.16.28) and deploys itself from the `main` branch within 2 minutes of a push. Current setup: `HRMS/Doc/09-operations/HOSTINGRAJA-SERVER.md` section 7. This file describes the old Hostinger VPS and is kept for reference until Hostinger is cancelled.
+
 Domain: **neevhr.com** (canonical: https://www.neevhr.com)
 Server: Hostinger VPS (KVM 2), Ubuntu 24.04 LTS, plain OS (no control panel).
 Stack: Next.js + Payload CMS + Postgres, run with PM2 behind Nginx with free SSL.
