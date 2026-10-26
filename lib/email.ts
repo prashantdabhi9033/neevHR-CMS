@@ -18,24 +18,58 @@ export type LeadEmail = {
 const esc = (v: string) =>
   v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-// Sends a notification email for a new demo request. No-ops (does not throw)
-// if SMTP is not configured, so a missing config never breaks the form.
+const BREVO_ENDPOINT = "https://api.brevo.com/v3/smtp/email";
+
+// Sends a notification email for a new demo request to LEAD_NOTIFY_TO (default hello@neevhr.com).
+// With BREVO_API_KEY set it goes through Brevo's REST API (the same account and verified sender as the
+// HRMS; since 26 Oct 2026, after the SMTP login stopped working on the new server). Otherwise SMTP, as
+// before. No-ops (does not throw) when neither is configured, so a missing config never breaks the form;
+// a configured send that fails throws, so the route logs it.
 export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
-  const host = process.env.SMTP_HOST || "smtp.gmail.com";
-  const port = Number(process.env.SMTP_PORT || 587);
+  const to = process.env.LEAD_NOTIFY_TO || "hello@neevhr.com";
+  const apiKey = process.env.BREVO_API_KEY;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
-  const to = process.env.LEAD_NOTIFY_TO || "hello@neevhr.com";
+  if (!apiKey && (!user || !pass)) return; // not configured
 
-  if (!user || !pass) return; // not configured
+  const { subject, html } = renderLeadNotification(lead);
 
+  if (apiKey) {
+    const from = process.env.LEAD_NOTIFY_FROM || "hello@neevhr.com";
+    const res = await fetch(BREVO_ENDPOINT, {
+      method: "POST",
+      headers: { "api-key": apiKey, "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({
+        sender: { email: from, name: "NeevHR Website" },
+        to: [{ email: to }],
+        replyTo: { email: lead.email, name: lead.name },
+        subject,
+        htmlContent: html,
+      }),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) throw new Error(`Brevo send failed: HTTP ${res.status}`);
+    return;
+  }
+
+  const port = Number(process.env.SMTP_PORT || 587);
   const transporter = nodemailer.createTransport({
-    host,
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
     port,
     secure: port === 465,
     auth: { user, pass },
   });
+  await transporter.sendMail({
+    from: `"NeevHR Website" <${user}>`,
+    to,
+    replyTo: lead.email,
+    subject,
+    html,
+  });
+}
 
+/** Subject + HTML body of the new-lead notification (form input escaped). */
+export function renderLeadNotification(lead: LeadEmail): { subject: string; html: string } {
   const isQuote = lead.intent === "quote";
   const kind = isQuote ? "quote" : "demo";
   const rows: [string, string | undefined][] = [
@@ -64,11 +98,5 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     </table>
     <p style="color:#94a3b8;font-size:12px;margin-top:16px">Sent from the NeevHR website.</p>`;
 
-  await transporter.sendMail({
-    from: `"NeevHR Website" <${user}>`,
-    to,
-    replyTo: lead.email,
-    subject: `New ${kind} request: ${lead.company} (${lead.name})`,
-    html,
-  });
+  return { subject: `New ${kind} request: ${lead.company} (${lead.name})`, html };
 }
