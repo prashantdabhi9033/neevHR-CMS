@@ -137,8 +137,9 @@ export function Footer() {
                 {col.title}
               </h2>
               <ul className="mt-4 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.href + l.label}>
+                {col.links.map((l, i) => (
+                  // A path-like key (href + label) lands in the RSC payload as "/payrollPayroll" and Google crawls it as a URL (404).
+                  <li key={`${i}:${l.label}`}>
                     <Link
                       href={l.href}
                       className="text-sm text-muted transition-colors hover:text-brand"

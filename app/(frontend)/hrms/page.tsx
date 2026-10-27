@@ -355,9 +355,9 @@ export default function HrmsPage() {
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-body">{b.body}</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {b.links.map((l) => (
+                {b.links.map((l, i) => (
                   <Link
-                    key={l.href + l.label}
+                    key={`${i}:${l.label}`}
                     href={l.href}
                     className="rounded-xl border border-line bg-white px-3.5 py-1.5 text-sm font-semibold text-ink transition-colors hover:border-brand/40 hover:text-brand"
                   >
