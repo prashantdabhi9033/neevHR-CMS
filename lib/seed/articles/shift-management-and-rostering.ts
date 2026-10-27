@@ -168,7 +168,7 @@ The system makes this work by assigning punches to a shift through its punch win
 
 ## How NeevHR helps
 
-NeevHR [shifts and rosters](/features/rostering) let you define shift types with allowances, apply rotation patterns to a crew, check coverage and rest rules before publishing, and approve shift change requests with no self-approval. [Attendance](/features/attendance) ingests biometric punches, maps them to the right employee and shift, and sends LOP, overtime and shift allowances to [payroll](/features/payroll).
+NeevHR [shifts and rosters](/features/rostering) let you define shift types with allowances, apply rotation patterns to a crew, check coverage and rest rules before publishing, and approve shift change requests with no self-approval. [Attendance](/features/attendance) ingests biometric punches, maps them to the right employee and shift, and sends LOP, overtime and shift allowances to [payroll](/payroll).
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 06 Oct 2026.*`,
 };
