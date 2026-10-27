@@ -65,6 +65,38 @@ import investment_declaration_proof_submission from "./investment-declaration-pr
 import expense_reimbursement_policy from "./expense-reimbursement-policy";
 import hr_audit_checklist_india from "./hr-audit-checklist-india";
 
+// Batch 5 articles (27 Oct 2026): 30 new topics, none overlapping batches 1 to 4.
+import loss_of_pay_lop_calculation from "./loss-of-pay-lop-calculation";
+import late_coming_policy_grace_period from "./late-coming-policy-grace-period";
+import absenteeism_rate_bradford_factor from "./absenteeism-rate-bradford-factor";
+import sandwich_leave_rule from "./sandwich-leave-rule";
+import holiday_list_policy_india from "./holiday-list-policy-india";
+import year_end_leave_carry_forward_lapse from "./year-end-leave-carry-forward-lapse";
+import four_labour_codes_summary from "./four-labour-codes-summary";
+import fixed_term_employment_labour_codes from "./fixed-term-employment-labour-codes";
+import gig_platform_workers_social_security from "./gig-platform-workers-social-security";
+import standing_orders_industrial_relations_code from "./standing-orders-industrial-relations-code";
+import grievance_redressal_committee from "./grievance-redressal-committee";
+import retrenchment_layoff_compensation from "./retrenchment-layoff-compensation";
+import statutory_registers_labour_codes from "./statutory-registers-labour-codes";
+import hr_records_retention_india from "./hr-records-retention-india";
+import night_shift_women_employees from "./night-shift-women-employees";
+import apprentices_act_apprentice_hiring from "./apprentices-act-apprentice-hiring";
+import disciplinary_action_domestic_enquiry from "./disciplinary-action-domestic-enquiry";
+import moonlighting_policy from "./moonlighting-policy";
+import employee_referral_programme from "./employee-referral-programme";
+import structured_interview_scorecard from "./structured-interview-scorecard";
+import campus_hiring_freshers from "./campus-hiring-freshers";
+import performance_improvement_plan from "./performance-improvement-plan";
+import promotion_policy from "./promotion-policy";
+import enps_employee_net_promoter_score from "./enps-employee-net-promoter-score";
+import variable_pay_incentive_plan from "./variable-pay-incentive-plan";
+import pay_equity_gender_pay_gap from "./pay-equity-gender-pay-gap";
+import perquisite_valuation_salary from "./perquisite-valuation-salary";
+import esop_taxation_employees from "./esop-taxation-employees";
+import interns_stipend_payroll from "./interns-stipend-payroll";
+import salary_disbursement_bank_file from "./salary-disbursement-bank-file";
+
 export const articleBatch2: SeedPost[] = [
   ecr_explained,
   employee_onboarding_checklist,
@@ -131,4 +163,37 @@ export const articleBatch4: SeedPost[] = [
   investment_declaration_proof_submission,
   expense_reimbursement_policy,
   hr_audit_checklist_india,
+];
+
+export const articleBatch5: SeedPost[] = [
+  loss_of_pay_lop_calculation,
+  late_coming_policy_grace_period,
+  absenteeism_rate_bradford_factor,
+  sandwich_leave_rule,
+  holiday_list_policy_india,
+  year_end_leave_carry_forward_lapse,
+  four_labour_codes_summary,
+  fixed_term_employment_labour_codes,
+  gig_platform_workers_social_security,
+  standing_orders_industrial_relations_code,
+  grievance_redressal_committee,
+  retrenchment_layoff_compensation,
+  statutory_registers_labour_codes,
+  hr_records_retention_india,
+  night_shift_women_employees,
+  apprentices_act_apprentice_hiring,
+  disciplinary_action_domestic_enquiry,
+  moonlighting_policy,
+  employee_referral_programme,
+  structured_interview_scorecard,
+  campus_hiring_freshers,
+  performance_improvement_plan,
+  promotion_policy,
+  enps_employee_net_promoter_score,
+  variable_pay_incentive_plan,
+  pay_equity_gender_pay_gap,
+  perquisite_valuation_salary,
+  esop_taxation_employees,
+  interns_stipend_payroll,
+  salary_disbursement_bank_file,
 ];
