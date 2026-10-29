@@ -67,6 +67,7 @@ const cols = [
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
       { label: "DPDP notice", href: "/dpdp" },
+      { label: "Cookie policy", href: "/cookies" },
     ],
   },
 ];

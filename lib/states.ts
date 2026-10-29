@@ -547,6 +547,52 @@ export const statesB: StateGuide[] = [
       { label: "Kerala Labour Welfare Fund Act", href: "https://lc.kerala.gov.in/images/pdf/klwf.pdf" },
     ],
   },
+  {
+    slug: "rajasthan",
+    name: "Rajasthan",
+    reviewed: "29 Oct 2026",
+    reviewedIso: "2026-10-29",
+    summary:
+      "Rajasthan does not levy professional tax on salaried employees and has no Labour Welfare Fund contribution, so payroll here is PF, ESI, TDS and minimum wages. Minimum wages are set statewide by skill level, and the Code on Wages (Rajasthan) Rules, 2026 were notified in August 2026.",
+    pt: {
+      body: [
+        "Professional tax is not levied on salaried employees in Rajasthan, so nothing is deducted for employees whose place of work is in the state. A PT registration is needed only for employees working in states that levy it.",
+        "Some payroll calculators online show a Rajasthan PT slab. We found no current state notification imposing one; if you see a demand, ask the Commercial Taxes Department for the notification before deducting.",
+      ],
+    },
+    lwf: {
+      body: [
+        "Rajasthan has no Labour Welfare Fund contribution for employees or employers in shops, offices or factories, so no June, December or annual LWF deduction applies.",
+        "Building and other construction workers are a separate case: employers in construction pay the 1% building and other construction workers welfare cess on the cost of construction, which is not a payroll deduction.",
+      ],
+      facts: [
+        ["Employee LWF", "Not levied"],
+        ["Employer LWF", "Not levied"],
+      ],
+    },
+    minWage: [
+      "Rajasthan fixes one statewide minimum wage for each skill level (unskilled, semi-skilled, skilled and highly skilled) rather than zones by area. The commonly cited daily rates are ₹285 unskilled, ₹297 semi-skilled, ₹309 skilled and ₹359 highly skilled; confirm the current notification with the Labour Department before using them, as secondary sources disagree on the monthly equivalents.",
+      "The Code on Wages (Rajasthan) Rules, 2026 were notified on 12 August 2026 (S.O. 40, Rajasthan Gazette Extraordinary), after a draft of 13 January 2026. The rules set the method for fixing wages; the rupee rates themselves come by separate notification. The national floor wage under the Code on Wages, 2019 also applies.",
+    ],
+    other: [
+      "Rajasthan Shops and Commercial Establishments Act, 1958: registration of shops and offices, working hours, weekly holiday, leave and record-keeping. Check the Labour Department for any amendment to applicability thresholds and working hours before relying on older guides.",
+      "With no PT and no LWF, the most common Rajasthan errors are copying a neighbouring state's PT slab into payroll and missing a minimum wage revision.",
+    ],
+    neevhr: [
+      "No PT and no LWF are deducted for employees whose work location is Rajasthan.",
+      "Minimum wage rates by skill level are configurable settings, so a revision is a settings update.",
+      "Employees in other states get their own state's rules from their work location.",
+    ],
+    faqs: [
+      { q: "Is there professional tax in Rajasthan?", a: "No. Rajasthan does not levy professional tax on salaried employees." },
+      { q: "Is there Labour Welfare Fund in Rajasthan?", a: "No. Rajasthan has no LWF contribution for employees or employers." },
+    ],
+    sources: [
+      { label: "Labour Department, Rajasthan", href: "https://labour.rajasthan.gov.in" },
+      { label: "Code on Wages (Rajasthan) Rules, 2026 (TeamLease RegTech)", href: "https://teamleaseregtech.com/updates/article/58788/code-on-wages-rajasthan-rules-2026" },
+      { label: "Commercial Taxes Department, Rajasthan", href: "https://rajtax.gov.in" },
+    ],
+  },
 ];
 
 export const states: StateGuide[] = [...statesA, ...statesB];

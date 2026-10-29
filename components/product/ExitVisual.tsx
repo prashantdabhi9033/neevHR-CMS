@@ -5,7 +5,7 @@ import { Avatar, Card, Eyebrow, Paper, VisualStage } from "@/components/visuals/
 // the image is a swimlane chart: resignation and notice to the last working day, the approval chain, and
 // one lane per clearance (IT, Finance, the manager's handover, HR & admin) ticking off, then the F&F and
 // the relieving and experience letters after the LWD. Vikram Shah: resigned 29 Aug 2026, 60 days' notice
-// (due 28 Oct), released 20 Oct = 52 days served, 8 short. Net F&F ₹1,64,233 (see the F&F visual).
+// (due 28 Oct), released 20 Oct = 52 days served, 8 short. Net F&F ₹1,63,033 (see the F&F visual).
 
 // Time axis: 25 Aug to 30 Oct 2026 across the track.
 const TRACK = 356;
@@ -187,7 +187,7 @@ export function ExitVisual() {
           </div>
           <Card className="p-4">
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[#5B45E8]">Full & final</p>
-            <p className="tnum mt-1 text-[22px] font-bold text-[#15147B]">₹1,64,233</p>
+            <p className="tnum mt-1 text-[22px] font-bold text-[#15147B]">₹1,63,033</p>
             <p className="text-[10.5px] text-slate-500">Net settlement · October F&F run</p>
             <ol className="mt-3 space-y-2 border-l-2 border-[#10B981]/40 pl-3 text-[11px]">
               {[

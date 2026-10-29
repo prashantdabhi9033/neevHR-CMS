@@ -83,5 +83,5 @@ export function pageMeta({
 }
 
 /** Review date shown on statutory / compliance content (DD MMM YYYY). */
-export const LAST_REVIEWED = "24 Sep 2026";
-export const LAST_REVIEWED_ISO = "2026-09-24";
+export const LAST_REVIEWED = "29 Oct 2026";
+export const LAST_REVIEWED_ISO = "2026-10-29";

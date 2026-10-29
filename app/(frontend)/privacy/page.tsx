@@ -410,7 +410,11 @@ export default function PrivacyPage() {
             <p>
               We do not use advertising or cross-site tracking cookies. You can block or delete cookies in your browser
               settings, or opt out of Google Analytics with Google&apos;s browser add-on. Blocking essential cookies will stop
-              you from signing in to the Platform.
+              you from signing in to the Platform. Our{" "}
+              <Link href="/cookies" className="font-medium text-brand hover:underline">
+                Cookie Policy
+              </Link>{" "}
+              lists every cookie the Website sets and how to change your choice.
             </p>
           </Section>
 

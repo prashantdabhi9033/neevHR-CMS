@@ -5,7 +5,7 @@ import { Eyebrow, Paper, VisualStage } from "@/components/visuals/Stage";
 // F&F statement on a desk, with the workings pencilled in the margin beside each line and the relieving
 // letter waiting underneath. Vikram Shah: gross ₹87,600, basic ₹41,600, joined 12 Jun 2021, LWD 20 Oct 2026.
 // Earnings 56,516 (87,600 × 20/31) + 24,960 (41,600 × 18/30) + 1,20,000 (41,600 × 15/26 × 5) = 2,01,476.
-// Recoveries 11,093 (41,600 × 8/30) + 0 + 5,650 + 1,800 + 200 + 18,500 = 37,243. Net 1,64,233.
+// Recoveries 11,093 (41,600 × 8/30) + 0 + 5,650 + 3,000 + 200 + 18,500 = 38,443. Net 1,63,033.
 
 type Line = { label: string; amount: string; note?: ReactNode; muted?: boolean };
 
@@ -22,7 +22,7 @@ const recoveries: Line[] = [
   { label: "Notice shortfall recovery, 8 days", amount: "11,093", note: "₹41,600 basic × 8 / 30 · notice due 28 Oct" },
   { label: "Asset recovery, none assigned", amount: "0", note: "Settlement is blocked while any asset is assigned", muted: true },
   { label: "TDS (income tax) on settlement", amount: "5,650", note: "On ₹56,516 taxable; gratuity and encashment exempt" },
-  { label: "Provident Fund (PF), final month", amount: "1,800", note: "12% of the ₹15,000 wage ceiling" },
+  { label: "Provident Fund (PF), final month", amount: "3,000", note: "12% of the ₹25,000 wage ceiling" },
   { label: "Professional Tax (PT), final month", amount: "200" },
   { label: "Loan / advance recovery, 1 loan(s), recovered in full", amount: "18,500" },
 ];
@@ -153,13 +153,13 @@ export function FnfVisual() {
             {recoveries.map((l) => (
               <Row key={l.label} l={l} sign="- " />
             ))}
-            <Total label="Total recoveries" value="- ₹37,243" />
+            <Total label="Total recoveries" value="- ₹38,443" />
 
             <div className={`${PAD} pt-4`}>
               <div className="rounded-md bg-[#F4F3FE] px-4 py-3">
                 <div className="flex items-baseline justify-between">
                   <span className="text-[12px] font-semibold text-ink">Net settlement</span>
-                  <span className="tnum text-[22px] font-bold text-[#15147B]">₹1,64,233</span>
+                  <span className="tnum text-[22px] font-bold text-[#15147B]">₹1,63,033</span>
                 </div>
                 <p className="text-[10.5px] text-slate-500">Settled 30 Oct 2026 · payroll period Oct 2026</p>
               </div>

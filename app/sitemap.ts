@@ -83,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/faq",
   ].map((r) => entry(r, 0.6));
 
-  const company = ["/company", "/contact", "/privacy", "/terms", "/dpdp"].map((r) =>
+  const company = ["/company", "/contact", "/privacy", "/terms", "/dpdp", "/cookies"].map((r) =>
     entry(r, 0.4)
   );
 
