@@ -5,8 +5,9 @@ import { DemoForm, type Intent } from "@/components/demo/DemoForm";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { TrackView } from "@/components/site/TrackView";
 import { pageMeta } from "@/lib/seo";
+import { editionName, isEditionKey } from "@/lib/pricing";
 
-type Search = { searchParams: Promise<{ intent?: string }> };
+type Search = { searchParams: Promise<{ intent?: string; edition?: string }> };
 
 const intents: Record<
   Intent,
@@ -55,7 +56,9 @@ export async function generateMetadata({
 }
 
 export default async function DemoPage({ searchParams }: Search) {
-  const intent = toIntent((await searchParams).intent);
+  const params = await searchParams;
+  const intent = toIntent(params.intent);
+  const edition = isEditionKey(params.edition) ? editionName(params.edition) : undefined;
   const c = intents[intent];
 
   return (
@@ -86,7 +89,7 @@ export default async function DemoPage({ searchParams }: Search) {
             ))}
           </ul>
         </div>
-        <DemoForm intent={intent} />
+        <DemoForm intent={intent} edition={edition} />
       </Container>
     </section>
     </>

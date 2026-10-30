@@ -49,7 +49,7 @@ const copy: Record<
   },
 };
 
-export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
+export function DemoForm({ intent = "demo", edition }: { intent?: Intent; edition?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const t = copy[intent];
@@ -59,7 +59,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
   function onStart() {
     if (started.current) return;
     started.current = true;
-    track("demo_start", { intent });
+    track("demo_start", { intent, edition });
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -184,6 +184,7 @@ export function DemoForm({ intent = "demo" }: { intent?: Intent }) {
           id="message"
           name="message"
           rows={3}
+          defaultValue={edition ? `I am interested in the ${edition} edition.` : undefined}
           className="rounded-xl border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
         />
       </div>

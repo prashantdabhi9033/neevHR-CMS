@@ -219,7 +219,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Is data encrypted?",
-        a: "Data is encrypted in transit. Sensitive identifiers such as PAN, Aadhaar, UAN, ESI number and bank account details are encrypted at the field level with AES-256-GCM, on top of storage-level encryption from the managed database.",
+        a: "Data is encrypted in transit. Sensitive identifiers such as PAN, Aadhaar, UAN, ESI number and bank account details are encrypted at the field level with AES-256-GCM.",
       },
       {
         q: "Does NeevHR support RBAC and audit logs?",
@@ -235,7 +235,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Where is data hosted?",
-        a: "In India. NeevHR runs on cloud infrastructure in the Bengaluru region.",
+        a: "In India. NeevHR runs on servers in Mumbai.",
       },
       {
         q: "Does NeevHR hold SOC 2 or ISO 27001 certification?",

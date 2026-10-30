@@ -36,7 +36,7 @@ const groups: { id: string; title: string; items: { t: string; b: string }[] }[]
     items: [
       { t: "Tenant isolation", b: "Every company's data is separated by Postgres row-level security enforced in the database. The application connects with a role that cannot bypass it." },
       { t: "Encryption in transit", b: "All traffic to the application is served over HTTPS." },
-      { t: "Encryption at rest", b: "PAN, Aadhaar, UAN, ESI number, bank account and IFSC are encrypted at the field level with AES-256-GCM, with key rotation, on top of storage encryption provided by the managed database." },
+      { t: "Encryption at rest", b: "PAN, Aadhaar, UAN, ESI number, bank account and IFSC are encrypted at the field level with AES-256-GCM, with key rotation." },
       { t: "Field-level protection", b: "Sensitive fields can be shown in full, masked or hidden per role, module and data class." },
       { t: "Backup and recovery", b: "Database backups and a documented restore procedure are in place. Recovery objectives are discussed during security review." },
     ],
@@ -117,7 +117,7 @@ export default function SecurityPage() {
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Infrastructure</h2>
           <ul className="mt-6 space-y-3 text-[15px] text-white/80">
             {[
-              "Hosted in India, on cloud infrastructure in the Bengaluru region.",
+              "Hosted in India, on servers in Mumbai.",
               "Managed PostgreSQL database with row-level security on tenant tables.",
               "Separate environments for staging and production.",
               "Further architecture detail is shared with your IT team during security review.",

@@ -27,7 +27,7 @@ export function GET() {
     "- Payroll statutory coverage: PF/EPF, ESI, Professional Tax, Labour Welfare Fund, TDS (old and new regime), gratuity, statutory bonus",
     "- Statutory outputs: PF ECR file, ESIC contribution file, PF/TDS/PT/LWF challans, Form 24Q return file (FVU format), Form 16 Part A and B, bank payment files",
     "- Platform: one effective-dated employee record, configurable policies by employee group, approval workflows, RBAC with data scopes, field-level masking, audit log",
-    "- Security: Postgres row-level tenant isolation, field-level AES-256-GCM encryption of PAN/Aadhaar/UAN/bank details, TOTP MFA, hosted in India (Bengaluru region)",
+    "- Security: Postgres row-level tenant isolation, field-level AES-256-GCM encryption of PAN/Aadhaar/UAN/bank details, TOTP MFA, hosted in India (Mumbai)",
     "- Integrations available: biometric devices over ADMS (iClock) push, email, SMS, WhatsApp, browser push, API keys, signed webhooks, CSV import/export, journal voucher CSV",
     `- Implementation: ${site.implementation}`,
     "- Pricing: based on employee count, modules, implementation and integrations; edition-based, in INR; quote on request",
