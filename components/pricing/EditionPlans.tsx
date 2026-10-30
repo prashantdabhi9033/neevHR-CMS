@@ -105,10 +105,6 @@ export function EditionPlans() {
               <h2 className="text-xl font-bold text-ink">{e.name}</h2>
               <p className="mt-0.5 text-sm font-medium text-accent-dark">{e.tagline}</p>
               <p className="mt-3 text-sm leading-relaxed text-body lg:min-h-[66px]">{e.bestFor}</p>
-              <div className="mt-5 rounded-xl bg-surface-soft px-4 py-3">
-                <p className="text-lg font-bold text-ink">Custom quote</p>
-                <p className="text-xs text-muted">In INR, based on your headcount</p>
-              </div>
               <Button
                 href={`/demo?intent=quote&edition=${e.key}`}
                 variant={e.recommended ? "primary" : "secondary"}
