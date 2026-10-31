@@ -53,7 +53,7 @@ export function ProductMenu() {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 py-5 text-sm font-medium text-body transition-colors hover:text-ink"
+        className="flex items-center gap-1 py-5 text-sm font-medium text-body transition-colors hover:text-ink group-data-[hero=true]:text-white group-data-[hero=true]:hover:text-white/80"
       >
         Features
         <svg

@@ -22,7 +22,7 @@ export function MobileNav({
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="grid h-10 w-10 place-items-center rounded-lg border border-line text-ink"
+        className="grid h-10 w-10 place-items-center rounded-lg border border-line text-ink group-data-[hero=true]:border-white/50 group-data-[hero=true]:text-white"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
           {open ? (
