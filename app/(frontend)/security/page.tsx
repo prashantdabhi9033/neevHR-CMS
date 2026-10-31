@@ -118,6 +118,7 @@ export default function SecurityPage() {
           <ul className="mt-6 space-y-3 text-[15px] text-white/80">
             {[
               "Hosted in India, on servers in Mumbai.",
+              "AI assistant, only if your company switches it on: questions and the data needed to answer them go to Anthropic, which may process them outside India. Bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent.",
               "Managed PostgreSQL database with row-level security on tenant tables.",
               "Separate environments for staging and production.",
               "Further architecture detail is shared with your IT team during security review.",

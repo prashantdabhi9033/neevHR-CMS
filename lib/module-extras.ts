@@ -354,6 +354,50 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       },
     ],
   },
+  "ai-assistant": {
+    seoTitle: "AI Assistant for HR and Payroll in India | NeevHR",
+    metaDesc:
+      "The NeevHR AI assistant answers employee, manager and HR questions from your own records, explains why payroll or an approval is blocked, and works only within each person's role.",
+    workflow: [
+      { step: "Switch on", body: "NeevHR switches it on for your company, module by module. Your Company Admin has it from the start." },
+      { step: "Choose people", body: "Your admin decides who may use it. Each person reads a notice on what is sent before first use." },
+      { step: "Ask", body: "People ask in plain words. It checks the real record, with the same permissions they have on screen." },
+      { step: "Confirm", body: "Anything that would change a record comes back as a review card, and only the person's confirmation carries it out." },
+    ],
+    benefits: [
+      "Routine questions get answered without waiting for HR",
+      "A stuck payroll or approval names the real cause and who can fix it",
+      "No per-employee AI fee: your company buys prepaid credits and uses them as needed",
+    ],
+    whoUses: [
+      { role: "Employees", does: "Ask about their own leave, attendance, payslip and requests." },
+      { role: "Managers", does: "See who is on leave and what is waiting, and review decisions by name." },
+      { role: "HR and payroll", does: "Find out what is blocking a run or an approval, and why someone cannot see something." },
+      { role: "Company Admin", does: "Decide who may use it, watch the credit balance and read the usage report." },
+    ],
+    faqs: [
+      {
+        q: "Can someone use it to see another person's salary?",
+        a: "No. It never gives another person's individual pay, for any role, whoever asks. Company pay appears only as totals, and small groups are hidden so nobody's pay can be worked out.",
+      },
+      {
+        q: "Can an employee find out why a colleague cannot see something?",
+        a: "No. Each check follows the permission of the screen behind it. Only people who manage users or roles can check another person's access. Anyone else is told to ask their HR admin.",
+      },
+      {
+        q: "What data goes to the AI provider?",
+        a: "The question, and the company data needed to answer it, go to our AI provider, Anthropic, which may process it outside India. Bank account, IFSC, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent.",
+      },
+      {
+        q: "Can our HR team read employees' questions?",
+        a: "No. The usage report shows how many questions a person asked and the credits used, never the questions or the answers.",
+      },
+      {
+        q: "How is it charged?",
+        a: "Your company buys prepaid credits. Each answer uses credits according to its length, and only the company recharges, never the employee. See the pricing page.",
+      },
+    ],
+  },
   reports: {
     seoTitle: "HR Analytics & Reporting Software | NeevHR",
     metaDesc:

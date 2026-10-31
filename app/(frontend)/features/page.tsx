@@ -15,6 +15,23 @@ export const metadata: Metadata = pageMeta({
   path: "/features",
 });
 
+const whatsNew = [
+  { name: "AI assistant", desc: "Answers from your own records, with your admin in control of who uses it and how much.", href: "/features/ai-assistant" },
+  { name: "QR code attendance", desc: "Scan at the site with the mobile app, coming soon.", href: "/features/attendance" },
+  { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
+  { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll.", href: "/payroll" },
+  { name: "PF correction and manual PT, LWF", desc: "Correct a filed month and record liabilities.", href: "/features/compliance" },
+  { name: "Careers website applications", desc: "From your own website into Recruitment.", href: "/features/recruitment" },
+  { name: "Internal jobs and resume parsing", desc: "Open roles for employees, and details suggested from a resume.", href: "/features/recruitment" },
+  { name: "1:1 meetings", desc: "Manager and team member, with talking points.", href: "/features/performance" },
+  { name: "Digital ID cards and asset QR labels", desc: "ID cards to view and print, labels for your assets.", href: "/features/assets" },
+  { name: "Approve from email", desc: "Decide from the request email.", href: "/pricing" },
+  { name: "Google sign-in", desc: "Sign in with your company's Google account.", href: "/security" },
+  { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/pricing" },
+  { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: "/features/expenses" },
+  { name: "Data migration workspace", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
+];
+
 export default function ProductOverviewPage() {
   return (
     <>
@@ -42,6 +59,21 @@ export default function ProductOverviewPage() {
             <Button href="/compare" variant="secondary" size="lg">
               Why NeevHR
             </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* New */}
+      <section className="border-b border-line bg-surface-soft py-14 lg:py-16">
+        <Container>
+          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">New in NeevHR</h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {whatsNew.map((n) => (
+              <Link key={n.name} href={n.href} className="block rounded-xl border border-line bg-white p-4 transition-colors hover:border-brand">
+                <span className="text-[15px] font-semibold text-ink">{n.name}</span>
+                <p className="mt-1 text-sm leading-relaxed text-body">{n.desc}</p>
+              </Link>
+            ))}
           </div>
         </Container>
       </section>

@@ -74,6 +74,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     blurb: "Every list a report, every report a chart.",
     items: [
       { slug: "reports", name: "Reports & analytics", desc: "Report builder, dashboards and drill-down." },
+      { slug: "ai-assistant", name: "AI assistant", desc: "Ask in plain words, within your own access." },
     ],
   },
 ];

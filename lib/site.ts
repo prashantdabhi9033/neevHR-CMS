@@ -6,7 +6,7 @@
 
 export const site = {
   name: "NeevHR",
-  tagline: "HR built on a stronger foundation",
+  tagline: "Foundation for Every HR Process",
   // Canonical entity statement (spec §2 / §47). Reuse verbatim.
   entity:
     "NeevHR is an India-first HRMS and payroll software platform for growing and mid-market businesses.",
@@ -70,12 +70,18 @@ export const platformCapabilities = [
   { title: "Role-based access", body: "Fine-grained RBAC with data scopes, field-level masking, time-bound grants and separation-of-duties checks." },
   { title: "Audit trail", body: "Changes are recorded and effective-dated, so records can be reported as they stood on any date." },
   { title: "Notifications", body: "In-app, email, SMS, WhatsApp and browser push from a single dispatcher, once each channel's provider is configured." },
+  { title: "AI assistant", body: "Plain-language answers from your own records within each person's role. Your admin controls who uses it, how much, and sees who used what." },
   { title: "Import & export", body: "Bulk CSV import with dry-run validation, and export from lists and reports." },
 ];
 
 export type FaqItem = { q: string; a: string };
 
 // Homepage FAQ: the questions buyers ask first.
+const aiFaq: FaqItem = {
+  q: "Does NeevHR have AI?",
+  a: "Yes. The NeevHR AI assistant answers employee, manager and HR questions from your own records within each person's role, explains why a payroll run or an approval is blocked, and drafts requests that change nothing until the person confirms. Your company switches it on and controls who uses it.",
+};
+
 export const faqs: FaqItem[] = [
   {
     q: "What is NeevHR?",
@@ -109,6 +115,7 @@ export const faqs: FaqItem[] = [
     q: "How does NeevHR pricing work?",
     a: "Pricing is based on employee count, modules, implementation requirements and integrations. NeevHR uses edition-based packaging priced in INR, and we prepare a quote for your team.",
   },
+  aiFaq,
 ];
 
 // Full FAQ page (spec §19), grouped. Answers reflect verified product behaviour.

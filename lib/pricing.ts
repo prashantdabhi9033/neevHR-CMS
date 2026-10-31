@@ -60,6 +60,7 @@ export const everyEdition = [
   { icon: "layers", title: "One price, not a module maze", body: "Edition-based packaging, quoted in INR." },
   { icon: "bolt", title: "Live in 4 to 8 weeks", body: "Configuration, migration and a parallel payroll run." },
   { icon: "shield", title: "Data hosted in India", body: "Row-level isolation and field-level encryption." },
+  { icon: "sparkle", title: "AI assistant available", body: "Your company buys prepaid credits and controls who uses it." },
   { icon: "users", title: "Multiple entities", body: "Several legal entities and locations in one account." },
   { icon: "sliders", title: "Configured by HR", body: "Policies as rule sets your HR admin owns." },
 ];
@@ -96,10 +97,12 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Org chart", desc: "Tree and focused views, with the org rebuilt as it stood on any date.", href: "/features/org-chart", tiers: ALL },
       { name: "Onboarding journeys", desc: "Pre-join tasks, intake forms, buddy and asset reservation before day one.", href: "/features/onboarding", tiers: ALL },
       { name: "Documents and letters", desc: "Document vault, mail-merge letters and policies employees acknowledge.", href: "/features/documents", tiers: ALL },
+      { name: "Digital ID cards", desc: "An ID card for every employee, with a QR code, to view and print.", tiers: ALL },
       { name: "Holiday calendars", desc: "Location-aware public, optional and restricted holidays.", href: "/features/holidays", tiers: ALL },
       { name: "Exit and clearance", desc: "Notice, department clearances, handover, relieving and experience letters.", href: "/features/exit", tiers: ALL },
       { name: "Bulk employee actions", desc: "Mass transfer, change manager, set shift or employment type in one step.", tiers: ALL },
       { name: "Asset tracking", desc: "Issue, custody, repair and return, with warranty and book value.", href: "/features/assets", tiers: GROWTH_UP },
+      { name: "Asset QR labels", desc: "Print QR labels for your assets. Scanning one opens the asset for someone with access.", tiers: GROWTH_UP },
       { name: "Position management", desc: "Approved seats with incumbency, FTE, freeze and budgeted CTC.", href: "/features/positions", tiers: ENT_ONLY },
       { name: "Workforce planning", desc: "Headcount and budget plans per department and cost centre.", href: "/features/planning", tiers: ENT_ONLY },
     ],
@@ -109,6 +112,8 @@ export const featureGroups: FeatureGroup[] = [
     icon: "clock",
     features: [
       { name: "Biometric device integration", desc: "Punches over the ADMS push protocol used by many eSSL, ZKTeco and Matrix devices, or by file import.", href: "/features/attendance", tiers: ALL },
+      { name: "Biometric device management", desc: "Send employees to devices, manage them from NeevHR, and compare who is on each device.", href: "/features/attendance", tiers: ALL },
+      { name: "QR code attendance", desc: "Employees scan a QR code at the site with the NeevHR mobile app, with a kiosk mode and printable posters.", href: "/features/attendance", tiers: ALL, status: "soon" },
       { name: "Attendance rules and day-close", desc: "Grace, half-day and short-day rules turn punches into a payroll-ready day.", tiers: ALL },
       { name: "Regularisation and approvals", desc: "Missed-punch requests approved from one inbox, with locked periods after payroll.", tiers: ALL },
       { name: "Leave policies", desc: "Any leave type, accrual, proration, carry-forward, encashment and sandwich rules.", href: "/features/leave", tiers: ALL },
@@ -124,6 +129,7 @@ export const featureGroups: FeatureGroup[] = [
     icon: "wallet",
     features: [
       { name: "Configurable pay structures", desc: "Salary components and structures assigned to employee groups.", href: "/payroll", tiers: ALL },
+      { name: "Daily-wage and hourly workers", desc: "Pay by the day or hour from attendance, with weekly and fortnightly runs, statutory, offers and the register of wages.", tiers: ALL },
       { name: "Governed payroll run", desc: "Compute, verify, approve and publish, with separation of duties and an exception report.", tiers: ALL },
       { name: "LOP and arrears", desc: "LOP from attendance reduces statutory wages; backdated revisions produce arrears.", tiers: ALL },
       { name: "Payslips and YTD", desc: "Payslips on self-service, payroll register and component-wise YTD.", tiers: ALL },
@@ -131,6 +137,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Loans and salary advances", desc: "EMI schedules recovered automatically in each payroll run.", href: "/features/loans", tiers: ALL },
       { name: "Bank payment files", desc: "NEFT and RTGS files in a generic layout and for several major banks.", tiers: ALL },
       { name: "Accounting journal export", desc: "A balanced GL journal as CSV, with GL mapping and cost-centre split.", tiers: ALL },
+      { name: "Tally Prime and Zoho Books entries", desc: "Vouchers for Tally Prime and journals for Zoho Books from published payroll. You download a file and import it.", tiers: ALL },
       { name: "Full and final settlement", desc: "Salary to the last day, leave encashment, gratuity, bonus and recoveries in one step.", href: "/features/full-and-final-settlement", tiers: ALL },
       { name: "Variable pay and incentives", desc: "Incentives, commissions and recoveries, approved before they reach payroll.", href: "/features/variable-pay", tiers: GROWTH_UP },
     ],
@@ -145,6 +152,8 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Form 24Q, Form 16 and 12BA", desc: "Quarterly 24Q return file, Form 16 Part A and B, and Form 12BA perquisites.", tiers: ALL },
       { name: "Gratuity and statutory bonus", desc: "Gratuity in F&F, and bonus at 8.33% to 20% with registers in Forms A to D.", tiers: ALL },
       { name: "Compliance calendar", desc: "Every filing with its due date, status and a late-charge estimate.", tiers: ALL },
+      { name: "PF correction of a filed month", desc: "Correct PF for a month already filed, with a second person's approval and a supplementary ECR for arrears.", href: "/features/compliance", tiers: ALL },
+      { name: "Manual PT and LWF register", desc: "Record PT and LWF liabilities outside payroll, with period, status and filing.", href: "/features/compliance", tiers: ALL },
     ],
   },
   {
@@ -153,6 +162,7 @@ export const featureGroups: FeatureGroup[] = [
     features: [
       { name: "Expense claims and advances", desc: "Receipts, policy caps, pre-approval and reimbursement by a separate payer.", href: "/features/expenses", tiers: ENT_ONLY },
       { name: "Travel requests", desc: "Grade-based entitlements, approvals and booking, linked to the expense claim.", href: "/features/travel", tiers: ENT_ONLY },
+      { name: "Travel advance", desc: "Advances with a trip limit, adjusted on claim approval, with statement, ageing, bulk pay and recovery in F&F.", tiers: ENT_ONLY },
       { name: "Flexible benefits (FBP)", desc: "Declare, submit proof and verify, reducing taxable income from the next run.", href: "/features/benefits", tiers: ENT_ONLY },
       { name: "Group insurance", desc: "GMC, GPA and GTL enrolment, dependants and endorsements for your insurer.", tiers: ENT_ONLY },
     ],
@@ -162,8 +172,12 @@ export const featureGroups: FeatureGroup[] = [
     icon: "target",
     features: [
       { name: "Recruitment pipeline", desc: "Requisitions, pipeline, interview panels and structured feedback.", href: "/features/recruitment", tiers: GROWTH_UP },
+      { name: "Careers website applications", desc: "Applications from your own website reach Recruitment directly, with a developer guide for your web team.", href: "/features/recruitment", tiers: GROWTH_UP },
+      { name: "Resume parsing", desc: "Upload a resume and NeevHR suggests the candidate's details for you to accept.", href: "/features/recruitment", tiers: GROWTH_UP },
+      { name: "Internal job posting", desc: "Employees see and apply for open roles inside the company.", href: "/features/recruitment", tiers: GROWTH_UP },
       { name: "Offers and hire-to-onboard", desc: "Offers carry the approved compensation and flow into onboarding.", tiers: GROWTH_UP },
       { name: "Goals and performance reviews", desc: "Weighted goals, review cycles and manager sign-off.", href: "/features/performance", tiers: GROWTH_UP },
+      { name: "1:1 meetings", desc: "Regular meetings between a manager and each team member, with talking points and calendar invites.", href: "/features/performance", tiers: GROWTH_UP },
       { name: "360 feedback and 9-box", desc: "Peer, manager and report reviewers, and calibration on a 9-box grid.", tiers: GROWTH_UP },
       { name: "Increment and bonus matrices", desc: "Ratings mapped to increment and bonus outcomes at sign-off.", tiers: GROWTH_UP },
       { name: "Learning and compliance training", desc: "Courses, quizzes, certificates and POSH or DPDP completion tracking.", href: "/features/learning", tiers: GROWTH_UP },
@@ -201,6 +215,8 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Policies by employee group", desc: "Leave, attendance, pay, expense and appraisal rules assigned to groups, no code.", tiers: ALL },
       { name: "Custom fields", desc: "Add your own fields to employee, candidate, asset, expense and helpdesk records.", tiers: ALL },
       { name: "Approval workflows", desc: "Standard: built-in manager and HR approvals. Advanced: your own multi-step chains with any, all or quorum rules.", tiers: ["Standard", "Standard", "Advanced"] },
+      { name: "Process Studio", desc: "Design your own HR flows from templates, with notices, time limits, rules and letters, and test them before you publish.", tiers: ENT_ONLY },
+      { name: "Approve from email", desc: "Approvers can approve or reject from the request email, once a Company Admin switches it on.", tiers: ALL },
       { name: "Roles and permissions", desc: "Advanced adds custom roles, data scopes, field-level masking, time-bound grants and separation-of-duties checks.", tiers: ["Standard", "Standard", "Advanced"] },
       { name: "Audit trail", desc: "Administrative, payroll and permission changes are logged.", tiers: ALL },
       { name: "Notifications", desc: "In-app and email, plus SMS, WhatsApp and browser push once each provider is configured.", tiers: ALL },
@@ -210,12 +226,23 @@ export const featureGroups: FeatureGroup[] = [
     ],
   },
   {
+    group: "AI assistant",
+    icon: "sparkle",
+    features: [
+      { name: "AI assistant for employees and managers", desc: "Answers from your own records within each person's role, in English, Hindi or Gujarati.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
+      { name: "Why is this blocked?", desc: "Explains what is stopping a payroll run or an approval, and why someone cannot see something, for people whose role allows it.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
+      { name: "Drafts you confirm", desc: "Leave, regularization and helpdesk requests as a review card. Nothing happens until the person confirms.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
+      { name: "Admin controls and usage report", desc: "Who may use it, which modules it works with, the credit balance, and usage by person without the questions.", href: "/features/ai-assistant", tiers: ALL },
+    ],
+  },
+  {
     group: "Security and data protection",
     icon: "shield",
     features: [
-      { name: "Data hosted in India", desc: "Your employee data stays in India.", href: "/security", tiers: ALL },
+      { name: "Data hosted in India", desc: "The application and database run on servers in India. If your company switches on the AI assistant, questions and the data needed to answer them go to its provider, which may process them outside India.", href: "/security", tiers: ALL },
       { name: "Tenant isolation", desc: "Each company's data separated by Postgres row-level security in the database.", tiers: ALL },
       { name: "Field-level encryption", desc: "PAN, Aadhaar, UAN, ESI number and bank details encrypted with AES-256-GCM.", tiers: ALL },
+      { name: "Sign in with Google", desc: "Sign in with your company's Google account. Sign in with Microsoft is being switched on.", tiers: ALL },
       { name: "Multi-factor authentication", desc: "Authenticator-app MFA that admins can make mandatory for everyone.", tiers: ALL },
       { name: "DPDP Act 2023 controls", desc: "Access scopes, masking, encryption and audit logs that support your DPDP duties.", href: "/features/compliance", tiers: ALL },
     ],
@@ -225,7 +252,7 @@ export const featureGroups: FeatureGroup[] = [
     icon: "bolt",
     features: [
       { name: "Guided implementation", desc: site.implementation, href: "/hrms-implementation", tiers: ALL },
-      { name: "Data migration", desc: "Employee master, org structure, documents and year-to-date opening balances, validated by a dry run.", href: "/hrms-data-migration", tiers: ALL },
+      { name: "Data migration", desc: "Employee master, org structure, documents and year-to-date opening balances in a guided workspace: validated by a dry run, with undo, a parallel run and sign-off.", href: "/hrms-data-migration", tiers: ALL },
       { name: "Parallel payroll run", desc: "A payroll cycle reconciled against your current process before go-live.", tiers: ALL },
       { name: "Priority implementation support", desc: "Priority handling from configuration through go-live.", tiers: ENT_ONLY },
       { name: "Custom integrations", desc: "Connectors beyond the standard set are scoped and quoted separately.", tiers: ["Quoted", "Quoted", "Quoted"] },
@@ -281,6 +308,10 @@ export const quoteFactors = [
 ];
 
 export const pricingFaqs: FaqItem[] = [
+  {
+    q: "How is the AI assistant priced?",
+    a: "It works on prepaid credits, separate from your edition, and it can be added to any edition. Your company recharges and each answer uses credits according to its length. There is no per-employee AI fee, employees never pay, and your admin sees the balance and who used how much. Recharge plans start at ₹500.",
+  },
   {
     q: "Why is NeevHR pricing not listed publicly?",
     a: "Price depends on employee count, edition, implementation requirements and integrations, which vary a lot between companies. We prepare a quote in INR once we understand your setup.",

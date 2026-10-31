@@ -29,6 +29,7 @@ export function GET() {
     "- Platform: one effective-dated employee record, configurable policies by employee group, approval workflows, RBAC with data scopes, field-level masking, audit log",
     "- Security: Postgres row-level tenant isolation, field-level AES-256-GCM encryption of PAN/Aadhaar/UAN/bank details, TOTP MFA, hosted in India (Mumbai)",
     "- Integrations available: biometric devices over ADMS (iClock) push, email, SMS, WhatsApp, browser push, API keys, signed webhooks, CSV import/export, journal voucher CSV",
+    "- AI assistant: answers from the company's own records within each person's role, explains why a payroll run or approval is blocked, drafts requests the person confirms, read only in pay and talent modules; prepaid credits, switched on per company and per module; questions and needed data go to Anthropic, never bank, PAN, Aadhaar, UAN, ESI number, address, health or disciplinary data",
     `- Implementation: ${site.implementation}`,
     "- Pricing: based on employee count, modules, implementation and integrations; edition-based, in INR; quote on request",
     "",

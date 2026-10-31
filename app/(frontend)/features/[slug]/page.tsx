@@ -12,6 +12,7 @@ import { moduleExtras } from "@/lib/module-extras";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
+import { AiControlSection } from "@/components/home/AiControlSection";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -108,6 +109,8 @@ export default async function ModulePage({ params }: Params) {
         )}
       </section>
 
+      {slug === "ai-assistant" && <AiControlSection cta={false} />}
+
       {/* Capabilities */}
       <section className="py-16 lg:py-20">
         <Container>
@@ -116,7 +119,7 @@ export default async function ModulePage({ params }: Params) {
               Key capabilities
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">
-              What {m.name.toLowerCase()} does in NeevHR
+              What {m.name.toLowerCase().replace(/\bai\b/, "AI")} does in NeevHR
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -147,7 +150,7 @@ export default async function ModulePage({ params }: Params) {
                 Workflow
               </span>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">
-                How {m.name.toLowerCase()} works, step by step
+                How {m.name.toLowerCase().replace(/\bai\b/, "AI")} works, step by step
               </h2>
             </Reveal>
             <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -305,7 +308,7 @@ export default async function ModulePage({ params }: Params) {
           <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-3xl bg-brand px-8 py-10 text-center shadow-[var(--shadow-float)] sm:flex-row sm:text-left">
             <div>
               <h2 className="text-2xl font-bold text-white">
-                See {m.name.toLowerCase()} on your own data
+                See {m.name.toLowerCase().replace(/\bai\b/, "AI")} on your own data
               </h2>
               <p className="mt-2 text-sm text-white/80">
                 A tailored walkthrough for your team, no generic deck.

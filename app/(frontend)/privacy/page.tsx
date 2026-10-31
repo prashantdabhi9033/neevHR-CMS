@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta({
 // Facts in this policy were checked against the product, the mobile app and the
 // hosting setup on 17 Oct 2026. Update `lastUpdated` whenever the substance changes,
 // and keep the sub-processor table in step with what is actually configured.
-const lastUpdated = "17 Oct 2026";
+const lastUpdated = "31 Oct 2026";
 
 // Legal entity and registered address confirmed by the owner on 17 Oct 2026.
 // OWNER TO CONFIRM: the named Grievance Officer (IT Rules 2011, rule 5(9)); until then a role-based contact.
@@ -301,7 +301,8 @@ export default function PrivacyPage() {
             <Table
               head={["Provider", "Service", "Data location"]}
               rows={[
-                ["DigitalOcean", "Cloud hosting, application servers and the managed database", "India (Bengaluru)"],
+                ["HostingRaja", "Server hosting: the application, the database and the Website", "India (Mumbai)"],
+                ["Anthropic", "The AI assistant, only where the employer has switched it on: a person's question and the data needed to answer it. Bank account, IFSC, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are not sent", "Outside India"],
                 ["Brevo", "Sending transactional email, such as invitations, password resets and notifications", "European Union"],
                 ["Google Firebase", "Delivering mobile push notifications (Cloud Messaging) and App crash reports (Crashlytics)", "Google global infrastructure"],
                 ["Google Analytics", "Website usage statistics (Website only, never the Platform or App)", "Google global infrastructure"],
@@ -328,9 +329,9 @@ export default function PrivacyPage() {
 
           <Section id="location" title="8. Where your data is stored">
             <p>
-              The Platform&apos;s application and database are hosted in India, in the Bengaluru region. Some service
+              The Platform&apos;s application and database are hosted in India, in the Mumbai region. Some service
               providers listed above process limited data outside India, for example to deliver an email or a
-              notification. We transfer personal data outside India only as permitted under the DPDP Act, 2023, and never
+              notification, or to answer a question put to the AI assistant. We transfer personal data outside India only as permitted under the DPDP Act, 2023, and never
               to a country the Government of India has restricted.
             </p>
           </Section>

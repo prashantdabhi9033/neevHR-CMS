@@ -16,6 +16,7 @@ import { LoansVisual } from "@/components/product/LoansVisual";
 import { FieldTrackingVisual } from "@/components/product/FieldTrackingVisual";
 import { SurveysVisual } from "@/components/product/SurveysVisual";
 import { ReportsVisual } from "@/components/product/ReportsVisual";
+import { AiAssistantVisual } from "@/components/product/AiAssistantVisual";
 import { OrgVisual } from "@/components/product/OrgVisual";
 import { PositionsVisual } from "@/components/product/PositionsVisual";
 import { PlanningVisual } from "@/components/product/PlanningVisual";
@@ -63,6 +64,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Effective-dated timeline", body: "Every promotion, transfer and pay change is a dated event; history is never overwritten." },
       { title: "Bulk actions", body: "Mass transfer, change manager, assign roles, set shift or employment type across selected employees or a whole group." },
       { title: "PII-safe import & export", body: "CSV import with validation and export with CTC redaction for users without the entitlement." },
+      { title: "Digital ID cards", body: "An ID card for every employee, with a QR code, to view and print." },
     ],
     configPoints: [
       "Custom fields on the employee record",
@@ -215,6 +217,8 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Configurable day-close", body: "Grace windows, half-day and short-day rules turn raw punches into present, absent, late and overtime." },
       { title: "Regularisation & approvals", body: "Employees raise regularisation for missed punches; managers approve in one inbox." },
       { title: "Pay at risk", body: "Unjustified exceptions surface as loss-of-pay before payroll runs." },
+      { title: "QR code attendance", body: "Employees scan a QR code at the site with the NeevHR mobile app (coming soon), with a kiosk mode and printable posters." },
+      { title: "Device management", body: "Send employees to biometric devices, manage devices from NeevHR and compare who is on each device." },
     ],
     configPoints: ["Shifts, grace windows and week-off policies", "Day-close rules per group", "Regularisation limits", "Overtime and shift allowances"],
     reports: ["Daily & monthly register", "Late, early-out & overtime", "Device health", "Muster roll"],
@@ -345,6 +349,8 @@ export const modules: Record<string, ModuleContent> = {
       { title: "India statutory built in", body: "PF at the ₹25,000 wage ceiling, ESI to ₹21,000 gross, state PT, LWF and TDS, with ECR, challan and Form 16 outputs." },
       { title: "LOP, arrears & loans", body: "Loss of pay reduces the statutory base correctly; arrears recompute; loan EMIs appear only when active." },
       { title: "Bank-ready disbursement", body: "NEFT and RTGS files and a GL journal, with a payroll register and per-component YTD." },
+      { title: "Daily-wage and hourly workers", body: "Pay by the day or hour from attendance, with weekly and fortnightly runs and the register of wages." },
+      { title: "Tally Prime and Zoho Books", body: "Download vouchers for Tally Prime and journals for Zoho Books from published payroll." },
     ],
     configPoints: ["Pay structures & components per group", "PF contribution basis election", "State-wise PT and LWF slabs", "Pay frequency and period lock"],
     reports: ["Payroll register & salary sheet", "ECR, ESI and PT challans", "Form 24Q and Form 16", "Exception & anomaly report"],
@@ -364,6 +370,8 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Returns workflow", body: "Create, prepare and file 24Q, PF ECR, ESI, PT and LWF returns with real portal references." },
       { title: "Form 16 & 12BA", body: "Generate and distribute Form 16 with quarter-wise deposit reconciliation, and Form 12BA perquisites." },
       { title: "Filing calendar", body: "A month calendar of what is due, filed, pending and overdue." },
+      { title: "PF correction of a filed month", body: "Correct PF for a month already filed, with a second person's approval and a supplementary ECR for arrears." },
+      { title: "Manual PT and LWF", body: "Record PT and LWF liabilities outside payroll, with period, status and filing." },
     ],
     configPoints: ["Statutory identities (PAN, TAN, PF, ESI)", "Filing calendar and lead-days", "Return preparers", "Reference formats"],
     reports: ["Filing calendar", "Returns status", "Form 16 register"],
@@ -382,6 +390,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Policy checks", body: "Per-category caps, submission windows and pre-approval, with a recorded override for breaches." },
       { title: "Separation of duties", body: "Approve and reimburse are separate permissions; the payer is never the approver." },
       { title: "Advances", body: "Issue and settle cash advances, netting against claims or recovering via payroll." },
+      { title: "Travel advance", body: "Advances with a trip limit, adjusted on claim approval, with statement, ageing, bulk pay and recovery in F&F." },
     ],
     configPoints: ["Categories and per-day caps", "Per-diem grade × location matrix", "Submission window and receipt threshold", "Advance ceilings"],
     reports: ["Spend by category", "Pending & reimbursed", "Advances outstanding"],
@@ -457,6 +466,9 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Pipeline & panels", body: "Board or table pipeline, interview rounds and panels, and structured feedback." },
       { title: "Offers with a trail", body: "Offers show the approved compensation, carry a validity date and keep full history." },
       { title: "Hire to onboard", body: "An accepted offer flows into onboarding automatically." },
+      { title: "Careers website applications", body: "Applications from your own website reach Recruitment directly, with a developer guide for your web team." },
+      { title: "Resume parsing", body: "Upload a resume and NeevHR suggests the candidate's details for you to accept." },
+      { title: "Internal job posting", body: "Employees see and apply for open roles inside the company." },
     ],
     configPoints: ["Requisition approval chain", "Candidate sources and stages", "Interview rounds and panels", "Default offer validity"],
     reports: ["Funnel & conversion", "Time-to-fill & acceptance", "Source effectiveness"],
@@ -476,6 +488,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "360 & 9-box", body: "Nominate peer, manager and report reviewers, and calibrate talent on a 9-box grid." },
       { title: "Rating distribution", body: "See how ratings spread across the A+ to C scale as a bell curve, to support calibration discussions at sign-off." },
       { title: "Increment & bonus", body: "Ratings map to increment and bonus matrices, with final sign-off repricing the number." },
+      { title: "1:1 meetings", body: "Regular meetings between a manager and each team member, with talking points and calendar invites." },
     ],
     configPoints: ["Review cadence and stages", "Goal templates and weightings", "Rating scale and HiPo rule", "Increment matrices per department"],
     reports: ["Rating distribution & calibration", "9-box talent grid", "Multi-year performance history"],
@@ -622,6 +635,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Custody & history", body: "A full custody timeline per asset: issue, reassign, repair and return." },
       { title: "Warranty & depreciation", body: "Warranty windows and straight-line book value per category." },
       { title: "Onboarding link", body: "Reserve an asset for a joiner and issue it on day one." },
+      { title: "Asset QR labels", body: "Print QR labels for your assets. Scanning one opens the asset for someone with access." },
     ],
     configPoints: ["Asset types and categories", "Depreciation rates", "Warranty windows", "Issue and return workflow"],
     reports: ["Assets by status", "Warranty expiring", "Book value"],
@@ -648,6 +662,26 @@ export const modules: Record<string, ModuleContent> = {
     reports: ["Headcount & cost dashboards", "Multi-year performance", "Any module, any dimension"],
     related: ["employees", "payroll", "performance"],
     Visual: ReportsVisual,
+  },
+  "ai-assistant": {
+    slug: "ai-assistant",
+    name: "AI assistant",
+    eyebrow: "Insights",
+    title: "Ask NeevHR, and get the answer from your own records",
+    intro:
+      "An assistant for employees, managers and HR. It answers from your company's real data within each person's role, explains why something is blocked, and drafts requests that change nothing until the person confirms.",
+    capabilities: [
+      { title: "Answers for every employee", body: "Leave balance, attendance, shift, holidays, expense claims, tickets, courses, and their own payslip summary, CTC, loans, goals and released rating." },
+      { title: "Why is this blocked?", body: "Why payroll cannot be released and who must approve it, who a request is waiting on, why someone cannot see a record, and whether an approver has been set." },
+      { title: "Drafts you confirm", body: "It prepares a leave request, a regularization or a helpdesk ticket as a review card. Managers review leave decisions by name. Nothing happens until the person confirms." },
+      { title: "Help and policies", body: "How-to and policy answers from the Help Centre and your company's documents, with the article cited. When it is unsure it says so and points to HR." },
+      { title: "English, Hindi and Gujarati", body: "It replies in the language the person writes in." },
+      { title: "Read only where it matters", body: "In Payroll, Compensation, Variable pay, Benefits, Loans, Recruitment and Performance it only reads. It cannot run payroll, change a salary, make an offer or change a rating." },
+    ],
+    configPoints: ["Which modules it works with, per company", "Which employees may use it", "Which roles may use it", "Which roles may draft actions"],
+    reports: ["Credit balance", "Questions and credits by person, with date and module filters", "Export of usage"],
+    related: ["payroll", "reports", "leave"],
+    Visual: AiAssistantVisual,
   },
 };
 

@@ -21,6 +21,8 @@ import {
 } from "@/components/home/HrmsSections";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Testimonials } from "@/components/home/Testimonials";
+import { PhotoHero } from "@/components/home/PhotoHero";
+import { AiControlSection } from "@/components/home/AiControlSection";
 import { pageMeta } from "@/lib/seo";
 import {
   compliancePoints,
@@ -30,10 +32,10 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "NeevHR - India-first HRMS & Payroll Software",
+  title: "NeevHR - India-first HRMS & Payroll Software with AI",
   absoluteTitle: true,
   description:
-    "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system.",
+    "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system, with a built-in AI assistant.",
   path: "/",
 });
 
@@ -187,6 +189,7 @@ export default function HomePage() {
       "Expenses, loans and variable pay",
       "Employee self-service",
       "HR reports and dashboards",
+      "AI assistant that answers within each person's access",
     ],
   };
   const webPageJsonLd = {
@@ -194,13 +197,13 @@ export default function HomePage() {
     "@type": "WebPage",
     "@id": `${site.url}/#webpage`,
     url: site.url,
-    name: "NeevHR - India-first HRMS & Payroll Software",
+    name: "NeevHR - India-first HRMS & Payroll Software with AI",
     description: site.metaDescription,
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#software` },
     inLanguage: "en-IN",
     datePublished: "2026-09-01",
-    dateModified: "2026-09-24",
+    dateModified: "2026-10-31",
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],
@@ -212,56 +215,22 @@ export default function HomePage() {
       <JsonLd data={jsonLd} />
       <JsonLd data={webPageJsonLd} />
 
-      {/* Hero */}
+      <PhotoHero />
+
+      {/* The product, right under the first block. */}
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
-        <div className="pointer-events-none absolute -top-48 left-1/2 h-[620px] w-[960px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/15 via-brand-soft/10 to-accent/10 blur-3xl" />
-        <Container className="relative pt-16 text-center lg:pt-24">
-          <div className="animate-fade-up mx-auto max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-wider text-brand">
-              {site.tagline}
-            </p>
-            <h1 className="mt-3 text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
-              India-first HRMS &amp; Payroll Software for{" "}
-              <span className="text-brand">Growing Businesses</span>
-            </h1>
-            <p className="hero-intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
-              NeevHR is a complete HRMS platform for employee management,
-              attendance, leave, payroll, recruitment, performance, expenses
-              and statutory compliance. Built for Indian companies with payroll
-              and HR workflows at the core.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button href="/demo" size="lg">
-                Book a Demo
-                <Icon name="arrow" className="h-4 w-4" />
-              </Button>
-              <Button href="/hrms" variant="secondary" size="lg">
-                Explore HRMS Features
-              </Button>
-            </div>
-            <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
-              {[
-                "PF, ESI, PT, LWF & TDS",
-                "One effective-dated employee record",
-                "Data hosted in India",
-              ].map((t) => (
-                <li key={t} className="inline-flex items-center gap-1.5">
-                  <Icon name="check" className="h-4 w-4 text-accent" />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <Container className="relative">
           {/* Breaks out of the text container so the dashboard scene shows large and readable. */}
-          <div className="relative left-1/2 mt-12 w-[min(1360px,calc(100vw-24px))] -translate-x-1/2 pb-16 lg:mt-14 lg:pb-20">
+          <div className="relative left-1/2 w-[min(1360px,calc(100vw-24px))] -translate-x-1/2 py-12 lg:py-16">
             <Reveal>
               <DashboardShowcase />
             </Reveal>
           </div>
         </Container>
       </section>
+
+      <AiControlSection />
 
       <CompleteHrmsSection />
       <WhatIsHrmsSection />
