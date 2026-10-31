@@ -21,12 +21,12 @@ const groups = [
   {
     title: "Biometric attendance devices",
     body: "Punches arrive over the ADMS (iClock) push protocol used by many eSSL, ZKTeco and Matrix devices. Devices are registered by serial number and mapped to employees. Compatibility is confirmed for your models during implementation.",
-    items: ["ADMS push ingestion", "Device last-seen status", "Punch file import", "API-key punch ingest"],
+    items: ["ADMS push ingestion", "Send employees to devices", "Compare who is on each device", "Device last-seen status", "Punch file import", "API-key punch ingest"],
   },
   {
     title: "Banks and accounting",
-    body: "Salary payment files for upload to your bank, and a balanced payroll journal voucher for your accounting system. NeevHR does not move money or post directly into accounting software.",
-    items: ["Bank files: generic, HDFC, ICICI, SBI, Axis, Kotak (CSV)", "NEFT or RTGS by amount", "Journal voucher CSV with GL mapping", "Cost-centre split"],
+    body: "Salary payment files for upload to your bank, and accounting files for Tally Prime and Zoho Books from published payroll. You download a file and import it: NeevHR does not move money or post directly into accounting software.",
+    items: ["Bank files: generic, HDFC, ICICI, SBI, Axis, Kotak (CSV)", "NEFT or RTGS by amount", "Tally Prime vouchers (XML)", "Zoho Books journals (CSV)", "Journal voucher CSV with GL mapping", "Cost-centre split"],
   },
   {
     title: "Statutory portals",
@@ -36,7 +36,7 @@ const groups = [
   {
     title: "Messaging channels",
     body: "Notifications reach employees on the channels they use, from one dispatcher. Each channel uses your own provider account.",
-    items: ["Email", "SMS (MSG91 or Twilio)", "WhatsApp (Meta Cloud API)", "Browser push"],
+    items: ["Email", "SMS (MSG91 or Twilio)", "WhatsApp (Meta Cloud API)", "Browser push", "Editable templates and a delivery log", "Email from your own domain, with DNS records from your IT team"],
   },
   {
     title: "API and webhooks",
@@ -61,7 +61,7 @@ const faqs = [
   },
   {
     q: "Does NeevHR integrate with Tally?",
-    a: "Not directly. NeevHR exports a balanced payroll journal voucher as CSV with GL code mapping, which accounting teams import.",
+    a: "By file, yes. NeevHR makes vouchers for Tally Prime (XML) and journals for Zoho Books (CSV) from published payroll, which your accounts team imports. It is a file, not a live connection.",
   },
 ];
 

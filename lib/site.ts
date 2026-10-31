@@ -1,8 +1,8 @@
 // Central content config for the NeevHR marketing site.
 // Keep product claims honest: only list what the product actually does.
-// Verified against the product code on 24 Sep 2026. Notably NOT built yet:
-// Hindi UI, published mobile app (store listing), SSO, Tally sync, public
-// careers page / job boards. Do not claim these as available.
+// Re-checked against the product on 31 Oct 2026. Notably NOT available:
+// published mobile app (store listing), Hindi for admin screens, SAML, a live
+// Tally connection, job boards. Do not claim these as available.
 
 export const site = {
   name: "NeevHR",
@@ -147,7 +147,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Is NeevHR available in Hindi?",
-        a: "Not yet. The product interface is in English today. A Hindi interface is planned, and some notification templates are already available in Hindi.",
+        a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today. Notification emails can be set in Hindi too.",
       },
     ],
   },
@@ -188,7 +188,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Does NeevHR integrate with Tally or other accounting software?",
-        a: "NeevHR exports a balanced payroll journal voucher as CSV, with GL code mapping and cost-centre split, for import into your accounting system. A direct Tally connector is not available.",
+        a: "By file, yes. NeevHR makes vouchers for Tally Prime (XML) and journals for Zoho Books (CSV) from published payroll, which your accounts team imports. It is a file, not a live connection. A balanced journal voucher CSV with GL code mapping and cost-centre split is also available for other accounting software.",
       },
     ],
   },
@@ -238,7 +238,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Does NeevHR support single sign-on?",
-        a: "Not yet. SSO with SAML or OpenID Connect identity providers is not available today.",
+        a: "Yes, Sign in with Google, and Sign in with Microsoft is being switched on. Each company turns it on for its own domain, and it works for people who already have a NeevHR login. SAML is not available.",
       },
       {
         q: "Where is data hosted?",

@@ -28,6 +28,10 @@ const available = [
   { title: "Expenses and loans", body: "Submit claims with receipts and apply for loans within policy." },
   { title: "Approvals inbox", body: "Managers see everything awaiting them, from leave to expenses, in one inbox." },
   { title: "Helpdesk and surveys", body: "Raise HR tickets and respond to surveys." },
+  { title: "Why this amount", body: "See how a payslip figure was reached." },
+  { title: "Internal jobs and ID card", body: "See open roles inside the company and view your ID card." },
+  { title: "Hindi", body: "Every self-service page is available in Hindi." },
+  { title: "Set by your company", body: "Your HR can hide self-service pages by role and entity." },
   { title: "My data", body: "Make data principal requests under the DPDP Act 2023." },
 ];
 
@@ -41,8 +45,12 @@ const faqs = [
     a: "Check attendance and raise corrections, apply for leave, download payslips and Form 16, submit tax declarations and proofs, claim expenses, apply for loans, raise helpdesk tickets and act on approvals.",
   },
   {
+    q: "What will the mobile app add?",
+    a: "QR code attendance, My ID card, internal jobs, 1:1 meetings, travel advance, the AI assistant and Sign in with Google, as well as attendance, leave, payslips and approvals. The app is coming soon and is in English. 1:1 notes stay on the web.",
+  },
+  {
     q: "Is self-service available in Hindi?",
-    a: "Not yet. Self-service is in English today; a Hindi interface is planned.",
+    a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today.",
   },
 ];
 

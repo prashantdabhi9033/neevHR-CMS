@@ -18,11 +18,21 @@ export const metadata: Metadata = pageMeta({
 // Every control listed is implemented in the product (verified 24 Sep 2026).
 const groups: { id: string; title: string; items: { t: string; b: string }[] }[] = [
   {
+    id: "sign-in",
+    title: "Sign-in and single sign-on",
+    items: [
+      { t: "Sign in with Google", b: "People sign in with your company's Google account. Your company turns it on for its own domain, and it works for people who already have a NeevHR login." },
+      { t: "Sign in with Microsoft", b: "Built, and being switched on. Your Microsoft admin gives consent once for your company." },
+      { t: "Require single sign-on", b: "A company can make single sign-on the way in for its people, with a Company Admin password kept as the way back." },
+      { t: "MFA", b: "Authenticator-app (TOTP) codes with recovery codes. Each company can make MFA mandatory for every user." },
+      { t: "SAML", b: "Not available today. If your identity provider needs SAML, tell us during security review." },
+    ],
+  },
+  {
     id: "application",
     title: "Application security",
     items: [
       { t: "Authentication", b: "Email and password sign-in with account lockout after repeated failed attempts." },
-      { t: "MFA", b: "Authenticator-app (TOTP) codes with recovery codes. Each company can make MFA mandatory for every user." },
       { t: "Password policy", b: "At least 12 characters with mixed character types, the last five passwords blocked, and 90-day expiry." },
       { t: "Session management", b: "Per-company idle and absolute session timeouts, a limit on concurrent sessions, and session revocation." },
       { t: "Authorization and RBAC", b: "Permissions are granted through roles, with time-bound grants and separation-of-duties checks on conflicting roles." },
@@ -61,6 +71,11 @@ const groups: { id: string; title: string; items: { t: string; b: string }[] }[]
       { t: "Payroll changes", b: "Payroll runs record compute, verify, approve and publish steps, with separation of duties." },
       { t: "Permission changes", b: "Role assignments, grants and revocations are recorded." },
       { t: "Effective-dated history", b: "Employee changes are kept as dated history rather than overwritten." },
+      { t: "Sensitive data views", b: "A log of who viewed salary, PAN, Aadhaar and bank details." },
+      { t: "Tamper-evident audit trail", b: "Each entry is sealed with the one before it, so an entry changed or removed in the database shows up when the trail is verified." },
+      { t: "Access reviews", b: "Periodic reviews where owners confirm or remove what each person can reach." },
+      { t: "Second-admin approval", b: "An optional setting so role and workflow changes need a second admin." },
+      { t: "Vendor support access", b: "NeevHR support signs in only while your Company Admin allows it. Access is time-boxed and read-only unless you allow changes." },
     ],
   },
 ];
@@ -119,8 +134,7 @@ export default function SecurityPage() {
             {[
               "Hosted in India, on servers in Mumbai.",
               "AI assistant, only if your company switches it on: questions and the data needed to answer them go to Anthropic, which may process them outside India. Bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent.",
-              "Managed PostgreSQL database with row-level security on tenant tables.",
-              "Separate environments for staging and production.",
+              "PostgreSQL database with row-level security on tenant tables.",
               "Further architecture detail is shared with your IT team during security review.",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2.5">
@@ -143,7 +157,7 @@ export default function SecurityPage() {
             diligence requires, and answer security questionnaires.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
-            Single sign-on (SAML or OpenID Connect) is not available today.
+            Sign in with Google is available and Sign in with Microsoft is being switched on. SAML is not available.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/demo">

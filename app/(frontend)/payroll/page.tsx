@@ -34,6 +34,11 @@ const capabilities: { name: string; detail: string; href?: string }[] = [
   { name: "Bank payment files", detail: "CSV in a generic layout and layouts for HDFC, ICICI, SBI, Axis and Kotak, with NEFT or RTGS chosen by amount." },
   { name: "Gratuity", detail: "Computed in full and final settlement with the ₹20 lakh ceiling, plus a monthly provision posted to the journal.", href: "/glossary/gratuity" },
   { name: "Bonus", detail: "Annual statutory bonus run at 8.33% to 20%, with eligibility and calculation ceilings and the statutory forms." },
+  { name: "Trial run", detail: "Run payroll as a trial before the real one." },
+  { name: "Hold, off-cycle and supplementary", detail: "Hold a salary and pay it off-cycle, or run a supplementary payment on top of a published month." },
+  { name: "Why this amount", detail: "Employees see how a payslip figure was reached." },
+  { name: "Daily-wage and hourly workers", detail: "Pay by the day or hour from recorded attendance, with weekly and fortnightly runs and the register of wages." },
+  { name: "NPS, VPF and PF choice", detail: "NPS and VPF, Form F nomination, and PF basis choice where your company allows it." },
   { name: "Arrears", detail: "Backdated and mid-month revisions produce arrears that flow into PF and ESI." },
   { name: "LOP", detail: "Loss of pay from attendance and leave reduces statutory wages, and can be reversed in a later month.", href: "/glossary/lop" },
   { name: "Loans", detail: "Multiple loans per employee with EMI recovery in payroll, foreclosure, write-off and recovery in F&F." },
@@ -76,7 +81,7 @@ const payrollFaqs = [
   },
   {
     q: "Does NeevHR export to our accounting system?",
-    a: "Yes, as a balanced journal voucher CSV with GL code mapping and cost-centre split. A direct Tally connector is not available.",
+    a: "By file, yes. NeevHR makes vouchers for Tally Prime (XML) and journals for Zoho Books (CSV) from published payroll, which your accounts team imports. It is a file, not a live connection. A balanced journal voucher CSV with GL code mapping and cost-centre split is also available.",
   },
   {
     q: "What happens if an employee joins or leaves mid-month?",

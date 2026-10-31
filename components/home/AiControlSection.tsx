@@ -22,7 +22,7 @@ const controls = [
   {
     icon: "shield",
     title: "What it can see",
-    body: "Exactly what the person's role can open on screen. Never another person's pay, and bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent to the AI provider.",
+    body: "Exactly what the person's role can open on screen. Never another person's pay, and bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent to the AI provider. Anyone who tries a trick to get more is warned once, then blocked for a day.",
   },
 ];
 

@@ -68,13 +68,13 @@ export function ProductMenu() {
       </button>
 
       <div
-        className={`absolute left-1/2 top-full z-50 w-[860px] max-w-[92vw] -translate-x-1/2 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] transition-all ${
+        className={`absolute left-1/2 top-full z-50 max-h-[calc(100vh-72px)] w-[1120px] max-w-[96vw] overflow-y-auto -translate-x-1/2 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] transition-all ${
           open
             ? "visible translate-y-0 opacity-100"
             : "invisible translate-y-1 opacity-0"
         }`}
       >
-        <div className="grid grid-cols-3 gap-x-6 gap-y-5">
+        <div className="grid grid-cols-4 gap-x-6 gap-y-5">
           {moduleGroups.map((grp) => (
             <div key={grp.group}>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">

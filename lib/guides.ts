@@ -141,7 +141,7 @@ export const guides: Guide[] = [
         title: "Where NeevHR fits",
         body: [
           `${site.entity} It is designed for organisations from about 100 to several thousand employees and covers employee management, attendance, leave, payroll with PF, ESI, PT, LWF and TDS, recruitment, performance, expenses and self-service on one effective-dated employee record.`,
-          "Worth knowing when you compare: the NeevHR mobile app is coming soon, single sign-on is not yet available, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
+          "Worth knowing when you compare: the NeevHR mobile app is coming soon, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
         ],
       },
     ],
@@ -183,6 +183,18 @@ export const guides: Guide[] = [
     lead:
       "A good HRMS implementation is mostly about data and decisions, not software. This guide explains the phases, what your team needs to prepare, and how to reach a first live payroll with confidence.",
     sections: [
+      {
+        id: "go-live-tools",
+        title: "Tools in NeevHR that help you go live",
+        bullets: [
+          "Setup assistant: eight questions that shape your configuration",
+          "Copy setup from one legal entity to another",
+          "Preview as employee, to see what a person will see",
+          "Go-live checks and an implementation tracker",
+          "Cut-over steps, and a go-live kit of scheduled welcome emails",
+          "Help Centre inside the product",
+        ],
+      },
       {
         id: "timeline",
         title: "How long does it take?",
@@ -273,6 +285,19 @@ export const guides: Guide[] = [
     lead:
       "Migration decides how quickly a new HRMS becomes trustworthy. This guide lists what data to bring across, what NeevHR imports, and the workflow that gets you from spreadsheets to a reconciled first payroll.",
     sections: [
+      {
+        id: "workspace",
+        title: "The data migration workspace",
+        body: [
+          "NeevHR has a workspace for this, so opening balances are not loaded blind. Historical payslips are not imported, and gratuity service and a few other items are entered differently.",
+        ],
+        bullets: [
+          "A server check previews every file and row before anything is saved",
+          "Undo a loaded batch, as long as nothing yet depends on it",
+          "A parallel run compares NeevHR with your current payroll",
+          "Sign-off records who accepted the figures before go-live",
+        ],
+      },
       {
         id: "what-moves",
         title: "What data moves into NeevHR",
@@ -807,7 +832,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} It supports multiple entities, bulk actions, separation of duties, an audit log, Postgres row-level tenant isolation, field-level encryption of sensitive identifiers and enforceable MFA. Worth knowing: single sign-on is not available today, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.`,
+          `${site.entity} It supports multiple entities, bulk actions, separation of duties, an audit log, Postgres row-level tenant isolation, field-level encryption of sensitive identifiers and enforceable MFA. Worth knowing: single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.`,
         ],
       },
     ],
@@ -877,7 +902,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} It covers the statutory items above, generates the files and challans, and exports a balanced journal voucher as CSV. Filing and payment on government portals remain with your team, and a direct Tally connector is not available.`,
+          `${site.entity} It covers the statutory items above, generates the files and challans, and makes accounting files for Tally Prime and Zoho Books that your team imports. Filing and payment on government portals remain with your team.`,
         ],
       },
     ],

@@ -19,6 +19,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "exit", name: "Exit management", desc: "Notice, clearance, knowledge handover and F&F." },
       { slug: "full-and-final-settlement", name: "Full & final settlement", desc: "F&F worksheet paid through payroll." },
       { slug: "documents", name: "Documents", desc: "Policies and employee files with acknowledgement." },
+      { slug: "alumni-portal", name: "Alumni portal", desc: "Ex-employees download payslips, Form 16 and F&F." },
     ],
   },
   {
@@ -39,11 +40,12 @@ export const moduleGroups: ModuleNavGroup[] = [
     blurb: "Statutory-accurate pay, on time.",
     items: [
       { slug: "payroll", name: "Payroll", desc: "Configurable structures, LOP, arrears, payslips.", href: "/payroll" },
+      { slug: "income-tax", name: "Income tax", desc: "Declarations, proofs, tracker and tax ledger." },
       { slug: "compliance", name: "Statutory compliance", desc: "PF, ESI, PT, LWF, TDS returns and challans." },
       { slug: "expenses", name: "Expenses", desc: "Claims and reimbursement with separation of duties." },
       { slug: "loans", name: "Loans & advances", desc: "Loans, advances and EMI recovery in payroll." },
       { slug: "variable-pay", name: "Variable pay", desc: "Incentives and variable payout cycles." },
-      { slug: "benefits", name: "Benefits (FBP)", desc: "Flexible benefits and declarations." },
+      { slug: "benefits", name: "Benefits and insurance", desc: "Flexible benefits, declarations and group insurance." },
     ],
   },
   {
@@ -55,6 +57,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "compensation", name: "Compensation", desc: "Increment and bonus planning with budgets." },
       { slug: "learning", name: "Learning", desc: "Courses, assignments and completions." },
       { slug: "succession", name: "Succession", desc: "Talent pools, 9-box and successors." },
+      { slug: "talent-review", name: "Talent review", desc: "9-box calibration and potential.", href: "/features/succession" },
     ],
   },
   {
@@ -64,6 +67,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app coming soon.", href: "/mobile" },
       { slug: "engagement", name: "Engagement", desc: "Recognition, pulse and engagement scores." },
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
+      { slug: "manager-self-service", name: "Manager self-service", desc: "My Team, one Inbox, delegation and email approvals." },
       { slug: "helpdesk", name: "HR helpdesk", desc: "Employee tickets with SLA tracking." },
       { slug: "travel", name: "Travel booking", desc: "Travel requests and approvals." },
       { slug: "assets", name: "Assets", desc: "Asset issue, custody and return." },
@@ -75,6 +79,17 @@ export const moduleGroups: ModuleNavGroup[] = [
     items: [
       { slug: "reports", name: "Reports & analytics", desc: "Report builder, dashboards and drill-down." },
       { slug: "ai-assistant", name: "AI assistant", desc: "Ask in plain words, within your own access." },
+    ],
+  },
+  {
+    group: "Platform and security",
+    blurb: "How you configure, connect and protect it.",
+    items: [
+      { slug: "process-studio", name: "Process Studio", desc: "Your own HR flows, from templates." },
+      { slug: "sign-in-security", name: "Sign-in and security", desc: "Google sign-in, MFA, encryption and audit.", href: "/security#sign-in" },
+      { slug: "integrations", name: "Integrations", desc: "Devices, banks, Tally, Zoho Books, API and webhooks.", href: "/integrations" },
+      { slug: "hindi", name: "Hindi for employees", desc: "Every self-service page in Hindi.", href: "/mobile" },
+      { slug: "data-migration", name: "Data migration", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
     ],
   },
 ];

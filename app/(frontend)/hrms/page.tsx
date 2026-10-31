@@ -224,7 +224,7 @@ const hrmsFaqs = [
   },
   {
     q: "Does NeevHR integrate with other systems?",
-    a: "Yes, through scoped API keys, signed outbound webhooks, CSV import and export, and a payroll journal voucher export for accounting. A direct Tally connector and single sign-on are not available today.",
+    a: "Yes, through scoped API keys, signed outbound webhooks, CSV import and export, and accounting files for Tally Prime and Zoho Books that your team imports. Sign in with Google is available, Microsoft is being switched on, and SAML is not available.",
   },
   {
     q: "How long does HRMS implementation take?",
@@ -240,7 +240,7 @@ const hrmsFaqs = [
   },
   {
     q: "Is NeevHR available in Hindi?",
-    a: "Not yet. The interface is in English today, and a Hindi interface is planned.",
+    a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today.",
   },
   {
     q: "Can we see NeevHR before deciding?",

@@ -234,7 +234,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       {
         q: "Does NeevHR have a careers page or job-board integration?",
-        a: "Not today. Recruitment covers requisitions, pipelines, interviews, referrals and offers inside NeevHR; there is no public careers page or job-board posting yet.",
+        a: "A careers page, yes. Each company can switch on a public careers page and take applications from its own website into Recruitment; only openings you publish appear, and it is not an embedded frame. Job-board posting is not available.",
       },
       {
         q: "Does NeevHR support background verification?",
@@ -353,6 +353,73 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         a: "Yes. A revision effective from an earlier date produces arrears in payroll.",
       },
     ],
+  },
+  "process-studio": {
+    seoTitle: "HR Workflow Builder Without Code | NeevHR Process Studio",
+    metaDesc: "Process Studio lets your HR admin design HR flows from 32 templates, with notices, time limits, rules and letters, and test them before publishing.",
+    workflow: [
+      { step: "Pick", body: "Start from a template or a blank flow." },
+      { step: "Shape", body: "Set the steps, approvers, conditions and time limits." },
+      { step: "Test", body: "Run a test that explains each branch by field name." },
+      { step: "Publish", body: "Check readiness, then publish it for your people." },
+    ],
+    benefits: ["New processes without a code change", "A test run before anyone is affected", "Time limits remind, then escalate"],
+    whoUses: [
+      { role: "HR admin", does: "Designs, tests and publishes flows." },
+      { role: "Employees", does: "Start published flows from self-service." },
+    ],
+    faqs: [
+      { q: "Do we need a developer?", a: "No. Flows are built from templates and a simple designer by your HR admin." },
+      { q: "Which edition has it?", a: "Process Studio is part of the Enterprise edition." },
+    ],
+  },
+  "alumni-portal": {
+    seoTitle: "Alumni Portal for Former Employees | NeevHR",
+    metaDesc: "Former employees sign in with a personal email and download their own payslips, Form 16 and full and final statement from the NeevHR alumni portal.",
+    workflow: [
+      { step: "Exit", body: "The employee's exit completes in NeevHR." },
+      { step: "Sign in", body: "They use the alumni portal with a personal email." },
+      { step: "Download", body: "Payslips, Form 16 and the full and final statement." },
+    ],
+    benefits: ["Fewer document requests reach HR", "Former employees reach only their own records"],
+    whoUses: [
+      { role: "Former employees", does: "Download their own documents." },
+      { role: "HR", does: "Sets it per legal entity." },
+    ],
+    faqs: [{ q: "What does a former employee need?", a: "A personal email on their record, because the work login has ended." }],
+  },
+  "manager-self-service": {
+    seoTitle: "Manager Self-Service in HRMS | NeevHR",
+    metaDesc: "My Team, one approvals Inbox, delegation, acting on behalf and email approvals give managers one place to run their team in NeevHR.",
+    workflow: [
+      { step: "See", body: "My Team shows who is out and what is coming." },
+      { step: "Decide", body: "One Inbox holds every approval waiting for the manager." },
+      { step: "Hand over", body: "Delegate approvals while away." },
+    ],
+    benefits: ["Approvals stop getting lost across modules", "Requests keep moving when a manager is away"],
+    whoUses: [
+      { role: "Managers", does: "Run their team and decide requests." },
+      { role: "HR", does: "Sets what managers may approve." },
+    ],
+    faqs: [
+      { q: "Can managers approve from email?", a: "Yes, once a Company Admin switches it on. They confirm on a page before anything is decided. Pay, F&F, offers and bank changes always need sign-in." },
+      { q: "Is this on mobile?", a: "On the web today, including a phone browser. The NeevHR mobile app is coming soon." },
+    ],
+  },
+  "income-tax": {
+    seoTitle: "Income Tax Declaration and TDS Software | NeevHR",
+    metaDesc: "Employee tax declarations and proofs under the old and new regime, with a submission tracker, reminders, proof review and a tax ledger in NeevHR.",
+    workflow: [
+      { step: "Declare", body: "Employees declare and choose a regime in the window." },
+      { step: "Prove", body: "They upload proofs, and HR accepts or sends back." },
+      { step: "Compute", body: "Payroll projects TDS from what is declared and proved." },
+    ],
+    benefits: ["See who has not submitted without a spreadsheet", "Each person's TDS can be explained from the ledger"],
+    whoUses: [
+      { role: "Employees", does: "Declare and upload proofs." },
+      { role: "Payroll team", does: "Tracks, reviews and runs TDS." },
+    ],
+    faqs: [{ q: "Are both tax regimes covered?", a: "Yes. TDS is projected under the regime the employee chooses." }],
   },
   "ai-assistant": {
     seoTitle: "AI Assistant for HR and Payroll in India | NeevHR",

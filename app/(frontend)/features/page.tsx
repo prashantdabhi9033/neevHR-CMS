@@ -25,9 +25,9 @@ const whatsNew = [
   { name: "Internal jobs and resume parsing", desc: "Open roles for employees, and details suggested from a resume.", href: "/features/recruitment" },
   { name: "1:1 meetings", desc: "Manager and team member, with talking points.", href: "/features/performance" },
   { name: "Digital ID cards and asset QR labels", desc: "ID cards to view and print, labels for your assets.", href: "/features/assets" },
-  { name: "Approve from email", desc: "Decide from the request email.", href: "/pricing" },
-  { name: "Google sign-in", desc: "Sign in with your company's Google account.", href: "/security" },
-  { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/pricing" },
+  { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: "/features/manager-self-service" },
+  { name: "Google sign-in", desc: "Sign in with your company's Google account.", href: "/security#sign-in" },
+  { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/features/process-studio" },
   { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: "/features/expenses" },
   { name: "Data migration workspace", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
 ];

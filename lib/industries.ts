@@ -114,7 +114,7 @@ export const industries: Industry[] = [
       },
       {
         q: "Does NeevHR publish jobs to job boards?",
-        a: "Not today. Recruitment in NeevHR covers requisitions, candidate pipelines, interviews, referrals and offers inside the product. There is no public careers page or job-board integration yet.",
+        a: "Not to job boards. Recruitment in NeevHR covers requisitions, candidate pipelines, interviews, referrals and offers, and a company can switch on a public careers page and take applications from its own website.",
       },
     ],
   },
