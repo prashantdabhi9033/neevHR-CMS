@@ -17,9 +17,9 @@ const scenes: Scene[] = [
   {
     who: "Employee",
     steps: [
-      { kind: "user", text: "Apply casual leave for 5 November" },
+      { kind: "user", text: "Apply casual leave for 5 November, family function" },
       { kind: "ai", text: "Here is your request. Check it and confirm." },
-      { kind: "card", rows: [["Type", "Casual leave"], ["Date", "05 Nov 2026"], ["Days", "1"]] },
+      { kind: "card", rows: [["Type", "Casual leave"], ["Date", "05 Nov 2026"], ["Days", "1"], ["Reason", "Family function"]] },
       { kind: "ai", text: "Done. Your leave request has gone to ", strong: "Meera Nair", after: " for approval." },
     ],
   },
