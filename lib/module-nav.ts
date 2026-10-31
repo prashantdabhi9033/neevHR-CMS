@@ -69,7 +69,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
       { slug: "manager-self-service", name: "Manager self-service", desc: "My Team, one Inbox, delegation and email approvals." },
       { slug: "helpdesk", name: "HR helpdesk", desc: "Employee tickets with SLA tracking." },
-      { slug: "travel", name: "Travel booking", desc: "Travel requests and approvals." },
+      { slug: "travel", name: "Travel booking", desc: "Travel requests, approvals and travel advances." },
       { slug: "assets", name: "Assets", desc: "Asset issue, custody and return." },
     ],
   },

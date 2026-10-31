@@ -105,6 +105,10 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         a: "NeevHR accepts punches over the ADMS (iClock) push protocol used by many eSSL, ZKTeco and Matrix devices, plus punch file import. We confirm your device models during implementation.",
       },
       {
+        q: "Can employees punch by QR code?",
+        a: "Yes, from the NeevHR mobile app, which is coming soon. Set up a punch point as a kiosk tablet whose code changes every 30 seconds, or a printed poster in English and Hindi, with a geofence per point.",
+      },
+      {
         q: "Can employees correct missed punches?",
         a: "Yes. Employees raise regularisation requests that route for approval, and auto-regularisation rules can handle common cases.",
       },
@@ -234,7 +238,11 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       {
         q: "Does NeevHR have a careers page or job-board integration?",
-        a: "A careers page, yes. Each company can switch on a public careers page and take applications from its own website into Recruitment; only openings you publish appear, and it is not an embedded frame. Job-board posting is not available.",
+        a: "A careers page, yes. Each company can switch on a public careers page and take applications from its own website into Recruitment; only openings you publish appear, and it is not an embedded frame. Your web team can also use the openings feed, or send applications with an API key, with WordPress field mapping and a developer guide. Job-board posting is not available.",
+      },
+      {
+        q: "Can employees apply for internal jobs?",
+        a: "Yes, once a recruiter turns it on. You set who is eligible, whether the current manager is informed or must approve, and whether applications are confidential. Selecting an employee raises a job change or transfer on their existing record, not a new employee.",
       },
       {
         q: "Does NeevHR support background verification?",
@@ -270,6 +278,10 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       {
         q: "Does NeevHR support 360 feedback?",
         a: "Yes. Peer, manager and report reviewers can be nominated for 360 feedback.",
+      },
+      {
+        q: "Does NeevHR support 1:1 meetings?",
+        a: "Yes. Managers run recurring 1:1s with a shared agenda that carries over, private notes, action items and a mood check-in, and HR sees a coverage report.",
       },
     ],
   },
@@ -926,6 +938,10 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Can employees raise tickets by email?",
         a: "No. Tickets are raised in NeevHR self-service.",
       },
+      {
+        q: "Can employees rate the help they got?",
+        a: "Yes, once a supervisor enables it. Employees rate a ticket when it closes, a low rating raises an alert, and a report shows satisfaction over time. Agents can also keep internal notes the employee does not see.",
+      },
     ],
   },
   travel: {
@@ -976,7 +992,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       {
         q: "Does NeevHR support QR code asset tags?",
-        a: "No. Assets are tracked by record and serial details, not QR or barcode scanning.",
+        a: "Yes. You can print QR labels for your assets, and scanning one opens the asset for someone with access.",
       },
     ],
   },
