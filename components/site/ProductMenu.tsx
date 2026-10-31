@@ -68,7 +68,7 @@ export function ProductMenu() {
       </button>
 
       <div
-        className={`absolute left-1/2 top-full z-50 max-h-[calc(100vh-72px)] w-[1120px] max-w-[96vw] overflow-y-auto -translate-x-1/2 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] transition-all ${
+        className={`fixed left-1/2 top-16 z-50 max-h-[calc(100vh-72px)] w-[1120px] max-w-[96vw] overflow-y-auto -translate-x-1/2 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] transition-all ${
           open
             ? "visible translate-y-0 opacity-100"
             : "invisible translate-y-1 opacity-0"
