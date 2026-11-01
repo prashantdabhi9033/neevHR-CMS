@@ -199,7 +199,7 @@ export const guides: Guide[] = [
         id: "timeline",
         title: "How long does it take?",
         body: [
-          `${site.implementation} Companies with clean data, one legal entity and standard biometric devices tend to be at the shorter end. Multiple entities and states, messy historical data and custom integrations push it longer.`,
+          `${site.implementation} Companies with clean data, one legal entity and standard biometric devices tend to go faster. Multiple entities and states, messy historical data and custom integrations push it longer.`,
         ],
       },
       {
