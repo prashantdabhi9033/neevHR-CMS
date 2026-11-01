@@ -7,7 +7,7 @@ import { AiChatDemo } from "@/components/home/AiChatDemo";
 // sign-in card sits. The photo is decorative; the tint carries the brand colour and keeps the words readable.
 export function PhotoHero() {
   return (
-    <section id="home-hero" className="relative isolate -mt-16 overflow-hidden bg-[#2f28a8] text-white">
+    <section id="home-hero" className="relative isolate -mt-16 overflow-hidden bg-[#15147b] text-white">
       <Image
         src="/hero/nature.webp"
         alt=""
@@ -19,7 +19,7 @@ export function PhotoHero() {
         className="relative -z-20 block h-auto w-full lg:absolute lg:inset-y-0 lg:left-[12%] lg:h-full lg:object-cover lg:object-[36%_40%] lg:[mask-image:linear-gradient(90deg,transparent,#000_16%)]"
       />
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(47,40,168,0)_0,rgba(47,40,168,0)_34vw,#2f28a8_56vw,#15147b_100%)] lg:bg-[linear-gradient(90deg,rgba(58,46,195,0.96)_0%,rgba(58,46,195,0.9)_32%,rgba(58,46,190,0.5)_42%,rgba(58,46,190,0.08)_52%,rgba(21,20,123,0)_62%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(21,20,123,0)_0,rgba(21,20,123,0)_34vw,#15147b_56vw,#15147b_100%)] lg:bg-[linear-gradient(90deg,rgba(21,20,123,0.97)_0%,rgba(21,20,123,0.92)_32%,rgba(21,20,123,0.52)_42%,rgba(21,20,123,0.08)_52%,rgba(21,20,123,0)_62%)]"
         aria-hidden="true"
       />
 
