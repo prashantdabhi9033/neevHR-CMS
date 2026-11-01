@@ -35,7 +35,7 @@ export function MobileAttendanceScreen({ className = "" }: { className?: string 
       <SampleFrame
         title="Punching in from the NeevHR mobile app"
         label="A sample of the mobile attendance screen. The phone checks its location, shows it is inside the geofence, and the employee punches in. Then a QR code at a kiosk is scanned to record a punch."
-        note="Sample screen. Geofenced punch and Scan QR are built into the NeevHR mobile app, whose release to Google Play and the App Store is pending."
+        note="Sample screen. Geofenced punch and Scan QR are built into the NeevHR mobile app."
       >
         <div className="mt-4 grid items-center gap-5 sm:grid-cols-[250px_1fr] sm:gap-7">
           <div className="mx-auto w-[236px] rounded-[34px] bg-ink p-2 shadow-[var(--shadow-float)]">

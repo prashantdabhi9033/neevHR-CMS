@@ -162,7 +162,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Biometric device integration", desc: "Punches over the ADMS push protocol used by many eSSL, ZKTeco and Matrix devices, or by file import.", href: "/features/attendance", tiers: ALL },
       { name: "Biometric device management", desc: "Send employees to devices, remove leavers, set card numbers and location scope, compare each device's user list with NeevHR, and get an offline alert. Fingerprint and face templates stay on the device.", href: "/features/attendance", tiers: ALL },
       { name: "Geofenced and web check-in", desc: "Punch from the web or the mobile app, inside the geofence you set, with an office network allowlist for web punches.", href: "/features/attendance#geofenced-and-web-check-in", tiers: ALL },
-      { name: "QR code attendance", desc: "Employees scan a QR code at the site with the NeevHR mobile app, from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point. The app's store release is pending.", href: "/features/attendance", tiers: ALL, status: "store-pending" },
+      { name: "QR code attendance", desc: "Employees scan a QR code at the site with the NeevHR mobile app, from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point. ", href: "/features/attendance", tiers: ALL, status: "store-pending" },
       { name: "Attendance rules and day-close", desc: "Grace, half-day and short-day rules turn punches into a payroll-ready day.", tiers: ALL },
       { name: "Bulk attendance correction", desc: "Correct many people, up to 31 days at a time.", href: "/features/attendance", tiers: ALL },
       { name: "Late-coming and not-punched reports", desc: "Habitual-late reports with LOP, not-punched lists and reminders.", href: "/features/attendance", tiers: ALL },
@@ -257,7 +257,7 @@ export const featureGroups: FeatureGroup[] = [
     features: [
       { name: "Employee self-service (web)", desc: "Attendance, leave, payslips, tax declarations and approvals.", href: "/mobile", tiers: ALL },
       { name: "Manager self-service", desc: "My Team, one Inbox, delegation and acting on behalf.", href: "/features/manager-self-service", tiers: ALL },
-      { name: "Mobile app", desc: "Self-service, approvals and attendance for Android and iPhone. Built, with the release to Google Play and the App Store pending.", href: "/mobile", tiers: ALL, status: "store-pending" },
+      { name: "Mobile app", desc: "Self-service, approvals and attendance for Android and iPhone. Built for both.", href: "/mobile", tiers: ALL, status: "store-pending" },
       { name: "Announcements and recognition", desc: "Targeted announcements, peer kudos, birthdays and work anniversaries.", href: "/features/engagement", tiers: ALL },
       { name: "Surveys and eNPS", desc: "Anonymous surveys with a respondent floor and eNPS analytics.", href: "/features/surveys", tiers: GROWTH_UP },
       { name: "HR helpdesk", desc: "Ticket queue, SLA timers and L1 to L3 escalation.", href: "/features/helpdesk", tiers: ENT_ONLY },
@@ -465,7 +465,7 @@ export const pricingFaqs: FaqItem[] = [
   },
   {
     q: "Is the mobile app included?",
-    a: "Yes, in every edition. The app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Web self-service is included and works today, including from a phone browser.",
+    a: "Yes, in every edition. The app for Android and iPhone is built. Web self-service is included and works today, including from a phone browser.",
   },
   {
     q: "How long does it take to go live?",

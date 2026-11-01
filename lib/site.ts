@@ -107,7 +107,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "Is there a mobile app?",
-    a: "Yes. The NeevHR mobile app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Today, employees use self-service on the web, including from a phone browser, for attendance, leave, payslips, tax declarations, expenses and approvals.",
+    a: "Yes. The NeevHR mobile app for Android and iPhone is built. Today, employees use self-service on the web, including from a phone browser, for attendance, leave, payslips, tax declarations, expenses and approvals.",
   },
   {
     q: "How is our employee data protected?",
@@ -235,7 +235,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Does it support field staff?",
-        a: "Yes. Field-force tracking records location during duty hours with geofences, with employee consent. It runs from the mobile app, whose store release is pending.",
+        a: "Yes. Field-force tracking records location during duty hours with geofences, with employee consent. It runs from the mobile app.",
       },
     ],
   },

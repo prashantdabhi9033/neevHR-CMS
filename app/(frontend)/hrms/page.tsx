@@ -157,7 +157,7 @@ const blocks: Block[] = [
       "Payslips, Form 16 and tax declarations with proofs",
       "Helpdesk tickets and surveys",
       "Confidential POSH complaints to the Internal Committee",
-      "Mobile app built, store release pending",
+      "Mobile app for Android and iPhone",
     ],
     links: [{ label: "Self-service & mobile", href: "/mobile" }],
   },
@@ -214,7 +214,7 @@ const hrmsFaqs = [
   },
   {
     q: "Does NeevHR have a mobile app?",
-    a: "Yes. The app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Employee self-service works on the web today, including from a phone browser.",
+    a: "Yes. The app for Android and iPhone is built. Employee self-service works on the web today, including from a phone browser.",
   },
   {
     q: "How secure is employee data in NeevHR?",

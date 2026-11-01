@@ -28,7 +28,7 @@ function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
     >
       {icon}
       <span className="flex flex-col leading-tight">
-        <span className="text-[10px] font-medium text-white/70">Release pending on</span>
+        <span className="text-[10px] font-medium text-white/70">Built for</span>
         <span className="text-sm font-semibold">{store}</span>
       </span>
     </span>
@@ -38,10 +38,10 @@ function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
 export function StoreBadges({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
-      <p className="mb-2 text-xs font-semibold text-ink">Mobile app: built, store release pending</p>
+      <p className="mb-2 text-xs font-semibold text-ink">NeevHR mobile app</p>
       <div className="flex flex-wrap gap-3">
-        <Badge icon={<AppleIcon />} store="App Store" />
-        <Badge icon={<PlayIcon />} store="Google Play" />
+        <Badge icon={<AppleIcon />} store="iPhone" />
+        <Badge icon={<PlayIcon />} store="Android" />
       </div>
     </div>
   );

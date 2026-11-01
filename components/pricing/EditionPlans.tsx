@@ -62,11 +62,6 @@ function FeatureRow({ f, edition }: { f: Item; edition: string }) {
               {f.level}
             </span>
           )}
-          {f.status && (
-            <span className="rounded bg-cream px-1.5 py-px text-[10px] font-semibold uppercase tracking-wide text-muted">
-              Store release pending
-            </span>
-          )}
         </span>
       </button>
       {open && (

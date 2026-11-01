@@ -23,7 +23,7 @@ const checklist = [
   { t: "Security", b: "How is your data isolated, encrypted and audited? Where is it hosted? Which certifications are actually held?" },
   { t: "Implementation", b: "What is included, how is data migrated and reconciled, and what timeline is realistic for your size?" },
   { t: "Pricing", b: "Is pricing per employee, per module or by edition, and what do implementation and integrations cost?" },
-  { t: "Mobile and self-service", b: "What can employees do themselves today, and is the mobile app live in the stores?" },
+  { t: "Mobile and self-service", b: "What can employees do themselves today, and is there a mobile app?" },
 ];
 
 const rows: { dim: string; neev: string; tier1: string; point: string }[] = [

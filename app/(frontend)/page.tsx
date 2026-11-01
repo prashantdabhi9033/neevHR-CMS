@@ -142,11 +142,11 @@ const features: Feature[] = [
   {
     eyebrow: "Employee experience",
     title: "Self-service for every employee",
-    body: "Employees check attendance, apply for leave, download payslips, submit tax declarations and claim expenses themselves, while managers act on approvals from one inbox. The NeevHR mobile app is built for Android and iPhone, with its store release pending.",
+    body: "Employees check attendance, apply for leave, download payslips, submit tax declarations and claim expenses themselves, while managers act on approvals from one inbox. The NeevHR mobile app is built for Android and iPhone.",
     highlights: [
       "Attendance, leave, payslips and tax declarations",
       "A unified inbox of everything awaiting you",
-      "Mobile app built, store release pending",
+      "Mobile app for Android and iPhone",
     ],
     href: "/mobile",
     Visual: MobileVisual,

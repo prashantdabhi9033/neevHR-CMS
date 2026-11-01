@@ -11,7 +11,7 @@ import { AI_LEVEL, editions, featureCount, featureGroups, featureLine, type Cell
 // sticky edition header under the site header (h-16).
 
 
-function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) {
+function CellMark({ cell }: { cell: Cell }) {
   if (cell === false) {
     return (
       <span className="text-line" aria-label="Not included">
@@ -22,10 +22,9 @@ function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) 
   if (cell === true) {
     return (
       <span className="inline-flex flex-col items-center gap-0.5">
-        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-accent-tint text-accent-dark" aria-label={status ? "Included, store release pending" : "Included"}>
+        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-accent-tint text-accent-dark" aria-label="Included">
           <Icon name="check" className="h-3.5 w-3.5" strokeWidth={2.4} />
         </span>
-        {status && <span className="hidden text-[10px] font-medium leading-tight text-muted sm:block">Store pending</span>}
       </span>
     );
   }
@@ -63,13 +62,12 @@ function Row({ f }: { f: Feature }) {
         </button>
         {f.tiers.map((c, i) => (
           <div key={editions[i].key} className="flex justify-center">
-            <CellMark cell={c} status={f.status} />
+            <CellMark cell={c} />
           </div>
         ))}
       </div>
       <div hidden={!open} className="border-t border-line/50 bg-surface-soft/60 px-4 py-3 pl-9 text-[13px] leading-relaxed text-body sm:px-6 sm:pl-11">
         {f.desc}
-        {f.status && <span className="mt-1 block text-xs font-medium text-muted">Store release pending: built, and it reaches people through the NeevHR mobile app.</span>}
         {f.href && (
           <Link href={f.href} className="mt-1.5 flex w-fit items-center gap-1 text-xs font-semibold text-brand hover:underline">
             Learn more <Icon name="arrow" className="h-3.5 w-3.5" />
@@ -232,7 +230,7 @@ export function CompareTable() {
         })}
       </div>
       <p className="mt-4 text-xs text-muted">
-        Numbers on a module row count the features in that edition. &ldquo;Store pending&rdquo; items are built and reach people through the NeevHR mobile app, whose release to Google Play and the App Store is pending. &ldquo;Prepaid credits&rdquo; items run on AI credits, explained above. Your quote confirms exactly what is included for your team.
+        Numbers on a module row count the features in that edition. &ldquo;Prepaid credits&rdquo; items run on AI credits, explained above. Your quote confirms exactly what is included for your team.
       </p>
     </div>
   );

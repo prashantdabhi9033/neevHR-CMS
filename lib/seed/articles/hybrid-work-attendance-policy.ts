@@ -153,7 +153,7 @@ Adapt these and take advice before adopting them.
 
 ## How NeevHR helps
 
-NeevHR [attendance](/features/attendance) captures web check-in alongside biometric punches, applies shift and grace rules by employee group, and routes regularisation to managers before LOP reaches payroll. [Leave](/features/leave) and location-wise holiday calendars set the days available, and consent-first [field tracking](/features/field-tracking) with geofences runs from the NeevHR mobile app, which is built, with its store release pending.
+NeevHR [attendance](/features/attendance) captures web check-in alongside biometric punches, applies shift and grace rules by employee group, and routes regularisation to managers before LOP reaches payroll. [Leave](/features/leave) and location-wise holiday calendars set the days available, and consent-first [field tracking](/features/field-tracking) with geofences runs from the NeevHR mobile app, which is built.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 06 Oct 2026.*`,
 };

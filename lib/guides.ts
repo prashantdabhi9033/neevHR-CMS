@@ -75,7 +75,7 @@ export const guides: Guide[] = [
           "Which biometric devices and protocols are supported, and how is compatibility confirmed?",
           "Can shifts, rosters, weekly-off policies and overtime rules be configured by group?",
           "How do regularisation, LOP and overtime flow into payroll?",
-          "Is there a mobile app for attendance, and is it actually published in the app stores?",
+          "Is there a mobile app for attendance, and what does it cover?",
         ],
       },
       {
@@ -141,7 +141,7 @@ export const guides: Guide[] = [
         title: "Where NeevHR fits",
         body: [
           `${site.entity} It is designed for organisations from about 100 to several thousand employees and covers employee management, attendance, leave, payroll with PF, ESI, PT, LWF and TDS, recruitment, performance, expenses and self-service on one effective-dated employee record.`,
-          "Worth knowing when you compare: the NeevHR mobile app is built but not yet in the stores, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
+          "Worth knowing when you compare: the NeevHR mobile app is built for Android and iPhone, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
         ],
       },
     ],

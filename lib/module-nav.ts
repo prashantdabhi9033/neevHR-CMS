@@ -67,7 +67,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     group: "Employee experience",
     blurb: "Self-service for every employee.",
     items: [
-      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app built, store release pending.", href: "/mobile" },
+      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app for Android and iPhone.", href: "/mobile" },
       { slug: "engagement", name: "Engagement", desc: "Recognition, pulse and engagement scores." },
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
       { slug: "manager-self-service", name: "Manager self-service", desc: "My Team, one Inbox, delegation and email approvals." },
@@ -114,7 +114,7 @@ export const newFeatures: NewFeature[] = [
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
   { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
   { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: `/features/manager-self-service#${capabilityId("Approve from email")}` },
-  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app (store release pending).", href: `/features/attendance#${capabilityId("QR code attendance")}`, menu: true },
+  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app.", href: `/features/attendance#${capabilityId("QR code attendance")}`, menu: true },
   { name: "Biometric device sync", desc: "Send employees to devices, remove leavers and compare each device's user list.", href: `/features/attendance#${capabilityId("Device management")}`, menu: true },
   { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
   { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll, by file.", href: "/payroll" },

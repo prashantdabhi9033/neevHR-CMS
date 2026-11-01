@@ -144,7 +144,7 @@ export const industries: Industry[] = [
       "Exit and full & final settlement",
       "Payroll",
       "Employee self-service",
-      "Mobile app for Android and iPhone (built, store release pending)",
+      "Mobile app for Android and iPhone",
     ],
     modules: [
       { slug: "rostering", name: "Shifts & roster", why: "Coverage-aware weekly rosters for each outlet." },
@@ -162,7 +162,7 @@ export const industries: Industry[] = [
       },
       {
         q: "Can store staff use a mobile app?",
-        a: "The NeevHR mobile app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Today, employees use self-service on the web from any phone browser.",
+        a: "The NeevHR mobile app for Android and iPhone is built. Today, employees use self-service on the web from any phone browser.",
       },
     ],
   },
@@ -267,10 +267,10 @@ export const industries: Industry[] = [
     h1: "HRMS Software for Logistics & Transport Companies",
     tagline: "Hubs, drivers and field staff on one payroll.",
     intro:
-      "Logistics and transport companies need an HRMS that handles hub-based shifts, staff who are rarely at a desk, multi-state payroll and statutory compliance. NeevHR covers hubs today. Field tracking is built and runs from the mobile app, whose store release is pending.",
+      "Logistics and transport companies need an HRMS that handles hub-based shifts, staff who are rarely at a desk, multi-state payroll and statutory compliance. NeevHR covers hubs today. Field tracking is built and runs from the mobile app.",
     overview: [
       "Warehouses and hubs run in shifts, while drivers and delivery staff spend the day on the road. HR needs attendance for both, and payroll that respects each state's PT and LWF.",
-      "NeevHR runs hub rosters and biometric attendance, and pays a distributed workforce with state-wise statutory deductions. Field tracking with geofences and consent is built into the platform and runs from the NeevHR mobile app, whose store release is pending.",
+      "NeevHR runs hub rosters and biometric attendance, and pays a distributed workforce with state-wise statutory deductions. Field tracking with geofences and consent is built into the platform and runs from the NeevHR mobile app.",
     ],
     challenges: [
       "Attendance for hub, warehouse and driver staff",
@@ -284,18 +284,18 @@ export const industries: Industry[] = [
       "Biometric attendance",
       "Overtime",
       "Multi-state payroll",
-      "Field tracking with geofences (runs from the mobile app, store release pending)",
+      "Field tracking with geofences (runs from the mobile app)",
       "Employee self-service",
     ],
     modules: [
       { slug: "attendance", name: "Attendance", why: "Biometric attendance and regularisation across hubs." },
-      { slug: "field-tracking", name: "Field tracking", why: "Geofences, duty-hours location and alerts, from the mobile app (store release pending)." },
+      { slug: "field-tracking", name: "Field tracking", why: "Geofences, duty-hours location and alerts, from the mobile app." },
       { slug: "payroll", name: "Payroll", why: "State-wise PT and LWF with PF and ESI for a distributed workforce." },
     ],
     faqs: [
       {
         q: "Can NeevHR track drivers and field staff?",
-        a: "Field tracking with geofences, duty-hours location and employee consent is built into NeevHR and runs from the mobile app, whose release to Google Play and the App Store is pending.",
+        a: "Field tracking with geofences, duty-hours location and employee consent is built into NeevHR and runs from the mobile app.",
       },
       {
         q: "Can we run payroll for employees in many states?",
@@ -316,7 +316,7 @@ export const industries: Industry[] = [
       "Pharma and life sciences companies combine shift-based manufacturing with large sales teams. They need an HRMS for plant rosters, training records, incentives and statutory compliance. NeevHR provides these on one employee record.",
     overview: [
       "A pharma business often runs regulated plants alongside a large medical-representative field force. Plant HR cares about shifts, training records and documentation; sales HR cares about targets and incentives.",
-      "NeevHR runs plant rosters and attendance, keeps training completions in the learning module, manages target-linked incentives with approvals, and computes statutory payroll across plants and depots. Field-force tracking is built and runs from the NeevHR mobile app, whose store release is pending.",
+      "NeevHR runs plant rosters and attendance, keeps training completions in the learning module, manages target-linked incentives with approvals, and computes statutory payroll across plants and depots. Field-force tracking is built and runs from the NeevHR mobile app.",
     ],
     challenges: [
       "Shift-based plant operations",
@@ -331,7 +331,7 @@ export const industries: Industry[] = [
       "Variable pay and incentives",
       "Payroll with PF, ESI, PT and LWF",
       "Employee documents",
-      "Field tracking (runs from the mobile app, store release pending)",
+      "Field tracking (runs from the mobile app)",
     ],
     modules: [
       { slug: "rostering", name: "Shifts & roster", why: "Plant rosters with coverage and rest checks." },
@@ -378,7 +378,7 @@ export const industries: Industry[] = [
       "Asset issue and return",
       "Payroll",
       "Employee self-service",
-      "Mobile app for Android and iPhone (built, store release pending)",
+      "Mobile app for Android and iPhone",
     ],
     modules: [
       { slug: "rostering", name: "Shifts & roster", why: "Department rosters with coverage checks." },
@@ -396,7 +396,7 @@ export const industries: Industry[] = [
       },
       {
         q: "Is there a mobile app for frontline staff?",
-        a: "The NeevHR mobile app for Android and iPhone is built, and its store release is pending. Employees can use web self-service from a phone browser today.",
+        a: "The NeevHR mobile app is built for Android and iPhone. Employees can use web self-service from a phone browser today.",
       },
     ],
   },

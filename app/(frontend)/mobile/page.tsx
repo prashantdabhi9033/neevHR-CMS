@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMeta({
   title: "Employee Self Service and HRMS Mobile App | NeevHR",
   absoluteTitle: true,
   description:
-    "NeevHR employee self-service: attendance, leave, payslips, Form 16, tax declarations, expenses, loans and approvals on the web today. The mobile app is built, with its store release pending.",
+    "NeevHR employee self-service: attendance, leave, payslips, Form 16, tax declarations, expenses, loans and approvals on the web today. A mobile app is also built for Android and iPhone.",
   path: "/mobile",
 });
 
@@ -39,7 +39,7 @@ const available = [
 const faqs = [
   {
     q: "Is there a NeevHR mobile app?",
-    a: "Yes, it is built for Android and iPhone, and its release to Google Play and the App Store is pending. Until then, web self-service is available today and works in a phone browser.",
+    a: "Yes, it is built for Android and iPhone. Web self-service is available today and works in a phone browser.",
   },
   {
     q: "What can employees do in self-service today?",
@@ -77,8 +77,7 @@ export default function MobilePage() {
               Employees handle attendance, leave, payslips, tax declarations
               and requests themselves, and managers approve from one inbox.
               Self-service runs on the web today, including in a phone browser.
-              The NeevHR mobile app for Android and iPhone is built, and its
-              release to Google Play and the App Store is pending.
+              The NeevHR mobile app is built for Android and iPhone.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/demo" size="lg">
@@ -106,7 +105,7 @@ export default function MobilePage() {
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">The screens employees use every day</h2>
           <p className="mt-3 max-w-2xl text-body">
             These are real screens from the NeevHR mobile app, rendered with demo data. The app is
-            built and its store release is pending; these features also run in web self-service today.
+            built for Android and iPhone; these features also run in web self-service today.
           </p>
         </Container>
         <div className="mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-4 pb-4 sm:px-6 lg:justify-center lg:overflow-visible">
