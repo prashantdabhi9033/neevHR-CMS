@@ -79,7 +79,7 @@ Be wary of paying for complexity you will not use. At 500 employees you rarely n
 
 ## Implementation approach
 
-A company of this size can usually go live in 4 to 8 weeks if the data is reasonably clean and the payroll rules are documented. A practical sequence looks like this.
+Go-live is quicker when the data is reasonably clean and the payroll rules are documented. A practical sequence looks like this.
 
 | Phase | Typical timing | What happens | Owner |
 | --- | --- | --- | --- |
@@ -119,13 +119,13 @@ Two points matter most. First, the parallel payroll run is not optional: it is t
 
 **Should payroll and HR be in the same system?** At this size it helps. When attendance, leave, joiners and exits feed payroll directly, you remove the monthly re-keying that causes most payroll errors.
 
-**How long does implementation take for 500 employees?** Typically 4 to 8 weeks, depending on data quality, the number of entities and states, integrations such as biometric devices, and payroll complexity.
+**How long does implementation take for 500 employees?** It depends on data quality, the number of entities and states, integrations such as biometric devices, and payroll complexity.
 
 **Do we need mobile access?** Many shift and field employees prefer a phone. Check what the vendor offers today rather than what is planned, and confirm how employees without a work laptop will use self-service.
 
 ## How NeevHR helps
 
-NeevHR is built for organisations from about 100 employees and handles this band well: one effective-dated employee record across multiple entities and locations, biometric attendance over the ADMS push protocol with shifts, rosters and overtime, and payroll that calculates PF, ESI, PT, LWF and TDS and generates the statutory files. Role-based access with data scopes, field-level masking and an audit log keep data where it belongs, and performance, 360 feedback and compensation cycles run on the same record. Typical implementation takes 4 to 8 weeks; see [NeevHR HRMS](/hrms) or [book a demo](/demo) to test it on your own scenarios.
+NeevHR is built for organisations from about 100 employees and handles this band well: one effective-dated employee record across multiple entities and locations, biometric attendance over the ADMS push protocol with shifts, rosters and overtime, and payroll that calculates PF, ESI, PT, LWF and TDS and generates the statutory files. Role-based access with data scopes, field-level masking and an audit log keep data where it belongs, and performance, 360 feedback and compensation cycles run on the same record. See [NeevHR HRMS](/hrms) or [book a demo](/demo) to test it on your own scenarios.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
 };

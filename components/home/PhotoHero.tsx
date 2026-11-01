@@ -37,7 +37,7 @@ export function PhotoHero() {
           <ul className="mt-6 grid gap-2.5 text-[15px] text-white/90">
             {[
               "PF, ESI, PT, LWF and TDS built in, not added on",
-              "Live in 4 to 8 weeks, run by your own HR team",
+              "Set up and run by your own HR team",
               "AI suggests on the screen, and a person decides",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2.5">

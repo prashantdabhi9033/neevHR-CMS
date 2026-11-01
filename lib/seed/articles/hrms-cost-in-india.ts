@@ -132,7 +132,7 @@ For what the implementation itself involves, see our [HRMS implementation guide]
 
 ## How NeevHR helps
 
-NeevHR is packaged in editions priced in INR, based on employee count, modules, implementation requirements and integrations, and payroll with PF, ESI, PT, LWF and TDS is included from the Core edition. Typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity, and NeevHR is designed for organisations from about 100 employees. [Book a demo](/demo) and we will prepare a quote in INR for your setup.
+NeevHR is packaged in editions priced in INR, based on employee count, modules, implementation requirements and integrations, and payroll with PF, ESI, PT, LWF and TDS is included from the Core edition. Implementation time depends on employee count, data quality, integrations and payroll complexity, and NeevHR is designed for organisations from about 100 employees. [Book a demo](/demo) and we will prepare a quote in INR for your setup.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
 };

@@ -55,9 +55,9 @@ const comparisonRows = [
   },
   {
     dim: "Go live",
-    neev: "Typically 4 to 8 weeks",
-    tier1: "Often several months",
-    point: "Fast, but limited",
+    neev: "Guided, run by your own HR team",
+    tier1: "Long, consultant-led projects",
+    point: "Quick, but limited",
   },
   {
     dim: "Configured by",
@@ -85,8 +85,8 @@ const valueProps = [
   },
   {
     icon: "bolt",
-    title: "Implemented in weeks",
-    body: "Guided migration moves your employee master, opening balances and documents across with dry-run validation. You run a parallel payroll cycle to reconcile, then go live. A typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity.",
+    title: "A guided go-live",
+    body: "Guided migration moves your employee master, opening balances and documents across with dry-run validation. You run a parallel payroll cycle to reconcile, then go live.",
   },
 ];
 

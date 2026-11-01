@@ -20,9 +20,9 @@ export const site = {
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
   addressCountry: "IN",
-  // Qualified implementation claim (spec §45).
+  // Owner, 01 Nov 2026: no go-live timeline on the site.
   implementation:
-    "Typical implementation: 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity.",
+    "Implementation time depends on employee count, data quality, integrations and payroll complexity.",
   // Official profiles for schema.org sameAs and the footer social links.
   socials: [
     { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/neevhr-37b432438/" },
@@ -44,8 +44,8 @@ export const differentiators = [
     icon: "users",
   },
   {
-    title: "Implemented in weeks",
-    body: "A typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity.",
+    title: "A guided go-live",
+    body: "Implementation time depends on employee count, data quality, integrations and payroll complexity.",
     icon: "bolt",
   },
   {
@@ -103,7 +103,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "How long does implementation take?",
-    a: "A typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity. It usually includes configuration, data migration, a parallel payroll run and go-live.",
+    a: "Implementation time depends on employee count, data quality, integrations and payroll complexity. It usually includes configuration, data migration, a parallel payroll run and go-live.",
   },
   {
     q: "Is there a mobile app?",

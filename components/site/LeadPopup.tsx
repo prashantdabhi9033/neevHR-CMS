@@ -54,7 +54,7 @@ const VARIANTS: Record<
 
 const POINTS = [
   "India-first: PF, ESI, PT, LWF and TDS built in",
-  "Typical go-live in 4 to 8 weeks",
+  "Guided go-live with a parallel payroll run",
   "Configured by your HR admin, no consultant needed",
 ];
 

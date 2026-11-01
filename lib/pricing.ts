@@ -84,7 +84,7 @@ export function isEditionKey(v: unknown): v is EditionKey {
 export const everyEdition = [
   { icon: "flag", title: "India statutory payroll", body: "PF, ESI, PT, LWF and TDS with returns and challans." },
   { icon: "layers", title: "One price, not a module maze", body: "Edition-based packaging, quoted in INR." },
-  { icon: "bolt", title: "Live in 4 to 8 weeks", body: "Configuration, migration and a parallel payroll run." },
+  { icon: "bolt", title: "Guided go-live", body: "Configuration, migration and a parallel payroll run." },
   { icon: "shield", title: "Data hosted in India", body: "Row-level isolation and field-level encryption." },
   { icon: "sparkle", title: "Fully AI enabled", body: "AI inside each module you have, plus the assistant, on prepaid credits." },
   { icon: "users", title: "Multiple entities", body: "Several legal entities and locations in one account." },
@@ -418,7 +418,7 @@ export const quoteSteps = [
   { title: "Tell us your setup", body: "Headcount, entities, locations and the modules you need." },
   { title: "See it on your structure", body: "A guided demo on a setup close to yours, not a generic deck." },
   { title: "Get a quote in INR", body: "Edition, implementation scope and plan, in writing." },
-  { title: "Go live", body: "Configuration, migration and a parallel payroll run, typically in 4 to 8 weeks." },
+  { title: "Go live", body: "Configuration, migration and a parallel payroll run." },
 ];
 
 export const quoteFactors = [

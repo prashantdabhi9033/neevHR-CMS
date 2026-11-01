@@ -41,9 +41,9 @@ const rows: { dim: string; neev: string; tier1: string; point: string }[] = [
   },
   {
     dim: "Implementation",
-    neev: "Typically 4 to 8 weeks",
-    tier1: "Several months to over a year",
-    point: "Fast, but limited scope",
+    neev: "Guided, run by your own HR team",
+    tier1: "Long, consultant-led projects",
+    point: "Quick, but limited scope",
   },
   {
     dim: "Who configures it",
@@ -110,9 +110,8 @@ export default function ComparePage() {
           </div>
           <p className="mt-4 text-xs text-muted">
             A general characterisation of common approaches, not a claim about
-            any specific vendor. Implementation time for NeevHR is typically 4
-            to 8 weeks, depending on employee count, data quality, integrations
-            and payroll complexity. Last reviewed: {LAST_REVIEWED}.
+            any specific vendor. Implementation time for NeevHR depends on employee
+            count, data quality, integrations and payroll complexity. Last reviewed: {LAST_REVIEWED}.
           </p>
         </Container>
       </section>

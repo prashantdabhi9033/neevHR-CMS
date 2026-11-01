@@ -123,7 +123,7 @@ Cloud does not remove your responsibility for the data. Ask where the data is ho
 
 ## How NeevHR helps
 
-NeevHR is an India-first HRMS built on one effective-dated employee record, with onboarding, attendance with biometric devices, leave, payroll and exit in one system for organisations from about 100 employees. It computes PF, ESI, PT, LWF and TDS under both tax regimes, generates the PF ECR, ESIC contribution file, challans and Form 24Q text file for your team to upload and pay on the government portals, and produces Form 16 for employees. Typical implementation takes 4 to 8 weeks, depending on employee count, data quality, integrations and payroll complexity. [Book a demo](/demo) to see it on a structure close to yours.
+NeevHR is an India-first HRMS built on one effective-dated employee record, with onboarding, attendance with biometric devices, leave, payroll and exit in one system for organisations from about 100 employees. It computes PF, ESI, PT, LWF and TDS under both tax regimes, generates the PF ECR, ESIC contribution file, challans and Form 24Q text file for your team to upload and pay on the government portals, and produces Form 16 for employees. Implementation time depends on employee count, data quality, integrations and payroll complexity. [Book a demo](/demo) to see it on a structure close to yours.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
 };

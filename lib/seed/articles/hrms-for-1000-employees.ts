@@ -125,7 +125,7 @@ Three differences were configuration errors in the new system, now fixed. Four w
 
 ## FAQs
 
-**How long does an HRMS rollout take for 1,000 or more employees?** It depends on entities, states, data quality and integrations. A single implementation is typically 4 to 8 weeks; a multi-entity programme is usually delivered in waves, each with its own parallel run.
+**How long does an HRMS rollout take for 1,000 or more employees?** It depends on entities, states, data quality and integrations. A multi-entity programme is usually delivered in waves, each with its own parallel run.
 
 **Should we pilot HR or payroll first?** Load the employee master for everyone first, then pilot attendance, leave and payroll together for one entity, because these three feed each other.
 

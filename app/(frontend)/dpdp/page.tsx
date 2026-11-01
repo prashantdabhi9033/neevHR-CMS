@@ -23,8 +23,7 @@ export default function DpdpPage() {
         <Container className="max-w-3xl space-y-4 text-[15px] leading-relaxed text-body">
           <p>
             NeevHR is designed for compliance with the Digital Personal Data
-            Protection Act, 2023 (DPDP). This notice is a placeholder pending our
-            full data-principal rights statement.
+            Protection Act, 2023 (DPDP).
           </p>
           <p>
             In the product, employee data is protected with row-level tenant

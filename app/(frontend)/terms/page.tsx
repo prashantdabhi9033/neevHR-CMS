@@ -19,7 +19,7 @@ export default function TermsPage() {
       <section className="py-14">
         <Container className="max-w-3xl space-y-4 text-[15px] leading-relaxed text-body">
           <p>
-            This page is a placeholder pending our final terms of use. By using
+            By using
             this website you agree to use it lawfully and not to misuse any
             content or forms.
           </p>

@@ -60,7 +60,7 @@ export default function PricingPage() {
             below, and we will prepare a quote in INR.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">
-            {["PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Live in 4 to 8 weeks", "Fully AI enabled, on prepaid credits", "Data hosted in India"].map((c) => (
+            {["PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Guided go-live", "Fully AI enabled, on prepaid credits", "Data hosted in India"].map((c) => (
               <span key={c} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-body ring-1 ring-line">
                 <Icon name="check" className="h-3.5 w-3.5 text-accent" strokeWidth={2.2} />
                 {c}
