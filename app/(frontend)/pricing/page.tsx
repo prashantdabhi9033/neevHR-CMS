@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -8,8 +9,10 @@ import { TrackView } from "@/components/site/TrackView";
 import { CompareTable } from "@/components/pricing/CompareTable";
 import { EditionFinder } from "@/components/pricing/EditionFinder";
 import { EditionPlans } from "@/components/pricing/EditionPlans";
+import { AiCreditsFlow } from "@/components/pricing/AiCreditsFlow";
 import { pageMeta } from "@/lib/seo";
 import {
+  aiCreditPoints,
   everyEdition,
   featureCount,
   pricingFaqs,
@@ -70,6 +73,12 @@ export default function PricingPage() {
           <div className="-mt-20">
             <EditionPlans />
           </div>
+          <p className="mt-6 text-center text-sm text-body">
+            Want it side by side?{" "}
+            <a href="#compare" className="font-semibold text-brand hover:underline">Compare every feature</a>
+            {" or "}
+            <a href="#ai-credits" className="font-semibold text-brand hover:underline">see how AI credits work</a>.
+          </p>
 
           {/* In every edition */}
           <div className="mt-14 rounded-2xl border border-line bg-cream/60 p-6 sm:p-8">
@@ -88,6 +97,36 @@ export default function PricingPage() {
               ))}
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* AI on credits */}
+      <section id="ai-credits" className="scroll-mt-16 border-t border-line py-16">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          <div>
+            <SectionHead
+              eyebrow="AI on prepaid credits"
+              title="AI is not a price per employee"
+              sub="NeevHR is fully AI enabled. AI is charged separately from your edition: it is switched on per module and paid from one prepaid balance."
+            />
+            <ul className="mt-7 grid gap-5 sm:grid-cols-2">
+              {aiCreditPoints.map((p) => (
+                <li key={p.title} className="flex gap-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-tint text-brand">
+                    <Icon name={p.icon} className="h-[18px] w-[18px]" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-ink">{p.title}</h3>
+                    <p className="mt-0.5 text-sm leading-relaxed text-body">{p.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Link href="/features/ai-assistant" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
+              See every AI feature and what it sends <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
+          <AiCreditsFlow />
         </Container>
       </section>
 

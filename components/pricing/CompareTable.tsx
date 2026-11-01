@@ -5,12 +5,11 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/track";
-import { editions, featureCount, featureGroups, type Cell, type Feature } from "@/lib/pricing";
+import { AI_LEVEL, editions, featureCount, featureGroups, featureLine, type Cell, type Feature } from "@/lib/pricing";
 
 // Full edition comparison: search, "differences only", collapsible groups,
 // sticky edition header under the site header (h-16).
 
-const STATUS_LABEL = "Store release pending";
 
 function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) {
   if (cell === false) {
@@ -20,29 +19,76 @@ function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) 
       </span>
     );
   }
-  if (status) {
-    return (
-      <span className="inline-flex rounded-full bg-cream px-2 py-0.5 text-[11px] font-semibold text-muted">
-        <span className="sm:hidden">App</span><span className="hidden sm:inline">In the app</span>
-      </span>
-    );
-  }
   if (cell === true) {
     return (
-      <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-accent-tint text-accent-dark" aria-label="Included">
-        <Icon name="check" className="h-3.5 w-3.5" strokeWidth={2.4} />
+      <span className="inline-flex flex-col items-center gap-0.5">
+        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-accent-tint text-accent-dark" aria-label={status ? "Included, store release pending" : "Included"}>
+          <Icon name="check" className="h-3.5 w-3.5" strokeWidth={2.4} />
+        </span>
+        {status && <span className="hidden text-[10px] font-medium leading-tight text-muted sm:block">Store pending</span>}
       </span>
     );
   }
-  return <span className="text-xs font-semibold text-accent-dark">{cell}</span>;
+  // Long levels shorten on a phone, where each edition column is 60px.
+  return (
+    <span className="text-center text-[11px] font-semibold leading-tight text-accent-dark sm:text-xs">
+      {cell === AI_LEVEL ? (
+        <>
+          <span className="sm:hidden">Credits</span>
+          <span className="hidden sm:inline">{cell}</span>
+        </>
+      ) : (
+        cell
+      )}
+    </span>
+  );
 }
+
+const COLS = "grid-cols-[minmax(0,1fr)_repeat(3,60px)] sm:grid-cols-[minmax(0,1fr)_repeat(3,128px)] lg:grid-cols-[minmax(0,1fr)_repeat(3,168px)]";
+
+function Row({ f }: { f: Feature }) {
+  const [open, setOpen] = useState(false);
+  const line = featureLine(f);
+  return (
+    <li>
+      <div className={`grid ${COLS} items-center gap-1 px-4 py-3 hover:bg-surface-soft/60 sm:px-6`}>
+        <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="group flex min-w-0 items-start gap-2 pr-2 text-left">
+          <svg viewBox="0 0 24 24" className={`mt-1 h-3 w-3 shrink-0 text-muted transition-transform group-hover:text-brand ${open ? "rotate-90" : ""}`} fill="currentColor" aria-hidden="true">
+            <path d="M9 6.5v11l8-5.5-8-5.5Z" />
+          </svg>
+          <span className="min-w-0">
+            <span className="block text-sm font-medium text-ink group-hover:text-brand">{f.name}</span>
+            <span className="mt-0.5 hidden text-xs leading-relaxed text-muted sm:block">{line}</span>
+          </span>
+        </button>
+        {f.tiers.map((c, i) => (
+          <div key={editions[i].key} className="flex justify-center">
+            <CellMark cell={c} status={f.status} />
+          </div>
+        ))}
+      </div>
+      <div hidden={!open} className="border-t border-line/50 bg-surface-soft/60 px-4 py-3 pl-9 text-[13px] leading-relaxed text-body sm:px-6 sm:pl-11">
+        {f.desc}
+        {f.status && <span className="mt-1 block text-xs font-medium text-muted">Store release pending: built, and it reaches people through the NeevHR mobile app.</span>}
+        {f.href && (
+          <Link href={f.href} className="mt-1.5 flex w-fit items-center gap-1 text-xs font-semibold text-brand hover:underline">
+            Learn more <Icon name="arrow" className="h-3.5 w-3.5" />
+          </Link>
+        )}
+      </div>
+    </li>
+  );
+}
+
+// Open the first group, so the shape of the table is clear, and let the rest be opened one module at a time.
+const initiallyClosed = () => new Set(featureGroups.slice(1).map((g) => g.group));
 
 const differs = (f: Feature) => new Set(f.tiers.map(String)).size > 1;
 
 export function CompareTable() {
   const [query, setQuery] = useState("");
   const [diffOnly, setDiffOnly] = useState(false);
-  const [closed, setClosed] = useState<Set<string>>(new Set());
+  const [closed, setClosed] = useState<Set<string>>(initiallyClosed);
 
   const q = query.trim().toLowerCase();
   const groups = useMemo(
@@ -117,7 +163,7 @@ export function CompareTable() {
 
       <div className="mt-6 rounded-2xl border border-line bg-white shadow-[var(--shadow-card)]">
         {/* Sticky edition header */}
-        <div className="sticky top-16 z-20 grid grid-cols-[minmax(0,1fr)_repeat(3,60px)] items-end gap-1 rounded-t-2xl border-b border-line bg-white/95 px-4 py-3 backdrop-blur sm:grid-cols-[minmax(0,1fr)_repeat(3,128px)] sm:px-6 lg:grid-cols-[minmax(0,1fr)_repeat(3,168px)]">
+        <div className={`sticky top-16 z-20 grid ${COLS} items-end gap-1 rounded-t-2xl border-b border-line bg-white/95 px-4 py-3 backdrop-blur sm:px-6`}>
           <p className="text-xs font-medium text-muted">
             {shown === featureCount ? `${featureCount} features` : `${shown} of ${featureCount} features`}
           </p>
@@ -157,57 +203,36 @@ export function CompareTable() {
                   type="button"
                   aria-expanded={open}
                   onClick={() => toggle(g.group)}
-                  className="flex w-full items-center gap-3 bg-surface-soft px-4 py-3 text-left sm:px-6"
+                  className={`grid w-full ${COLS} items-center gap-1 bg-surface-soft px-4 py-3 text-left hover:bg-brand-tint/50 sm:px-6`}
                 >
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white text-brand ring-1 ring-line">
-                    <Icon name={g.icon} className="h-4 w-4" />
+                  <span className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+                    <span className="hidden h-8 w-8 shrink-0 place-items-center rounded-lg bg-white text-brand ring-1 ring-line sm:grid">
+                      <Icon name={g.icon} className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0 text-sm font-semibold text-ink sm:text-[15px]">{g.group}</span>
+                    <svg viewBox="0 0 24 24" className={`h-4 w-4 shrink-0 text-muted transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </span>
-                  <span className="flex-1 text-[15px] font-semibold text-ink">{g.group}</span>
-                  <span className="text-xs text-muted">{g.features.length}</span>
-                  <svg viewBox="0 0 24 24" className={`h-4 w-4 text-muted transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  {editions.map((e, i) => (
+                    <span key={e.key} className="tnum text-center text-xs font-medium text-muted">
+                      {g.features.filter((f) => f.tiers[i] !== false).length}
+                      <span className="sr-only"> features in {e.name}</span>
+                    </span>
+                  ))}
                 </button>
               </h3>
-              {open && (
-                <ul className="divide-y divide-line/70">
-                  {g.features.map((f) => (
-                    <li
-                      key={f.name}
-                      className="grid grid-cols-[minmax(0,1fr)_repeat(3,60px)] items-center gap-1 px-4 py-3.5 hover:bg-surface-soft/60 sm:grid-cols-[minmax(0,1fr)_repeat(3,128px)] sm:px-6 lg:grid-cols-[minmax(0,1fr)_repeat(3,168px)]"
-                    >
-                      <div className="min-w-0 pr-2">
-                        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-ink">
-                          {f.href ? (
-                            <Link href={f.href} className="hover:text-brand hover:underline">
-                              {f.name}
-                            </Link>
-                          ) : (
-                            f.name
-                          )}
-                          {f.status && (
-                            <span className="rounded-full bg-cream px-2 py-0.5 text-[11px] font-semibold text-muted">
-                              {STATUS_LABEL}
-                            </span>
-                          )}
-                        </p>
-                        <p className="mt-0.5 hidden text-xs leading-relaxed text-muted sm:block">{f.desc}</p>
-                      </div>
-                      {f.tiers.map((c, i) => (
-                        <div key={editions[i].key} className="flex justify-center">
-                          <CellMark cell={c} status={f.status} />
-                        </div>
-                      ))}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <ul hidden={!open} className="divide-y divide-line/70">
+                {g.features.map((f) => (
+                  <Row key={f.name} f={f} />
+                ))}
+              </ul>
             </section>
           );
         })}
       </div>
       <p className="mt-4 text-xs text-muted">
-        &ldquo;In the app&rdquo; items are built and reach people through the NeevHR mobile app, whose release to Google Play and the App Store is pending. Your quote confirms exactly what is included for your team.
+        Numbers on a module row count the features in that edition. &ldquo;Store pending&rdquo; items are built and reach people through the NeevHR mobile app, whose release to Google Play and the App Store is pending. &ldquo;Prepaid credits&rdquo; items run on AI credits, explained above. Your quote confirms exactly what is included for your team.
       </p>
     </div>
   );

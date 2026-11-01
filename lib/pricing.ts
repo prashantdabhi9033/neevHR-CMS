@@ -22,6 +22,8 @@ export type Edition = {
   bestFor: string;
   plus?: string;
   recommended?: boolean;
+  /** The few lines a buyer compares first. They add nothing beyond the feature rows below. */
+  highlights: string[];
 };
 
 export const editions: Edition[] = [
@@ -30,6 +32,14 @@ export const editions: Edition[] = [
     name: "Core",
     tagline: "Get the foundation live",
     bestFor: "Companies moving HR, attendance and payroll off spreadsheets onto one compliant system.",
+    highlights: [
+      "Employee records, onboarding, exit and full and final settlement",
+      "Attendance, biometric devices, shifts, overtime and leave",
+      "Payroll with PF, ESI, PT, LWF and TDS, returns and Form 16",
+      "Self-service and one approvals inbox for managers",
+      "Disciplinary cases and a POSH complaint route",
+      "Ready reports, dashboards and multiple legal entities",
+    ],
   },
   {
     key: "growth",
@@ -37,6 +47,14 @@ export const editions: Edition[] = [
     tagline: "Add talent and analytics",
     bestFor: "Growing teams that hire every month and want structured reviews and their own reports.",
     plus: "Everything in Core, plus",
+    highlights: [
+      "Recruitment, careers website applications and internal jobs",
+      "Goals, reviews, OKR cascade and 1:1 meetings",
+      "Custom report builder and workforce analytics",
+      "Learning, surveys and eNPS",
+      "Shift rosters with coverage and fairness checks",
+      "Variable pay and asset tracking",
+    ],
     recommended: true,
   },
   {
@@ -45,6 +63,14 @@ export const editions: Edition[] = [
     tagline: "Full platform and control",
     bestFor: "Multi-entity, multi-location organisations that need spend control, benefits and fine-grained access.",
     plus: "Everything in Growth, plus",
+    highlights: [
+      "Expenses, travel and travel advance",
+      "Flexible benefits and group insurance",
+      "Process Studio, multi-step approvals and custom roles",
+      "Compensation planning and succession",
+      "Positions, workforce planning, timesheets and field tracking",
+      "HR helpdesk, and priority implementation support",
+    ],
   },
 ];
 
@@ -63,6 +89,16 @@ export const everyEdition = [
   { icon: "sparkle", title: "Fully AI enabled", body: "AI inside each module you have, plus the assistant, on prepaid credits." },
   { icon: "users", title: "Multiple entities", body: "Several legal entities and locations in one account." },
   { icon: "sliders", title: "Configured by HR", body: "Policies as rule sets your HR admin owns." },
+];
+
+// ---------------------------------------------------------------- AI on credits
+
+export const aiCreditPoints = [
+  { icon: "layers", title: "It rides your edition", body: "AI on a module's screens comes with that module's edition. The assistant works with every edition." },
+  { icon: "wallet", title: "One prepaid balance", body: "Your company recharges from ₹500. There is no per-employee AI fee, and employees never see a price." },
+  { icon: "bolt", title: "You pay for what runs", body: "Each answer uses credits by its length. The same input is not charged twice, and nothing runs when a page opens." },
+  { icon: "sliders", title: "Your admin stays in control", body: "A switch per module, who may use it, the balance, and usage by person without the questions." },
+  { icon: "shield", title: "When credits finish", body: "Stored results still show and no new run starts. The feature keeps working without AI." },
 ];
 
 // ---------------------------------------------------------------- comparison
@@ -86,7 +122,8 @@ const ALL: [Cell, Cell, Cell] = [true, true, true];
 const GROWTH_UP: [Cell, Cell, Cell] = [false, true, true];
 const ENT_ONLY: [Cell, Cell, Cell] = [false, false, true];
 // AI on a module's screens rides that module's edition, and runs on prepaid credits.
-const AI = "Prepaid credits";
+export const AI_LEVEL = "Prepaid credits";
+const AI = AI_LEVEL;
 const AI_ALL: [Cell, Cell, Cell] = [AI, AI, AI];
 const AI_GROWTH_UP: [Cell, Cell, Cell] = [false, AI, AI];
 const AI_ENT_ONLY: [Cell, Cell, Cell] = [false, false, AI];
@@ -308,6 +345,42 @@ export const featureGroups: FeatureGroup[] = [
     ],
   },
 ];
+
+// One short line for the comparison table, where a description would otherwise run long. The full description opens in place.
+const shortLines: Record<string, string> = {
+  "Digital ID cards": "An ID card with a QR code, to view, print and verify.",
+  "Disciplinary cases": "Notices, replies, inquiry and outcome on one dated case.",
+  "POSH complaint route": "A confidential complaint that only the Internal Committee reads.",
+  "Biometric device management": "Send employees to devices, remove leavers and compare user lists.",
+  "Geofenced and web check-in": "Punch from the web or the app, inside the boundary you set.",
+  "QR code attendance": "Scan at the site, from a kiosk tablet or a printed poster.",
+  "Daily-wage and hourly workers": "Pay by the day or hour, with weekly and fortnightly runs.",
+  "Tally Prime and Zoho Books entries": "Vouchers and journals from published payroll, by file.",
+  "PF correction of a filed month": "Arrears, refund records and a supplementary ECR, with a second approval.",
+  "Manual PT and LWF register": "Liabilities outside payroll, with challan tracking.",
+  "Travel advance": "Trip limits, adjustment on claim approval and recovery in F&F.",
+  "Careers website applications": "Applications from your own website into Recruitment.",
+  "Resume parsing": "Fields suggested from a resume for you to accept. Rule based, no AI.",
+  "Internal job posting": "Openings for employees, with eligibility and manager rules.",
+  "OKR and goal cascade": "Company, team and personal goals linked, with key results.",
+  "1:1 meetings": "A shared agenda that carries over, private notes and action items.",
+  "Mobile app": "Self-service, approvals and attendance for Android and iPhone.",
+  "Helpdesk satisfaction rating (CSAT)": "A rating when a ticket closes, with a low-rating alert.",
+  "Approval workflows": "Built-in approvals, or your own multi-step chains in Advanced.",
+  "Process Studio": "Your own HR flows from templates, tested before you publish.",
+  "Approve from Slack, Teams or WhatsApp": "Connected per company with a setup guide for each.",
+  "Roles and permissions": "Advanced adds custom roles, data scopes and field-level masking.",
+  "Hindi for employees": "Employees can switch self-service to Hindi.",
+  "Why is this blocked?": "What is stopping a payroll run or an approval, in plain words.",
+  "Tax proof reading": "Section, amount, year and issuer set against the declaration.",
+  "Admin controls and usage report": "A switch per module, the credit balance and usage by person.",
+  "Data hosted in India": "The application and database run on servers in India.",
+  "Single sign-on: Google and Microsoft": "Your own accounts, turned on per company.",
+  "Data migration": "Masters and opening balances with a dry run, undo and sign-off.",
+  "Parallel payroll run": "Compare a cycle with your current process before go-live.",
+};
+
+export const featureLine = (f: Feature) => shortLines[f.name] ?? f.desc;
 
 export const featureCount = featureGroups.reduce((n, g) => n + g.features.length, 0);
 

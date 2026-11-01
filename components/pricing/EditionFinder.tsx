@@ -80,7 +80,7 @@ export function EditionFinder() {
                 className="w-full"
                 onClick={() => track("pricing_finder_quote", { edition: fit, needs: chosen.map((n) => n.label).join("|") })}
               >
-                Get a {edition.name} quote
+                Get {fit === "enterprise" ? "an" : "a"} {edition.name} quote
               </Button>
               <button type="button" onClick={() => setPicked(new Set())} className="mt-3 w-full text-xs font-medium text-brand-mist hover:text-white">
                 Start again
