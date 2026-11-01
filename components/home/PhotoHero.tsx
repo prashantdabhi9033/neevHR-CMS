@@ -3,23 +3,23 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { AiChatDemo } from "@/components/home/AiChatDemo";
 
-// The home page's first block: the sign-in page's idea (the tree on the hill, full width), with the assistant where the
-// sign-in card sits. The photo is decorative; the tint carries the brand colour and keeps the words readable.
+// The home page's first block: the sign-in page's idea (the pebble stack at sunset, full width), with the assistant where
+// the sign-in card sits. The photo is decorative; the tint carries the brand colour and keeps the words readable.
 export function PhotoHero() {
   return (
     <section id="home-hero" className="relative isolate -mt-16 overflow-hidden bg-[#15147b] text-white">
       <Image
-        src="/hero/nature.webp"
+        src="/hero/pebbles.webp"
         alt=""
-        width={1672}
-        height={941}
+        width={2000}
+        height={1022}
         priority
         sizes="100vw"
         aria-hidden="true"
-        className="relative -z-20 block h-auto w-full lg:absolute lg:inset-y-0 lg:left-[12%] lg:h-full lg:object-cover lg:object-[36%_40%] lg:[mask-image:linear-gradient(90deg,transparent,#000_16%)]"
+        className="relative -z-20 block h-[56vw] w-full object-cover object-[54%_70%] lg:absolute lg:inset-0 lg:h-full lg:object-[54%_72%]"
       />
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(21,20,123,0)_0,rgba(21,20,123,0)_34vw,#15147b_56vw,#15147b_100%)] lg:bg-[linear-gradient(90deg,rgba(21,20,123,0.97)_0%,rgba(21,20,123,0.92)_32%,rgba(21,20,123,0.52)_42%,rgba(21,20,123,0.08)_52%,rgba(21,20,123,0)_62%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(21,20,123,0)_0,rgba(21,20,123,0)_42vw,#15147b_56vw,#15147b_100%)] lg:bg-[linear-gradient(90deg,#15147b_0%,rgba(21,20,123,0.92)_24%,rgba(21,20,123,0.78)_34%,rgba(21,20,123,0.5)_42%,rgba(21,20,123,0.1)_50%,rgba(21,20,123,0)_56%)]"
         aria-hidden="true"
       />
 
