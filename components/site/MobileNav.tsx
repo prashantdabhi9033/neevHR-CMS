@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { moduleGroups } from "@/lib/module-nav";
+import { moduleGroups, newFeatures } from "@/lib/module-nav";
 import { industryNav as industries } from "@/lib/industry-nav";
 
 export function MobileNav({
@@ -64,6 +64,16 @@ export function MobileNav({
                   </div>
                 </div>
               ))}
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">New in NeevHR</p>
+                <div className="mt-1 grid grid-cols-2 gap-x-3">
+                  {newFeatures.filter((n) => n.menu).map((n) => (
+                    <Link key={n.name} href={n.href} onClick={() => setOpen(false)} className="py-1.5 text-[13px] text-body">
+                      {n.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <div className="flex gap-4">
                 <Link
                   href="/hrms"

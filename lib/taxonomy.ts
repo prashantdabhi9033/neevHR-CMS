@@ -17,6 +17,8 @@ export const taxonomy: TaxGroup[] = [
       { name: "Employee Documents", href: "/features/documents" },
       { name: "Exit Management", href: "/features/exit" },
       { name: "Full & Final Settlement", href: "/features/full-and-final-settlement" },
+      { name: "Disciplinary Cases", href: "/features/disciplinary" },
+      { name: "POSH Complaint Route", href: "/features/posh" },
     ],
   },
   {
@@ -25,6 +27,7 @@ export const taxonomy: TaxGroup[] = [
     items: [
       { name: "Attendance Management", href: "/features/attendance" },
       { name: "Biometric Integration", href: "/integrations" },
+      { name: "QR Code Attendance", href: "/features/attendance#qr-code-attendance", status: "store-pending" },
       { name: "Shift Management", href: "/features/rostering" },
       { name: "Roster Management", href: "/features/rostering" },
       { name: "Leave Management", href: "/features/leave" },
@@ -54,6 +57,7 @@ export const taxonomy: TaxGroup[] = [
     items: [
       { name: "Recruitment", href: "/features/recruitment" },
       { name: "Performance Management", href: "/features/performance" },
+      { name: "OKR & Goal Cascade", href: "/features/goal-cascade" },
       { name: "Compensation", href: "/features/compensation" },
       { name: "Learning", href: "/features/learning" },
       { name: "Succession", href: "/features/succession" },
@@ -68,6 +72,8 @@ export const taxonomy: TaxGroup[] = [
       { name: "Engagement", href: "/features/engagement" },
       { name: "Surveys", href: "/features/surveys" },
       { name: "HR Helpdesk", href: "/features/helpdesk" },
+      { name: "Manager Self Service", href: "/features/manager-self-service" },
+      { name: "Approvals in Slack, Teams, WhatsApp", href: "/features/approval-channels" },
       { name: "Travel", href: "/features/travel" },
       { name: "Asset Management", href: "/features/assets" },
     ],
@@ -82,6 +88,7 @@ export const taxonomy: TaxGroup[] = [
       { name: "Custom Report Builder", href: "/features/reports" },
       { name: "Dashboards", href: "/features/reports" },
       { name: "Workforce Analytics", href: "/features/reports" },
+      { name: "AI in Every Module", href: "/features/ai-assistant" },
     ],
   },
 ];

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { moduleGroups } from "@/lib/module-nav";
+import { moduleGroups, newFeatures } from "@/lib/module-nav";
 
 export function ProductMenu() {
   const [open, setOpen] = useState(false);
@@ -95,6 +95,22 @@ export function ProductMenu() {
               </ul>
             </div>
           ))}
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">New in NeevHR</p>
+            <ul className="mt-2 space-y-0.5">
+              {newFeatures.filter((n) => n.menu).map((n) => (
+                <li key={n.name}>
+                  <Link
+                    href={n.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-body transition-colors hover:bg-brand-tint hover:text-brand"
+                  >
+                    {n.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="mt-4 flex items-center justify-between border-t border-line pt-4">
           <span className="text-xs text-muted">

@@ -229,6 +229,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Configurable day-close", body: "Grace windows, half-day and short-day rules turn raw punches into present, absent, late and overtime." },
       { title: "Regularisation & approvals", body: "Employees raise regularisation for missed punches; managers approve in one inbox." },
       { title: "Pay at risk", body: "Unjustified exceptions surface as loss-of-pay before payroll runs." },
+      { title: "Geofenced and web check-in", body: "Employees punch from the web or the mobile app, inside the geofence you set, with an office network allowlist for web punches. You choose which punch sources are allowed." },
       { title: "QR code attendance", body: "Employees scan a QR code at the site with the NeevHR mobile app (built, store release pending), from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point." },
       { title: "Device management", body: "Send employees to devices, remove leavers, set card numbers and location scope, compare each device's user list with NeevHR, and get an offline alert. Fingerprint and face templates stay on the device." },
       { title: "Bulk correction", body: "Correct attendance for many people, up to 31 days at a time." },

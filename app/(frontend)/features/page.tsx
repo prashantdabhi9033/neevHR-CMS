@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { platformCapabilities } from "@/lib/site";
-import { moduleGroups } from "@/lib/module-nav";
+import { moduleGroups, newFeatures } from "@/lib/module-nav";
 
 export const metadata: Metadata = pageMeta({
   title: "HRMS Features: All NeevHR Modules",
@@ -14,28 +14,6 @@ export const metadata: Metadata = pageMeta({
     "Every NeevHR module on one effective-dated employee record: core HR, attendance, leave, payroll and compliance, talent, employee experience and analytics.",
   path: "/features",
 });
-
-const whatsNew = [
-  { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules" },
-  { name: "AI assistant", desc: "Answers from your own records, with your admin in control of who uses it and how much.", href: "/features/ai-assistant" },
-  { name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results.", href: "/features/goal-cascade" },
-  { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
-  { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
-  { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
-  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app (store release pending).", href: "/features/attendance" },
-  { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
-  { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll.", href: "/payroll" },
-  { name: "PF correction and manual PT, LWF", desc: "Correct a filed month and record liabilities.", href: "/features/compliance" },
-  { name: "Careers website applications", desc: "From your own website into Recruitment.", href: "/features/recruitment" },
-  { name: "Internal jobs and resume parsing", desc: "Open roles for employees, and details suggested from a resume.", href: "/features/recruitment" },
-  { name: "1:1 meetings", desc: "Manager and team member, with talking points.", href: "/features/performance" },
-  { name: "Digital ID cards and asset QR labels", desc: "ID cards to view and print, labels for your assets.", href: "/features/assets" },
-  { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: "/features/manager-self-service" },
-  { name: "Google sign-in", desc: "Sign in with your company's Google account.", href: "/security#sign-in" },
-  { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/features/process-studio" },
-  { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: "/features/expenses" },
-  { name: "Data migration workspace", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
-];
 
 export default function ProductOverviewPage() {
   return (
@@ -73,7 +51,7 @@ export default function ProductOverviewPage() {
         <Container>
           <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">New in NeevHR</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {whatsNew.map((n) => (
+            {newFeatures.map((n) => (
               <Link key={n.name} href={n.href} className="block rounded-xl border border-line bg-white p-4 transition-colors hover:border-brand">
                 <span className="text-[15px] font-semibold text-ink">{n.name}</span>
                 <p className="mt-1 text-sm leading-relaxed text-body">{n.desc}</p>

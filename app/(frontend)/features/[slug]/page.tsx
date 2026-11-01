@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { modules, moduleList } from "@/lib/modules";
-import { moduleGroups } from "@/lib/module-nav";
+import { capabilityId, moduleGroups } from "@/lib/module-nav";
 import { differentiators } from "@/lib/site";
 import { moduleExtras } from "@/lib/module-extras";
 import { pageMeta } from "@/lib/seo";
@@ -127,7 +127,7 @@ export default async function ModulePage({ params }: Params) {
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {m.capabilities.map((c, i) => (
               <Reveal key={c.title} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+                <div id={capabilityId(c.title)} className="h-full scroll-mt-24 rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
                   <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent-tint text-accent-dark">
                     <Icon name="check" className="h-5 w-5" />
                   </span>
