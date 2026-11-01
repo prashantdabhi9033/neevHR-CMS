@@ -213,7 +213,7 @@ Then use the next pulse to check whether the targeted items moved. If employees 
 
 ## How NeevHR helps
 
-NeevHR [surveys](/features/surveys) let you build eNPS, rating, agreement, choice and open-text surveys with department targeting, and suppress results below the anonymity floor you configure, with eNPS breakdown and by-department analysis. [Engagement](/features/engagement) tracks eNPS and pulse trends across survey waves alongside peer recognition and announcements. The NeevHR [mobile app](/mobile) is coming soon, and a Hindi interface is planned. To see survey analytics on sample data, [book a demo](/demo).
+NeevHR [surveys](/features/surveys) let you build eNPS, rating, agreement, choice and open-text surveys with department targeting, and suppress results below the anonymity floor you configure, with eNPS breakdown and by-department analysis. [Engagement](/features/engagement) tracks eNPS and pulse trends across survey waves alongside peer recognition and announcements. Employees can answer in English or Hindi in web self-service, and the NeevHR [mobile app](/mobile) is built, with its store release pending. To see survey analytics on sample data, [book a demo](/demo).
 
 *This article provides general information for educational purposes. Last reviewed: 17 Oct 2026.*`,
 };

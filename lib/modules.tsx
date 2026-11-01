@@ -70,7 +70,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "PII-safe import & export", body: "CSV import with validation and export with CTC redaction for users without the entitlement." },
       { title: "Digital ID cards", body: "An ID card for every employee, with a QR code, to view and print." },
       { title: "Probation", body: "Feedback, confirm or extend, and correct a decision." },
-      { title: "ID card checks", body: "A public page shows only whether a card is active, with bulk A4 print, reissue and withdraw. My ID card in the mobile app is coming soon." },
+      { title: "ID card checks", body: "A public page shows only whether a card is active, with bulk A4 print, reissue and withdraw. Employees see My ID card in web self-service and in the mobile app (store release pending)." },
     ],
     configPoints: [
       "Custom fields on the employee record",
@@ -229,7 +229,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Configurable day-close", body: "Grace windows, half-day and short-day rules turn raw punches into present, absent, late and overtime." },
       { title: "Regularisation & approvals", body: "Employees raise regularisation for missed punches; managers approve in one inbox." },
       { title: "Pay at risk", body: "Unjustified exceptions surface as loss-of-pay before payroll runs." },
-      { title: "QR code attendance", body: "Employees scan a QR code at the site with the NeevHR mobile app (coming soon), from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point." },
+      { title: "QR code attendance", body: "Employees scan a QR code at the site with the NeevHR mobile app (built, store release pending), from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point." },
       { title: "Device management", body: "Send employees to devices, remove leavers, set card numbers and location scope, compare each device's user list with NeevHR, and get an offline alert. Fingerprint and face templates stay on the device." },
       { title: "Bulk correction", body: "Correct attendance for many people, up to 31 days at a time." },
       { title: "Late-coming reports", body: "Late and habitual-late reports, with LOP where your policy says so." },
@@ -306,7 +306,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Time & attendance",
     title: "GPS attendance and geofences for your field workforce",
     intro:
-      "Location during duty hours, geofence boundaries, tracking policies and alerts for field staff, with consent handling and time-in-boundary reporting. Tracking runs from the NeevHR mobile app, which is coming soon.",
+      "Location during duty hours, geofence boundaries, tracking policies and alerts for field staff, with consent handling and time-in-boundary reporting. Tracking runs from the NeevHR mobile app, whose store release is pending.",
     capabilities: [
       { title: "Live team map", body: "See every field worker on a map, coloured by inside, outside or stale location." },
       { title: "Geofences", body: "Draw polygon or circular boundaries and assign them to workers." },

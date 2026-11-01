@@ -156,7 +156,7 @@ If none of these apply, the burden of running HR software in-house usually outwe
 
 ## How NeevHR helps
 
-NeevHR is a cloud HRMS hosted in India, on cloud infrastructure in the Bengaluru region. [Payroll](/payroll) carries India statutory rules in the core, including PF at the ₹25,000 wage ceiling, ESI, state PT and LWF, and TDS, and [statutory compliance](/features/compliance) tracks each filing on a due-date calendar. Sensitive identifiers such as PAN, Aadhaar, UAN and bank details are encrypted at the field level, MFA can be made mandatory, and changes are audit-logged; our [security](/security) page also states what is not yet available, including single sign-on and SOC 2 or ISO 27001 certification. NeevHR is not offered as an on-premise installation. To review the controls with your IT team, [book a demo](/demo).
+NeevHR is a cloud HRMS hosted in India, on servers in Mumbai. [Payroll](/payroll) carries India statutory rules in the core, including PF at the ₹25,000 wage ceiling, ESI, state PT and LWF, and TDS, and [statutory compliance](/features/compliance) tracks each filing on a due-date calendar. Sensitive identifiers such as PAN, Aadhaar, UAN and bank details are encrypted at the field level, MFA can be made mandatory, and changes are audit-logged; our [security](/security) page also states what is not yet available, including single sign-on and SOC 2 or ISO 27001 certification. NeevHR is not offered as an on-premise installation. To review the controls with your IT team, [book a demo](/demo).
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 17 Oct 2026.*`,
 };

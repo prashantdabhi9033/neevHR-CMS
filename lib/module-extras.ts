@@ -106,7 +106,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       },
       {
         q: "Can employees punch by QR code?",
-        a: "Yes, from the NeevHR mobile app, which is coming soon. Set up a punch point as a kiosk tablet whose code changes every 30 seconds, or a printed poster in English and Hindi, with a geofence per point.",
+        a: "Yes. Scan QR is built into the NeevHR mobile app, whose release to Google Play and the App Store is pending. Set up a punch point as a kiosk tablet whose code changes every 30 seconds, or a printed poster in English and Hindi, with a geofence per point.",
       },
       {
         q: "Can employees correct missed punches?",
@@ -415,7 +415,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
     faqs: [
       { q: "Can managers approve from email?", a: "Yes, once a Company Admin switches it on. They confirm on a page before anything is decided. Pay, F&F, offers and bank changes always need sign-in." },
-      { q: "Is this on mobile?", a: "On the web today, including a phone browser. The NeevHR mobile app is coming soon." },
+      { q: "Is this on mobile?", a: "On the web, including a phone browser. Attendance, leave, payslips and approvals are also built into the NeevHR mobile app, whose store release is pending." },
     ],
   },
   "income-tax": {
@@ -687,7 +687,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
   "field-tracking": {
     seoTitle: "Field Force Tracking with Geofences | NeevHR",
     metaDesc:
-      "Field force tracking for Indian field teams: consent-based location during duty hours, geofences, alerts and time-in-boundary reports. Runs on the NeevHR mobile app, coming soon.",
+      "Field force tracking for Indian field teams: consent-based location during duty hours, geofences, alerts and time-in-boundary reports. Runs from the NeevHR mobile app.",
     workflow: [
       { step: "Consent", body: "The employee gives consent; tracking cannot be enabled without it." },
       { step: "Configure", body: "HR enables the field worker and assigns boundaries and a tracking policy." },
@@ -706,7 +706,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       {
         q: "Is field tracking available now?",
-        a: "Field tracking runs from the NeevHR mobile app, which is coming soon.",
+        a: "Field tracking runs from the NeevHR mobile app, which is built. Its release to Google Play and the App Store is pending. Supervisors see the team map on the web.",
       },
       {
         q: "Does it plan customer visits or routes?",

@@ -22,7 +22,7 @@ const whatsNew = [
   { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
   { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
-  { name: "QR code attendance", desc: "Scan at the site with the mobile app, coming soon.", href: "/features/attendance" },
+  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app (store release pending).", href: "/features/attendance" },
   { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
   { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll.", href: "/payroll" },
   { name: "PF correction and manual PT, LWF", desc: "Correct a filed month and record liabilities.", href: "/features/compliance" },

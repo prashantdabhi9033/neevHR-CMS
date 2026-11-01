@@ -143,7 +143,7 @@ Field staff often work long days, so check that recorded hours and overtime stil
 
 ## How NeevHR helps
 
-NeevHR [field tracking](/features/field-tracking) is built for this: circular or polygon geofences assigned to workers, location during duty hours only, tracking enabled only with recorded employee consent, a live team map, out-of-boundary, over-stay and no-signal alerts, and time-in-boundary and distance reports. Tracking runs from the NeevHR [mobile app](/mobile), which is coming soon. Today, [attendance](/features/attendance) brings biometric and web check-ins together with regularisation, and [expenses](/features/expenses) handles policy-checked travel claims. To plan field attendance for your team, [book a demo](/demo).
+NeevHR [field tracking](/features/field-tracking) is built for this: circular or polygon geofences assigned to workers, location during duty hours only, tracking enabled only with recorded employee consent, a live team map, out-of-boundary, over-stay and no-signal alerts, and time-in-boundary and distance reports. Tracking runs from the NeevHR [mobile app](/mobile), which is built, with its store release pending. Today, [attendance](/features/attendance) brings biometric and web check-ins together with regularisation, and [expenses](/features/expenses) handles policy-checked travel claims. To plan field attendance for your team, [book a demo](/demo).
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 17 Oct 2026.*`,
 };

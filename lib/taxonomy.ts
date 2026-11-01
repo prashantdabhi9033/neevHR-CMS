@@ -2,7 +2,7 @@
 // capability verified in the product code; `status` marks anything not yet
 // generally available so it is never presented as live.
 
-export type TaxItem = { name: string; href?: string; status?: "coming-soon" };
+export type TaxItem = { name: string; href?: string; status?: "store-pending" };
 export type TaxGroup = { group: string; icon: string; items: TaxItem[] };
 
 export const taxonomy: TaxGroup[] = [
@@ -30,7 +30,7 @@ export const taxonomy: TaxGroup[] = [
       { name: "Leave Management", href: "/features/leave" },
       { name: "Holiday Calendar", href: "/features/holidays" },
       { name: "Timesheets", href: "/features/timesheets" },
-      { name: "Field Tracking", href: "/features/field-tracking", status: "coming-soon" },
+      { name: "Field Tracking", href: "/features/field-tracking", status: "store-pending" },
       { name: "Overtime", href: "/features/attendance" },
     ],
   },
@@ -64,7 +64,7 @@ export const taxonomy: TaxGroup[] = [
     icon: "sparkle",
     items: [
       { name: "Employee Self Service", href: "/mobile" },
-      { name: "Mobile App", href: "/mobile", status: "coming-soon" },
+      { name: "Mobile App", href: "/mobile", status: "store-pending" },
       { name: "Engagement", href: "/features/engagement" },
       { name: "Surveys", href: "/features/surveys" },
       { name: "HR Helpdesk", href: "/features/helpdesk" },

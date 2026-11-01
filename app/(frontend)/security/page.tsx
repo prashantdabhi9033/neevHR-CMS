@@ -25,7 +25,7 @@ const groups: { id: string; title: string; items: { t: string; b: string }[] }[]
       { t: "Sign in with Microsoft", b: "Built, and being switched on. Your Microsoft admin gives consent once for your company." },
       { t: "Require single sign-on", b: "A company can make single sign-on the way in for its people, with a Company Admin password kept as the way back." },
       { t: "MFA", b: "Authenticator-app (TOTP) codes with recovery codes. Each company can make MFA mandatory for every user." },
-      { t: "SAML", b: "Not available today. If your identity provider needs SAML, tell us during security review." },
+      { t: "SAML", b: "SAML and Okta are not built. If your identity provider needs SAML, tell us during security review." },
     ],
   },
   {
@@ -157,7 +157,7 @@ export default function SecurityPage() {
             diligence requires, and answer security questionnaires.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
-            Sign in with Google is available and Sign in with Microsoft is being switched on. SAML is not available.
+            Sign in with Google is available and Sign in with Microsoft is being switched on. SAML and Okta are not built.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/demo">

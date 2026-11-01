@@ -67,7 +67,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     group: "Employee experience",
     blurb: "Self-service for every employee.",
     items: [
-      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app coming soon.", href: "/mobile" },
+      { slug: "mobile", name: "Self-service & mobile", desc: "ESS on the web today; mobile app built, store release pending.", href: "/mobile" },
       { slug: "engagement", name: "Engagement", desc: "Recognition, pulse and engagement scores." },
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
       { slug: "manager-self-service", name: "Manager self-service", desc: "My Team, one Inbox, delegation and email approvals." },

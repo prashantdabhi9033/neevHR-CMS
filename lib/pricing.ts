@@ -7,8 +7,8 @@
 // support) is the owner's decision. Every other row below was placed to fit that
 // split; change it only when the owner decides.
 //
-// Keep claims honest (see lib/site.ts): rows marked "soon" or "planned" are not
-// available today and render without a tick.
+// Keep claims honest (see lib/site.ts): a row marked "store-pending" is built, but
+// reaches people through the mobile app, which is not yet in the stores.
 
 import type { FaqItem } from "@/lib/site";
 import { site } from "@/lib/site";
@@ -76,8 +76,8 @@ export type Feature = {
   href?: string;
   /** Core, Growth, Enterprise */
   tiers: [Cell, Cell, Cell];
-  /** Not available today: included cells show this instead of a tick. */
-  status?: "soon" | "planned";
+  /** Built, and needs the mobile app, which is not yet in the stores. Included cells show this instead of a tick. */
+  status?: "store-pending";
 };
 
 export type FeatureGroup = { group: string; icon: string; features: Feature[] };
@@ -124,7 +124,7 @@ export const featureGroups: FeatureGroup[] = [
     features: [
       { name: "Biometric device integration", desc: "Punches over the ADMS push protocol used by many eSSL, ZKTeco and Matrix devices, or by file import.", href: "/features/attendance", tiers: ALL },
       { name: "Biometric device management", desc: "Send employees to devices, remove leavers, set card numbers and location scope, compare each device's user list with NeevHR, and get an offline alert. Fingerprint and face templates stay on the device.", href: "/features/attendance", tiers: ALL },
-      { name: "QR code attendance", desc: "Employees scan a QR code at the site with the NeevHR mobile app, from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point.", href: "/features/attendance", tiers: ALL, status: "soon" },
+      { name: "QR code attendance", desc: "Employees scan a QR code at the site with the NeevHR mobile app, from a kiosk tablet whose code changes every 30 seconds or a printed poster in English and Hindi, with a geofence per point. The app's store release is pending.", href: "/features/attendance", tiers: ALL, status: "store-pending" },
       { name: "Attendance rules and day-close", desc: "Grace, half-day and short-day rules turn punches into a payroll-ready day.", tiers: ALL },
       { name: "Bulk attendance correction", desc: "Correct many people, up to 31 days at a time.", href: "/features/attendance", tiers: ALL },
       { name: "Late-coming and not-punched reports", desc: "Habitual-late reports with LOP, not-punched lists and reminders.", href: "/features/attendance", tiers: ALL },
@@ -218,7 +218,7 @@ export const featureGroups: FeatureGroup[] = [
     features: [
       { name: "Employee self-service (web)", desc: "Attendance, leave, payslips, tax declarations and approvals.", href: "/mobile", tiers: ALL },
       { name: "Manager self-service", desc: "My Team, one Inbox, delegation and acting on behalf.", href: "/features/manager-self-service", tiers: ALL },
-      { name: "Mobile app", desc: "Self-service, approvals and attendance on Android and iOS.", href: "/mobile", tiers: ALL, status: "soon" },
+      { name: "Mobile app", desc: "Self-service, approvals and attendance for Android and iPhone. Built, with the release to Google Play and the App Store pending.", href: "/mobile", tiers: ALL, status: "store-pending" },
       { name: "Announcements and recognition", desc: "Targeted announcements, peer kudos, birthdays and work anniversaries.", href: "/features/engagement", tiers: ALL },
       { name: "Surveys and eNPS", desc: "Anonymous surveys with a respondent floor and eNPS analytics.", href: "/features/surveys", tiers: GROWTH_UP },
       { name: "HR helpdesk", desc: "Ticket queue, SLA timers and L1 to L3 escalation.", href: "/features/helpdesk", tiers: ENT_ONLY },
@@ -258,7 +258,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Notifications", desc: "In-app and email, plus SMS, WhatsApp and browser push once each provider is configured.", tiers: ALL },
       { name: "Bulk import with dry run", desc: "CSV import validated before anything is saved.", tiers: ALL },
       { name: "API keys and webhooks", desc: "Connect NeevHR to your own systems.", href: "/integrations", tiers: ALL },
-      { name: "Hindi for employees", desc: "Employees can switch self-service to Hindi. Admin screens and the mobile app follow.", tiers: ALL },
+      { name: "Hindi for employees", desc: "Employees can switch self-service to Hindi. Admin screens and the mobile app screens are in English today.", tiers: ALL },
     ],
   },
   {
@@ -389,7 +389,7 @@ export const pricingFaqs: FaqItem[] = [
   },
   {
     q: "Is the mobile app included?",
-    a: "The NeevHR mobile app is coming soon and will be part of every edition. Web self-service is included today.",
+    a: "Yes, in every edition. The app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Web self-service is included and works today, including from a phone browser.",
   },
   {
     q: "How long does it take to go live?",

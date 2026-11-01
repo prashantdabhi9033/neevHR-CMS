@@ -10,7 +10,7 @@ import { editions, featureCount, featureGroups, type Cell, type Feature } from "
 // Full edition comparison: search, "differences only", collapsible groups,
 // sticky edition header under the site header (h-16).
 
-const statusLabel = { soon: "Coming soon", planned: "Planned" } as const;
+const STATUS_LABEL = "Store release pending";
 
 function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) {
   if (cell === false) {
@@ -23,7 +23,7 @@ function CellMark({ cell, status }: { cell: Cell; status?: Feature["status"] }) 
   if (status) {
     return (
       <span className="inline-flex rounded-full bg-cream px-2 py-0.5 text-[11px] font-semibold text-muted">
-        {status === "soon" ? "Soon" : "Planned"}
+        <span className="sm:hidden">App</span><span className="hidden sm:inline">In the app</span>
       </span>
     );
   }
@@ -187,7 +187,7 @@ export function CompareTable() {
                           )}
                           {f.status && (
                             <span className="rounded-full bg-cream px-2 py-0.5 text-[11px] font-semibold text-muted">
-                              {statusLabel[f.status]}
+                              {STATUS_LABEL}
                             </span>
                           )}
                         </p>
@@ -207,7 +207,7 @@ export function CompareTable() {
         })}
       </div>
       <p className="mt-4 text-xs text-muted">
-        &ldquo;Soon&rdquo; and &ldquo;Planned&rdquo; items are not available today. Your quote confirms exactly what is included for your team.
+        &ldquo;In the app&rdquo; items are built and reach people through the NeevHR mobile app, whose release to Google Play and the App Store is pending. Your quote confirms exactly what is included for your team.
       </p>
     </div>
   );

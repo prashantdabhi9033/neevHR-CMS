@@ -1,6 +1,6 @@
-// The NeevHR mobile app is not yet published to either store (verified
-// 24 Sep 2026), so the badges are static "coming soon" labels, not links or
-// buttons that imply availability. Swap in real store links at launch.
+// The NeevHR mobile app is built but not yet published to either store (checked
+// 01 Nov 2026, Doc/PENDING-ITEMS.md REL-013 to REL-015), so the badges are static
+// labels, not links or buttons that imply availability. Swap in store links at launch.
 function AppleIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="currentColor" aria-hidden="true">
@@ -24,11 +24,11 @@ function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
   return (
     <span
       data-store={store}
-      className="inline-flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white opacity-90 transition-opacity hover:opacity-100"
+      className="inline-flex cursor-default items-center gap-2.5 rounded-xl border border-white/15 bg-ink px-3.5 py-2 text-left text-white opacity-90 transition-opacity hover:opacity-100"
     >
       {icon}
       <span className="flex flex-col leading-tight">
-        <span className="text-[10px] font-medium text-white/70">Coming soon on</span>
+        <span className="text-[10px] font-medium text-white/70">Release pending on</span>
         <span className="text-sm font-semibold">{store}</span>
       </span>
     </span>
@@ -38,7 +38,7 @@ function Badge({ icon, store }: { icon: React.ReactNode; store: string }) {
 export function StoreBadges({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
-      <p className="mb-2 text-xs font-semibold text-ink">Mobile App: Coming Soon</p>
+      <p className="mb-2 text-xs font-semibold text-ink">Mobile app: built, store release pending</p>
       <div className="flex flex-wrap gap-3">
         <Badge icon={<AppleIcon />} store="App Store" />
         <Badge icon={<PlayIcon />} store="Google Play" />

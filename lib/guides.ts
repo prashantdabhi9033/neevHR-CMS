@@ -141,7 +141,7 @@ export const guides: Guide[] = [
         title: "Where NeevHR fits",
         body: [
           `${site.entity} It is designed for organisations from about 100 to several thousand employees and covers employee management, attendance, leave, payroll with PF, ESI, PT, LWF and TDS, recruitment, performance, expenses and self-service on one effective-dated employee record.`,
-          "Worth knowing when you compare: the NeevHR mobile app is coming soon, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
+          "Worth knowing when you compare: the NeevHR mobile app is built but not yet in the stores, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
         ],
       },
     ],

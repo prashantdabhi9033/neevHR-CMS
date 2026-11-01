@@ -157,7 +157,7 @@ const blocks: Block[] = [
       "Payslips, Form 16 and tax declarations with proofs",
       "Helpdesk tickets and surveys",
       "Confidential POSH complaints to the Internal Committee",
-      "Mobile app: coming soon",
+      "Mobile app built, store release pending",
     ],
     links: [{ label: "Self-service & mobile", href: "/mobile" }],
   },
@@ -214,7 +214,7 @@ const hrmsFaqs = [
   },
   {
     q: "Does NeevHR have a mobile app?",
-    a: "The mobile app is coming soon. Employee self-service is available on the web today.",
+    a: "Yes. The app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Employee self-service works on the web today, including from a phone browser.",
   },
   {
     q: "How secure is employee data in NeevHR?",
@@ -226,7 +226,7 @@ const hrmsFaqs = [
   },
   {
     q: "Does NeevHR integrate with other systems?",
-    a: "Yes, through scoped API keys, signed outbound webhooks, CSV import and export, and accounting files for Tally Prime and Zoho Books that your team imports. Sign in with Google is available, Microsoft is being switched on, and SAML is not available.",
+    a: "Yes, through scoped API keys, signed outbound webhooks, CSV import and export, and accounting files for Tally Prime and Zoho Books that your team imports. Sign in with Google is available, Microsoft is being switched on, and SAML is not built.",
   },
   {
     q: "How long does HRMS implementation take?",

@@ -1,8 +1,10 @@
 // Central content config for the NeevHR marketing site.
 // Keep product claims honest: only list what the product actually does.
 // Re-checked against the product on 31 Oct 2026. Notably NOT available:
-// published mobile app (store listing), Hindi for admin screens, SAML, a live
-// Tally connection, job boards. Do not claim these as available.
+// the mobile app in the stores (it is built, the store release is pending),
+// Hindi for admin screens or the mobile app screens, SAML / Okta, selfie or face
+// punch, a live Tally connection, job boards, bank payout API, earned wage access.
+// Do not claim these as available.
 
 export const site = {
   name: "NeevHR",
@@ -105,7 +107,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "Is there a mobile app?",
-    a: "The NeevHR mobile app is coming soon. Employee self-service is available on the web today for attendance, leave, payslips, tax declarations, expenses and approvals.",
+    a: "Yes. The NeevHR mobile app for Android and iPhone is built, and its release to Google Play and the App Store is pending. Today, employees use self-service on the web, including from a phone browser, for attendance, leave, payslips, tax declarations, expenses and approvals.",
   },
   {
     q: "How is our employee data protected?",
@@ -233,7 +235,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Does it support field staff?",
-        a: "Yes. Field-force tracking records location during duty hours with geofences, with employee consent. It works from the mobile app, which is coming soon.",
+        a: "Yes. Field-force tracking records location during duty hours with geofences, with employee consent. It runs from the mobile app, whose store release is pending.",
       },
     ],
   },

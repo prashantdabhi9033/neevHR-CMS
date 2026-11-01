@@ -95,7 +95,7 @@ For simplicity this example uses basic plus DA as the gratuity base. Under the L
 
 ## How NeevHR helps
 
-NeevHR covers the must-have list above in one system: an effective-dated employee record across multiple entities, attendance with biometric devices, leave, payroll with PF, ESI, PT, LWF and TDS, and statutory outputs including the PF ECR, ESIC file, challans, Form 24Q text file and Form 16. Payroll runs through separate compute, verify, approve and publish steps, and exit includes full and final settlement with gratuity, leave encashment and recoveries. Web self-service is available today; the mobile app is coming soon. [Book a demo](/demo) and bring this checklist.
+NeevHR covers the must-have list above in one system: an effective-dated employee record across multiple entities, attendance with biometric devices, leave, payroll with PF, ESI, PT, LWF and TDS, and statutory outputs including the PF ECR, ESIC file, challans, Form 24Q text file and Form 16. Payroll runs through separate compute, verify, approve and publish steps, and exit includes full and final settlement with gratuity, leave encashment and recoveries. Web self-service is available today; the mobile app is built, with its store release pending. [Book a demo](/demo) and bring this checklist.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
 };

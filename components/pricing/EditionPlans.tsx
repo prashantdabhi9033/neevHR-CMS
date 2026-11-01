@@ -63,7 +63,7 @@ function FeatureRow({ f, edition }: { f: Item; edition: string }) {
           )}
           {f.status && (
             <span className="rounded bg-cream px-1.5 py-px text-[10px] font-semibold uppercase tracking-wide text-muted">
-              {f.status === "soon" ? "Coming soon" : "Planned"}
+              Store release pending
             </span>
           )}
         </span>

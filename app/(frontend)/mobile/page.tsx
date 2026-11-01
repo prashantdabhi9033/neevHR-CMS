@@ -14,12 +14,12 @@ export const metadata: Metadata = pageMeta({
   title: "Employee Self Service (ESS) Software | NeevHR",
   absoluteTitle: true,
   description:
-    "NeevHR employee self-service: attendance, leave, payslips, Form 16, tax declarations, expenses, loans and approvals on the web today. The NeevHR mobile app is coming soon.",
+    "NeevHR employee self-service: attendance, leave, payslips, Form 16, tax declarations, expenses, loans and approvals on the web today. The mobile app is built, with its store release pending.",
   path: "/mobile",
 });
 
-// Web self-service is live; the mobile app is built but not yet in the
-// stores, so it is presented as coming soon everywhere (spec §21).
+// Web self-service is live. The mobile app is built but not yet in the stores
+// (Doc/PENDING-ITEMS.md REL-013 to REL-015), and every mention says exactly that.
 const available = [
   { title: "Attendance", body: "See daily attendance and raise regularisation requests." },
   { title: "Leave", body: "Check live balances, apply for leave and track approvals." },
@@ -38,15 +38,19 @@ const available = [
 const faqs = [
   {
     q: "Is there a NeevHR mobile app?",
-    a: "The NeevHR mobile app is coming soon. It will let employees manage attendance, leave, payslips and approvals from their mobile devices. Web self-service is available today and works in a phone browser.",
+    a: "Yes, it is built for Android and iPhone, and its release to Google Play and the App Store is pending. Until then, web self-service is available today and works in a phone browser.",
   },
   {
     q: "What can employees do in self-service today?",
     a: "Check attendance and raise corrections, apply for leave, download payslips and Form 16, submit tax declarations and proofs, claim expenses, apply for loans, raise helpdesk tickets and act on approvals.",
   },
   {
-    q: "What will the mobile app add?",
-    a: "QR code attendance, My ID card, internal jobs, 1:1 meetings, travel advance, the AI assistant and Sign in with Google, as well as attendance, leave, payslips and approvals. The app is coming soon and is in English. 1:1 notes stay on the web.",
+    q: "What is in the mobile app?",
+    a: "Geofenced and QR punch, attendance, leave, payslips, tax, expenses and travel advance, loans, helpdesk, internal jobs, 1:1 meetings, My ID card, approvals, field tracking, the AI assistant, and Sign in with Google or Microsoft. The app screens are in English.",
+  },
+  {
+    q: "What stays on the web?",
+    a: "Admin and HR screens, and these for employees and managers: learning, assets, travel requests, the org chart, team insights, delegation, the POSH complaint route, goal cascade, and editing 1:1 notes.",
   },
   {
     q: "Is self-service available in Hindi?",
@@ -71,9 +75,9 @@ export default function MobilePage() {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
               Employees handle attendance, leave, payslips, tax declarations
               and requests themselves, and managers approve from one inbox.
-              Self-service runs on the web today. NeevHR&apos;s upcoming mobile
-              app will allow employees to manage attendance, leave, payslips
-              and approvals from their mobile devices.
+              Self-service runs on the web today, including in a phone browser.
+              The NeevHR mobile app for Android and iPhone is built, and its
+              release to Google Play and the App Store is pending.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/demo" size="lg">
@@ -89,7 +93,7 @@ export default function MobilePage() {
           <div className="animate-fade-up">
             <MobileVisual />
             <p className="mt-4 text-center text-xs text-muted">
-              Screens from the upcoming NeevHR mobile app, shown with illustrative data.
+              Screens from the NeevHR mobile app, shown with illustrative data.
             </p>
           </div>
         </Container>
@@ -98,10 +102,10 @@ export default function MobilePage() {
       <section className="border-b border-line bg-[#F3F0FF] py-16 lg:py-20">
         <Container>
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">Inside the app</span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">The screens employees will use every day</h2>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">The screens employees use every day</h2>
           <p className="mt-3 max-w-2xl text-body">
             These are real screens from the NeevHR mobile app, rendered with demo data. The app is
-            built and coming soon to the stores; the same features run in web self-service today.
+            built and its store release is pending; these features also run in web self-service today.
           </p>
         </Container>
         <div className="mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-4 pb-4 sm:px-6 lg:justify-center lg:overflow-visible">
