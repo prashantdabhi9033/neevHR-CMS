@@ -47,7 +47,7 @@ export default function ProductOverviewPage() {
       </section>
 
       {/* New */}
-      <section className="border-b border-line bg-surface-soft py-14 lg:py-16">
+      <section id="new" className="scroll-mt-16 border-b border-line bg-surface-soft py-14 lg:py-16">
         <Container>
           <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">New in NeevHR</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

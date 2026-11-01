@@ -102,21 +102,22 @@ export const moduleGroups: ModuleNavGroup[] = [
 export const capabilityId = (title: string) =>
   title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-// Features added recently: the 'New in NeevHR' column of the menu (menu: true) and the block on /features.
+// Features added recently: the block on /features lists them all. The menu column carries the ones with no module of
+// their own in the menu (menu: true), and only as many as fit without making the menu scroll on a laptop.
 export type NewFeature = { name: string; desc: string; href: string; menu?: boolean };
 
 export const newFeatures: NewFeature[] = [
-  { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules", menu: true },
+  { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules" },
   { name: "AI assistant", desc: "Answers from your own records, with your admin in control of who uses it and how much.", href: "/features/ai-assistant" },
   { name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results.", href: "/features/goal-cascade" },
   { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
   { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
-  { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: `/features/manager-self-service#${capabilityId("Approve from email")}`, menu: true },
+  { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: `/features/manager-self-service#${capabilityId("Approve from email")}` },
   { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app (store release pending).", href: `/features/attendance#${capabilityId("QR code attendance")}`, menu: true },
   { name: "Biometric device sync", desc: "Send employees to devices, remove leavers and compare each device's user list.", href: `/features/attendance#${capabilityId("Device management")}`, menu: true },
-  { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll", menu: true },
-  { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll, by file.", href: "/payroll", menu: true },
+  { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
+  { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll, by file.", href: "/payroll" },
   { name: "PF correction of a filed month", desc: "Arrears, refunds, EPS to EPF transfers and a supplementary ECR.", href: `/features/compliance#${capabilityId("PF correction of a filed month")}`, menu: true },
   { name: "Manual PT and LWF", desc: "Record liabilities outside payroll, with challan tracking.", href: `/features/compliance#${capabilityId("Manual PT and LWF")}` },
   { name: "Careers website applications", desc: "From your own website into Recruitment.", href: `/features/recruitment#${capabilityId("Careers website applications")}`, menu: true },
@@ -125,10 +126,10 @@ export const newFeatures: NewFeature[] = [
   { name: "1:1 meetings", desc: "Manager and team member, with a shared agenda and action items.", href: `/features/performance#${capabilityId("1:1 meetings")}`, menu: true },
   { name: "Digital ID cards", desc: "ID cards to view and print, with a public verify page.", href: `/features/employees#${capabilityId("Digital ID cards")}`, menu: true },
   { name: "Asset QR labels", desc: "Print labels; scanning one opens the asset for someone with access.", href: `/features/assets#${capabilityId("Asset QR labels")}` },
-  { name: "Helpdesk attachments and CSAT", desc: "Files on tickets, internal notes and a rating when a ticket closes.", href: `/features/helpdesk#${capabilityId("Satisfaction rating")}`, menu: true },
-  { name: "Google and Microsoft sign-in", desc: "Your company's own accounts, turned on per company. Microsoft is being switched on.", href: "/security#sign-in", menu: true },
+  { name: "Helpdesk attachments and CSAT", desc: "Files on tickets, internal notes and a rating when a ticket closes.", href: `/features/helpdesk#${capabilityId("Satisfaction rating")}` },
+  { name: "Google and Microsoft sign-in", desc: "Your company's own accounts, turned on per company. Microsoft is being switched on.", href: "/security#sign-in" },
   { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/features/process-studio" },
-  { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: `/features/expenses#${capabilityId("Travel advance")}`, menu: true },
+  { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: `/features/expenses#${capabilityId("Travel advance")}` },
   { name: "Data migration workspace", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
 ];
 

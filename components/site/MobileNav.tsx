@@ -72,6 +72,9 @@ export function MobileNav({
                       {n.name}
                     </Link>
                   ))}
+                  <Link href="/features#new" onClick={() => setOpen(false)} className="py-1.5 text-[13px] font-semibold text-brand">
+                    All new features →
+                  </Link>
                 </div>
               </div>
               <div className="flex gap-4">

@@ -109,6 +109,11 @@ export function ProductMenu() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/features#new" onClick={() => setOpen(false)} className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-brand hover:bg-brand-tint">
+                  All new features →
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
