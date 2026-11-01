@@ -107,7 +107,7 @@ export function AiChatDemo({ className = "" }: { className?: string }) {
           <span className="rounded-full bg-surface-soft px-2.5 py-1 text-xs font-medium text-muted ring-1 ring-line">{scene.who}</span>
         </div>
 
-        <div className="mt-4 flex h-[345px] flex-col justify-end gap-2.5 overflow-hidden text-sm leading-relaxed">
+        <div className="mt-4 flex h-[400px] flex-col justify-end gap-2.5 overflow-hidden text-sm leading-relaxed">
           {scene.steps.slice(0, shown).map((step, i) => (
             <div key={`${sceneIndex}-${i}`} className="animate-fade-up">
               {step.kind === "user" && <p className="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-brand-soft px-4 py-2.5 text-white">{step.text}</p>}
