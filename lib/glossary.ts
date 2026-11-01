@@ -101,8 +101,8 @@ export const glossary: GlossaryTerm[] = [
       "The Employees' Provident Fund is a statutory retirement savings scheme administered by the Employees' Provident Fund Organisation (EPFO). Covered establishments deduct the employee's share from salary, add the employer's share, and remit both every month through an Electronic Challan cum Return (ECR).",
     howItWorks: [
       "Employee contribution: 12% of PF wages (basic plus dearness allowance).",
-      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to ₹25,000 (a maximum of ₹2,083 a month) and the balance to EPF.",
-      "The wage ceiling is ₹25,000 a month from 17 September 2026 (it was ₹15,000). Employees earning up to ₹25,000 must be covered; employers may contribute on actual wages above the ceiling.",
+      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to the EPS ceiling of ₹15,000 (a maximum of ₹1,250 a month) and the balance to EPF.",
+      "The PF wage ceiling is ₹25,000 a month from 17 September 2026. The EPS wage ceiling stays ₹15,000. Employees earning up to ₹25,000 must be covered; employers may contribute on actual wages above the ceiling.",
       "Employers also pay EDLI (0.5%, on wages up to ₹25,000) and EPF administration charges (0.5%).",
       "Each member has a Universal Account Number (UAN) that stays with them across employers.",
     ],
@@ -112,8 +112,8 @@ export const glossary: GlossaryTerm[] = [
       title: "Basic of ₹30,000, contribution capped at ₹25,000",
       lines: [
         "Employee PF: 12% × ₹25,000 = ₹3,000",
-        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
-        "Employer EPF: ₹3,000 − ₹2,083 = ₹917",
+        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
+        "Employer EPF: ₹3,000 − ₹1,250 = ₹1,750",
         "Total remitted to EPF and EPS: ₹6,000, plus EDLI and admin charges",
       ],
     },

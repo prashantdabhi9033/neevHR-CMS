@@ -155,12 +155,12 @@ export const tools: Tool[] = [
       "Free EPF / PF calculator for India. Estimate employee and employer provident fund contributions at 12%, the EPS split and the ₹25,000 wage ceiling in force from 17 September 2026.",
     explanation: [
       "Employees' Provident Fund (EPF) is a statutory retirement scheme run by EPFO. Employee and employer each contribute 12% of PF wages (basic + DA). The employer's share is split between the Employees' Pension Scheme (EPS) and EPF.",
-      "The wage ceiling is ₹25,000 a month from 17 September 2026 (S.O. 5109(E) under the Code on Social Security, 2020); it was ₹15,000 before that. Employees earning up to ₹25,000 are now covered compulsorily. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
+      "The PF wage ceiling is ₹25,000 a month from 17 September 2026 (S.O. 5109(E) under the Code on Social Security, 2020). The EPS wage ceiling stays ₹15,000. Employees earning up to ₹25,000 are now covered compulsorily. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
     ],
     formula: [
       "PF wage = basic + DA (capped at ₹25,000 if the employer caps)",
       "Employee PF = 12% × PF wage",
-      "Employer EPS = 8.33% × min(PF wage, ₹25,000), so at most ₹2,083",
+      "Employer EPS = 8.33% × min(PF wage, ₹15,000), so at most ₹1,250",
       "Employer EPF = 12% × PF wage − employer EPS",
       "Employer also pays EDLI at 0.5% (on wages up to ₹25,000) and admin charges at 0.5%",
     ],
@@ -168,13 +168,13 @@ export const tools: Tool[] = [
       title: "Basic + DA of ₹30,000, contribution on actual basic",
       lines: [
         "Employee PF: 12% × ₹30,000 = ₹3,600",
-        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
-        "Employer EPF: ₹3,600 − ₹2,083 = ₹1,517",
+        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
+        "Employer EPF: ₹3,600 − ₹1,250 = ₹2,350",
         "Total to EPF and EPS: ₹7,200 a month, plus EDLI and admin charges",
       ],
     },
     mistakes: [
-      "Still applying the old ₹15,000 ceiling after 17 September 2026, or computing EPS on wages above the ceiling.",
+      "Still capping PF wages at the old limit after 17 September 2026, or computing EPS on wages above its own ₹15,000 ceiling.",
       "Leaving allowances out of PF wages when the Labour Codes' 50% wage rule applies.",
       "Switching between capped and actual basis mid-year without a documented policy.",
       "Forgetting EDLI and admin charges when budgeting employer cost.",
@@ -186,7 +186,7 @@ export const tools: Tool[] = [
       },
       {
         q: "What is the minimum PF contribution?",
-        a: "When wages are capped at the ₹25,000 ceiling, the employee contribution is ₹3,000 a month, matched by the employer (₹2,083 to EPS and ₹917 to EPF).",
+        a: "When wages are capped at the ₹25,000 ceiling, the employee contribution is ₹3,000 a month, matched by the employer (₹1,250 to EPS and ₹1,750 to EPF).",
       },
       {
         q: "When is PF due?",
