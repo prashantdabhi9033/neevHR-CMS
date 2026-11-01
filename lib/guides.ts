@@ -31,7 +31,7 @@ export const guides: Guide[] = [
     crumb: "Choosing an HRMS in India",
     eyebrow: "Buyer's guide",
     h1: "How to Choose the Best HRMS Software in India",
-    seoTitle: "Best HRMS Software in India: A Neutral Selection Guide",
+    seoTitle: "Best HRMS Software in India: Selection Guide",
     description:
       "How to choose HRMS software in India: what to check for employee count, payroll and statutory compliance, attendance, integrations, implementation, security, pricing, support and reporting.",
     published: "2026-09-24",
@@ -176,7 +176,7 @@ export const guides: Guide[] = [
     crumb: "HRMS implementation",
     eyebrow: "Implementation guide",
     h1: "HRMS Implementation: A Practical Guide for Indian Companies",
-    seoTitle: "HRMS Implementation Guide: Steps, Timeline & Checklist",
+    seoTitle: "HRMS Implementation Guide: Steps and Timeline",
     description:
       "How an HRMS implementation works in India: preparation, configuration, data migration, parallel payroll, go-live and handover, with a realistic timeline and checklist.",
     published: "2026-09-24",
@@ -278,7 +278,7 @@ export const guides: Guide[] = [
     crumb: "HRMS data migration",
     eyebrow: "Migration guide",
     h1: "HRMS Data Migration: What Moves, and How",
-    seoTitle: "HRMS Data Migration Guide: Employee, Payroll & Leave Data",
+    seoTitle: "HRMS Data Migration Guide: Employee and Payroll",
     description:
       "What data moves into a new HRMS and how: employee master, salary structures, attendance, leave balances, documents, payroll opening balances, loans and statutory details, with a validation workflow.",
     published: "2026-09-24",
@@ -367,7 +367,7 @@ export const guides: Guide[] = [
     crumb: "Switch from Excel",
     eyebrow: "Switching guide",
     h1: "Moving HR and Payroll from Excel to an HRMS",
-    seoTitle: "Switch from Excel to HRMS: Signs, Steps & What Changes",
+    seoTitle: "Switch from Excel to HRMS: Signs and Steps",
     description:
       "When to move HR and payroll off Excel, what changes when you do, and how to switch to an HRMS like NeevHR without disrupting monthly payroll.",
     published: "2026-09-24",
@@ -436,7 +436,7 @@ export const guides: Guide[] = [
     crumb: "Switch from manual payroll",
     eyebrow: "Switching guide",
     h1: "Switching from Manual Payroll to Payroll Software",
-    seoTitle: "Switch from Manual Payroll to Payroll Software in India",
+    seoTitle: "Switch from Manual Payroll to Software, India",
     description:
       "Why manual payroll breaks as Indian companies grow, the statutory risks it carries, and a step-by-step plan to move to payroll software without missing a pay date.",
     published: "2026-09-24",
@@ -512,7 +512,7 @@ export const guides: Guide[] = [
     crumb: "Switch from a legacy HRMS",
     eyebrow: "Switching guide",
     h1: "Replacing a Legacy HRMS: A Practical Guide",
-    seoTitle: "Switch from a Legacy HRMS: When and How to Replace It",
+    seoTitle: "Switch from a Legacy HRMS: When and How",
     description:
       "Signs your legacy or on-premise HRMS is holding HR back, what to carry across, what to archive, and how to replace it with a modern India-first HRMS safely.",
     published: "2026-09-24",
@@ -658,7 +658,7 @@ export const guides: Guide[] = [
     crumb: "HRMS for small businesses",
     eyebrow: "Buyer's guide",
     h1: "Choosing an HRMS for a Small Business in India",
-    seoTitle: "Best HRMS for Small Business in India: What to Look For",
+    seoTitle: "Best HRMS for Small Business in India",
     description:
       "What a small Indian business actually needs from an HRMS: accurate payroll and statutory filings, leave and attendance, self-service, simple setup and predictable cost.",
     published: "2026-09-24",
@@ -724,7 +724,7 @@ export const guides: Guide[] = [
     crumb: "HRMS for mid-sized businesses",
     eyebrow: "Buyer's guide",
     h1: "Choosing an HRMS for a Mid-Sized Business in India",
-    seoTitle: "Best HRMS for Mid-Sized Businesses in India (200 to 1,000)",
+    seoTitle: "Best HRMS for Mid-Sized Business in India",
     description:
       "What mid-sized Indian companies of 200 to 1,000 employees need from an HRMS: multi-location payroll, shifts and biometrics, approvals, data scopes, performance cycles and reporting.",
     published: "2026-09-24",
@@ -783,7 +783,7 @@ export const guides: Guide[] = [
     crumb: "HRMS for 1,000+ employees",
     eyebrow: "Buyer's guide",
     h1: "Choosing an HRMS for 1,000+ Employees in India",
-    seoTitle: "Best HRMS for 1,000+ Employees in India: Evaluation Guide",
+    seoTitle: "Best HRMS for 1,000+ Employees in India",
     description:
       "How to evaluate an HRMS for 1,000 or more employees in India: multiple entities, bulk operations, security and audit, integrations, performance at scale and implementation risk.",
     published: "2026-09-24",
@@ -855,7 +855,7 @@ export const guides: Guide[] = [
     crumb: "Choosing payroll software",
     eyebrow: "Buyer's guide",
     h1: "How to Choose Payroll Software in India",
-    seoTitle: "Best Payroll Software in India: A Selection Checklist",
+    seoTitle: "Best Payroll Software in India: Checklist",
     description:
       "A practical checklist for choosing payroll software in India: statutory coverage, filing outputs, accuracy controls, arrears and F&F, bank and accounting outputs, security and support.",
     published: "2026-09-24",

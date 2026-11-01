@@ -31,7 +31,7 @@ export const tools: Tool[] = [
   {
     slug: "gratuity-calculator",
     name: "Gratuity calculator",
-    seoTitle: "Gratuity Calculator India: Formula, Eligibility & Example",
+    seoTitle: "Gratuity Calculator India: Formula & Example",
     tagline: "Estimate gratuity payable from last drawn basic + DA and years of service.",
     metaDesc:
       "Free gratuity calculator for India. Estimate gratuity from last drawn basic + DA and years of service using the 15/26 formula, with eligibility rules and the ₹20 lakh ceiling.",
@@ -89,7 +89,7 @@ export const tools: Tool[] = [
   {
     slug: "hra-calculator",
     name: "HRA exemption calculator",
-    seoTitle: "HRA Exemption Calculator: Old Regime Rules & Example",
+    seoTitle: "HRA Exemption Calculator: Rules & Example",
     tagline: "Work out the tax-exempt part of your house rent allowance (old regime).",
     metaDesc:
       "Free HRA exemption calculator for India. Find tax-exempt house rent allowance from basic, HRA, rent and city, using the least-of-three rule for the old tax regime.",
@@ -149,7 +149,7 @@ export const tools: Tool[] = [
   {
     slug: "pf-calculator",
     name: "PF calculator",
-    seoTitle: "PF Calculator: EPF & EPS with the New ₹25,000 Ceiling",
+    seoTitle: "PF Calculator: EPF and EPS at the ₹25,000 Ceiling",
     tagline: "Estimate monthly EPF and EPS contributions for employee and employer.",
     metaDesc:
       "Free EPF / PF calculator for India. Estimate employee and employer provident fund contributions at 12%, the EPS split and the ₹25,000 wage ceiling in force from 17 September 2026.",
@@ -209,7 +209,7 @@ export const tools: Tool[] = [
   {
     slug: "esi-calculator",
     name: "ESI calculator",
-    seoTitle: "ESI Calculator: Employee 0.75% & Employer 3.25% Contribution",
+    seoTitle: "ESI Calculator: Employee and Employer Share",
     tagline: "Check ESI eligibility and estimate employee and employer contributions.",
     metaDesc:
       "Free ESI calculator for India. Check eligibility against the ₹21,000 gross wage limit and estimate employee (0.75%) and employer (3.25%) ESI contributions.",
@@ -269,7 +269,7 @@ export const tools: Tool[] = [
   {
     slug: "take-home-salary-calculator",
     name: "Take-home salary calculator",
-    seoTitle: "In-Hand Salary Calculator: CTC to Take-Home (New Regime)",
+    seoTitle: "In-Hand Salary Calculator: CTC to Take-Home",
     tagline: "Estimate monthly in-hand pay from annual CTC under the new tax regime.",
     metaDesc:
       "Free in-hand salary calculator for India. Convert annual CTC to monthly take-home pay after employer PF, gratuity, employee PF, professional tax and new-regime TDS.",
@@ -326,7 +326,7 @@ export const tools: Tool[] = [
   {
     slug: "bonus-calculator",
     name: "Statutory bonus calculator",
-    seoTitle: "Statutory Bonus Calculator: 8.33% to 20% Payable Bonus",
+    seoTitle: "Statutory Bonus Calculator: 8.33% to 20%",
     tagline: "Estimate annual statutory bonus at 8.33% to 20% of the calculation wage.",
     metaDesc:
       "Free statutory bonus calculator for India. Estimate annual bonus at 8.33% to 20% of the calculation wage, with the ₹21,000 eligibility limit and ₹7,000 or minimum wage ceiling.",
@@ -378,7 +378,7 @@ export const tools: Tool[] = [
   {
     slug: "salary-hike-calculator",
     name: "Salary hike calculator",
-    seoTitle: "Salary Hike Calculator: Percentage Increase & New Salary",
+    seoTitle: "Salary Hike Calculator: Percent and New Salary",
     tagline: "Work out your percentage hike, or your new salary after a raise.",
     metaDesc:
       "Free salary hike calculator. Find the percentage increment from current and new salary, or the new salary from a hike percentage, with a worked example.",
@@ -424,7 +424,7 @@ export const tools: Tool[] = [
   {
     slug: "tds-calculator",
     name: "Salary TDS calculator",
-    seoTitle: "Salary TDS Calculator: Old vs New Tax Regime (FY 2026-27)",
+    seoTitle: "Salary TDS Calculator: Old vs New Regime",
     tagline: "Compare TDS on salary under the old and new tax regimes.",
     metaDesc:
       "Free salary TDS calculator for India. Compare tax under the old and new regimes with standard deduction, 80C, 80D, HRA and home loan interest, and see monthly TDS.",
@@ -484,7 +484,7 @@ export const tools: Tool[] = [
   {
     slug: "ctc-calculator",
     name: "CTC calculator",
-    seoTitle: "CTC Calculator: Salary Breakup from CTC (Basic, HRA, PF)",
+    seoTitle: "CTC Calculator: Salary Breakup from CTC",
     tagline: "Break an annual CTC into basic, HRA, special allowance and employer costs.",
     metaDesc:
       "Free CTC calculator for India. Split annual CTC into basic, HRA and special allowance, with employer PF, gratuity and employer ESI shown inside CTC.",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 export const metadata: Metadata = pageMeta({
   title: "DPDP Act 2023 Notice",
@@ -13,6 +14,7 @@ export const metadata: Metadata = pageMeta({
 export default function DpdpPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "DPDP Notice", href: "/dpdp" }]} />
       <PageHeader
         eyebrow="Legal"
         title="Digital Personal Data Protection notice"

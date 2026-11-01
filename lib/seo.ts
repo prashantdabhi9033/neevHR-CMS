@@ -82,6 +82,25 @@ export function pageMeta({
   };
 }
 
+/** The last date the public pages as a whole were changed, for the sitemap. Not a statutory review date. */
+export const CONTENT_UPDATED_ISO = "2026-11-01";
+
+/** SoftwareApplication data shared by the pillar pages. No ratings or reviews: there are none to state. */
+export const softwareJsonLd = (description: string) => ({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${site.url}/#software`,
+  name: site.name,
+  url: site.url,
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Human Resource Management Software",
+  operatingSystem: "Web",
+  description,
+  areaServed: { "@type": "Country", name: "India" },
+  inLanguage: "en-IN",
+  publisher: { "@id": `${site.url}/#organization` },
+});
+
 /** Review date shown on statutory / compliance content (DD MMM YYYY). */
 export const LAST_REVIEWED = "29 Oct 2026";
 export const LAST_REVIEWED_ISO = "2026-10-29";

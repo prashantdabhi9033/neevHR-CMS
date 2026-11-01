@@ -10,7 +10,7 @@ import { Faq } from "@/components/site/Faq";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Integrations: Biometric, API, Webhooks & Bank Files",
+  title: "HRMS Integrations: Biometric, Bank Files, API",
   description:
     "NeevHR integrations available today: biometric devices over ADMS, email, SMS and WhatsApp, CSV import and export, API keys, signed webhooks, bank payment files and payroll journal export.",
   path: "/integrations",

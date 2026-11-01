@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const s = stateBySlug[state];
   if (!s) return { title: "State not found", robots: { index: false } };
   return pageMeta({
-    title: `${s.name} Payroll Guide: Professional Tax, LWF & Rules`,
+    title: `${s.name} Payroll: Professional Tax and LWF`,
     description: s.summary,
     path: `/india/payroll/${s.slug}`,
     type: "article",

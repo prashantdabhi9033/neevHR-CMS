@@ -109,6 +109,8 @@ export default function FrontendLayout({
       "Leave management",
       "Performance management",
       "Recruitment",
+      "POSH complaint management",
+      "DPDP Act 2023 for HR",
     ],
     contactPoint: {
       "@type": "ContactPoint",

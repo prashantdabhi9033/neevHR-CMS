@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 export const metadata: Metadata = pageMeta({
   title: "Terms of Use",
   description:
-    "Terms governing use of the NeevHR website and its free tools.",
+    "The terms that govern use of the NeevHR website, its free HR and payroll calculators and its other public content.",
   path: "/terms",
 });
 
 export default function TermsPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Terms of Use", href: "/terms" }]} />
       <PageHeader eyebrow="Legal" title="Terms of Use" />
       <section className="py-14">
         <Container className="max-w-3xl space-y-4 text-[15px] leading-relaxed text-body">

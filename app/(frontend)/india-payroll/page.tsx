@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 import { states } from "@/lib/states";
 
 export const metadata: Metadata = pageMeta({
-  title: "India Payroll Software: PF, ESI, PT, LWF, TDS & Form 16",
+  title: "India Payroll: PF, ESI, PT, LWF, TDS, Form 16",
   description:
     "Run Indian payroll with EPF, ESI, professional tax, LWF, TDS, Form 24Q, Form 16, gratuity and statutory bonus in one system. Rules, due dates and how NeevHR handles each.",
   path: "/india-payroll",

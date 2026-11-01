@@ -9,11 +9,11 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { TaxonomyGrid, OneRecordSection } from "@/components/home/HrmsSections";
 import { AttendanceVisual } from "@/components/product/AttendanceVisual";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, softwareJsonLd } from "@/lib/seo";
 import { site, implementationSteps } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Software for Indian Companies",
+  title: "HRMS Software India for Growing Companies",
   description:
     "Explore NeevHR HRMS software for Indian companies. Manage employee records, attendance, leave, payroll, recruitment, performance, expenses, compliance and employee self-service.",
   path: "/hrms",
@@ -275,6 +275,7 @@ export default function HrmsPage() {
           inLanguage: "en-IN",
         }}
       />
+      <JsonLd data={softwareJsonLd(site.description)} />
       <Breadcrumbs items={[{ name: "HRMS", href: "/hrms" }]} />
 
       {/* Hero */}

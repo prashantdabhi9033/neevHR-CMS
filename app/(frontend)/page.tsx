@@ -33,7 +33,7 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "NeevHR - India-first HRMS & Payroll Software with AI",
+  title: "HRMS & Payroll Software in India, AI Enabled | NeevHR",
   absoluteTitle: true,
   description:
     "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system, fully AI enabled, with AI inside each module.",
@@ -227,6 +227,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
         <Container className="relative">
+          <h2 className="sr-only">The NeevHR dashboard</h2>
           {/* Breaks out of the text container so the dashboard scene shows large and readable. */}
           <div className="relative left-1/2 w-[min(1360px,calc(100vw-24px))] -translate-x-1/2 py-12 lg:py-16">
             <Reveal>

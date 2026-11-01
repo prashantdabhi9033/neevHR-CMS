@@ -12,7 +12,7 @@ import { pageMeta } from "@/lib/seo";
 import { MobileAttendanceScreen } from "@/components/animated/MobileAttendanceScreen";
 
 export const metadata: Metadata = pageMeta({
-  title: "Employee Self Service (ESS) Software | NeevHR",
+  title: "Employee Self Service and HRMS Mobile App | NeevHR",
   absoluteTitle: true,
   description:
     "NeevHR employee self-service: attendance, leave, payslips, Form 16, tax declarations, expenses, loans and approvals on the web today. The mobile app is built, with its store release pending.",

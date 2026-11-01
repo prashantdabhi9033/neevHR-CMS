@@ -10,7 +10,9 @@ import { CompareTable } from "@/components/pricing/CompareTable";
 import { EditionFinder } from "@/components/pricing/EditionFinder";
 import { EditionPlans } from "@/components/pricing/EditionPlans";
 import { AiCreditsFlow } from "@/components/pricing/AiCreditsFlow";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, softwareJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/site/JsonLd";
+import { site } from "@/lib/site";
 import {
   aiCreditPoints,
   everyEdition,
@@ -21,10 +23,10 @@ import {
 } from "@/lib/pricing";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Pricing India | NeevHR",
+  title: "HRMS Pricing India: Core, Growth, Enterprise | NeevHR",
   absoluteTitle: true,
   description:
-    "NeevHR pricing in INR, based on employee count and edition. Compare what the Core, Growth and Enterprise editions include, feature by feature.",
+    "HRMS and payroll software pricing in INR, by employee count and edition. Compare Core, Growth and Enterprise feature by feature, and see how AI credits work.",
   path: "/pricing",
 });
 
@@ -41,6 +43,7 @@ function SectionHead({ eyebrow, title, sub }: { eyebrow: string; title: string; 
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={softwareJsonLd(site.description)} />
       <TrackView event="pricing_view" />
       <Breadcrumbs items={[{ name: "Pricing", href: "/pricing" }]} />
 

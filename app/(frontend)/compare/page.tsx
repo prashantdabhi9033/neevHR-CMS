@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { pageMeta, LAST_REVIEWED } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Comparison: NeevHR vs Suites, Point Tools & Spreadsheets",
+  title: "HRMS Comparison: Suites, Point Tools, Excel",
   description:
     "Compare HRMS approaches for Indian companies: global tier-one suites, point tools and spreadsheets, and an India-first HRMS like NeevHR, plus a checklist for evaluating vendors.",
   path: "/compare",

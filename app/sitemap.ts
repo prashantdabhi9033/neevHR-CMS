@@ -8,7 +8,7 @@ import { industries } from "@/lib/industries";
 import { guides } from "@/lib/guides";
 import { glossary } from "@/lib/glossary";
 import { states } from "@/lib/states";
-import { LAST_REVIEWED_ISO } from "@/lib/seo";
+import { CONTENT_UPDATED_ISO } from "@/lib/seo";
 
 // Regenerate hourly so posts published in /admin or by the seed route reach
 // the sitemap without waiting for a redeploy.
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   // Static pages carry the date their content was last reviewed, not the
   // build time, so lastmod stays a meaningful signal for crawlers.
-  const reviewed = new Date(LAST_REVIEWED_ISO);
+  const reviewed = new Date(CONTENT_UPDATED_ISO);
   const entry = (path: string, priority: number): Entry => ({
     url: `${site.url}${path}`,
     lastModified: reviewed,

@@ -9,11 +9,11 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { PayrollVisual } from "@/components/product/PayrollVisual";
 import { PayrollRunFlow } from "@/components/animated/PayrollRunFlow";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, softwareJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Payroll Software for Indian Companies | PF, ESI, TDS | NeevHR",
+  title: "Payroll Software India: PF, ESI, PT, TDS | NeevHR",
   absoluteTitle: true,
   description:
     "Run Indian payroll with PF, ESI, PT and TDS workflows. Automate salary processing, attendance inputs, deductions, payroll reports and statutory outputs with NeevHR.",
@@ -106,6 +106,7 @@ export default function PayrollPage() {
           inLanguage: "en-IN",
         }}
       />
+      <JsonLd data={softwareJsonLd(site.description)} />
       <Breadcrumbs
         items={[
           { name: "HRMS", href: "/hrms" },

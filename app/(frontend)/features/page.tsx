@@ -9,7 +9,7 @@ import { platformCapabilities } from "@/lib/site";
 import { moduleGroups, newFeatures } from "@/lib/module-nav";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Features: All NeevHR Modules",
+  title: "HRMS Features: All Modules in One Platform",
   description:
     "Every NeevHR module on one effective-dated employee record: core HR, attendance, leave, payroll and compliance, talent, employee experience and analytics.",
   path: "/features",

@@ -15,6 +15,7 @@ import { Faq } from "@/components/site/Faq";
 import { AiControlSection } from "@/components/home/AiControlSection";
 import { AiModulesFull } from "@/components/ai/AiModulesSection";
 import { ModuleAnimated } from "@/components/animated/ModuleAnimated";
+import { relatedLinks } from "@/lib/related-links";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -309,6 +310,19 @@ export default async function ModulePage({ params }: Params) {
               })}
             </div>
           </div>
+
+          {relatedLinks[slug] && (
+            <div className="mt-8">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">Guides and calculators</h2>
+              <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                {relatedLinks[slug].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="font-medium text-brand hover:underline">{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-3xl bg-brand px-8 py-10 text-center shadow-[var(--shadow-float)] sm:flex-row sm:text-left">
             <div>

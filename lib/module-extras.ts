@@ -80,7 +80,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   attendance: {
-    seoTitle: "Attendance Management Software | Biometric HRMS | NeevHR",
+    seoTitle: "Attendance Management Software India | NeevHR",
     metaDesc:
       "Attendance management software with biometric device integration, shifts, overtime, regularisation and LOP that flows into payroll. Built for Indian companies.",
     workflow: [
@@ -119,7 +119,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   leave: {
-    seoTitle: "Leave Management Software for HR Teams | NeevHR",
+    seoTitle: "Leave Management Software India | NeevHR",
     metaDesc:
       "Leave management software with configurable leave types, accrual, proration, carry-forward, encashment and approvals, connected to attendance and payroll.",
     workflow: [
@@ -185,7 +185,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   compliance: {
-    seoTitle: "Payroll Compliance Software India: PF, ESI, PT, TDS | NeevHR",
+    seoTitle: "PF, ESI, PT, TDS Compliance Software India | NeevHR",
     metaDesc:
       "Payroll compliance software for India: PF ECR, ESIC contribution file, PT and LWF challans, TDS challans, Form 24Q and Form 16, with a filing calendar.",
     workflow: [
@@ -251,7 +251,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   performance: {
-    seoTitle: "Performance Management Software | Goals, Reviews & 360° | NeevHR",
+    seoTitle: "Performance Management Software India | NeevHR",
     metaDesc:
       "Performance management software with weighted goals, review cycles, 360 feedback, a 9-box talent view, rating distribution and increment decisions linked to ratings.",
     workflow: [
@@ -434,7 +434,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [{ q: "Are both tax regimes covered?", a: "Yes. TDS is projected under the regime the employee chooses." }],
   },
   "ai-assistant": {
-    seoTitle: "AI in HR and Payroll Software for India | NeevHR",
+    seoTitle: "AI in HRMS and Payroll Software India | NeevHR",
     metaDesc:
       "NeevHR is fully AI enabled: AI inside each module for resumes, payroll flags, receipts, tax proofs and helpdesk replies, plus an assistant within each person's role. A person decides.",
     workflow: [
@@ -545,7 +545,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   exit: {
-    seoTitle: "Exit Management & Full and Final Settlement Software | NeevHR",
+    seoTitle: "Exit Management and F&F Settlement Software | NeevHR",
     metaDesc:
       "Exit management and full and final settlement: resignation approvals, notice, clearance from every team, and an F&F worksheet with leave encashment, gratuity, bonus and recoveries.",
     workflow: [
@@ -606,7 +606,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   positions: {
-    seoTitle: "Position Management Software: Seats, Vacancies & Budget | NeevHR",
+    seoTitle: "Position Management Software: Seats & Budget | NeevHR",
     metaDesc:
       "Position management: budgeted seats separate from the people in them, with vacancy, incumbency, FTE and budgeted CTC per seat, checked against the workforce plan.",
     workflow: [
@@ -632,7 +632,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   planning: {
-    seoTitle: "Workforce Planning Software: Headcount & Hiring Plan | NeevHR",
+    seoTitle: "Workforce Planning Software: Headcount Plan | NeevHR",
     metaDesc:
       "Workforce planning for Indian companies: financial-year headcount and budget by department and designation, hiring plans checked against requisitions, and cost-centre budgets.",
     workflow: [
@@ -798,7 +798,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   benefits: {
-    seoTitle: "Employee Benefits & Flexible Benefit Plan (FBP) Software | NeevHR",
+    seoTitle: "Employee Benefits and FBP Software India | NeevHR",
     metaDesc:
       "Employee benefits and FBP: group medical, accident and term life plans, enrolment windows, endorsement approvals, and flexible benefit declarations with verified proofs.",
     workflow: [
@@ -851,7 +851,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   succession: {
-    seoTitle: "Succession Planning Software: Critical Roles & Benches | NeevHR",
+    seoTitle: "Succession Planning Software India | NeevHR",
     metaDesc:
       "Succession planning: critical roles with risk, ranked successor benches, readiness from performance ratings, calibration sessions, talent pools and a nine-box grid.",
     workflow: [
@@ -1047,7 +1047,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   "goal-cascade": {
-    seoTitle: "OKR and Goal Cascade Software | NeevHR",
+    seoTitle: "OKR and Goal Cascade Software India | NeevHR",
     metaDesc: "Link company, team and personal goals with key results and rolled-up progress for each review cycle, on one employee record in NeevHR.",
     workflow: [
       { step: "Set", body: "HR adds one to three company objectives for the review cycle." },
@@ -1067,7 +1067,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   disciplinary: {
-    seoTitle: "Disciplinary Case Management for HR | NeevHR",
+    seoTitle: "Disciplinary Case Management Software India | NeevHR",
     metaDesc: "Run show-cause notices, charge sheets, replies, domestic inquiries and outcomes as one dated case in NeevHR, under its own permission, with no AI.",
     workflow: [
       { step: "Open", body: "Open a case with the allegation, category and severity." },
@@ -1088,7 +1088,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   posh: {
-    seoTitle: "POSH Complaint Management for Internal Committees | NeevHR",
+    seoTitle: "POSH Complaint Management Software India | NeevHR",
     metaDesc: "A confidential POSH complaint route in NeevHR: employees complain from self-service, only the Internal Committee reads the case, and the annual report has no names.",
     workflow: [
       { step: "Set up", body: "Name the Internal Committee and the Local Committee details." },
@@ -1109,7 +1109,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
   },
   "approval-channels": {
-    seoTitle: "Approve HR Requests from Slack, Teams and WhatsApp | NeevHR",
+    seoTitle: "Approve HR Requests in Slack, Teams, WhatsApp | NeevHR",
     metaDesc: "Approvers can decide HR requests from Slack, Microsoft Teams or WhatsApp. Each app is connected per company, with its own setup guide, under the same rule as email approvals.",
     workflow: [
       { step: "Connect", body: "Follow the app's setup guide and enter its details in NeevHR." },

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { SecurityLayers } from "@/components/animated/SecurityLayers";
+import { Faq } from "@/components/site/Faq";
+import { faqGroups } from "@/lib/site";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -184,6 +186,10 @@ export default function SecurityPage() {
             <Link href="/faq#security" className="text-brand hover:text-brand-dark">Security FAQ</Link>
           </p>
         </Container>
+      </section>
+
+      <section className="border-t border-line bg-surface-soft">
+        <Faq items={faqGroups.find((g) => g.group === "Security")!.items} withSchema heading="Security questions" />
       </section>
     </>
   );
