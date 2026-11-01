@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SecurityLayers } from "@/components/animated/SecurityLayers";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -103,6 +104,12 @@ export default function SecurityPage() {
           ))}
         </Container>
       </nav>
+
+      <section className="border-b border-line bg-surface-soft py-12 lg:py-14">
+        <Container>
+          <SecurityLayers className="mx-auto max-w-4xl" />
+        </Container>
+      </section>
 
       {groups.map((g, gi) => (
         <section

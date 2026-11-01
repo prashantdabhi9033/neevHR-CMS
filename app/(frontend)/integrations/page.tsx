@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IntegrationHub } from "@/components/animated/IntegrationHub";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -84,8 +85,9 @@ export default function IntegrationsPage() {
         sub="NeevHR connects to biometric devices, banks, statutory portals, messaging channels and your own systems. Everything listed here is in the product now. Channels that use your own account are connected per company."
       />
 
-      <section className="py-16 lg:py-20">
+      <section className="pb-16 pt-12 lg:pb-20 lg:pt-14">
         <Container>
+          <IntegrationHub className="mb-10" />
           <div className="grid gap-6 sm:grid-cols-2">
             {groups.map((g) => (
               <div key={g.title} className="rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">

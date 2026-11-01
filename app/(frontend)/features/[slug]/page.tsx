@@ -14,6 +14,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
 import { AiControlSection } from "@/components/home/AiControlSection";
 import { AiModulesFull } from "@/components/ai/AiModulesSection";
+import { ModuleAnimated } from "@/components/animated/ModuleAnimated";
 
 const navLookup = Object.fromEntries(
   moduleGroups.flatMap((g) =>
@@ -109,6 +110,8 @@ export default async function ModulePage({ params }: Params) {
           </Container>
         )}
       </section>
+
+      <ModuleAnimated slug={slug} />
 
       {slug === "ai-assistant" && <AiModulesFull />}
       {slug === "ai-assistant" && <AiControlSection cta={false} />}

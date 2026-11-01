@@ -8,6 +8,7 @@ import { Disclaimer } from "@/components/site/Disclaimer";
 import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { pageMeta, LAST_REVIEWED, LAST_REVIEWED_ISO } from "@/lib/seo";
+import { StatutoryChecks } from "@/components/animated/StatutoryChecks";
 import { site } from "@/lib/site";
 import { states } from "@/lib/states";
 
@@ -297,6 +298,12 @@ export default function IndiaPayrollPage() {
               </a>
             ))}
           </nav>
+        </Container>
+      </section>
+
+      <section className="border-b border-line py-12 lg:py-14">
+        <Container>
+          <StatutoryChecks className="mx-auto max-w-4xl" />
         </Container>
       </section>
 

@@ -8,6 +8,7 @@ import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { PayrollVisual } from "@/components/product/PayrollVisual";
+import { PayrollRunFlow } from "@/components/animated/PayrollRunFlow";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -189,6 +190,7 @@ export default function PayrollPage() {
       <section className="border-y border-line bg-surface-soft py-16 lg:py-20">
         <Container>
           <h2 className="text-3xl font-bold tracking-tight text-ink">How a payroll run works</h2>
+          <PayrollRunFlow className="mx-auto mt-8 max-w-3xl" />
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {workflow.map((w, i) => (
               <li key={w.t} className="rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-card)]">

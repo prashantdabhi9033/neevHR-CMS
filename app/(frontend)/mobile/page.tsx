@@ -9,6 +9,7 @@ import { Faq } from "@/components/site/Faq";
 import { ESS_SCREENS, MobileVisual } from "@/components/product/MobileVisual";
 import { Phone } from "@/components/visuals/Stage";
 import { pageMeta } from "@/lib/seo";
+import { MobileAttendanceScreen } from "@/components/animated/MobileAttendanceScreen";
 
 export const metadata: Metadata = pageMeta({
   title: "Employee Self Service (ESS) Software | NeevHR",
@@ -119,6 +120,20 @@ export default function MobilePage() {
             </figure>
           ))}
         </div>
+      </section>
+
+      <section className="border-b border-line py-16 lg:py-20">
+        <Container className="grid items-center gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-12">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand">Attendance on the phone</span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">Punch in from the site, not the desk</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-body">
+              For staff who are not at a desk, the app takes a punch inside the geofence you set, or from a QR code at the site.
+              Field staff can also share their location during duty hours, with consent.
+            </p>
+          </div>
+          <MobileAttendanceScreen />
+        </Container>
       </section>
 
       <section className="py-16 lg:py-20">
