@@ -11,7 +11,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "HRMS Security & Compliance | NeevHR",
+  title: "HRMS Security: Encryption, RBAC, DPDP | NeevHR",
   absoluteTitle: true,
   description:
     "How NeevHR protects employee data: Postgres row-level tenant isolation, field-level encryption, RBAC with data scopes, MFA, audit logs, India hosting and DPDP Act 2023 support.",
