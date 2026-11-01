@@ -31,13 +31,14 @@ export function PhotoHero() {
             <span className="block w-fit bg-gradient-to-r from-[#cfc8ff] to-[#ffb37a] bg-clip-text text-transparent">Every HR Process</span>
           </h1>
           <p className="hero-intro mt-5 text-[17px] leading-relaxed text-white/90">
-            Hire, pay and grow your people on one platform built for Indian companies, with an AI assistant that answers them in their own language.
+            Hire, pay and grow your people on one platform built for Indian companies.{" "}
+            <strong className="font-semibold text-white">NeevHR is fully AI enabled, with AI inside each module and not only a chat.</strong>
           </p>
           <ul className="mt-6 grid gap-2.5 text-[15px] text-white/90">
             {[
               "PF, ESI, PT, LWF and TDS built in, not added on",
               "Live in 4 to 8 weeks, run by your own HR team",
-              "AI you control: who uses it, how much, and who used what",
+              "AI suggests on the screen, and a person decides",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2.5">
                 <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0 text-[#ffb37a]" />
@@ -51,7 +52,7 @@ export function PhotoHero() {
               <Icon name="arrow" className="h-4 w-4" />
             </Button>
             <Button href="/features/ai-assistant" variant="inverse" size="lg">
-              See the AI assistant
+              See AI in NeevHR
             </Button>
           </div>
         </div>

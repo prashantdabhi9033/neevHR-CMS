@@ -226,6 +226,24 @@ body {
   }
 }
 
+/* A reading line over a sample receipt while the AI panel is running. It only ever shows while a sample plays. */
+@keyframes ai-scan {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(520%);
+  }
+}
+.ai-scan {
+  animation: ai-scan 1.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-scan {
+    animation: none;
+  }
+}
+
 /* Accessibility: skip-to-content link, visible only on keyboard focus. */
 .skip-link {
   position: absolute;

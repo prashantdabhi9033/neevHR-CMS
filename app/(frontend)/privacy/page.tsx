@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { aiDataRows } from "@/lib/ai-features";
 
 export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
@@ -17,7 +18,7 @@ export const metadata: Metadata = pageMeta({
 // Facts in this policy were checked against the product, the mobile app and the
 // hosting setup on 17 Oct 2026. Update `lastUpdated` whenever the substance changes,
 // and keep the sub-processor table in step with what is actually configured.
-const lastUpdated = "31 Oct 2026";
+const lastUpdated = "01 Nov 2026";
 
 // Legal entity and registered address confirmed by the owner on 17 Oct 2026.
 // OWNER TO CONFIRM: the named Grievance Officer (IT Rules 2011, rule 5(9)); until then a role-based contact.
@@ -37,6 +38,7 @@ const toc = [
   { id: "use", t: "How we use it" },
   { id: "never", t: "What we never do" },
   { id: "share", t: "Sharing" },
+  { id: "ai", t: "AI features" },
   { id: "location", t: "Where data is stored" },
   { id: "security", t: "Security" },
   { id: "retention", t: "Retention" },
@@ -302,7 +304,7 @@ export default function PrivacyPage() {
               head={["Provider", "Service", "Data location"]}
               rows={[
                 ["HostingRaja", "Server hosting: the application, the database and the Website", "India (Mumbai)"],
-                ["Anthropic", "The AI assistant, only where the employer has switched it on: a person's question and the data needed to answer it. Bank account, IFSC, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are not sent", "Outside India"],
+                ["Anthropic", "AI features, only where they are switched on for the employer: a person's question and the record data needed to answer it, and on a module's screens cleaned resume text and uploaded receipts or proofs as whole files. See section 7A", "Outside India"],
                 ["Brevo", "Sending transactional email, such as invitations, password resets and notifications", "European Union"],
                 ["Google Firebase", "Delivering mobile push notifications (Cloud Messaging) and App crash reports (Crashlytics)", "Google global infrastructure"],
                 ["Google Analytics", "Website usage statistics (Website only, never the Platform or App)", "Google global infrastructure"],
@@ -327,11 +329,28 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
+          <Section id="ai" title="7A. AI features and what they send">
+            <p>
+              AI features are off until they are switched on for an employer, module by module, and the employer&apos;s AI admin can turn them off. Where they are on, the data below goes to our AI provider, Anthropic, outside India, to prepare the result. A person decides what to do with the result: the feature does not reject, approve, pay or change a record by itself.
+            </p>
+            <p>
+              <strong className="font-semibold text-ink">Files can contain what is printed on them.</strong> A receipt or tax proof goes as the whole file that was uploaded. NeevHR adds no detail from the record to it, and cannot remove what the file itself shows, which can include a name, PAN, account or card number, or anything else on the page. Please upload only what the claim or proof needs.
+            </p>
+            <p>
+              <strong className="font-semibold text-ink">Candidates.</strong> If an employer switches on Resume match, the text of a candidate&apos;s resume goes to the provider after automatic rules take out the name, contact details, ID numbers, address, personal details and pay. These rules work on patterns, so something written in an unusual way could remain. Resume match gives a score and reasons to the recruiter; it does not reject or move a candidate.
+            </p>
+            <p>
+              <strong className="font-semibold text-ink">Health-related tax proofs.</strong> Proofs on the 80D, 80DD, 80DDB and 80U lines of a declaration are not sent. This check goes by the line a file is uploaded on, so a health paper uploaded on a different line would be sent.
+            </p>
+            <p>Disciplinary and POSH cases and letters have no AI features.</p>
+            <Table head={["Feature", "What is sent"]} rows={aiDataRows.map((r) => [r.feature, r.sent])} />
+          </Section>
+
           <Section id="location" title="8. Where your data is stored">
             <p>
               The Platform&apos;s application and database are hosted in India, in the Mumbai region. Some service
               providers listed above process limited data outside India, for example to deliver an email or a
-              notification, or to answer a question put to the AI assistant. We transfer personal data outside India only as permitted under the DPDP Act, 2023, and never
+              notification, or to prepare an AI result where the employer has switched that feature on. We transfer personal data outside India only as permitted under the DPDP Act, 2023, and never
               to a country the Government of India has restricted.
             </p>
           </Section>

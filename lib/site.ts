@@ -70,7 +70,7 @@ export const platformCapabilities = [
   { title: "Role-based access", body: "Fine-grained RBAC with data scopes, field-level masking, time-bound grants and separation-of-duties checks." },
   { title: "Audit trail", body: "Changes are recorded and effective-dated, so records can be reported as they stood on any date." },
   { title: "Notifications", body: "In-app, email, SMS, WhatsApp and browser push from a single dispatcher, once each channel's provider is configured." },
-  { title: "AI assistant", body: "Plain-language answers from your own records within each person's role. Your admin controls who uses it, how much, and sees who used what." },
+  { title: "AI in every module", body: "Fully AI enabled: suggestions on each module's own screen, and an assistant that answers within each person's role. A person decides, and your admin controls who uses it and how much." },
   { title: "Import & export", body: "Bulk CSV import with dry-run validation, and export from lists and reports." },
 ];
 
@@ -79,7 +79,7 @@ export type FaqItem = { q: string; a: string };
 // Homepage FAQ: the questions buyers ask first.
 const aiFaq: FaqItem = {
   q: "Does NeevHR have AI?",
-  a: "Yes. The NeevHR AI assistant answers employee, manager and HR questions from your own records within each person's role, explains why a payroll run or an approval is blocked, and drafts requests that change nothing until the person confirms. Your company switches it on and controls who uses it.",
+  a: "Yes. NeevHR is fully AI enabled. AI works inside each module, for example resume match, payroll change explanation, receipt and tax proof reading and helpdesk drafts, and the assistant answers questions within each person's role. Everything is a suggestion a person decides on. It is switched on per module, on prepaid credits.",
 };
 
 export const faqs: FaqItem[] = [
@@ -144,6 +144,26 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       {
         q: "Does NeevHR support employee groups?",
         a: "Yes. Policies for leave, attendance, pay structures, expenses and appraisals are assigned to groups of employees, for example by entity, department, grade or location.",
+      },
+      {
+        q: "What does AI send outside NeevHR?",
+        a: "When a company switches a feature on, what that feature needs goes to our AI provider, Anthropic, which may process it outside India. That can include cleaned resume text and uploaded receipts or proofs as whole files, and a file can contain what is printed on it. Proofs on the 80D, 80DD, 80DDB and 80U lines are not sent. The AI page lists each feature.",
+      },
+      {
+        q: "Does NeevHR support OKRs and goal cascading?",
+        a: "Yes, in the Growth edition and up. Company and team objectives carry key results, each person's goal links to an objective, and progress rolls up for each review cycle.",
+      },
+      {
+        q: "Does NeevHR handle disciplinary cases?",
+        a: "Yes. Show-cause notices, charge sheets, replies, the inquiry and the outcome sit on one dated case, under its own permission. Have letter wording checked by your adviser.",
+      },
+      {
+        q: "Does NeevHR have a POSH complaint route?",
+        a: "Yes. Employees can make a confidential complaint in self-service that only the Internal Committee reads, and the committee records each step of the case. HR, managers and Company Admins cannot read it.",
+      },
+      {
+        q: "Can managers approve from Slack, Teams or WhatsApp?",
+        a: "Yes, once your company connects the app. Each one is connected per company with its own setup guide, using your own Slack app, Teams bot or WhatsApp Business account. Money, pay and maker-checker requests only open in NeevHR.",
       },
       {
         q: "Is NeevHR available in Hindi?",

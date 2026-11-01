@@ -23,6 +23,7 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Testimonials } from "@/components/home/Testimonials";
 import { PhotoHero } from "@/components/home/PhotoHero";
 import { AiControlSection } from "@/components/home/AiControlSection";
+import { AiModulesHome } from "@/components/ai/AiModulesSection";
 import { pageMeta } from "@/lib/seo";
 import {
   compliancePoints,
@@ -35,7 +36,7 @@ export const metadata: Metadata = pageMeta({
   title: "NeevHR - India-first HRMS & Payroll Software with AI",
   absoluteTitle: true,
   description:
-    "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system, with a built-in AI assistant.",
+    "NeevHR is an India-first HRMS and payroll platform for growing businesses. Manage employees, attendance, leave, payroll, recruitment, performance and statutory compliance in one system, fully AI enabled, with AI inside each module.",
   path: "/",
 });
 
@@ -190,6 +191,11 @@ export default function HomePage() {
       "Employee self-service",
       "HR reports and dashboards",
       "AI assistant that answers within each person's access",
+      "AI inside each module: resume match, payroll change explanation, receipt and tax proof reading, helpdesk drafts, report from a sentence",
+      "OKR and goal cascade",
+      "Disciplinary cases",
+      "POSH complaint route for the Internal Committee",
+      "Approvals from Slack, Microsoft Teams and WhatsApp, connected per company",
     ],
   };
   const webPageJsonLd = {
@@ -203,7 +209,7 @@ export default function HomePage() {
     about: { "@id": `${site.url}/#software` },
     inLanguage: "en-IN",
     datePublished: "2026-09-01",
-    dateModified: "2026-10-31",
+    dateModified: "2026-11-01",
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],
@@ -229,6 +235,8 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      <AiModulesHome />
 
       <AiControlSection />
 

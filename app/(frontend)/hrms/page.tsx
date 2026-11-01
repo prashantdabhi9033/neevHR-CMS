@@ -108,6 +108,7 @@ const blocks: Block[] = [
     body: "Goals, reviews and 360 feedback run in configurable cycles. Ratings feed compensation decisions, with sign-off by the right authority.",
     points: [
       "Weighted goals and review cycles",
+      "OKR and goal cascade, with key results",
       "360 feedback and a 9-box talent view",
       "Rating distribution view for calibration discussions",
       "Increment and bonus decisions linked to ratings",
@@ -155,6 +156,7 @@ const blocks: Block[] = [
       "Leave, regularisation, expense and profile-change requests",
       "Payslips, Form 16 and tax declarations with proofs",
       "Helpdesk tickets and surveys",
+      "Confidential POSH complaints to the Internal Committee",
       "Mobile app: coming soon",
     ],
     links: [{ label: "Self-service & mobile", href: "/mobile" }],
@@ -427,7 +429,7 @@ export default function HrmsPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { t: "Biometric devices", b: "ADMS (iClock) push and punch file import." },
-              { t: "Messaging", b: "Email, SMS, WhatsApp and browser push, with your provider accounts." },
+              { t: "Messaging", b: "Email, SMS, WhatsApp and browser push, with your provider accounts. Approvals from Slack, Teams or WhatsApp, connected per company." },
               { t: "API & webhooks", b: "Scoped API keys and HMAC-signed outbound webhooks." },
               { t: "Finance & banks", b: "Journal voucher CSV and bank payment files." },
             ].map((x) => (

@@ -39,6 +39,11 @@ const groups = [
     items: ["Email", "SMS (MSG91 or Twilio)", "WhatsApp (Meta Cloud API)", "Browser push", "Editable templates and a delivery log", "Email from your own domain, with DNS records from your IT team"],
   },
   {
+    title: "Approval channels",
+    body: "Approvers can approve or reject from Slack, Microsoft Teams or WhatsApp. Each is connected per company, using your own app or business account, with a setup guide for each. It stays off until its test passes and a Company Admin switches it on.",
+    items: ["Slack: your own Slack app", "Microsoft Teams: your own bot, with your Microsoft 365 admin", "WhatsApp: your own WhatsApp Business account, with Meta's charges", "Money and pay requests only open in NeevHR"],
+  },
+  {
     title: "API and webhooks",
     body: "Connect your own systems with scoped API keys that act as service principals, and receive HMAC-signed outbound webhooks with retries. API documentation is shared with customers during implementation.",
     items: ["Scoped API keys", "HMAC-signed webhooks", "Retries with backoff", "Audited API activity"],
@@ -60,6 +65,10 @@ const faqs = [
     a: "Devices that support the ADMS (iClock) push protocol, used by many eSSL, ZKTeco and Matrix models, plus punch file import for others. We confirm your models during implementation.",
   },
   {
+    q: "Does NeevHR connect to Slack, Teams or WhatsApp for approvals?",
+    a: "Yes, per company. You connect your own Slack app, Teams bot or WhatsApp Business account by following its setup guide, test it, and a Company Admin switches it on.",
+  },
+  {
     q: "Does NeevHR integrate with Tally?",
     a: "By file, yes. NeevHR makes vouchers for Tally Prime (XML) and journals for Zoho Books (CSV) from published payroll, which your accounts team imports. It is a file, not a live connection.",
   },
@@ -71,8 +80,8 @@ export default function IntegrationsPage() {
       <Breadcrumbs items={[{ name: "Integrations", href: "/integrations" }]} />
       <PageHeader
         eyebrow="Integrations"
-        title="Integrations that work today"
-        sub="NeevHR connects to biometric devices, banks, statutory portals, messaging channels and your own systems. Everything listed here is available now."
+        title="Integrations in NeevHR today"
+        sub="NeevHR connects to biometric devices, banks, statutory portals, messaging channels and your own systems. Everything listed here is in the product now. Channels that use your own account are connected per company."
       />
 
       <section className="py-16 lg:py-20">

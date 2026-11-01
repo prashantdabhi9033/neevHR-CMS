@@ -133,7 +133,7 @@ export default function SecurityPage() {
           <ul className="mt-6 space-y-3 text-[15px] text-white/80">
             {[
               "Hosted in India, on servers in Mumbai.",
-              "AI assistant, only if your company switches it on: questions and the data needed to answer them go to Anthropic, which may process them outside India. Bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent.",
+              "AI, only if your company switches it on: what each feature needs goes to Anthropic, which may process it outside India. The assistant's tools do not read bank, PAN, Aadhaar, UAN, ESI number, address, health or disciplinary data. On-screen AI can send cleaned resume text and uploaded receipts or proofs as whole files, and a file can contain what is printed on it. Proofs on the 80D, 80DD, 80DDB and 80U lines are not sent. See the AI page for each feature.",
               "PostgreSQL database with row-level security on tenant tables.",
               "Further architecture detail is shared with your IT team during security review.",
             ].map((t) => (

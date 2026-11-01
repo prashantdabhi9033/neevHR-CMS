@@ -60,7 +60,7 @@ export const everyEdition = [
   { icon: "layers", title: "One price, not a module maze", body: "Edition-based packaging, quoted in INR." },
   { icon: "bolt", title: "Live in 4 to 8 weeks", body: "Configuration, migration and a parallel payroll run." },
   { icon: "shield", title: "Data hosted in India", body: "Row-level isolation and field-level encryption." },
-  { icon: "sparkle", title: "AI assistant available", body: "Your company buys prepaid credits and controls who uses it." },
+  { icon: "sparkle", title: "Fully AI enabled", body: "AI inside each module you have, plus the assistant, on prepaid credits." },
   { icon: "users", title: "Multiple entities", body: "Several legal entities and locations in one account." },
   { icon: "sliders", title: "Configured by HR", body: "Policies as rule sets your HR admin owns." },
 ];
@@ -85,6 +85,11 @@ export type FeatureGroup = { group: string; icon: string; features: Feature[] };
 const ALL: [Cell, Cell, Cell] = [true, true, true];
 const GROWTH_UP: [Cell, Cell, Cell] = [false, true, true];
 const ENT_ONLY: [Cell, Cell, Cell] = [false, false, true];
+// AI on a module's screens rides that module's edition, and runs on prepaid credits.
+const AI = "Prepaid credits";
+const AI_ALL: [Cell, Cell, Cell] = [AI, AI, AI];
+const AI_GROWTH_UP: [Cell, Cell, Cell] = [false, AI, AI];
+const AI_ENT_ONLY: [Cell, Cell, Cell] = [false, false, AI];
 
 export const featureGroups: FeatureGroup[] = [
   {
@@ -101,6 +106,8 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Holiday calendars", desc: "Location-aware public, optional and restricted holidays.", href: "/features/holidays", tiers: ALL },
       { name: "Exit and clearance", desc: "Notice, department clearances, handover, relieving and experience letters.", href: "/features/exit", tiers: ALL },
       { name: "Alumni portal", desc: "Former employees download their own payslips, Form 16 and F&F statement.", href: "/features/alumni-portal", tiers: ALL },
+      { name: "Disciplinary cases", desc: "Show-cause notices, charge sheets, replies, inquiry and outcome as one dated case, under its own permission.", href: "/features/disciplinary", tiers: ALL },
+      { name: "POSH complaint route", desc: "A confidential complaint that only the Internal Committee reads, committee set-up, case steps and an annual report with no names.", href: "/features/posh", tiers: ALL },
       { name: "Retirement and absconding", desc: "See upcoming retirements, and a guided absconding process with show-cause notices.", href: "/features/exit", tiers: ALL },
       { name: "Layoff and mass separation", desc: "Separate many people together, with severance by tax type.", href: "/features/exit", tiers: ALL },
       { name: "Bulk employee actions", desc: "Mass transfer, change manager, set shift or employment type in one step.", tiers: ALL },
@@ -195,6 +202,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Internal job posting", desc: "Post an opening to employees with eligibility rules, a manager rule (informed or must approve), confidential applications and group-wide reach, on web and mobile. Selection raises a job change or transfer on the same record.", href: "/features/recruitment", tiers: GROWTH_UP },
       { name: "Offers and hire-to-onboard", desc: "Offers carry the approved compensation and flow into onboarding.", tiers: GROWTH_UP },
       { name: "Goals and performance reviews", desc: "Weighted goals, review cycles and manager sign-off.", href: "/features/performance", tiers: GROWTH_UP },
+      { name: "OKR and goal cascade", desc: "Company and team objectives with key results, each person's goal linked under them, and progress that rolls up.", href: "/features/goal-cascade", tiers: GROWTH_UP },
       { name: "Improvement plans and promotions", desc: "PIP register and promotion recommendations.", href: "/features/performance", tiers: GROWTH_UP },
       { name: "1:1 meetings", desc: "Recurring 1:1s with a shared agenda that carries over, private notes, action items, a mood check-in, reminders and calendar invites, plus a coverage report for HR.", href: "/features/performance", tiers: GROWTH_UP },
       { name: "360 feedback and 9-box", desc: "Peer, manager and report reviewers, and calibration on a 9-box grid.", tiers: GROWTH_UP },
@@ -240,6 +248,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Approval workflows", desc: "Standard: built-in manager and HR approvals. Advanced: your own multi-step chains with any, all or quorum rules.", tiers: ["Standard", "Standard", "Advanced"] },
       { name: "Process Studio", desc: "Design your own HR flows from templates, with notices, time limits, rules and letters, and test them before you publish.", tiers: ENT_ONLY },
       { name: "Approve from email", desc: "Approvers can approve or reject from the request email, once a Company Admin switches it on.", tiers: ALL },
+      { name: "Approve from Slack, Teams or WhatsApp", desc: "Each app is connected per company with a setup guide, using your own app or business account. WhatsApp charges are Meta's. Money and pay requests only open in NeevHR.", href: "/features/approval-channels", tiers: ALL },
       { name: "Roles and permissions", desc: "Advanced adds custom roles, data scopes, field-level masking, time-bound grants and separation-of-duties checks.", tiers: ["Standard", "Standard", "Advanced"] },
       { name: "Access reviews and second-admin approval", desc: "Confirm who can reach what, and require a second admin for role and workflow changes.", href: "/security#audit", tiers: ENT_ONLY },
       { name: "Audit trail", desc: "Administrative, payroll and permission changes are logged.", tiers: ALL },
@@ -253,20 +262,32 @@ export const featureGroups: FeatureGroup[] = [
     ],
   },
   {
-    group: "AI assistant",
+    group: "AI",
     icon: "sparkle",
     features: [
       { name: "AI assistant for employees and managers", desc: "Answers from your own records within each person's role, in English, Hindi or Gujarati.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
       { name: "Why is this blocked?", desc: "Explains what is stopping a payroll run or an approval, and why someone cannot see something, for people whose role allows it.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
       { name: "Drafts you confirm", desc: "Leave, regularization and helpdesk requests as a review card. Nothing happens until the person confirms.", href: "/features/ai-assistant", tiers: ["Prepaid credits", "Prepaid credits", "Prepaid credits"] },
-      { name: "Admin controls and usage report", desc: "Who may use it, which modules it works with, the credit balance, and usage by person without the questions.", href: "/features/ai-assistant", tiers: ALL },
+      { name: "Resume match", desc: "A score and reasons on the candidate page. It never rejects or moves a candidate.", href: "/features/ai-assistant#ai-resume", tiers: AI_GROWTH_UP },
+      { name: "Payroll change explanation", desc: "Plain words for the checks that fired on a run, and what to check first.", href: "/features/ai-assistant#ai-payroll", tiers: AI_ALL },
+      { name: "Expense receipt reading", desc: "Amount, date, vendor and category read from a bill, for the person to check.", href: "/features/ai-assistant#ai-receipt", tiers: AI_ENT_ONLY },
+      { name: "Helpdesk category and reply draft", desc: "A suggested category, and a draft the agent edits. Nothing is sent until they send it.", href: "/features/ai-assistant#ai-helpdesk", tiers: AI_ENT_ONLY },
+      { name: "Report from a sentence", desc: "Picks a report from what you type. Setting up a custom report needs the report builder, in Growth and up.", href: "/features/ai-assistant#ai-report", tiers: AI_ALL },
+      { name: "Tax proof reading", desc: "Section, amount, year and issuer set against the declaration. Proofs on the health-related lines are not sent.", href: "/features/ai-assistant#ai-taxProof", tiers: AI_ALL },
+      { name: "Review, goal and 1:1 drafts", desc: "Drafts on a click, into the normal box to edit. AI gives no score or rating.", href: "/features/ai-assistant#ai-drafts", tiers: AI_GROWTH_UP },
+      { name: "Letter template draft", desc: "Wording with merge fields, using no employee data. Issued letter PDFs cannot print Hindi yet.", href: "/features/ai-assistant#ai-drafts", tiers: AI_ALL },
+      { name: "Survey summary", desc: "Themes and actions from a closed survey's comments, with no names or quotes.", href: "/features/ai-assistant#ai-survey", tiers: AI_GROWTH_UP },
+      { name: "Attrition reasons", desc: "Department figures in plain words. Not a prediction, and nothing about any person.", href: "/features/ai-assistant#ai-attrition", tiers: AI_GROWTH_UP },
+      { name: "Learning suggestions", desc: "Courses from your own catalogue, from a person's role and skills. Nothing enrols anyone.", href: "/features/ai-assistant#ai-learning", tiers: AI_GROWTH_UP },
+      { name: "Setup from Excel or PDF", desc: "Column suggestions for an import, and a draft leave policy from your PDF. Nothing is saved by itself.", href: "/features/ai-assistant#ai-setup", tiers: AI_ALL },
+      { name: "Admin controls and usage report", desc: "A switch per module, who may use it, which modules it works with, the credit balance, and usage by person without the questions.", href: "/features/ai-assistant", tiers: ALL },
     ],
   },
   {
     group: "Security and data protection",
     icon: "shield",
     features: [
-      { name: "Data hosted in India", desc: "The application and database run on servers in India. If your company switches on the AI assistant, questions and the data needed to answer them go to its provider, which may process them outside India.", href: "/security", tiers: ALL },
+      { name: "Data hosted in India", desc: "The application and database run on servers in India. If your company switches on AI, what each feature needs, including uploaded receipts and proofs, goes to its provider, which may process it outside India.", href: "/security", tiers: ALL },
       { name: "Tenant isolation", desc: "Each company's data separated by Postgres row-level security in the database.", tiers: ALL },
       { name: "Field-level encryption", desc: "PAN, Aadhaar, UAN, ESI number and bank details encrypted with AES-256-GCM.", tiers: ALL },
       { name: "Sign in with Google", desc: "Your company turns it on for its own domain, for people who already have a login. Sign in with Microsoft is being switched on. SAML is not available.", href: "/security#sign-in", tiers: ALL },
@@ -298,8 +319,11 @@ export const needs: { label: string; edition: EditionKey }[] = [
   { label: "Biometric devices", edition: "core" },
   { label: "Onboarding and exit", edition: "core" },
   { label: "Multiple legal entities", edition: "core" },
+  { label: "Disciplinary cases and POSH complaints", edition: "core" },
+  { label: "Approvals from Slack, Teams or WhatsApp", edition: "core" },
   { label: "Recruitment", edition: "growth" },
   { label: "Performance reviews and goals", edition: "growth" },
+  { label: "OKR and goal cascade", edition: "growth" },
   { label: "Custom reports and analytics", edition: "growth" },
   { label: "Shift rosters", edition: "growth" },
   { label: "Incentives and variable pay", edition: "growth" },
@@ -336,8 +360,8 @@ export const quoteFactors = [
 
 export const pricingFaqs: FaqItem[] = [
   {
-    q: "How is the AI assistant priced?",
-    a: "It works on prepaid credits, separate from your edition, and it can be added to any edition. Your company recharges and each answer uses credits according to its length. There is no per-employee AI fee, employees never pay, and your admin sees the balance and who used how much. Recharge plans start at ₹500.",
+    q: "How is AI priced?",
+    a: "It works on prepaid credits, separate from your edition, and it can be added to any edition. AI inside a module comes with that module's edition. Your company recharges and each answer or result uses credits according to its length, and a stored result is reused at no charge. There is no per-employee AI fee, employees never pay, and your admin sees the balance and who used how much. Recharge plans start at ₹500.",
   },
   {
     q: "Why is NeevHR pricing not listed publicly?",

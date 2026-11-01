@@ -16,7 +16,12 @@ export const metadata: Metadata = pageMeta({
 });
 
 const whatsNew = [
+  { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules" },
   { name: "AI assistant", desc: "Answers from your own records, with your admin in control of who uses it and how much.", href: "/features/ai-assistant" },
+  { name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results.", href: "/features/goal-cascade" },
+  { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
+  { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
+  { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
   { name: "QR code attendance", desc: "Scan at the site with the mobile app, coming soon.", href: "/features/attendance" },
   { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
   { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll.", href: "/payroll" },

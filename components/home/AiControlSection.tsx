@@ -7,7 +7,7 @@ const controls = [
   {
     icon: "users",
     title: "Who can use it",
-    body: "Your company switches it on, module by module. Your Company Admin has it from day one and decides who else gets it: everyone, or only the people you name.",
+    body: "It is switched on module by module, and your AI admin can turn a module off. Your Company Admin has it from day one and decides who else gets the assistant: everyone, or only the people you name.",
   },
   {
     icon: "wallet",
@@ -22,7 +22,7 @@ const controls = [
   {
     icon: "shield",
     title: "What it can see",
-    body: "Exactly what the person's role can open on screen. Never another person's pay, and bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent to the AI provider. Anyone who tries a trick to get more is warned once, then blocked for a day.",
+    body: "Exactly what the person's role can open on screen. The assistant's tools do not read another person's pay, or bank, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data. An uploaded receipt or proof is sent whole, and a file can contain what is printed on it. Anyone who tries a trick to get more is warned once, then blocked for a day.",
   },
 ];
 
@@ -34,7 +34,7 @@ export function AiControlSection({ cta = true }: { cta?: boolean }) {
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">AI you stay in control of</span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Your people get answers. You keep the keys.</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
-            Employees stop waiting for HR on routine questions, and anything that would change a record comes back to them to confirm. Your admin decides the rest.
+            Employees stop waiting for HR on routine questions, and anything that would change a record comes back to a person to confirm. Your admin decides the rest.
           </p>
         </Reveal>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -53,7 +53,7 @@ export function AiControlSection({ cta = true }: { cta?: boolean }) {
         {cta && (
           <div className="mt-8">
             <Button href="/features/ai-assistant" variant="secondary">
-              Explore the AI assistant
+              Explore AI in NeevHR
               <Icon name="arrow" className="h-4 w-4" />
             </Button>
           </div>

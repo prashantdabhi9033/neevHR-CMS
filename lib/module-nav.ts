@@ -20,6 +20,8 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "full-and-final-settlement", name: "Full & final settlement", desc: "F&F worksheet paid through payroll." },
       { slug: "documents", name: "Documents", desc: "Policies and employee files with acknowledgement." },
       { slug: "alumni-portal", name: "Alumni portal", desc: "Ex-employees download payslips, Form 16 and F&F." },
+      { slug: "disciplinary", name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case." },
+      { slug: "posh", name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads." },
     ],
   },
   {
@@ -54,6 +56,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     items: [
       { slug: "recruitment", name: "Recruitment", desc: "Requisitions, panels, offers, hire-to-onboard." },
       { slug: "performance", name: "Performance", desc: "Goals, 360, 9-box, increment sign-off." },
+      { slug: "goal-cascade", name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results." },
       { slug: "compensation", name: "Compensation", desc: "Increment and bonus planning with budgets." },
       { slug: "learning", name: "Learning", desc: "Courses, assignments and completions." },
       { slug: "succession", name: "Succession", desc: "Talent pools, 9-box and successors." },
@@ -68,6 +71,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "engagement", name: "Engagement", desc: "Recognition, pulse and engagement scores." },
       { slug: "surveys", name: "Surveys", desc: "Pulse and eNPS surveys with analytics." },
       { slug: "manager-self-service", name: "Manager self-service", desc: "My Team, one Inbox, delegation and email approvals." },
+      { slug: "approval-channels", name: "Approvals in Slack, Teams, WhatsApp", desc: "Approve from the apps your people use, connected per company." },
       { slug: "helpdesk", name: "HR helpdesk", desc: "Employee tickets with SLA tracking." },
       { slug: "travel", name: "Travel booking", desc: "Travel requests, approvals and travel advances." },
       { slug: "assets", name: "Assets", desc: "Asset issue, custody and return." },
@@ -78,7 +82,7 @@ export const moduleGroups: ModuleNavGroup[] = [
     blurb: "Every list a report, every report a chart.",
     items: [
       { slug: "reports", name: "Reports & analytics", desc: "Report builder, dashboards and drill-down." },
-      { slug: "ai-assistant", name: "AI assistant", desc: "Ask in plain words, within your own access." },
+      { slug: "ai-assistant", name: "AI in NeevHR", desc: "AI inside each module, and an assistant within your own access." },
     ],
   },
   {

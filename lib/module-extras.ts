@@ -434,24 +434,26 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [{ q: "Are both tax regimes covered?", a: "Yes. TDS is projected under the regime the employee chooses." }],
   },
   "ai-assistant": {
-    seoTitle: "AI Assistant for HR and Payroll in India | NeevHR",
+    seoTitle: "AI in HR and Payroll Software for India | NeevHR",
     metaDesc:
-      "The NeevHR AI assistant answers employee, manager and HR questions from your own records, explains why payroll or an approval is blocked, and works only within each person's role.",
+      "NeevHR is fully AI enabled: AI inside each module for resumes, payroll flags, receipts, tax proofs and helpdesk replies, plus an assistant within each person's role. A person decides.",
     workflow: [
-      { step: "Switch on", body: "NeevHR switches it on for your company, module by module. Your Company Admin has it from the start." },
+      { step: "Switch on", body: "NeevHR switches it on for your company, module by module, and your AI admin can turn a module off. Your Company Admin has it from the start." },
       { step: "Choose people", body: "Your admin decides who may use it. Each person reads a notice on what is sent before first use." },
-      { step: "Ask", body: "People ask in plain words. It checks the real record, with the same permissions they have on screen." },
+      { step: "Ask or work", body: "People ask in plain words, or see a suggestion on the record they are working on, with the same permissions they have on screen." },
       { step: "Confirm", body: "Anything that would change a record comes back as a review card, and only the person's confirmation carries it out." },
     ],
     benefits: [
       "Routine questions get answered without waiting for HR",
       "A stuck payroll or approval names the real cause and who can fix it",
       "No per-employee AI fee: your company buys prepaid credits and uses them as needed",
+      "AI works on the module's own screen, and the same input is never charged twice",
     ],
     whoUses: [
       { role: "Employees", does: "Ask about their own leave, attendance, payslip and requests." },
       { role: "Managers", does: "See who is on leave and what is waiting, and review decisions by name." },
       { role: "HR and payroll", does: "Find out what is blocking a run or an approval, and why someone cannot see something." },
+      { role: "Recruiters, agents and approvers", does: "See resume, ticket and proof suggestions on the record they already work on." },
       { role: "Company Admin", does: "Decide who may use it, watch the credit balance and read the usage report." },
     ],
     faqs: [
@@ -465,7 +467,19 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       },
       {
         q: "What data goes to the AI provider?",
-        a: "The question, and the company data needed to answer it, go to our AI provider, Anthropic, which may process it outside India. Bank account, IFSC, PAN, Aadhaar, UAN, ESI number, address, health and disciplinary data are never sent.",
+        a: "The provider is Anthropic, which may process data outside India. For the assistant: the question and the record data needed to answer it; its tools do not read bank account, IFSC, PAN, Aadhaar, UAN, ESI number, address, health or disciplinary data. For a module's AI, when your company switches it on: cleaned resume text, and uploaded receipts or proofs as whole files. A file can contain what is printed on it, so it can show a name, PAN or account number. Proofs on the health-related lines (80D, 80DD, 80DDB, 80U) are not sent. The table on this page lists each feature.",
+      },
+      {
+        q: "Does AI decide anything by itself?",
+        a: "No. It never rejects, approves, pays or changes a record. Each result is labelled as an AI suggestion, and a person uses it or ignores it.",
+      },
+      {
+        q: "Are we charged again when a page is opened or nothing has changed?",
+        a: "No. Nothing calls the model when a page opens, and the same record with the same input reuses the stored result at no charge. Some features run by themselves once switched on, such as resume match when an application arrives; these use credits and have a monthly limit per feature.",
+      },
+      {
+        q: "Is every AI feature on by default?",
+        a: "No. NeevHR switches a module's AI on for your company, and your AI admin can turn it off. With it off, the screen is the normal complete screen, with nothing about AI.",
       },
       {
         q: "Can our HR team read employees' questions?",
@@ -1030,6 +1044,88 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Are relieving and experience letters generated?",
         a: "Yes. The relieving letter is available after F&F is posted and the experience certificate from the last working day, generated for printing. The F&F statement is a PDF.",
       },
+    ],
+  },
+  "goal-cascade": {
+    seoTitle: "OKR and Goal Cascade Software | NeevHR",
+    metaDesc: "Link company, team and personal goals with key results and rolled-up progress for each review cycle, on one employee record in NeevHR.",
+    workflow: [
+      { step: "Set", body: "HR adds one to three company objectives for the review cycle." },
+      { step: "Cascade", body: "Add team objectives with a department and an owner." },
+      { step: "Link", body: "Link each person's goal to the objective it supports." },
+      { step: "Measure", body: "Update key results, and progress rolls up the tree." },
+    ],
+    benefits: ["People see how their goal supports the company's", "HR sees which goals support nothing", "Progress comes from the work recorded, each item counting once"],
+    whoUses: [
+      { role: "HR", does: "Builds the cascade for each cycle." },
+      { role: "Objective owners", does: "Update their objective and its key results." },
+      { role: "Employees", does: "See the objectives and add key results to their goal." },
+    ],
+    faqs: [
+      { q: "Is this OKR?", a: "Yes, in the way most companies use it: objectives with measurable key results, cascaded from company to team to person." },
+      { q: "Does it replace performance goals?", a: "No. It links the goals you already set in Performance to objectives. Linking does not change a goal, so it is not sent for acceptance again." },
+    ],
+  },
+  disciplinary: {
+    seoTitle: "Disciplinary Case Management for HR | NeevHR",
+    metaDesc: "Run show-cause notices, charge sheets, replies, domestic inquiries and outcomes as one dated case in NeevHR, under its own permission, with no AI.",
+    workflow: [
+      { step: "Open", body: "Open a case with the allegation, category and severity." },
+      { step: "Notice", body: "Issue a show-cause notice or charge sheet, and the employee is told." },
+      { step: "Inquiry", body: "Take the reply, name the officer and record the findings." },
+      { step: "Close", body: "Close with an outcome and an order." },
+    ],
+    benefits: ["One dated record of what was issued, and when", "A check against dismissal without an inquiry", "Employees read and answer their own notices"],
+    whoUses: [
+      { role: "HR", does: "Opens and runs cases." },
+      { role: "Inquiry officer", does: "Records the inquiry and findings." },
+      { role: "Employees", does: "Read notices, acknowledge and reply." },
+    ],
+    faqs: [
+      { q: "Does acknowledging a notice admit anything?", a: "No. It records only that the employee received the notice." },
+      { q: "Can the letters be used as they are?", a: "They are starting text filled from the case. Have the wording checked by your adviser." },
+      { q: "Does AI read disciplinary cases?", a: "No. Disciplinary cases and letters have no AI features." },
+    ],
+  },
+  posh: {
+    seoTitle: "POSH Complaint Management for Internal Committees | NeevHR",
+    metaDesc: "A confidential POSH complaint route in NeevHR: employees complain from self-service, only the Internal Committee reads the case, and the annual report has no names.",
+    workflow: [
+      { step: "Set up", body: "Name the Internal Committee and the Local Committee details." },
+      { step: "Complain", body: "The employee makes a confidential complaint from self-service." },
+      { step: "Decide", body: "The committee admits it, and records conciliation or the inquiry." },
+      { step: "Close", body: "The committee records the report, and the employer's action closes the case." },
+    ],
+    benefits: ["A route that HR and managers cannot read", "Statutory dates shown on each case", "An annual report with counts and no names"],
+    whoUses: [
+      { role: "Employees", does: "Make a complaint and follow it." },
+      { role: "Internal Committee", does: "Runs each case." },
+      { role: "Company Admin", does: "Sets up the committee, and cannot read cases." },
+    ],
+    faqs: [
+      { q: "Who can read a complaint?", a: "Only the Internal Committee. HR, the person's manager and Company Admins cannot, and a member who is named in a complaint is kept out of that case." },
+      { q: "Does this make us compliant with the POSH Act?", a: "It records the process. Compliance also rests on your committee, policy and conduct of each case, so take your adviser's reading." },
+      { q: "Does AI read POSH cases?", a: "No. POSH cases and letters have no AI features." },
+    ],
+  },
+  "approval-channels": {
+    seoTitle: "Approve HR Requests from Slack, Teams and WhatsApp | NeevHR",
+    metaDesc: "Approvers can decide HR requests from Slack, Microsoft Teams or WhatsApp. Each app is connected per company, with its own setup guide, under the same rule as email approvals.",
+    workflow: [
+      { step: "Connect", body: "Follow the app's setup guide and enter its details in NeevHR." },
+      { step: "Test", body: "Test the connection. Saving new details turns the channel off until it is tested again." },
+      { step: "Switch on", body: "A Company Admin switches the app on." },
+      { step: "Decide", body: "The approver presses Approve, and the Inbox's own checks run." },
+    ],
+    benefits: ["Approvers answer where they already are", "No request details beyond who asked and what for", "Money and pay stay inside NeevHR"],
+    whoUses: [
+      { role: "Company Admin", does: "Connects each app, with whoever manages that service." },
+      { role: "Approvers", does: "Approve from the message, or open the request in NeevHR." },
+    ],
+    faqs: [
+      { q: "Do these work without setup?", a: "No. Each app is connected per company, using your own Slack app, Teams bot or WhatsApp Business account, with a setup guide for each in the Help Centre." },
+      { q: "Who pays for WhatsApp messages?", a: "Your company, to Meta, on your own WhatsApp Business account." },
+      { q: "Can payroll be approved from a chat app?", a: "No. Money, pay and maker-checker requests only get an Open in NeevHR button." },
     ],
   },
 };
