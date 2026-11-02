@@ -58,6 +58,8 @@ export const taxonomy: TaxGroup[] = [
       { name: "Recruitment", href: "/features/recruitment" },
       { name: "Performance Management", href: "/features/performance" },
       { name: "OKR & Goal Cascade", href: "/features/goal-cascade" },
+      { name: "Development Plans", href: "/features/development-plans" },
+      { name: "360 Feedback", href: "/features/360-feedback" },
       { name: "Compensation", href: "/features/compensation" },
       { name: "Learning", href: "/features/learning" },
       { name: "Succession", href: "/features/succession" },

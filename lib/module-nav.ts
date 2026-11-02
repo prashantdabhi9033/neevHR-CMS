@@ -57,6 +57,8 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "recruitment", name: "Recruitment", desc: "Requisitions, panels, offers, hire-to-onboard." },
       { slug: "performance", name: "Performance", desc: "Goals, 360, 9-box, increment sign-off." },
       { slug: "goal-cascade", name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results." },
+      { slug: "development-plans", name: "Development plans", desc: "Focus areas, actions and approval for each person." },
+      { slug: "360-feedback", name: "360 feedback", desc: "Competencies and anonymity on every cut." },
       { slug: "compensation", name: "Compensation", desc: "Increment and bonus planning with budgets." },
       { slug: "learning", name: "Learning", desc: "Courses, assignments and completions." },
       { slug: "succession", name: "Succession", desc: "Talent pools, 9-box and successors." },
@@ -109,6 +111,8 @@ export type NewFeature = { name: string; desc: string; href: string; menu?: bool
 export const newFeatures: NewFeature[] = [
   { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules" },
   { name: "AI assistant", desc: "Answers from your own records, with your admin in control of who uses it and how much.", href: "/features/ai-assistant" },
+  { name: "Development plans", desc: "Focus areas, actions and approval, linked to appraisals and learning.", href: "/features/development-plans" },
+  { name: "360 feedback by competency", desc: "Question sets, standalone rounds and anonymity on every cut.", href: "/features/360-feedback" },
   { name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results.", href: "/features/goal-cascade" },
   { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },

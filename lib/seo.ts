@@ -24,6 +24,8 @@ export function clampDescription(d: string, max = 160): string {
   return `${cut.slice(0, cut.lastIndexOf(" ", max - 3)).replace(/[,;:]$/, "")}...`;
 }
 
+const TITLE_MAX = 65;
+
 export function pageMeta({
   title,
   description,
@@ -51,6 +53,8 @@ export function pageMeta({
   image?: string;
 }): Metadata {
   description = clampDescription(description);
+  // A long title loses the brand suffix rather than being cut off in search results.
+  if (!absoluteTitle && `${title} | ${site.name}`.length > TITLE_MAX) absoluteTitle = true;
   const fullTitle = absoluteTitle ? title : `${title} | ${site.name}`;
   const url = `${site.url}${path === "/" ? "" : path}`;
   const images = image
@@ -84,6 +88,13 @@ export function pageMeta({
 
 /** The last date the public pages as a whole were changed, for the sitemap. Not a statutory review date. */
 export const CONTENT_UPDATED_ISO = "2026-11-01";
+
+/** Pages changed after CONTENT_UPDATED_ISO keep their own date, so lastmod stays honest. */
+export const PAGE_UPDATED_ISO: Record<string, string> = {
+  "": "2026-11-03",
+  "/faq": "2026-11-03",
+  "/resources": "2026-11-03",
+};
 
 /** SoftwareApplication data shared by the pillar pages. No ratings or reviews: there are none to state. */
 export const softwareJsonLd = (description: string) => ({

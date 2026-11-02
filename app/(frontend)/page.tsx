@@ -16,7 +16,7 @@ import { ReportsVisual } from "@/components/product/ReportsVisual";
 import {
   CompleteHrmsSection,
   OneRecordSection,
-  SizeSection,
+  SizeSection, WhatIsNeevhrSection,
   WhatIsHrmsSection,
 } from "@/components/home/HrmsSections";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -222,6 +222,8 @@ export default function HomePage() {
       <JsonLd data={webPageJsonLd} />
 
       <PhotoHero />
+
+      <WhatIsNeevhrSection />
 
       {/* The product, right under the first block. */}
       <section className="relative overflow-hidden border-b border-line bg-white">

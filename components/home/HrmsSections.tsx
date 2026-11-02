@@ -4,6 +4,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { EmployeesVisual } from "@/components/product/EmployeesVisual";
 import { taxonomy, hrmsIncludes, sizeSegments } from "@/lib/taxonomy";
+import { site } from "@/lib/site";
 
 // Shared, content-heavy sections used on the homepage and the /hrms pillar.
 
@@ -171,6 +172,48 @@ export function OneRecordSection() {
   );
 }
 
+const whatItCovers = [
+  { label: "Employee management", href: "/features/employees" },
+  { label: "Attendance", href: "/features/attendance" },
+  { label: "Leave", href: "/features/leave" },
+  { label: "Payroll", href: "/payroll" },
+  { label: "PF, ESI, PT, LWF and TDS", href: "/india-payroll" },
+  { label: "Recruitment", href: "/features/recruitment" },
+  { label: "Performance", href: "/features/performance" },
+];
+
+// A plain statement of what NeevHR is, near the top of the home page, for people and for search engines.
+export function WhatIsNeevhrSection() {
+  return (
+    <section id="what-is-neevhr" className="scroll-mt-16 border-b border-line bg-white py-14">
+      <Container className="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">What is NeevHR?</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-body">
+            {site.entity} HR, payroll, finance, managers and employees work from one employee
+            record, with Indian statutory rules such as PF, ESI, PT, LWF and TDS built into payroll.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-base font-semibold text-ink">Who it is for</h3>
+          <p className="mt-2 text-[15px] leading-relaxed text-body">
+            Indian organisations of roughly 100 to several thousand employees that have outgrown
+            spreadsheets and disconnected HR tools. It is built for India only.
+          </p>
+          <h3 className="mt-5 text-base font-semibold text-ink">What it covers</h3>
+          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            {whatItCovers.map((c) => (
+              <li key={c.href}>
+                <Link href={c.href} className="font-medium text-brand hover:text-brand-dark">{c.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export function SizeSection() {
   return (
     <section id="company-size" className="scroll-mt-16 border-b border-line bg-surface-soft py-20">
@@ -203,6 +246,18 @@ export function SizeSection() {
           Working out what you need at your size? See our{" "}
           <Link href="/best-hrms-software-india" className="font-medium text-brand hover:text-brand-dark">
             HRMS selection guide for India
+          </Link>
+          , or the notes for a{" "}
+          <Link href="/best-hrms-for-small-business" className="font-medium text-brand hover:text-brand-dark">
+            small business
+          </Link>
+          , a{" "}
+          <Link href="/best-hrms-for-mid-sized-business" className="font-medium text-brand hover:text-brand-dark">
+            mid-sized business
+          </Link>{" "}
+          and{" "}
+          <Link href="/best-hrms-for-1000-employees" className="font-medium text-brand hover:text-brand-dark">
+            1,000 or more employees
           </Link>
           .
         </p>

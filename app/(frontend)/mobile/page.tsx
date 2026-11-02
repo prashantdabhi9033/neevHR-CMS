@@ -31,7 +31,7 @@ const available = [
   { title: "Helpdesk and surveys", body: "Raise HR tickets and respond to surveys." },
   { title: "Why this amount", body: "See how a payslip figure was reached." },
   { title: "Internal jobs and ID card", body: "See open roles inside the company and view your ID card." },
-  { title: "Hindi", body: "Every self-service page is available in Hindi." },
+  { title: "Hindi", body: "Every self-service page and the mobile app are available in Hindi." },
   { title: "Set by your company", body: "Your HR can hide self-service pages by role and entity." },
   { title: "My data", body: "Make data principal requests under the DPDP Act 2023." },
 ];
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: "What is in the mobile app?",
-    a: "Geofenced and QR punch, attendance, leave, payslips, tax, expenses and travel advance, loans, helpdesk, internal jobs, 1:1 meetings, My ID card, approvals, field tracking, the AI assistant, and Sign in with Google or Microsoft. The app screens are in English.",
+    a: "Geofenced and QR punch, attendance, leave, payslips, tax, expenses and travel advance, loans, helpdesk, internal jobs, 1:1 meetings, goals and goal check-ins, development plans, 360 feedback, learning, assets, travel, bookings, onboarding, my interviews, org chart, a Team hub for managers, My ID card, approvals, field tracking, the AI assistant, and Sign in with Google or Microsoft. The app is available in English and Hindi.",
   },
   {
     q: "What stays on the web?",
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: "Is self-service available in Hindi?",
-    a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today.",
+    a: "Yes, for employees. Every self-service page and the mobile app are available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens are in English today.",
   },
 ];
 

@@ -1046,6 +1046,48 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       },
     ],
   },
+  "development-plans": {
+    seoTitle: "Individual Development Plan Software India | NeevHR",
+    metaDesc: "Employee development plans with focus areas, actions, manager approval and check-ins, linked to appraisals, 360 feedback, learning, skills and 1:1s in NeevHR.",
+    workflow: [
+      { step: "Start", body: "From a released appraisal, a 360 round or a blank plan, with skill gaps offered as focus areas." },
+      { step: "Agree", body: "The manager approves or sends it back, and course actions enrol the person on approval." },
+      { step: "Do", body: "Update actions, check in with a note and discuss them in the 1:1." },
+      { step: "Close", body: "Finished courses complete their actions, and the manager closes the plan." },
+    ],
+    benefits: ["A rating leads to something the person will actually do", "Courses, skills and 1:1s stay linked instead of living in separate sheets", "HR sees plans by status and department in one register"],
+    whoUses: [
+      { role: "Employees", does: "Draft their plan, update actions and check in." },
+      { role: "Managers", does: "Start, approve, send back and close plans for their team." },
+      { role: "HR", does: "See plans within their scope, with the report and settings." },
+    ],
+    faqs: [
+      { q: "What is an individual development plan?", a: "A written plan for one person: what they will grow in, the actions they will take, by when, and who agrees it." },
+      { q: "Is a development plan the same as a PIP?", a: "No. A PIP deals with a performance gap and has its own register. A closed PIP can lead to a development plan, and the two stay separate." },
+      { q: "Will an employee learn they are a successor from their plan?", a: "No. An employee's view never shows a talent or succession source." },
+    ],
+  },
+  "360-feedback": {
+    seoTitle: "360 Degree Feedback Software India | NeevHR",
+    metaDesc: "360 degree feedback with question sets, competencies, standalone rounds, reminders and anonymity on every cut, linked to appraisals and development plans in NeevHR.",
+    workflow: [
+      { step: "Set up", body: "Use the standard question set, or add your own by competency." },
+      { step: "Invite", body: "The manager or HR picks reviewers, and a person can propose them." },
+      { step: "Answer", body: "Reviewers answer on the web or in the app, with reminders before the date." },
+      { step: "Use", body: "Combined results feed the appraisal and suggest focus areas for a development plan." },
+    ],
+    benefits: ["Figures stay hidden below the anonymity threshold you set, which helps reviewers be candid", "Works with nothing to configure", "Results lead to a development action, not just a score"],
+    whoUses: [
+      { role: "Managers", does: "Run rounds for their team and read combined results." },
+      { role: "HR", does: "Sets question sets, the scale and the threshold, and reads reports." },
+      { role: "Reviewers", does: "Answer on the web or in the app." },
+    ],
+    faqs: [
+      { q: "How is anonymity protected?", a: "The server holds back averages, competency figures and comments until the threshold is met, including for groups. With a low threshold and very few reviewers, people may still guess, so a higher threshold protects more." },
+      { q: "Can managers see who said what?", a: "No. Managers and HR see who was asked and whether they answered, not their rating or comment." },
+      { q: "Does the employee see their result?", a: "Not by default. A company can choose to show the combined result after release." },
+    ],
+  },
   "goal-cascade": {
     seoTitle: "OKR and Goal Cascade Software India | NeevHR",
     metaDesc: "Link company, team and personal goals with key results and rolled-up progress for each review cycle, on one employee record in NeevHR.",

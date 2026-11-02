@@ -17,6 +17,16 @@ export const metadata: Metadata = pageMeta({
   path: "/resources",
 });
 
+const startHere = [
+  { label: "What is HRMS software?", href: "/blog/what-is-hrms-software" },
+  { label: "HRMS vs HRIS vs HCM", href: "/blog/hrms-vs-hris" },
+  { label: "Cloud HRMS vs on-premise", href: "/blog/cloud-hrms-vs-on-premise" },
+  { label: "Building the business case for an HRMS", href: "/blog/hrms-roi-business-case" },
+  { label: "Moving from separate point tools to one HRMS", href: "/switch-from-point-solutions" },
+  { label: "Payroll software for a growing business", href: "/best-payroll-software-for-growing-business" },
+  { label: "How salary bank files work", href: "/blog/salary-disbursement-bank-file" },
+];
+
 export default function ResourcesPage() {
   return (
     <>
@@ -53,6 +63,19 @@ export default function ResourcesPage() {
               </p>
             </Link>
           </div>
+        </Container>
+      </section>
+
+      <section className="pb-14">
+        <Container>
+          <h2 className="text-2xl font-bold tracking-tight text-ink">Start here</h2>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {startHere.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="font-medium text-brand hover:text-brand-dark">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 

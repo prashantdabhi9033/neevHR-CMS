@@ -191,6 +191,8 @@ export const guides: Guide[] = [
           "Copy setup from one legal entity to another",
           "Preview as employee, to see what a person will see",
           "Go-live checks and an implementation tracker",
+          "A readiness score per legal entity, with a link to fix each gap and a sign-off per area",
+          "A state starter pack with official sources, for HR to review and accept",
           "Cut-over steps, and a go-live kit of scheduled welcome emails",
           "Help Centre inside the product",
         ],
@@ -500,6 +502,7 @@ export const guides: Guide[] = [
       },
     ],
     related: [
+      { label: "Moving from separate point tools", href: "/switch-from-point-solutions" },
       { label: "Payroll software", href: "/payroll" },
       { label: "Monthly payroll process", href: "/blog/monthly-payroll-process-step-by-step" },
       { label: "Switching from Excel", href: "/switch-from-excel" },
@@ -712,6 +715,7 @@ export const guides: Guide[] = [
       },
     ],
     related: [
+      { label: "Choosing an HRMS for a mid-sized business", href: "/best-hrms-for-mid-sized-business" },
       { label: "How to choose an HRMS in India", href: "/best-hrms-software-india" },
       { label: "Switching from Excel", href: "/switch-from-excel" },
       { label: "Pricing", href: "/pricing" },
@@ -917,6 +921,7 @@ export const guides: Guide[] = [
       },
     ],
     related: [
+      { label: "Payroll software for a growing business", href: "/best-payroll-software-for-growing-business" },
       { label: "Payroll software", href: "/payroll" },
       { label: "India payroll", href: "/india-payroll" },
       { label: "Salary TDS calculator", href: "/tools/tds-calculator" },

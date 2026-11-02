@@ -30,6 +30,7 @@ const capabilities: { name: string; detail: string; href?: string }[] = [
   { name: "Form 16", detail: "Part A and Part B generated as employer-issued PDFs, with Form 12BA." },
   { name: "Form 24Q", detail: "Quarterly return text file in the NSDL FVU format, with Annexure II in Q4 and Form 27A. Validate with the government utility before filing." },
   { name: "ECR", detail: "EPFO ECR text file generated from the published payroll run." },
+  { name: "Bank response", detail: "Import your bank's response file with a column mapping you set, to record UTRs and failed transfers, then re-pay from one list." },
   { name: "Challans", detail: "PF challan by account, TDS challan (ITNS 281) with challan-number capture, PT and LWF challans. Payment itself is made on the government portals." },
   { name: "Payroll registers", detail: "Salary register on screen and as CSV, with components itemised from your pay structures." },
   { name: "Bank payment files", detail: "CSV in a generic layout and layouts for HDFC, ICICI, SBI, Axis and Kotak, with NEFT or RTGS chosen by amount." },

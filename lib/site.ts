@@ -2,7 +2,7 @@
 // Keep product claims honest: only list what the product actually does.
 // Re-checked against the product on 31 Oct 2026. Notably NOT available:
 // the mobile app in the stores (it is built, the store release is pending),
-// Hindi for admin screens or the mobile app screens, SAML / Okta, selfie or face
+// Hindi for admin screens, SAML / Okta, selfie or face
 // punch, a live Tally connection, job boards, bank payout API, earned wage access.
 // Do not claim these as available.
 
@@ -132,6 +132,14 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       faqs[2],
       {
+        q: "Is NeevHR suitable for small and medium businesses?",
+        a: "NeevHR is designed for organisations from about 100 employees upward. A smaller company with simple payroll may need less than a full HRMS; the guide for small businesses on this site explains what to check first.",
+      },
+      {
+        q: "Is NeevHR the best HRMS software in India?",
+        a: "No single HRMS is best for every company. The right choice depends on your employee count, payroll complexity, locations, integrations and budget. NeevHR fits Indian organisations that want HR, attendance, leave and payroll with statutory compliance on one employee record. It does not hold SOC 2 or ISO 27001 certification, so check that against your requirements. Compare it on your own payroll data before you decide.",
+      },
+      {
         q: "How many employees can NeevHR support?",
         a: "NeevHR is designed for organisations from about 100 to several thousand employees. For larger workforces we size the deployment with you during evaluation rather than quote a fixed limit.",
       },
@@ -169,7 +177,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Is NeevHR available in Hindi?",
-        a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today. Notification emails can be set in Hindi too.",
+        a: "Yes, for employees. Every self-service page and the mobile app are available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens are in English today. Notification emails can be set in Hindi too.",
       },
     ],
   },

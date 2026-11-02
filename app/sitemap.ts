@@ -8,7 +8,7 @@ import { industries } from "@/lib/industries";
 import { guides } from "@/lib/guides";
 import { glossary } from "@/lib/glossary";
 import { states } from "@/lib/states";
-import { CONTENT_UPDATED_ISO } from "@/lib/seo";
+import { CONTENT_UPDATED_ISO, PAGE_UPDATED_ISO } from "@/lib/seo";
 
 // Regenerate hourly so posts published in /admin or by the seed route reach
 // the sitemap without waiting for a redeploy.
@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const reviewed = new Date(CONTENT_UPDATED_ISO);
   const entry = (path: string, priority: number): Entry => ({
     url: `${site.url}${path}`,
-    lastModified: reviewed,
+    lastModified: PAGE_UPDATED_ISO[path] ? new Date(PAGE_UPDATED_ISO[path]) : reviewed,
     changeFrequency: "monthly",
     priority,
   });

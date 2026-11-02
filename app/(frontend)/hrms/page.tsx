@@ -109,6 +109,8 @@ const blocks: Block[] = [
     points: [
       "Weighted goals and review cycles",
       "OKR and goal cascade, with key results",
+      "Goal check-ins with history, and goals at risk",
+      "Development plans linked to appraisals and learning",
       "360 feedback and a 9-box talent view",
       "Rating distribution view for calibration discussions",
       "Increment and bonus decisions linked to ratings",
@@ -242,7 +244,7 @@ const hrmsFaqs = [
   },
   {
     q: "Is NeevHR available in Hindi?",
-    a: "Yes, for employees. Every self-service page is available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens and the mobile app are in English today.",
+    a: "Yes, for employees. Every self-service page and the mobile app are available in Hindi, and the AI assistant replies in Hindi or Gujarati. Admin screens are in English today.",
   },
   {
     q: "Can we see NeevHR before deciding?",

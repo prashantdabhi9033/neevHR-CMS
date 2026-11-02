@@ -25,8 +25,9 @@ export function PhotoHero() {
 
       <div className="mx-auto grid max-w-[1560px] items-center gap-10 px-4 pb-12 pt-2 sm:px-8 lg:min-h-[784px] lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.55fr)_minmax(400px,0.75fr)] lg:gap-0 lg:px-[clamp(32px,5vw,88px)] lg:pb-14 lg:pt-[120px]">
         <div className="max-w-[540px]">
-          <p className="text-sm font-semibold tracking-wide text-[#cfc8ff]">India-first HRMS &amp; Payroll Software</p>
-          <h1 className="mt-3 text-[2.6rem] font-bold leading-[1.06] tracking-tight sm:text-[3.4rem]">
+          {/* The category line is part of the H1, so the page's main heading says what NeevHR is. */}
+          <h1 className="text-[2.6rem] font-bold leading-[1.06] tracking-tight sm:text-[3.4rem]">
+            <span className="mb-3 block text-sm font-semibold leading-normal tracking-wide text-[#cfc8ff]">India-first HRMS &amp; Payroll Software:</span>{" "}
             Foundation for{" "}
             <span className="block w-fit bg-gradient-to-r from-[#cfc8ff] to-[#ffb37a] bg-clip-text text-transparent">Every HR Process</span>
           </h1>
