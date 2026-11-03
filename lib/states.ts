@@ -8,6 +8,8 @@ export type StateGuide = {
   name: string;
   reviewed: string;
   reviewedIso: string;
+  /** First publication date, when it differs from the review date. */
+  publishedIso?: string;
   summary: string;
   pt: {
     body: string[];

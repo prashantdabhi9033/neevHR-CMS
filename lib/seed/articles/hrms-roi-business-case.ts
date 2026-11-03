@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-10-08",
   body: `HRMS ROI is the net benefit of a new HR system over a fixed period, usually three years, divided by its total cost. To build a business case a CFO will trust, measure today's cost baseline, separate hard savings (cash you stop spending) from soft savings (time and risk), model the total cost of ownership, and show the payback period under a cautious case as well as an expected one.
 
-This guide walks through each step with a worked example for a 1,000-employee company. For the cost side in detail, see [HRMS cost in India](/blog/hrms-cost-in-india); for the scale-specific view, see [HRMS for 1,000 employees](/blog/hrms-for-1000-employees).
+This guide walks through each step with a worked example for a 1,000-employee company. For the cost side in detail, see [HRMS cost in India](/blog/hrms-cost-in-india); for the scale-specific view, see [HRMS for 1,000 employees](/best-hrms-for-1000-employees).
 
 ## Why most HRMS business cases fail with the CFO
 

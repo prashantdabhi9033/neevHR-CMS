@@ -10,6 +10,10 @@ export type ModuleExtra = {
   benefits: string[];
   whoUses: { role: string; does: string }[];
   faqs: { q: string; a: string }[];
+  /** H1 with the category search term; the module's slogan title then shows as the subhead. */
+  h1?: string;
+  /** India-specific context shown in place of the shared platform band. */
+  india?: { title: string; intro: string; points: { t: string; b: string }[] };
 };
 
 export const moduleExtras: Record<string, ModuleExtra> = {
@@ -46,7 +50,21 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Can we add our own fields?",
         a: "Yes. Custom fields can be added to the employee record without code.",
       },
+      { q: "Which statutory details does the employee record hold?", a: "PAN, Aadhaar, UAN, ESI number and bank details, encrypted at field level, plus the PF and ESI settings that payroll uses." },
+      { q: "Can we see the organisation as it was on a past date?", a: "Yes. Because changes are dated events, headcount, master reports and the org chart can be produced as of any date." },
+      { q: "Who can see salary and identity data?", a: "Only roles you allow. Access follows data scopes by entity, location or department, and sensitive fields are masked for everyone else." },
     ],
+    h1: "Employee management software for Indian companies",
+    india: {
+      title: "Built for Indian employee records",
+      intro: "An Indian employee record carries statutory identity as well as job and pay: PAN, Aadhaar, UAN, ESI number and bank details, the PF and ESI coverage that follows from them, and the dated history auditors and courts ask for.",
+      points: [
+        { t: "Statutory identity", b: "PAN, Aadhaar, UAN, ESI number and bank details are held once, encrypted at field level and masked for roles that do not need them." },
+        { t: "Dated history", b: "Promotions, transfers and pay changes are dated events, so registers and reports can be produced as they stood on any date." },
+        { t: "Several entities", b: "One person can move between legal entities with their own registrations while keeping one record and one UAN." },
+        { t: "Retention", b: "Records stay available for the periods labour and tax law require after an employee leaves." },
+      ],
+    },
   },
   onboarding: {
     seoTitle: "Employee Onboarding Software India | NeevHR",
@@ -77,7 +95,22 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Can we make joiners acknowledge policies?",
         a: "Yes. HR can publish onboarding policies that joiners read and acknowledge.",
       },
+      { q: "Does onboarding capture UAN and bank details?", a: "Yes. Joiners enter statutory and bank details in their onboarding tasks, and they land in the employee record that payroll uses." },
+      { q: "Can an accepted offer start the onboarding journey?", a: "Yes. An accepted offer creates the joining journey, so details from recruitment are not keyed in again." },
+      { q: "Can we issue the appointment letter from NeevHR?", a: "Yes. Letters are generated from templates with the joiner's details, ready to sign and share." },
+      { q: "Can a buddy or IT team get tasks before day one?", a: "Yes. Pre-join tasks can go to HR, the manager, IT or a buddy, with due dates before the joining date." },
     ],
+    h1: "Employee onboarding software for Indian companies",
+    india: {
+      title: "What Indian onboarding has to capture",
+      intro: "A joiner in India brings statutory details that payroll needs in the first month: PAN, Aadhaar, the existing UAN or the steps to generate one, bank details, and the declarations and nominations that go with PF and ESI. The OSH Code, 2020 also requires an appointment letter for every employee.",
+      points: [
+        { t: "UAN before the first payroll", b: "Collect the existing UAN, or share the face-authentication steps so the joiner generates one before day one; the first ECR needs it." },
+        { t: "Identity and bank details", b: "PAN, Aadhaar and bank details captured once, encrypted and masked, and checked before they reach payroll." },
+        { t: "Appointment letter", b: "Issue the appointment letter the OSH Code requires, with the probation terms written in." },
+        { t: "Policies acknowledged", b: "Joiners read and accept the policies that apply to them, with the acknowledgement recorded." },
+      ],
+    },
   },
   attendance: {
     seoTitle: "Attendance Management Software India | NeevHR",
@@ -116,7 +149,21 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "How does attendance affect payroll?",
         a: "Closed attendance produces LOP days and approved overtime, which payroll reads directly.",
       },
+      { q: "Does NeevHR apply the OSH Code overtime rules?", a: "Overtime rules are configured per group: when overtime starts, the rate (twice the ordinary rate for workers under the OSH Code) and an optional quarterly cap from your state's rules. Approved overtime flows into payroll." },
+      { q: "Can attendance work for field staff?", a: "Yes. Field staff can mark attendance with geofencing, alongside biometric devices at sites and web check-in for office staff." },
+      { q: "Can we set a grace period for late arrival?", a: "Yes. Grace, half-day and short-day thresholds are part of the shift rules, applied the same way for everyone in the group." },
     ],
+    h1: "Attendance management software for Indian companies",
+    india: {
+      title: "Attendance rules in India, built in",
+      intro: "Since 21 November 2025 working hours, overtime and leave for workers are governed by the OSH Code, 2020, with the details in state rules; shops and offices also follow their state Shops and Establishments Act. Attendance has to apply those rules before payroll does.",
+      points: [
+        { t: "Daily and weekly limits", b: "No worker works more than 8 hours a day under the OSH Code; weekly limits and spread-over follow your state's rules." },
+        { t: "Overtime at twice the rate", b: "Overtime is paid at twice the ordinary rate with the worker's consent, within the quarterly cap your state notifies." },
+        { t: "Weekly holiday", b: "At least one day off in seven, with rosters checked before they are published." },
+        { t: "Pay at risk before payroll", b: "Missing punches and unjustified absences surface while there is still time to regularise them, so loss of pay is never a surprise." },
+      ],
+    },
   },
   leave: {
     seoTitle: "Leave Management Software India | NeevHR",
@@ -151,7 +198,22 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Is leave encashment supported?",
         a: "Yes. Encashment rules can be configured, and encashment is included in full and final settlement.",
       },
+      { q: "Can we apply a sandwich rule?", a: "Yes, per leave type: choose whether weekly offs and holidays between leave days count as leave, so the rule is explicit rather than decided case by case." },
+      { q: "Does NeevHR handle comp-off?", a: "Yes. Comp-off can be set up as a leave type earned for working a holiday or weekly off, with its own validity and approval." },
+      { q: "Can leave policies differ by state or location?", a: "Yes. Policies are assigned to employee groups, so a plant in one state and an office in another can follow different minimums and holiday calendars." },
+      { q: "How does unpaid leave reach payroll?", a: "Approved leave without pay and unregularised absences become loss of pay days in the month's payroll, which reduce both pay and the PF and ESI base." },
     ],
+    h1: "Leave management software for Indian companies",
+    india: {
+      title: "Leave rules in India, built in",
+      intro: "India has no single leave law for private employers. Minimum leave comes from the OSH Code, 2020 for factories and covered establishments, from state Shops and Establishments Acts for shops and offices, and from the Code on Social Security, 2020 for maternity. Company policy sits on top and must not fall below them.",
+      points: [
+        { t: "Annual leave under the OSH Code", b: "A worker who has worked 180 days in a calendar year earns one day of leave for every 20 days worked (the Factories Act needed 240 days)." },
+        { t: "Maternity", b: "26 weeks for the first two children, 12 weeks from the third child and for adoption or surrogacy, after 80 days of work in the preceding 12 months." },
+        { t: "State minimums", b: "Shops and Establishments Acts set earned, casual and sick leave minimums that differ by state, so policies can differ by location." },
+        { t: "Encashment tax", b: "Earned leave encashed at exit is exempt up to ₹25 lakh under section 19(1) of the Income-tax Act, 2025." },
+      ],
+    },
   },
   rostering: {
     seoTitle: "Shift & Roster Management Software India | NeevHR",
@@ -248,7 +310,21 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Does NeevHR support background verification?",
         a: "Yes. Background verification can be tracked as part of the candidate process.",
       },
+      { q: "Does NeevHR have a careers website?", a: "Yes. Openings can be published on a careers page where candidates apply directly into the pipeline." },
+      { q: "Can NeevHR read resumes?", a: "Yes. Resumes are parsed into candidate fields, and where AI is switched on a resume match suggests fit against the job. The recruiter decides; nothing is rejected automatically." },
+      { q: "Can interviewers give structured feedback?", a: "Yes. Panels score candidates on scorecards per round, and the feedback stays with the candidate's record." },
     ],
+    h1: "Recruitment software and applicant tracking for Indian companies",
+    india: {
+      title: "Hiring the way Indian companies hire",
+      intro: "Indian hiring runs through requisitions with budget approval, high applicant volumes from job portals, referrals and campus drives, notice periods of 30 to 90 days that cause offer dropouts, and background verification before joining.",
+      points: [
+        { t: "Approved requisitions", b: "Every opening starts from a requisition checked against the approved headcount and budget." },
+        { t: "Volume and sources", b: "Candidates from the careers page, referrals and agencies in one pipeline, with source tracked for cost per hire." },
+        { t: "Long notice periods", b: "Offers carry the approved compensation and the joining date, so dropout risk during notice is visible." },
+        { t: "Hand-over to onboarding", b: "An accepted offer becomes the onboarding journey and the employee record, with nothing re-keyed." },
+      ],
+    },
   },
   performance: {
     seoTitle: "Performance Management Software India | NeevHR",
@@ -283,7 +359,21 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         q: "Does NeevHR support 1:1 meetings?",
         a: "Yes. Managers run recurring 1:1s with a shared agenda that carries over, private notes, action items and a mood check-in, and HR sees a coverage report.",
       },
+      { q: "Can goals cascade from company to team?", a: "Yes. Company objectives can cascade to departments and individuals, with weighted goals that must add up to 100%." },
+      { q: "How do ratings reach increments?", a: "At final sign-off the rating sets the increment through your merit grid, and the approved increment is applied in compensation and payroll." },
+      { q: "Can employees see their own review?", a: "Yes, when the cycle releases it. Employees see their goals, self-review and the final outcome in self-service." },
     ],
+    h1: "Performance management software for Indian companies",
+    india: {
+      title: "How appraisal cycles run in Indian companies",
+      intro: "Most Indian companies run one annual appraisal aligned to the financial year, with increments from April. The cycle has to link goals, reviews, calibration and the increment decision, so ratings can be defended when an increment is questioned.",
+      points: [
+        { t: "Financial-year cycle", b: "Goals set at the start of the year, mid-year and annual reviews, and increments effective from April or your cycle date." },
+        { t: "Calibration", b: "Rating distribution and a 9-box view across departments, without forcing a bell curve." },
+        { t: "Increment link", b: "Final ratings reprice increments at sign-off and flow into compensation and payroll." },
+        { t: "Development", b: "360 feedback and development plans built on the same record." },
+      ],
+    },
   },
   expenses: {
     seoTitle: "Expense Management Software for Employees | NeevHR",

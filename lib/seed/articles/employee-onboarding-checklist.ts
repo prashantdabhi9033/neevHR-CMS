@@ -64,7 +64,7 @@ Day one is when the statutory paperwork is easiest to complete, because the empl
 | Bank account | Verify that the account holder name matches | Prevents failed salary credits |
 | Professional tax and LWF | Record the work location state | Rates and applicability vary by state |
 
-**PF enrolment.** Employees whose PF wages are within the ₹25,000 ceiling must be enrolled. A joiner above the ceiling can be treated as an excluded employee if your policy allows, but not someone who is already a PF member from an earlier job: their membership continues. At the ceiling, the employee's 12% share is ₹3,000 a month. Our guides to [EPF](/blog/epf-explained-contribution-uan-withdrawal) and [ESI](/blog/esi-explained-eligibility-benefits-contribution) cover contributions in detail.
+**PF enrolment.** Employees whose PF wages are within the ₹25,000 ceiling must be enrolled. A joiner above the ceiling can be treated as an excluded employee if your policy allows, but not someone who is already a PF member from an earlier job: their membership continues. At the ceiling, the employee's 12% share is ₹3,000 a month. Our guides to [EPF](/blog/epf-explained-contribution-uan-withdrawal) and [ESI](/blog/esi-eligibility) cover contributions in detail.
 
 **Policies.** Record acknowledgement of the code of conduct, the POSH policy with the Internal Committee's contact details, leave and attendance rules, IT acceptable use, and the privacy notice for employee data.
 

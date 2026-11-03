@@ -3,6 +3,8 @@
 // related guides. Statutory figures carry the review date in lib/seo.ts and
 // the page shows a disclaimer; keep them in sync with the calculators.
 
+import { moreGlossary } from "@/lib/glossary-more";
+
 export type GlossaryTerm = {
   slug: string;
   term: string;
@@ -101,8 +103,8 @@ export const glossary: GlossaryTerm[] = [
       "The Employees' Provident Fund is a statutory retirement savings scheme administered by the Employees' Provident Fund Organisation (EPFO). Covered establishments deduct the employee's share from salary, add the employer's share, and remit both every month through an Electronic Challan cum Return (ECR).",
     howItWorks: [
       "Employee contribution: 12% of PF wages (basic plus dearness allowance).",
-      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to the EPS ceiling of ₹15,000 (a maximum of ₹1,250 a month) and the balance to EPF.",
-      "The PF wage ceiling is ₹25,000 a month from 17 September 2026. The EPS wage ceiling stays ₹15,000. Employees earning up to ₹25,000 must be covered; employers may contribute on actual wages above the ceiling.",
+      "Employer contribution: 12% of PF wages, of which 8.33% goes to the Employees' Pension Scheme (EPS) on wages up to the ceiling of ₹25,000 (a maximum of ₹2,083 a month from 17 September 2026; ₹1,250 before) and the balance to EPF.",
+      "The PF wage ceiling is ₹25,000 a month from 17 September 2026. EPS and EDLI use the same ceiling. Employees earning up to ₹25,000 must be covered; employers may contribute on actual wages above the ceiling.",
       "Employers also pay EDLI (0.5%, on wages up to ₹25,000) and EPF administration charges (0.5%).",
       "Each member has a Universal Account Number (UAN) that stays with them across employers.",
     ],
@@ -112,8 +114,8 @@ export const glossary: GlossaryTerm[] = [
       title: "Basic of ₹30,000, contribution capped at ₹25,000",
       lines: [
         "Employee PF: 12% × ₹25,000 = ₹3,000",
-        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
-        "Employer EPF: ₹3,000 − ₹1,250 = ₹1,750",
+        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
+        "Employer EPF: ₹3,000 − ₹2,083 = ₹917",
         "Total remitted to EPF and EPS: ₹6,000, plus EDLI and admin charges",
       ],
     },
@@ -161,7 +163,7 @@ export const glossary: GlossaryTerm[] = [
     ],
     related: [
       { label: "ESI calculator", href: "/tools/esi-calculator" },
-      { label: "ESI explained", href: "/blog/esi-explained-eligibility-benefits-contribution" },
+      { label: "ESI explained", href: "/blog/esi-eligibility" },
       { label: "Gross salary", href: "/glossary/gross-salary" },
     ],
     sources: [{ label: "ESIC", href: "https://www.esic.gov.in/" }],
@@ -399,7 +401,7 @@ export const glossary: GlossaryTerm[] = [
       "House Rent Allowance is paid to help employees meet rent. Its exemption is available only to employees who pay rent and choose the old tax regime. Under the new regime HRA is fully taxable. From 1 April 2026 the Income-tax Act, 2025 replaces the 1961 Act, so the section numbers you may know (such as 10(13A)) are renumbered; the three-limb test is carried forward.",
     howItWorks: [
       "Exempt HRA is the least of: (1) actual HRA received, (2) 50% of basic for metro cities or 40% for others, (3) rent paid minus 10% of basic.",
-      "Metro cities for this rule are Delhi, Mumbai, Kolkata and Chennai.",
+      "From tax year 2026-27 the 50% limb applies in eight cities: Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad (rule 279, Income-tax Rules, 2026); earlier years used only the first four.",
       "Employees declare rent during the year and submit proof before the year-end so TDS can reflect the exemption.",
     ],
     whyHrCares:
@@ -452,7 +454,7 @@ export const glossary: GlossaryTerm[] = [
     ],
     related: [
       { label: "Attendance and overtime rules", href: "/blog/attendance-and-overtime-rules-in-india" },
-      { label: "Monthly payroll process", href: "/blog/monthly-payroll-process-step-by-step" },
+      { label: "Monthly payroll process", href: "/blog/monthly-payroll-checklist" },
     ],
   },
   {
@@ -526,5 +528,7 @@ export const glossary: GlossaryTerm[] = [
     ],
   },
 ];
+
+glossary.push(...moreGlossary);
 
 export const glossaryBySlug = Object.fromEntries(glossary.map((g) => [g.slug, g]));

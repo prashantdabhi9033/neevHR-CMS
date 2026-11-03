@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { MERGED_POSTS } from "@/lib/merged-posts";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
@@ -67,7 +68,39 @@ const isOrgAuthor = (a?: string | null) => !a || /neevhr/i.test(a);
 
 export const revalidate = 60;
 
+// An empty list makes every post an ISR page generated on its first request and cached
+// for `revalidate` seconds (no database needed at build time). Without it the route
+// rendered dynamically with no-store on every request (audit TECH-13).
+export async function generateStaticParams() {
+  return [];
+}
+
 type Params = { params: Promise<{ slug: string }> };
+
+// Other published posts in the same category, so every post links to its neighbours
+// and newer posts get internal links from older ones (audit WEB-008).
+async function getMoreInCategory(slug: string, category?: string | null) {
+  try {
+    const payload = await getPayload({ config });
+    const { docs } = await payload.find({
+      collection: "posts",
+      where: {
+        and: [
+          { _status: { equals: "published" } },
+          { category: { equals: category ?? "hr-strategy" } },
+          { slug: { not_equals: slug } },
+          { slug: { not_in: Object.keys(MERGED_POSTS) } },
+        ],
+      },
+      sort: "-publishedAt",
+      limit: 6,
+      depth: 0,
+    });
+    return docs.map((d) => ({ slug: d.slug as string, title: d.title as string }));
+  } catch {
+    return [];
+  }
+}
 
 async function getPost(slug: string) {
   try {
@@ -124,6 +157,7 @@ function formatDate(d?: string | null) {
 
 export default async function PostPage({ params }: Params) {
   const { slug } = await params;
+  if (MERGED_POSTS[slug]) permanentRedirect(MERGED_POSTS[slug]);
   const post = await getPost(slug);
   if (!post) notFound();
 
@@ -133,6 +167,7 @@ export default async function PostPage({ params }: Params) {
       : null;
 
   const article = post.bodyMarkdown ? renderArticle(post.bodyMarkdown) : null;
+  const more = await getMoreInCategory(slug, post.category);
 
   const url = `${site.url}/blog/${slug}`;
   const articleJsonLd = {
@@ -148,7 +183,7 @@ export default async function PostPage({ params }: Params) {
     datePublished: post.publishedAt || undefined,
     dateModified: post.updatedAt || post.publishedAt || undefined,
     author: isOrgAuthor(post.author)
-      ? { "@type": "Organization", name: post.author || `${site.name} Team`, url: site.url }
+      ? { "@type": "Organization", "@id": `${site.url}/#organization`, name: post.author || `${site.name} Team`, url: site.url }
       : {
           "@type": "Person",
           name: post.author,
@@ -258,6 +293,26 @@ export default async function PostPage({ params }: Params) {
             reviewed={formatDate(post.updatedAt || post.publishedAt)}
             sources={STATUTORY_SOURCES}
           />
+        )}
+
+        {more.length > 0 && (
+          <nav aria-label="More articles" className="mt-10">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">
+              More on {categoryOf(post.category).label.toLowerCase()}
+            </h2>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {more.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    href={`/blog/${r.slug}`}
+                    className="block rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink hover:border-brand/40 hover:text-brand"
+                  >
+                    {r.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         )}
 
         {(relatedByCategory[post.category ?? ""] ?? relatedByCategory["hr-strategy"]).length > 0 && (

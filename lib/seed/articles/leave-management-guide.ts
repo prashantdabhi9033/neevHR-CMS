@@ -86,7 +86,7 @@ Absence without approved leave, or beyond the available balance, becomes loss of
 
 For a monthly gross of ₹62,000 and 2 LOP days in July, a calendar-day policy deducts ₹62,000 × 2 ÷ 31 = ₹4,000. With a fixed 30-day divisor, the same 2 days cost about ₹4,133. Either is workable if it is written down and applied consistently. LOP also reduces the wages on which PF and ESI are calculated, so the contribution files must follow the pay actually earned.
 
-When leave is approved after payroll has closed, the month is already paid with LOP. The fix is an LOP reversal in the next payroll, paid as arrears with the PF and ESI adjusted, as described in our [monthly payroll process guide](/blog/monthly-payroll-process-step-by-step). Rules that turn late arrivals into leave or pay deductions deserve a check against the wage deduction provisions before you adopt them.
+When leave is approved after payroll has closed, the month is already paid with LOP. The fix is an LOP reversal in the next payroll, paid as arrears with the PF and ESI adjusted, as described in our [monthly payroll process guide](/blog/monthly-payroll-checklist). Rules that turn late arrivals into leave or pay deductions deserve a check against the wage deduction provisions before you adopt them.
 
 ## Reporting that helps
 

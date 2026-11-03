@@ -10,7 +10,8 @@ import { editions, featureGroups, type Cell, type Feature } from "@/lib/pricing"
 // Edition cards: the promise and the highlights first, so the three can be read side by side. The full list of what an
 // edition adds sits under one collapsible heading per module, and each feature opens in place to its description.
 
-type Item = Feature & { level?: string };
+// "upgraded": already in the previous edition at a lower level, so it is listed but not counted as new.
+type Item = Feature & { level?: string; upgraded?: boolean };
 type Section = { group: string; items: Item[] };
 
 const label = (c: Cell) => (typeof c === "string" ? c : undefined);
@@ -23,10 +24,10 @@ function sectionsFor(i: number): Section[] {
       items: g.features
         .filter((f) => {
           const c = f.tiers[i];
-          if (c === false || c === "Quoted") return false;
+          if (c === false) return false;
           return i === 0 || f.tiers[i - 1] === false || String(f.tiers[i - 1]) !== String(c);
         })
-        .map((f) => ({ ...f, level: label(f.tiers[i]) })),
+        .map((f) => ({ ...f, level: label(f.tiers[i]), upgraded: i > 0 && f.tiers[i - 1] !== false })),
     }))
     .filter((s) => s.items.length > 0);
 }
@@ -107,7 +108,9 @@ export function EditionPlans() {
   return (
     <div className="grid items-start gap-6 lg:grid-cols-3">
       {plans.map((e) => {
-        const count = e.sections.reduce((n, s) => n + s.items.length, 0);
+        // New features only, so Core plus each edition's additions equals the comparison table's total.
+        const count = e.sections.reduce((n, s) => n + s.items.filter((x) => !x.upgraded).length, 0);
+        const upgraded = e.sections.reduce((n, s) => n + s.items.filter((x) => x.upgraded).length, 0);
         return (
           <div
             key={e.key}
@@ -150,7 +153,7 @@ export function EditionPlans() {
 
             <div className="border-t border-line px-6 pb-3 pt-4 sm:px-7">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
-                {e.plus ? `All ${count} additions, by module` : `All ${count} features, by module`}
+                {e.plus ? `${count} more features${upgraded ? `, ${upgraded} upgraded` : ""}, by module` : `All ${count} features, by module`}
               </h3>
               <div className="mt-1">
                 {e.sections.map((s) => (

@@ -82,7 +82,7 @@ A knowledge base deflects repeat questions before they become tickets. Start wit
 | Why is my take-home different this month? | LOP, arrears, tax changes, PF changes | [Take-home salary calculator](/tools/take-home-salary-calculator) |
 | How is my TDS worked out? | Regime, declarations, monthly projection | [TDS calculator](/tools/tds-calculator) |
 | How do I submit investment proofs? | Deadlines, accepted documents, what happens if missed | [Proof submission guide](/blog/investment-declaration-proof-submission) |
-| What is my UAN and how do I activate it? | UAN, KYC, transfer | [UAN explained](/blog/uan-explained) |
+| What is my UAN and how do I activate it? | UAN, KYC, transfer | [UAN explained](/blog/epf-explained-contribution-uan-withdrawal#what-is-the-uan) |
 | How is my leave balance calculated? | Accrual, carry forward, encashment | Your leave policy |
 | When will my F&F be paid? | Timeline, components, documents | [Full and final settlement](/blog/full-and-final-settlement-explained) |
 
@@ -115,7 +115,7 @@ Practical responses:
 - **Roster an extra handler** from HR operations for the peak days, using canned responses.
 - **Fix root causes**: if 30 tickets ask about the same LOP calculation, the issue is attendance data or communication, not the helpdesk.
 
-Also note the cost side. If an HR executive's loaded cost is ₹60,000 a month and they spend 40 hours a month on payroll queries, against roughly 176 working hours that is about 23% of their time, or around ₹13,600 a month spent on answering questions. These are illustrative figures; reducing repeat queries by a third saves time that can go to accuracy checks before the next run. Our [monthly payroll process](/blog/monthly-payroll-process-step-by-step) guide shows where those checks fit.
+Also note the cost side. If an HR executive's loaded cost is ₹60,000 a month and they spend 40 hours a month on payroll queries, against roughly 176 working hours that is about 23% of their time, or around ₹13,600 a month spent on answering questions. These are illustrative figures; reducing repeat queries by a third saves time that can go to accuracy checks before the next run. Our [monthly payroll process](/blog/monthly-payroll-checklist) guide shows where those checks fit.
 
 ## Which helpdesk metrics should you track?
 

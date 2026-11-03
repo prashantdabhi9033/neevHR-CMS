@@ -22,9 +22,9 @@ export type SeedPost = {
 export const seedPosts: SeedPost[] = [
   {
     slug: "epf-explained-contribution-uan-withdrawal",
-    title: "EPF explained: contributions, UAN, interest and withdrawal",
+    title: "EPF and UAN explained: contributions, UAN, KYC and withdrawal",
     excerpt:
-      "A complete guide to the Employees' Provident Fund in India: who is covered, how the 12% is split, the EPS pension share, the UAN, interest, and how withdrawals are taxed.",
+      "EPF and UAN for employers: coverage, the 12% split and EPS on the ₹25,000 ceiling, UAN generation and KYC, transfers, interest and tax on withdrawal.",
     category: "payroll",
     author: "NeevHR Team",
     publishedAt: "2026-08-02",
@@ -32,7 +32,7 @@ export const seedPosts: SeedPost[] = [
 
 ## Who is covered by EPF
 
-The EPF scheme is mandatory for establishments employing 20 or more people, across most scheduled industries. Once an establishment is covered, it stays covered even if the headcount later drops below 20.
+EPF runs under Chapter III of the Code on Social Security, 2020, in force since 21 November 2025, and applies to establishments employing 20 or more people, and to smaller ones that are notified or opt in. Once an establishment is covered, it stays covered even if the headcount later drops below 20.
 
 Within a covered establishment, any employee earning basic wages up to the wage ceiling at the time of joining must be enrolled. The ceiling is ₹25,000 per month from 17 September 2026 (notification S.O. 5109(E) under the Code on Social Security, 2020); it was ₹15,000 before that, so employees earning between ₹15,001 and ₹25,000 are now covered compulsorily. Employees earning above that threshold are called "excluded employees" and are not compulsorily covered, but the employer can, and usually does, extend membership to them voluntarily. In practice most established employers cover their entire workforce, because a split scheme is harder to administer and worse for the employee.
 
@@ -46,15 +46,105 @@ Both the employee and the employer contribute 12% of PF wages. PF wages generall
 | Employer share to pension (EPS) | 8.33% | PF wages, capped at ₹25,000 (so up to ₹2,083) |
 | Employer share to EPF | 3.67% and any balance | Remainder after EPS |
 
-On top of the 12% each, the employer also pays small charges: EDLI (a life insurance component) and administrative charges, together roughly 0.5% of PF wages. Because the EPS portion is capped at 8.33% of the ₹25,000 ceiling, a high earner's pension contribution is capped at ₹2,083 a month, with the rest of the employer share flowing to EPF. EPFO's operational guidance on applying the new ceiling within September 2026 was awaited at the time of review.
+On top of the 12% each, the employer also pays small charges: EDLI (a life insurance component) and administrative charges, together roughly 0.5% of PF wages. Because the EPS portion is capped at 8.33% of the ₹25,000 ceiling, a high earner's pension contribution is capped at ₹2,083 a month, with the rest of the employer share flowing to EPF. EPS and EDLI use the same ₹25,000 ceiling. The Central Government's separate 1.16% pension share stays on ₹15,000 under G.S.R. 890(E) and is not deducted by the employer. September 2026 is a split month: the old ceiling applies to 1 to 16 September and the new one from 17 September, as our [monthly payroll checklist](/blog/monthly-payroll-checklist) explains. EPFO's operational guidance on the split month was awaited at the time of review.
 
 Many employers choose to cap PF wages at the ₹25,000 statutory ceiling even for employees whose basic exceeds it. That makes the contribution for such employees ₹3,000 per side per month. Others contribute on actual basic, which builds a larger retirement corpus. Both are valid; what matters is that the policy is consistent and correctly reflected in payroll.
 
 ## What is the UAN
 
-The Universal Account Number (UAN) is a 12-digit number issued to every EPF member. It is the single most useful reform the EPFO has made, because it stays with the employee for life, across every employer.
+The Universal Account Number (UAN) is the 12-digit number EPFO gives each PF member for life. Every employer the person works for opens a new member ID under the same UAN, so the whole PF history sits in one place.
 
-When an employee changes jobs, the new employer links the new PF member ID to the same UAN. The employee can then see their entire PF history in one place, check their balance, and transfer the old balance into the new account online, without the paper transfer claims of the past. As HR, your job at onboarding is to collect the existing UAN if the joiner has one, and to help generate a new UAN if they do not.
+### UAN versus member ID
+
+These two are often confused:
+
+| | UAN | Member ID (PF account number) |
+| --- | --- | --- |
+| Issued to | The person | The person's employment with one establishment |
+| Changes on job change | No, it stays for life | Yes, each employer creates a new one |
+| Used for | Passbook across employers, KYC, claims, transfers | Posting contributions from one employer |
+
+When an employee joins, the employer links a new member ID to the employee's existing UAN. The ECR is filed against the UAN, and contributions post to that employment's member ID.
+
+### How a UAN is generated now
+
+#### The FAT route (the default)
+
+In April 2025, EPFO introduced three services in the UMANG app using Aadhaar-based Face Authentication Technology (FAT): direct UAN allotment and activation, activation of existing UANs, and face authentication for already activated UANs. By a circular dated 30 July 2025, EPFO made FAT the only route for allotting new UANs from 1 August 2025.
+
+What the employee needs:
+
+- a valid Aadhaar number, and access to the Aadhaar-linked mobile number for OTP;
+- the UMANG app and the Aadhaar Face RD app on a smartphone.
+
+The steps, per EPFO's user manual:
+
+1. In UMANG, open UAN Allotment and Activation, enter Aadhaar and mobile number, and give consent.
+2. Enter the OTP. The system checks whether a UAN already exists for that Aadhaar. If one does, the employee is told, and no new UAN is created.
+3. Complete the face scan.
+4. The UAN is generated from Aadhaar data and sent by SMS, already activated. The employee can download the e-UAN card to give to the employer.
+
+Because details are pulled straight from Aadhaar, name, date of birth and gender mismatches, a frequent source of trouble in the past, are much less likely.
+
+#### When the employer still generates the UAN
+
+EPFO kept the employer route for exceptional cases, such as international workers and citizens of Nepal and Bhutan. For everyone else, the employer's job is to collect the UAN, not create it.
+
+### Activation
+
+A UAN must be activated before the member can log in to the [member portal](https://unifiedportal-mem.epfindia.gov.in/), see the passbook, update KYC or file claims. A UAN generated through FAT is activated at the same time. For an older UAN that was never activated, the employee uses UAN Activation in UMANG: enter UAN, Aadhaar and mobile, verify the OTP and complete the face scan. The system sends a temporary password by SMS.
+
+EPFO's procedures in this area have changed several times since 2024, so check the current process on the [EPFO website](https://www.epfindia.gov.in/) before issuing joining instructions.
+
+### KYC seeding
+
+KYC links the UAN to the documents EPFO relies on for payments and verification.
+
+| KYC item | Why it matters | Current process |
+| --- | --- | --- |
+| Aadhaar | ECR can be filed only for members whose Aadhaar is seeded and verified | Seeded at FAT generation; otherwise via the employer's KYC function or a joint declaration |
+| Bank account | Claims are paid only to a seeded, verified account | Employee seeds it; verified by the bank or NPCI, with no employer approval since 3 April 2025 |
+| PAN | Affects TDS on taxable PF withdrawals | Added through KYC and verified against income-tax records |
+
+A few specifics from EPFO circulars:
+
+- **Aadhaar is a hard gate for ECR.** Filing ECR only for Aadhaar-verified members has applied since 1 June 2021, and EPFO ended the last extensions for specified regions and industries after 31 October 2025.
+- **Where name, gender and date of birth in the UAN match Aadhaar exactly,** the employer can seed Aadhaar through the KYC function on the employer portal, with no separate EPFO approval (circular of 13 August 2025).
+- **Where they do not match,** or a wrong Aadhaar is linked, the correction goes through the joint declaration function, which the employer files and the regional office approves.
+- **Members with Aadhaar-verified UANs** can correct many profile fields themselves under the simplified joint declaration process introduced in January 2025.
+- **Bank details** no longer need a cheque leaf or passbook image for claims when the account is validated by the bank or NPCI.
+
+### Transfers on job change
+
+With one UAN, a job change no longer means a new account balance to chase. The old balance still has to be transferred to the new member ID, though:
+
+- The employee files a transfer claim (Form 13) online from the member portal, choosing whether the previous or present employer attests, where attestation is needed.
+- Since April 2025, a transfer approved at the source office posts the PF balance and pension service to the new account automatically, without separate processing at the destination office. The revamped Form 13 also splits taxable and non-taxable parts of the accumulation.
+- The transfer certificate (Annexure K) is available to members in the member portal.
+
+Exits matter here. If the previous employer never marked a date of exit, the old member ID looks active and transfers and new contributions run into trouble. Mark exits on the employer portal as soon as the employee leaves.
+
+### Employer responsibilities
+
+For HR and payroll, the UAN checklist is:
+
+1. **At offer or joining,** ask whether the joiner has a UAN. Most people with any prior formal employment do.
+2. **If not,** send them the FAT steps before day one so the UAN exists before the first payroll.
+3. **Register the employee on the employer portal** against the UAN, with the correct date of joining.
+4. **Verify Aadhaar seeding** before the first ECR; otherwise the member cannot be included.
+5. **Collect nomination.** Under the EPF Scheme 2026, nominations are electronic.
+6. **Mark the date of exit** promptly when someone leaves.
+7. **Protect the data.** UAN, Aadhaar, PAN and bank details are personal data under the DPDP Act, 2023. Limit who can see them.
+
+### Common issues and fixes
+
+| Issue | Likely cause | What to do |
+| --- | --- | --- |
+| Employee has two UANs | A previous employer generated a new one instead of reusing the old | The member raises a request through the member portal or EPFO grievance channel to merge; do not add a third |
+| Wrong member ID linked to a UAN | Error at registration | EPFO has a process for de-linking erroneously linked member IDs through the regional office |
+| ECR rejects a new joiner | Aadhaar not verified, or date of joining missing | Complete KYC seeding and check the joining date before re-uploading |
+| Transfer stuck | Previous exit not marked, or profile mismatch | Ask the previous employer to mark exit; fix profile through a joint declaration |
+| Face authentication fails | Lighting, app version, or Aadhaar data issue | Retry; EPFO lists UMANG and EPFO support as next steps |
 
 ## Interest and how the corpus grows
 
@@ -95,6 +185,10 @@ The ECR is the single filing that reconciles wages and contributions, so it must
 
 **Can an employee opt out of EPF?** Only an employee who has never been an EPF member and joins above the wage threshold can be treated as excluded. An existing member generally cannot opt out.
 
+**Does a UAN change when the employee changes jobs?** No. The UAN stays the same; the new employer creates a new member ID under it.
+
+**Can an employer still generate a UAN?** Only in exceptional cases such as international workers and citizens of Nepal and Bhutan. Other new UANs are generated by the employee through face authentication in UMANG.
+
 **What is VPF?** Voluntary Provident Fund is the employee choosing to contribute more than 12% of their own share. It goes into the same account and earns the same interest, but the employer share does not increase.
 
 ## Key takeaways
@@ -104,7 +198,9 @@ The ECR is the single filing that reconciles wages and contributions, so it must
 - The UAN unifies an employee's PF across jobs.
 - Withdrawals after five years of continuous service are tax-free.
 
-A payroll system that computes PF at source with the correct EPS and EPF split, and generates the ECR each month, removes almost all of this risk. In NeevHR, PF is computed for every employee with the right pension split, the ECR is ready to file, and the UAN travels with the employee record.`,
+A payroll system that computes PF at source with the correct EPS and EPF split, and generates the ECR each month, removes almost all of this risk. In NeevHR, PF is computed for every employee with the right pension split, the ECR is ready to file, and the UAN travels with the employee record.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "esi-explained-eligibility-benefits-contribution",
@@ -190,25 +286,26 @@ A payroll system that tracks the contribution period and applies the wage limit 
 
 ## Why PT is different in every state
 
-Because PT is a state subject, each state decides whether to levy it, what the slabs are, what the maximum is, and how often it is filed. There is no national PT rate. What is common across all states that levy it is the constitutional cap: the maximum PT any individual can be charged is ₹2,500 per year.
+Because PT is a state subject, each state decides whether to levy it, what the slabs are, what the maximum is, and how often it is filed. There is no national PT rate. What is common across all states that levy it is the constitutional cap: the maximum PT any individual can be charged is ₹2,500 per year (Article 276 of the Constitution).
 
 Some states do not levy PT at all. These include Delhi, Haryana, Uttar Pradesh, Rajasthan and Uttarakhand, among others. An employer with staff only in these states has no PT obligation for them.
 
 ## How the major states compare
 
-The table below shows indicative monthly PT for salaried employees. Slabs change, so always confirm the current notification with the state authority before finalising payroll.
+The table below summarises PT for salaried employees in the states we cover in detail; each state guide has the full slab table, due dates and the notification it relies on. Slabs change, so confirm the current notification with the state authority before finalising payroll.
 
 | State | Indicative monthly PT |
 | --- | --- |
-| Maharashtra | Nil up to ₹7,500; ₹175 up to ₹10,000; ₹200 above (₹300 in one month to hit the ₹2,500 annual cap) |
-| Karnataka | ₹200 for salary above ₹25,000 |
-| West Bengal | Banded, roughly ₹110 to ₹200 by income |
-| Gujarat | ₹80 to ₹200 by band |
-| Tamil Nadu | Half-yearly, ₹135 to ₹690 by band |
-| Telangana and Andhra Pradesh | ₹150 to ₹200 |
-| Madhya Pradesh | Around ₹208 for higher salaries |
+| [Maharashtra](/india/payroll/maharashtra) | Men: nil up to ₹7,500, ₹175 up to ₹10,000, ₹200 above (₹300 in February). Women: nil up to ₹25,000, ₹200 above (₹300 in February) |
+| [Karnataka](/india/payroll/karnataka) | Nil below ₹25,000; ₹200 a month from ₹25,000 (₹300 in February) |
+| [West Bengal](/india/payroll/west-bengal) | ₹110 to ₹200 a month by salary band |
+| [Gujarat](/india/payroll/gujarat) | Nil up to ₹12,000; ₹200 a month above |
+| [Tamil Nadu](/india/payroll/tamil-nadu) | Half-yearly, by local body; up to ₹1,250 a half-year in Greater Chennai |
+| [Telangana](/india/payroll/telangana) | Nil up to ₹15,000; ₹150 up to ₹20,000; ₹200 above |
+| [Kerala](/india/payroll/kerala) | Half-yearly, by local body; up to ₹1,250 a half-year |
+| [Delhi](/india/payroll/delhi), [Haryana](/india/payroll/haryana), [Uttar Pradesh](/india/payroll/uttar-pradesh), [Rajasthan](/india/payroll/rajasthan) | No professional tax |
 
-Notice that Maharashtra deliberately charges a slightly higher amount in one month so the annual total reaches ₹2,500, and Tamil Nadu files half-yearly rather than monthly. These per-state quirks are exactly what makes multi-state PT fiddly.
+Notice that Maharashtra and Karnataka charge ₹300 in February so the annual total reaches ₹2,500, and Tamil Nadu and Kerala collect half-yearly through the local body rather than monthly. These per-state quirks are exactly what makes multi-state PT fiddly.
 
 ## How PT is deducted and filed
 
@@ -229,7 +326,7 @@ Doing this in a spreadsheet is error-prone, especially at year-end when Maharash
 
 - Applying one state's slab to employees who actually work in another.
 - Missing that some states have no PT, and deducting anyway.
-- Forgetting the higher final-month deduction where a state uses it to reach the annual cap.
+- Forgetting the ₹300 February deduction where a state uses it to reach the annual cap.
 - Missing a half-yearly filing state's due date.
 - Not updating slabs after a state revision.
 
@@ -248,179 +345,191 @@ Doing this in a spreadsheet is error-prone, especially at year-end when Maharash
 - The annual cap is ₹2,500 per person.
 - Multi-state employers must apply the right slab per work location and file per state.
 
-A payroll system with state-wise PT logic removes the guesswork entirely. NeevHR holds PT slabs per state, applies them by work location, and produces each state's PT return on schedule.`,
+A payroll system with state-wise PT logic removes the guesswork entirely. NeevHR holds PT slabs per state, applies them by work location, and produces each state's PT return on schedule.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "gratuity-in-india-eligibility-formula-tax",
     title: "Gratuity in India: eligibility, formula, tax and worked examples",
     excerpt:
-      "When gratuity is payable, the 15/26 formula for covered establishments, the ₹20 lakh cap, how it is taxed under Section 10(10), and full worked examples.",
+      "Gratuity under the Code on Social Security, 2020: who must pay, five years or one year for fixed-term staff, the 15/26 formula, the ₹20 lakh cap and tax.",
     category: "payroll",
     author: "NeevHR Team",
     publishedAt: "2026-08-11",
-    body: `Gratuity is a lump-sum reward for long service, and one of the larger numbers in any full and final settlement. It is governed by the Payment of Gratuity Act, 1972. Because it is paid at exit and taxed with its own exemption rules, both HR and finance need to understand exactly how it is computed.
+    body: `Gratuity is a lump-sum payment for long service and one of the larger numbers in any full and final settlement. Since 21 November 2025 it is governed by Chapter V of the Code on Social Security, 2020, which replaced the Payment of Gratuity Act, 1972. The 15/26 formula and the ₹20 lakh ceiling carried over; what changed is the wage base and the rule for fixed-term employees.
 
-## What gratuity is and who must pay it
+## Who must pay gratuity
 
-Gratuity is a statutory benefit an employer pays an employee for continuous service. The Payment of Gratuity Act applies to factories, mines, plantations, shops and establishments employing 10 or more people. Once the Act applies to an establishment, it continues to apply even if the headcount later falls.
+The Code applies gratuity to every factory, mine, oilfield, plantation, port, railway company, and every shop or establishment in which 10 or more employees are employed, or were employed on any day of the preceding twelve months. Once it applies, it continues to apply even if headcount later falls below 10.
 
 ## Who is eligible
 
-An employee becomes eligible for gratuity after completing five years of continuous service with the same employer. The five-year condition is waived where employment ends because of death or disablement, in which case gratuity is payable regardless of tenure.
+| Situation | Service needed |
+| --- | --- |
+| Regular employee leaving on superannuation, retirement, resignation or termination | 5 years of continuous service |
+| Death or disablement due to accident or disease | No minimum |
+| Fixed-term employee whose contract ends | 1 year, paid pro rata for the service |
 
-"Continuous service" has a specific meaning and includes periods of authorised leave, so it is not simply days physically present.
+The one-year rule for fixed-term employees is the change HR teams most often miss. Under the 1972 Act a fixed-term employee with less than five years got nothing; under the Code they qualify after one year. Our guide to [fixed-term employment under the Labour Codes](/blog/fixed-term-employment-labour-codes) covers the contract side.
 
-## The formula for covered establishments
+"Continuous service" includes authorised leave, sickness, accident and lay-off periods, so it is not the same as days present.
 
-For an establishment covered by the Act, gratuity is:
+## The formula
 
-> Gratuity = (15 × last drawn salary × years of service) ÷ 26
+> Gratuity = 15 × last drawn wages × completed years of service ÷ 26
 
-Where:
+- **Wages** now means wages as defined in the Code: broadly basic pay, dearness allowance and retaining allowance, with excluded allowances above 50% of total remuneration added back. A low-basic structure can therefore produce a higher gratuity than before. See [the 50% wage rule](/blog/labour-codes-wage-definition-50-percent-rule).
+- **26** is the number of working days in a month; **15** is the days of wages per year. Seasonal establishments use 7 days per season.
+- **Part years:** a final part year of more than six months counts as a full year.
 
-- "Last drawn salary" means Basic salary plus Dearness Allowance.
-- 26 represents the number of working days in a month.
-- 15 represents 15 days of wages for each completed year.
+## Worked examples
 
-A key rounding rule: any part of a year beyond six months counts as a full year. So 7 years and 8 months is treated as 8 years, while 7 years and 4 months is treated as 7 years.
-
-## Worked example
-
-Take an employee with a last drawn Basic + DA of ₹60,000 and 8 completed years of service.
-
-| Step | Calculation | Value |
-| --- | --- | --- |
-| Numerator | 15 × 60,000 × 8 | 72,00,000 |
-| Divide by 26 | 72,00,000 ÷ 26 | ₹2,76,923 |
-
-So the gratuity payable is ₹2,76,923.
-
-Now take the same salary but 12 years and 7 months of service. The service rounds up to 13 years:
+A regular employee with last drawn wages of ₹60,000 and 8 years of service:
 
 | Step | Calculation | Value |
 | --- | --- | --- |
-| Numerator | 15 × 60,000 × 13 | 1,17,00,000 |
-| Divide by 26 | 1,17,00,000 ÷ 26 | ₹4,50,000 |
+| Formula | 15 × 60,000 × 8 ÷ 26 | ₹2,76,923 |
 
-## The statutory cap
+The same wages with 12 years and 7 months of service round up to 13 years: 15 × 60,000 × 13 ÷ 26 = ₹4,50,000.
 
-The maximum gratuity payable under the Act is ₹20,00,000. Even if the formula produces more, the amount payable under the Act is capped at this figure. Employers may pay more voluntarily, but anything above the exemption limit is taxable.
+A fixed-term employee on wages of ₹30,000 whose 14-month contract ends: 15 × 30,000 × 1 ÷ 26 = ₹17,308. Whether the two months beyond the first year count on a pro-rata basis depends on the rules that apply to you, so confirm before settling.
+
+For a quick figure, use the [gratuity calculator](/tools/gratuity-calculator).
+
+## The ceiling and the payment deadline
+
+The ceiling is the amount the Central Government notifies; it is ₹20,00,000 as last notified. An employer may pay more under a contract or scheme, but anything above the tax exemption is taxable.
+
+Gratuity must be paid within 30 days of becoming payable. A late payment carries simple interest at the rate the government notifies.
+
+## Forfeiture
+
+Gratuity can be forfeited, wholly or partly, only on the grounds the Code lists: termination for wilful omission or negligence causing damage (to the extent of the damage), and termination for riotous or disorderly conduct, violence, or an offence involving moral turpitude committed in the course of employment. A domestic enquiry and a written order are the minimum.
 
 ## How gratuity is taxed
 
-Gratuity enjoys an exemption under Section 10(10) of the Income Tax Act. For employees covered by the Payment of Gratuity Act, the exempt amount is the least of:
+From tax year 2026-27 the exemption sits in section 19(1) of the Income-tax Act, 2025 (formerly section 10(10) of the 1961 Act). For employees covered by the Code, the exempt amount is the least of:
 
-1. The actual gratuity received.
-2. ₹20,00,000.
-3. The formula amount (15 × last drawn salary × years ÷ 26).
+1. The gratuity actually received.
+2. ₹20,00,000 (a lifetime limit across employers).
+3. The formula amount.
 
-Any gratuity above the exempt amount is added to income and taxed. Government employees have a fuller exemption.
+The excess is salary income and taxed through TDS in the final settlement. The exemption is available under both tax regimes.
 
-## Common mistakes to avoid
+## Common mistakes
 
-- Using gross salary instead of Basic + DA in the formula.
-- Ignoring the six-month rounding rule for the final part-year.
-- Forgetting the ₹20 lakh cap for a very long-service, high-salary employee.
-- Applying the wrong exemption when computing TDS on the settlement.
+- Paying fixed-term employees nothing because they have less than five years.
+- Using basic pay alone after the Code's wage definition adds allowances back.
+- Ignoring the six-month rounding on the final part year.
+- Paying after 30 days without interest.
+- Citing the repealed 1972 Act in letters and policies.
 
-## Frequently asked questions
+## FAQs
 
-**Is gratuity payable if someone resigns before five years?** Generally no, unless service ended due to death or disablement.
+**Is gratuity payable if someone resigns before five years?** Not for a regular employee, unless employment ends by death or disablement. A fixed-term employee qualifies after one year.
 
-**Does notice period count toward service?** Yes, service continues until the last working day, including served notice.
+**Does notice period count as service?** Yes. Service runs to the last working day.
 
-**Can an employer forfeit gratuity?** Only in limited circumstances involving misconduct, under the Act's specific provisions.
+**Is gratuity paid on gross salary?** No. It is paid on wages as the Code defines them, which can be more than basic plus DA where allowances exceed 50% of total remuneration.
+
+**Do we still need the Payment of Gratuity Act forms?** The Ministry of Labour has said rules under the old Acts continue during the transition to the extent they are consistent with the Codes. Check the forms your state has notified under the Code.
 
 ## Key takeaways
 
-- Gratuity is payable after five years of continuous service (waived for death or disablement).
-- The formula is 15 × last salary × years ÷ 26, with the final part-year rounded at six months.
-- The statutory maximum is ₹20,00,000.
-- Exemption under Section 10(10) is the least of the actual amount, ₹20 lakh, and the formula amount.
+- Gratuity is now under the Code on Social Security, 2020.
+- Five years for regular employees, one year for fixed-term employees, none on death or disablement.
+- 15 × wages × years ÷ 26, on the Code's wage definition, capped at ₹20 lakh as last notified.
+- Pay within 30 days; the exemption is section 19(1) of the Income-tax Act, 2025.
 
-NeevHR accrues gratuity over the employment and computes it in the full and final settlement, applies the Section 10(10) exemption, and shows the net amount in words for the relieving documents.`,
+NeevHR computes gratuity in the full and final settlement on the configured wage basis, applies the fixed-term rule, cites the section in force for the tax year, and shows the amount in words on the settlement letter. See [full and final settlement](/features/full-and-final-settlement).
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "statutory-bonus-payment-of-bonus-act",
-    title: "Statutory bonus under the Payment of Bonus Act, 1965",
+    title: "Statutory bonus under the Code on Wages, explained",
     excerpt:
-      "Eligibility, the 8.33% to 20% range, the ₹7,000 calculation ceiling, allocable surplus, and the Forms A to D every covered employer must keep.",
+      "Statutory bonus under the Code on Wages, 2019: who is covered, eligibility, the 8.33% to 20% range, the calculation ceiling, allocable surplus and records.",
     category: "compliance",
     author: "NeevHR Team",
     publishedAt: "2026-08-14",
-    body: `The Payment of Bonus Act, 1965 requires eligible employers to pay an annual bonus to employees, loosely linked to the company's profits. Many growing companies treat bonus as discretionary and are surprised to learn that a minimum bonus is a legal obligation, backed by registers an inspector can demand.
+    body: `Statutory bonus is an annual payment the law requires covered employers to make to eligible employees, loosely linked to profit. Since 21 November 2025 it is governed by Chapter IV of the Code on Wages, 2019, which replaced the Payment of Bonus Act, 1965. The 8.33% minimum and 20% maximum, the allocable surplus method and the eight-month payment deadline carried over.
 
-## Who the Act covers
+## Who the bonus provisions cover
 
-The Act applies to factories and to establishments employing 20 or more people. Once it applies, it continues to apply even if the number later falls below 20. Within a covered establishment, the bonus is a statutory right for eligible employees, not a favour.
+Every establishment in which 20 or more persons are employed on any day of the accounting year, including factories. Once covered, it stays covered even if headcount later falls below 20. Within a covered establishment, bonus is a statutory right for eligible employees, not a discretionary payout.
 
 ## Who is eligible
 
-An employee is eligible if their wages (Basic + DA) are up to ₹21,000 per month and they have worked at least 30 days in the accounting year. Employees earning above ₹21,000 fall outside the statutory scheme, though employers often pay them a discretionary bonus or performance incentive instead.
+An employee is eligible when:
+
+- their wages do not exceed the amount the appropriate Government notifies for bonus (₹21,000 a month as last notified, the figure carried from the 1965 Act), and
+- they worked at least 30 working days in the accounting year.
+
+An employee dismissed for fraud, riotous or violent behaviour on the premises, theft, misappropriation or sabotage of property, or sexual harassment is disqualified. The Code added sexual harassment to the list.
 
 ## How much bonus is payable
 
-The bonus ranges between a minimum of 8.33% and a maximum of 20% of the calculation wage.
-
 | Item | Value |
 | --- | --- |
-| Minimum bonus | 8.33% |
-| Maximum bonus | 20% |
-| Eligibility ceiling | ₹21,000 per month (Basic + DA) |
-| Calculation ceiling | ₹7,000, or the minimum wage for the employment, whichever is higher |
+| Minimum bonus | 8.33% of wages earned, or ₹100, whichever is higher |
+| Maximum bonus | 20% of wages earned |
+| Eligibility limit | As notified; ₹21,000 a month as last notified |
+| Calculation ceiling | As notified; ₹7,000 a month or the minimum wage, whichever is higher, as last notified |
 
-The calculation ceiling is important. Even if an eligible employee's Basic + DA is ₹18,000, the bonus is computed on the lower of that and ₹7,000 (or the minimum wage). So the bonus base is capped, which keeps the statutory bonus modest.
+Where an employee's wages exceed the calculation ceiling, the bonus is worked out as if their wages were the ceiling. "Wages" follows the Code's single definition, including the 50% add-back for excluded allowances.
+
+Confirm both figures in the notification your appropriate Government has issued under the Code before you run the year's bonus, and record the reference with the run.
 
 ## Worked example
 
-An eligible employee with Basic + DA of ₹18,000, a bonus rate of 8.33%, and 12 months worked:
+An eligible employee with monthly wages of ₹18,000, a calculation ceiling of ₹7,000, 12 months worked and a bonus rate of 8.33%:
 
-- Calculation wage = min(18,000, 7,000) = ₹7,000
-- Monthly bonus = 7,000 × 8.33% = ₹583
-- Annual bonus = 583 × 12 = ₹7,000 (approximately)
+- Calculation wage = min(₹18,000, ₹7,000) = ₹7,000 a month
+- Annual bonus = ₹7,000 × 12 × 8.33% = ₹6,997
 
-At the maximum 20% rate, the same employee would receive about ₹16,800 for the year.
+At the 20% maximum the same employee receives ₹16,800. If the state minimum wage for the employee's skill were ₹12,000, the ceiling would be ₹12,000 and the minimum bonus ₹11,995.
+
+Use the [bonus calculator](/tools/bonus-calculator) to check a figure.
 
 ## Allocable surplus: what sets the rate
 
-Whether you pay the 8.33% minimum or something up to 20% depends on the allocable surplus, computed under the Act's schedules. In simple terms, you start from gross profit, subtract prescribed prior charges (depreciation under section 32, direct taxes, and other allowances), and apply an allocable percentage to arrive at the surplus available for bonus. A loss-making unit still pays the 8.33% minimum. A highly profitable one may reach 20%.
+Whether you pay 8.33% or more depends on the allocable surplus, computed from gross profit under the schedules to the Code: subtract the prior charges (depreciation, direct taxes, return on capital and the other items listed), then apply the allocable percentage. A loss-making unit still pays the minimum. Set-on and set-off carry surplus or shortfall across years, which is why the year-by-year record matters.
 
-Set-on and set-off rules let surplus be carried forward or backward across years, which is why the registers matter.
+## Records and payment
 
-## The registers you must keep
+- Pay within eight months of the close of the accounting year, unless the authority extends the time.
+- Keep the computation of allocable surplus, the set-on and set-off record, and the bonus paid to each employee, with the annual return. These are the registers known as Forms A to D under the earlier Bonus Rules; the Ministry of Labour has said rules under the old Acts continue during the transition to the extent they are consistent with the Codes, so check the forms your state has notified under the Code.
 
-The Act requires four forms:
+## Common mistakes
 
-- Form A: computation of the allocable surplus.
-- Form B: set-on and set-off of the allocable surplus.
-- Form C: the bonus paid to each employee.
-- Form D: the annual return filed with the authority.
+- Treating statutory bonus as discretionary.
+- Calculating on full wages instead of the calculation ceiling.
+- Using a stale eligibility or ceiling figure instead of the current notification.
+- Missing employees who worked 30 days but left during the year.
+- Citing the repealed 1965 Act in policies.
 
-These are the documents an inspector will ask to see. Reconstructing them at audit time from scattered spreadsheets is painful.
-
-## Common mistakes to avoid
-
-- Treating statutory bonus as fully discretionary.
-- Computing on full Basic + DA instead of the ₹7,000 calculation ceiling.
-- Missing eligible employees who worked at least 30 days.
-- Not maintaining Forms A to D through the year.
-
-## Frequently asked questions
+## FAQs
 
 **When is bonus paid?** Within eight months of the close of the accounting year.
 
-**Do new joiners get a bonus?** Yes, pro-rated, if they worked at least 30 days in the year.
+**Do joiners and leavers get bonus?** Yes, in proportion to the wages earned, if they worked at least 30 working days.
 
-**Is the statutory bonus taxable?** Yes, it is part of salary income.
+**Is statutory bonus taxable?** Yes, it is salary income.
+
+**Can we pay a performance bonus instead?** A performance or ex-gratia payment does not replace the statutory minimum for eligible employees unless it is paid as, and adjusted against, the statutory bonus under the Code's rules.
 
 ## Key takeaways
 
-- Bonus is a legal obligation for covered establishments, not a discretionary payout.
-- Eligibility is up to ₹21,000 per month; the calculation ceiling is ₹7,000 or minimum wage.
-- The rate is between 8.33% and 20%, set by the allocable surplus.
-- Forms A to D must be maintained and the annual return filed.
+- Statutory bonus is now under the Code on Wages, 2019.
+- 8.33% to 20%, on wages up to the notified calculation ceiling.
+- Eligibility and ceiling are notified amounts: ₹21,000 and ₹7,000 or minimum wage, as last notified.
+- Pay within eight months and keep the surplus and payment records.
 
-NeevHR configures the statutory bonus plan, previews eligible employees, computes the payout on the correct calculation wage, and generates Forms A to D, so the annual bonus run is quick and audit-ready.`,
+NeevHR runs the annual bonus on the configured eligibility limit and calculation ceiling, previews every eligible employee, pays it through payroll, and produces the computation and payment registers. See [variable pay and bonus](/features/variable-pay).
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "tds-on-salary-old-vs-new-regime-fy-2026-27",
@@ -507,7 +616,7 @@ NeevHR computes TDS under both regimes from each employee's declaration, spreads
     slug: "hra-exemption-explained",
     title: "HRA exemption explained, with worked examples",
     excerpt:
-      "The least-of-three rule under Section 10(13A), metro versus non-metro, documentation and the landlord PAN rule, plus common HRA mistakes.",
+      "HRA exemption under the Income-tax Act, 2025: the least-of-three rule, the eight 50% cities from tax year 2026-27, landlord PAN and common mistakes.",
     category: "payroll",
     author: "NeevHR Team",
     publishedAt: "2026-08-21",
@@ -515,13 +624,13 @@ NeevHR computes TDS under both regimes from each employee's declaration, spreads
 
 ## The least-of-three rule
 
-Under Section 10(13A) of the Income Tax Act, the exempt HRA is the lowest of these three figures:
+From tax year 2026-27 the exemption is in section 11 of the Income-tax Act, 2025, read with Schedule III (formerly section 10(13A) of the 1961 Act). The exempt HRA is still the lowest of these three figures:
 
 1. The actual HRA received.
 2. Rent paid minus 10% of Basic + DA.
-3. 50% of Basic + DA for metro cities, or 40% for non-metro cities.
+3. 50% of Basic + DA in the eight listed cities, or 40% elsewhere.
 
-Only four cities count as metro for this purpose: Delhi, Mumbai, Kolkata and Chennai. Everywhere else uses the 40% figure.
+From tax year 2026-27, rule 279 of the Income-tax Rules, 2026 lists eight cities for the 50% limb: Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad. Earlier years used only the first four. Everywhere else uses 40%.
 
 ## A worked example
 
@@ -544,11 +653,11 @@ The second test, rent paid minus 10% of Basic + DA, is what limits the exemption
 
 ## Documentation and the landlord PAN rule
 
-To claim HRA, an employee must actually pay rent. Beyond a threshold of annual rent (commonly ₹1,00,000 a year), the employee must provide the landlord's PAN. Rent paid to a family member is allowed, but is scrutinised, so a genuine arrangement, a rent agreement and receipts matter. Employees who cannot produce proofs at year-end lose the exemption when payroll trues up.
+To claim HRA, an employee must actually pay rent. Where annual rent exceeds ₹1,00,000, the employee must provide the landlord's PAN in the declaration (Form 124, formerly Form 12BB), which also asks for the employee's relationship with the landlord. Rent paid to a family member is allowed, but is scrutinised, so a genuine arrangement, a rent agreement and receipts matter. Employees who cannot produce proofs at year-end lose the exemption when payroll trues up.
 
 ## What if there is no HRA in the salary structure
 
-An employee who pays rent but whose salary has no HRA component cannot claim the 10(13A) exemption. They may instead claim a smaller deduction under Section 80GG, subject to its own limits and conditions. This is why a sensible salary structure includes an HRA component for employees likely to pay rent.
+An employee who pays rent but whose salary has no HRA component cannot claim the HRA exemption. They may instead claim a smaller deduction for rent paid (section 134 of the 2025 Act, formerly section 80GG), subject to its own limits and conditions. This is why a sensible salary structure includes an HRA component for employees likely to pay rent.
 
 ## Common mistakes to avoid
 
@@ -563,16 +672,18 @@ An employee who pays rent but whose salary has no HRA component cannot claim the
 
 **Is HRA available under the new regime?** No, HRA exemption is an old-regime benefit.
 
-**What counts as a metro city?** Delhi, Mumbai, Kolkata and Chennai.
+**What counts as a metro city?** From tax year 2026-27: Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad.
 
 ## Key takeaways
 
 - HRA exemption is the least of actual HRA, rent minus 10% of basic, and 50%/40% of basic.
-- Only four cities get the 50% metro rate.
+- Eight cities get the 50% rate from tax year 2026-27.
 - Proper documentation and landlord PAN above the threshold are essential.
 - HRA is an old-regime benefit.
 
-NeevHR captures the rent declaration, computes the exemption correctly by city, and reduces taxable income so TDS reflects it through the year.`,
+NeevHR captures the rent declaration, computes the exemption correctly by city, and reduces taxable income so TDS reflects it through the year.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "salary-structure-ctc-breakup-explained",
@@ -605,7 +716,7 @@ Basic salary drives almost everything else:
 - HRA exemption limits are 50% or 40% of Basic.
 - Statutory bonus keys off Basic + DA.
 
-A very low Basic reduces statutory contributions and boosts short-term take-home, but it also reduces retirement savings and can breach the Code on Wages, which expects the "wages" portion (broadly Basic and similar) to be at least half of total remuneration.
+A very low Basic reduces statutory contributions and boosts short-term take-home, but it also reduces retirement savings and can breach the Code on Wages, which, since 21 November 2025, treats excluded allowances above 50% of total remuneration as wages, raising PF, gratuity and bonus bases. See [the 50% wage rule](/blog/labour-codes-wage-definition-50-percent-rule).
 
 ## A full worked example
 
@@ -656,17 +767,19 @@ A well-designed structure balances three goals: healthy take-home, tax efficienc
 - In-hand is gross minus employee PF, PT and TDS.
 - Structures must respect the Code on Wages and stay administrable.
 
-NeevHR lets you define pay structures as reusable components and assign them to employee groups, so a new grade or entity does not need a new spreadsheet, and every payslip is consistent.`,
+NeevHR lets you define pay structures as reusable components and assign them to employee groups, so a new grade or entity does not need a new spreadsheet, and every payslip is consistent.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "form-16-explained",
-    title: "Form 16 explained: Part A, Part B and what to reconcile",
+    title: "Form 16, now Form 130: Part A, Part B and reconciliation",
     excerpt:
-      "What Form 16 is, the difference between Part A and Part B, when it is due, the TDS reconciliation that catches errors, and the PAN issue to avoid.",
+      "Form 16, now Form 130 under the Income-tax Act, 2025: Part A and Part B, the 15 June due date, the TDS reconciliation that catches errors and the PAN issue.",
     category: "compliance",
     author: "NeevHR Team",
     publishedAt: "2026-08-27",
-    body: `Form 16 is the certificate of tax deducted at source (TDS) on salary that an employer issues to each employee for a financial year. Employees rely on it to file their income tax returns, so it must be accurate, reconciled and issued on time. For payroll, Form 16 is the visible proof that the whole year's TDS was handled correctly.
+    body: `Form 16 is the certificate of tax deducted at source (TDS) on salary that an employer issues to each employee for a year. From tax year 2026-27, under the Income-tax Act, 2025, it is called Form 130 (issued under section 395, formerly section 203), and the quarterly return that feeds it, Form 24Q, is Form 138. The structure and the 15 June due date are unchanged; most people still say Form 16. Employees rely on it to file their income tax returns, so it must be accurate, reconciled and issued on time. For payroll, Form 16 is the visible proof that the whole year's TDS was handled correctly.
 
 ## What Form 16 is
 
@@ -687,9 +800,9 @@ Because Part A comes from TRACES, it reflects the TDS challans the employer actu
 Part B is prepared by the employer and shows the detailed computation:
 
 - Gross salary and the value of perquisites.
-- Exemptions such as HRA under Section 10.
+- Exemptions such as HRA (section 11 and Schedule III of the 2025 Act, formerly section 10).
 - The standard deduction.
-- Chapter VI-A deductions (80C, 80D and others) under the old regime.
+- Deductions under the old regime, such as sections 123 and 126 of the 2025 Act (formerly 80C and 80D).
 - Taxable income, tax on it, rebate, and the final tax.
 
 Part B is where the employee sees exactly how their tax was arrived at, and where old-regime deductions appear.
@@ -728,7 +841,9 @@ An employee without a valid PAN cannot be issued a proper Form 16, and TDS on th
 - Reconcile TDS quarterly to avoid Part A mismatches.
 - Collect valid PAN at onboarding.
 
-NeevHR generates Form 16 per employee, reconciles Part A deposits from filed challans, and flags any shortfall or missing PAN before you distribute.`,
+NeevHR generates Form 16 per employee, reconciles Part A deposits from filed challans, and flags any shortfall or missing PAN before you distribute.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "leave-types-in-india-explained",
@@ -738,7 +853,7 @@ NeevHR generates Form 16 per employee, reconciles Part A deposits from filed cha
     category: "time",
     author: "NeevHR Team",
     publishedAt: "2026-08-30",
-    body: `Leave policy is where HR flexibility meets statutory floors. India has no single national leave law for private employment. Instead, minimum leave comes from state Shops and Establishments Acts and the Factories Act, and companies layer their own policy on top. The result is a lot of variation, which is exactly why a clear, consistent leave policy matters.
+    body: `Leave policy is where HR flexibility meets statutory floors. India has no single national leave law for private employment. Instead, minimum leave comes from the OSH Code, 2020 (which replaced the Factories Act) for factories and covered establishments, from state Shops and Establishments Acts for shops and offices, and from the Code on Social Security, 2020 for maternity. Companies layer their own policy on top. The result is a lot of variation, which is exactly why a clear, consistent leave policy matters.
 
 ## The common leave types
 
@@ -747,7 +862,7 @@ NeevHR generates Form 16 per employee, reconciles Part A deposits from filed cha
 | Earned or Privilege leave (EL/PL) | Planned time off; accrues monthly; usually carries forward up to a cap; encashable |
 | Casual leave (CL) | Short, unplanned absences; usually lapses at year-end |
 | Sick leave (SL) | Illness; may need a medical certificate beyond a few days |
-| Maternity leave | Statutory 26 weeks under the Maternity Benefit Act |
+| Maternity leave | 26 weeks (12 weeks from the third child, and for adoption or surrogacy) under the Code on Social Security, 2020 |
 | Paternity leave | Company policy; no central mandate for private employers |
 | Comp-off | Time off in lieu of working a holiday or weekly off |
 | Bereavement / marriage leave | Policy-based, short, occasion-specific |
@@ -761,7 +876,7 @@ Proration is essential: joiners and leavers should accrue leave for the part of 
 
 ## Encashment
 
-Leave encashment usually applies to earned leave. It is valued on Basic + DA and paid either annually or on exit. On exit, leave encashment has its own tax exemption under Section 10(10AA), with amounts above the limit taxable. Encashing casual or sick leave is uncommon.
+Leave encashment usually applies to earned leave. It is valued on Basic + DA and paid either annually or on exit. On exit, encashment of earned leave is exempt up to ₹25 lakh under section 19(1) of the Income-tax Act, 2025 (Table Sl. Nos. 13 and 14, formerly section 10(10AA)), with the excess taxable. Encashing casual or sick leave is uncommon.
 
 ## The sandwich rule
 
@@ -769,7 +884,7 @@ Policies differ on whether holidays and weekly offs that fall inside or around a
 
 ## Statutory floors to respect
 
-State Shops and Establishments Acts and the Factories Act set minimum earned leave, often expressed as one day of leave for a number of days worked, along with rules on carry-forward and, in some states, minimum accumulation. Company policy can be more generous but not less.
+Under the OSH Code, a worker who has worked 180 days in a calendar year earns annual leave at one day for every 20 days worked (the Factories Act required 240 days). State Shops and Establishments Acts set the minimums for shops and offices, along with rules on carry-forward and, in some states, minimum accumulation. Company policy can be more generous but not less.
 
 ## Common mistakes to avoid
 
@@ -785,84 +900,99 @@ State Shops and Establishments Acts and the Factories Act set minimum earned lea
 
 **Can sick leave carry forward?** Usually not, but policy and state rules vary.
 
-**How is encashment taxed?** Earned leave encashment on exit is exempt up to the Section 10(10AA) limit, with the balance taxable.
+**How is encashment taxed?** Earned leave encashment on exit is exempt up to ₹25 lakh under section 19(1) of the Income-tax Act, 2025, with the balance taxable.
 
 ## Key takeaways
 
-- India has no single leave law; policy layers on state and factory minimums.
+- India has no single leave law; policy layers on the OSH Code, state Shops and Establishments Acts and the Code on Social Security.
 - Earned leave accrues and carries forward; casual and sick usually lapse.
 - Encashment is on Basic + DA, exempt up to limits on exit.
 - The sandwich rule must be explicit.
 
-NeevHR models every leave type with its own accrual, carry-forward and encashment rules, prorates for joiners and leavers, and shows employees a live balance, so policy is enforced consistently rather than reconstructed by hand.`,
+NeevHR models every leave type with its own accrual, carry-forward and encashment rules, prorates for joiners and leavers, and shows employees a live balance, so policy is enforced consistently rather than reconstructed by hand.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "maternity-benefit-act-for-employers",
-    title: "The Maternity Benefit Act: a practical guide for employers",
+    title: "Maternity benefit under the Labour Codes: a guide for employers",
     excerpt:
-      "The 26-week entitlement, the 80-day eligibility rule, adoption and work-from-home provisions, the creche requirement, and the employer's checklist.",
+      "Maternity benefit under the Code on Social Security, 2020: 26 and 12 weeks, the 80-day rule, adoption and surrogacy, ESI, creche and work from home.",
     category: "compliance",
     author: "NeevHR Team",
     publishedAt: "2026-09-01",
-    body: `The Maternity Benefit Act, as amended, gives women employees paid leave and important protections around childbirth. For employers, compliance is both a legal duty and a powerful retention lever, because how a company treats maternity shapes whether women return and stay.
+    body: `Maternity benefit gives women employees paid leave and protection around childbirth, adoption and surrogacy. Since 21 November 2025 it is governed by Chapter VI of the Code on Social Security, 2020, which replaced the Maternity Benefit Act, 1961. The entitlements HR knows, 26 weeks, the 80-day rule, the creche requirement and work from home, carried over.
 
-## The core entitlement
+## Who it applies to
 
-Eligible women are entitled to 26 weeks of paid maternity leave for the first two surviving children. Of these 26 weeks, up to 8 weeks may be taken before the expected date of delivery, with the balance after. For a third or subsequent child, the entitlement reduces to 12 weeks.
+Every factory, mine, plantation and shop or establishment in which 10 or more employees are employed, or were employed on any day of the preceding twelve months. A woman covered by ESI receives maternity benefit from ESIC instead, as a cash benefit at her average daily wage, subject to ESI's contribution conditions.
 
-"Paid" means the woman receives her average daily wage for the period, so payroll must keep salary running through the leave.
+## The entitlements
 
-## Who is eligible
+| Situation | Paid leave |
+| --- | --- |
+| Childbirth, first and second child | 26 weeks, of which up to 8 weeks before the expected delivery |
+| Childbirth, a woman with two or more surviving children | 12 weeks, of which up to 6 weeks before delivery |
+| Adoption of a child below three months | 12 weeks from the date the child is handed over |
+| Commissioning mother (surrogacy) | 12 weeks from the date the child is handed over |
+| Miscarriage or medical termination of pregnancy | 6 weeks |
+| Tubectomy | 2 weeks |
 
-To be eligible for maternity benefit, a woman must have worked for the employer for at least 80 days in the 12 months immediately preceding her expected date of delivery. This 80-day rule is the gate, so HR should check tenure early when leave is planned.
+"Paid" means the average daily wage for the period of absence, so payroll keeps salary running. A woman who does not receive free pre-natal and post-natal care from the employer also gets a medical bonus of the amount notified (₹3,500 under the old Act; check the figure notified under the Code).
 
-## Beyond leave: the wider provisions
+## Eligibility
 
-The Act does more than grant leave.
+A woman must have worked for the employer for at least 80 days in the twelve months immediately before her expected date of delivery. Days of lay-off and paid holidays count towards the 80 days. Check this early when leave is planned.
 
-- Adoption and commissioning mothers: a woman who legally adopts a child below a specified age, or a commissioning mother, is entitled to 12 weeks of leave.
-- Work from home: after the leave period, an employer may allow the woman to work from home where the nature of the work permits and both sides agree.
-- Creche facility: establishments above a headcount threshold must provide a creche, and the mother is allowed visits during the day.
+## Work from home, creche and information
 
-## Protections against discrimination
+- **Work from home:** after the leave, the employer may allow work from home where the nature of the work permits, on terms both agree.
+- **Creche:** an establishment with 50 or more employees must provide a creche within the prescribed distance, alone or as a common facility, and allow the mother four visits a day, including the interval for rest.
+- **Information:** every woman must be told in writing and electronically, at the time of her appointment, about the benefits available under the Code.
 
-An employer cannot dismiss or disadvantage a woman because she takes maternity leave. The leave period counts as continuous service, which protects downstream benefits such as gratuity. Denying benefits or terminating during maternity leave exposes the employer to penalties and reputational harm.
+## Protections
 
-## The employer's checklist
+An employer cannot dismiss or discharge a woman during, or on account of, her maternity absence, or change her conditions of service to her disadvantage. Leave counts as service, which protects gratuity and leave accrual.
+
+## Employer checklist
 
 | Step | What to do |
 | --- | --- |
-| Eligibility | Confirm 80 days of service in the preceding 12 months |
-| Planning | Agree the pre and post-delivery split within 26 weeks |
-| Payroll | Keep salary running for the full paid period |
-| Cover | Arrange interim cover for the role |
-| Return | Plan the return, including any work-from-home arrangement |
-| Continuity | Ensure the leave counts as continuous service |
+| Coverage | Check whether the woman is covered by ESI; if so, the claim goes to ESIC |
+| Eligibility | Confirm 80 days in the preceding 12 months |
+| Plan | Agree the split before and after delivery within the entitlement |
+| Payroll | Pay the average daily wage for the leave, or stop salary where ESIC pays |
+| Return | Discuss work from home and creche use before the return date |
+| Records | Keep the notice, certificates and payment record |
 
-## Common mistakes to avoid
+## Common mistakes
 
 - Treating maternity leave as unpaid or partly paid.
-- Missing the 80-day eligibility check.
-- Breaking service continuity, which harms gratuity.
-- Ignoring the creche requirement above the threshold.
-- Any adverse action linked to the leave.
+- Paying salary and also letting the employee claim from ESIC for the same period.
+- Missing the 12 weeks for adoption and surrogacy.
+- Ignoring the creche duty at 50 employees.
+- Citing the repealed 1961 Act in the leave policy.
 
-## Frequently asked questions
+## FAQs
 
-**Is the 26 weeks for every child?** It is 26 weeks for the first two children and 12 weeks for the third onward.
+**Is it 26 weeks for every child?** For a woman with fewer than two surviving children. With two or more surviving children it is 12 weeks.
 
-**Does adoption qualify?** Yes, 12 weeks for a legally adopted child below the specified age, and for commissioning mothers.
+**Does adoption qualify?** Yes, 12 weeks for a child below three months, from the date of handover.
 
-**Is maternity pay taxable?** It is salary, so normal salary tax rules apply.
+**Is maternity pay taxable?** Salary paid by the employer is taxed as salary. ESI maternity benefit paid by ESIC is a social security benefit, not salary.
+
+**Is paternity leave mandatory?** Not under a central law for private employers; it is a policy choice.
 
 ## Key takeaways
 
-- 26 weeks paid leave for the first two children, 12 weeks thereafter.
-- Eligibility needs 80 days of service in the preceding 12 months.
-- Adoption, work-from-home and creche provisions apply.
-- The leave is paid and counts as continuous service.
+- Maternity benefit is now under the Code on Social Security, 2020.
+- 26 weeks for the first two children, 12 weeks thereafter and for adoption and surrogacy.
+- 80 days of work in the preceding 12 months; ESI-covered women claim from ESIC.
+- Creche at 50 employees; no dismissal during or because of maternity.
 
-NeevHR models maternity as a leave type with its own rules, keeps salary running through the period, and preserves service continuity for downstream benefits like gratuity.`,
+NeevHR models maternity as a leave type with its own eligibility and duration rules, keeps salary running through the period, and preserves service for gratuity. See [leave management](/features/leave).
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "posh-act-compliance-for-employers",
@@ -947,6 +1077,14 @@ NeevHR can run POSH as mandatory training with department-wise completion tracki
     publishedAt: "2026-09-05",
     body: `The Digital Personal Data Protection Act, 2023 (DPDP) is India's data protection law, and HR sits at the centre of it. HR systems hold some of the most sensitive personal data in any company: identity documents, bank details, salary, health information, performance records and family details. Handling that data lawfully is now a legal duty, not just good practice.
 
+## When the obligations apply
+
+The DPDP Act was enacted on 11 August 2023, and the Digital Personal Data Protection Rules, 2025 were notified on 13 November 2025 with an 18-month phased commencement. The substantive obligations, including notice, consent, security safeguards, breach notification and data principal rights, apply from 13 May 2027. Employee data collected now will still be held then, so build the habits today. Check the current position with the [Ministry of Electronics and Information Technology](https://www.meity.gov.in/).
+
+## Employment is a legitimate use
+
+The Act lets an employer process personal data without consent for purposes of employment, such as payroll, attendance, statutory filings and safeguarding the employer from loss or liability. Consent is still needed for purposes beyond employment, such as marketing or an optional wellness programme. Notice, security, retention and the rights below apply either way.
+
 ## The core principles
 
 The DPDP framework rests on a few ideas that HR should internalise:
@@ -1016,7 +1154,9 @@ Where consent is the basis for processing, it must be free, informed, specific a
 - Access control, masking, audit and retention are the practical backbone.
 - Build security into the system rather than relying on manual care.
 
-NeevHR builds in row-level isolation, role-based access, field masking and an audit trail, with consent capture and data-principal request handling for employees, so DPDP compliance is a configuration rather than a project.`,
+NeevHR builds in row-level isolation, role-based access, field masking and an audit trail, with consent capture and data-principal request handling for employees, so DPDP compliance is a configuration rather than a project.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "minimum-wages-in-india-explained",
@@ -1033,7 +1173,7 @@ NeevHR builds in row-level isolation, role-based access, field masking and an au
 | Factor | Effect |
 | --- | --- |
 | State | Each state notifies its own rates |
-| Scheduled employment | Different industries have different schedules |
+| Type of work | States may still fix rates by employment or industry |
 | Skill level | Unskilled, semi-skilled, skilled and highly skilled differ |
 | Zone | Some states vary rates by city size or zone |
 
@@ -1049,9 +1189,10 @@ Second, the floor moves. A structure that is compliant today can slip below the 
 
 ## The Code on Wages
 
-The Code on Wages consolidates four laws (the Minimum Wages Act, the Payment of Wages Act, the Payment of Bonus Act and the Equal Remuneration Act) into a single code. Two features matter for structure design:
+The Code on Wages, 2019, in force since 21 November 2025, replaced four laws (the Minimum Wages Act, the Payment of Wages Act, the Payment of Bonus Act and the Equal Remuneration Act). Three features matter for structure design:
 
-- A national floor wage concept, below which no state can set its minimum.
+- Minimum wages now apply to every employee, not only to scheduled employments.
+- A floor wage fixed by the Central Government, below which no state can set its minimum.
 - A definition of "wages" that expects excluded allowances not to exceed 50% of total remuneration. If they do, the excess is added back to wages, which raises PF, gratuity and bonus bases.
 
 This is why aggressively low-Basic structures are risky under the Code.
@@ -1072,20 +1213,22 @@ This is why aggressively low-Basic structures are risky under the Code.
 
 ## Frequently asked questions
 
-**Is there one national minimum wage?** Not a single enforced figure historically, but the Code on Wages introduces a national floor concept.
+**Is there one national minimum wage?** No. States fix their own rates, but under the Code on Wages no state rate may be below the floor wage the Central Government fixes.
 
 **How often do rates change?** Often twice a year, when the VDA is revised.
 
-**Who sets the rate for my employees?** Usually the state, for the relevant scheduled employment and skill level.
+**Who sets the rate for my employees?** Usually the state, by skill level and area, and in some states by type of work. The Central Government sets rates for establishments where it is the appropriate government.
 
 ## Key takeaways
 
 - Minimum wage varies by state, industry, skill and sometimes zone.
 - It moves with VDA revisions, so compliance is not set-and-forget.
-- The Code on Wages adds a national floor and a 50% wages test.
+- The Code on Wages covers every employee, adds a floor wage and a 50% wages test.
 - Check every payroll against the current applicable floor.
 
-NeevHR surfaces minimum-wage warnings at the verify and publish steps, checking each employee against the current state and skill floor, so a stale rate never becomes an underpayment.`,
+NeevHR surfaces minimum-wage warnings at the verify and publish steps, checking each employee against the current state and skill floor, so a stale rate never becomes an underpayment.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "full-and-final-settlement-explained",
@@ -1113,8 +1256,8 @@ The settlement is a balance of earnings and recoveries.
 
 Two components carry meaningful tax rules.
 
-- Gratuity is exempt up to the limits under Section 10(10). For employees covered by the Payment of Gratuity Act, the exemption is the least of the actual gratuity, ₹20 lakh, and the formula amount.
-- Leave encashment on resignation or retirement is exempt up to the limit under Section 10(10AA), with the balance taxable.
+- Gratuity is exempt under section 19(1) of the Income-tax Act, 2025 (formerly section 10(10)). For employees covered by the Code on Social Security, the exemption is the least of the actual gratuity, ₹20 lakh, and the formula amount.
+- Leave encashment on resignation or retirement is exempt up to ₹25 lakh under section 19(1) (formerly section 10(10AA)), with the balance taxable.
 
 Notice-pay recovery, where the employee leaves before serving full notice, is handled per policy. The basis (Basic or gross) should be defined and applied consistently.
 
@@ -1124,7 +1267,7 @@ Most delays in F&F are not caused by payroll; they are caused by pending clearan
 
 ## Timelines
 
-Most F&F settlements are expected to be completed within a defined window after the last working day, commonly 30 to 45 days, once clearances and asset returns are done. Some states have specific timelines for paying wages on termination, so check the applicable rule.
+The Code on Wages, 2019 changed the timeline. Wages due to an employee who resigns, is removed, dismissed or retrenched, or whose establishment closes, must be paid within two working days of the last day. Gratuity must be paid within 30 days of becoming payable. The old practice of settling in 30 to 45 days now breaches the wage deadline, so run clearances during the notice period, not after it.
 
 ## Worked example
 
@@ -1151,9 +1294,9 @@ The net is best shown in words on the settlement statement, and mirrored in the 
 
 ## Frequently asked questions
 
-**How long can F&F take?** Commonly 30 to 45 days after the last working day, subject to state rules.
+**How long can F&F take?** Wages are due within two working days of the last day under the Code on Wages, and gratuity within 30 days of becoming payable.
 
-**Is leave encashment fully exempt?** No, only up to the Section 10(10AA) limit on exit; the balance is taxable.
+**Is leave encashment fully exempt?** No, only up to ₹25 lakh on exit; the balance is taxable.
 
 **Can we withhold F&F until assets are returned?** Asset recovery is usually netted in the settlement rather than used to withhold it entirely; follow policy and law.
 
@@ -1162,9 +1305,11 @@ The net is best shown in words on the settlement statement, and mirrored in the 
 - F&F nets salary, leave encashment and gratuity against notice, loans, assets and TDS.
 - Gratuity and leave encashment have their own exemptions.
 - Clearance tracking, not payroll, is usually the bottleneck.
-- Close within a defined window and issue the letters.
+- Pay wages within two working days and gratuity within 30 days, then issue the letters.
 
-NeevHR computes the F&F with the gratuity and leave-encashment exemptions, tracks clearances with owners, shows the net in words, and generates the relieving and experience letters.`,
+NeevHR computes the F&F with the gratuity and leave-encashment exemptions, tracks clearances with owners, shows the net in words, and generates the relieving and experience letters.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "notice-period-and-buyout-explained",
@@ -1200,7 +1345,7 @@ A clean exit protects both sides and preserves the relationship, which matters f
 - Confirm the last working day and communicate it.
 - Run a structured knowledge handover to a named person.
 - Complete department clearances and asset returns.
-- Settle notice recovery or buyout in the full and final settlement.
+- Settle notice recovery or buyout in the full and final settlement, and pay the final wages within two working days of the last day, as the Code on Wages, 2019 requires.
 - Issue relieving and experience letters promptly.
 
 ## Common mistakes to avoid
@@ -1223,9 +1368,11 @@ A clean exit protects both sides and preserves the relationship, which matters f
 - Notice periods are contractual, commonly 30 to 90 days, and should be consistent.
 - Buyout works both ways; define the recovery basis clearly.
 - Garden leave and early release are valid, documented choices.
-- Settle notice in the F&F and issue letters promptly.
+- Settle notice in the F&F, pay wages within two working days, and issue letters promptly.
 
-NeevHR manages notice periods by grade, supports early release with a knowledge handover, and settles notice recovery or buyout in the final settlement.`,
+NeevHR manages notice periods by grade, supports early release with a knowledge handover, and settles notice recovery or buyout in the final settlement.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "monthly-payroll-process-step-by-step",
@@ -1312,67 +1459,80 @@ NeevHR runs exactly this five-stage cycle, with a verify grid that compares net 
   },
   {
     slug: "attendance-and-overtime-rules-in-india",
-    title: "Attendance and overtime rules in India",
+    title: "Attendance and overtime rules in India under the OSH Code",
     excerpt:
-      "How working hours, overtime and shift work are governed, what a clean day-close needs to capture, and how pay-at-risk prevents payroll surprises.",
+      "Working hours, overtime at twice the rate, the quarterly cap, weekly holidays and annual leave under the OSH Code, and what a clean day-close needs.",
     category: "time",
     author: "NeevHR Team",
     publishedAt: "2026-09-16",
-    body: `Attendance is where payroll accuracy begins. If the attendance data is wrong, everything downstream is wrong. In India, working hours, overtime and shift work are governed by the Factories Act and by state Shops and Establishments Acts, so the specifics vary, but the underlying principles are consistent.
+    body: `Attendance is where payroll accuracy begins: if the day records are wrong, pay, overtime and statutory figures are wrong too. Since 21 November 2025 working hours, overtime, weekly holidays and annual leave in factories and covered establishments are governed by the Occupational Safety, Health and Working Conditions Code, 2020 (the OSH Code), which replaced the Factories Act, 1948, with the details set by state rules. Shops and commercial establishments also follow their state Shops and Establishments Act.
 
-## Working hours and overtime
+## Working hours and overtime under the OSH Code
 
-The typical framework limits daily and weekly working hours, mandates a weekly off, and requires overtime pay, often at twice the ordinary rate, for hours beyond the daily or weekly limit. The Factories Act also caps the total overtime an employee can work in a quarter. These limits exist to protect health and safety, and breaching them is a compliance risk, not just a pay issue.
+| Rule | Position under the Code |
+| --- | --- |
+| Daily hours | No worker may be required to work more than 8 hours a day |
+| Weekly hours and spread-over | As notified by the appropriate Government in its rules |
+| Overtime | Paid at twice the ordinary rate of wages, with the worker's consent |
+| Overtime limit | A quarterly cap as notified in the state rules |
+| Weekly holiday | At least one day off in every seven |
+| Annual leave | One day for every 20 days worked, once the worker has worked 180 days in a calendar year |
+| Women at night | Permitted with consent and the safety conditions the government prescribes |
+
+The 180-day threshold for annual leave is lower than the 240 days under the Factories Act. Check the quarterly overtime cap and the weekly limit in your state's rules; several states have notified their own figures.
 
 ## What a clean day-close needs
 
-Turning raw punches into a payroll-ready day means applying rules consistently for every employee. The elements to define:
+Turning raw punches into a payroll-ready day means applying the same rules to everyone:
 
 | Element | What to configure |
 | --- | --- |
 | Grace period | How late an in-punch can be before it counts as late |
-| Half-day and short-day | The hours thresholds that trigger each |
-| Overtime | When it begins and at what rate |
+| Half-day and short-day | The hours that trigger each |
+| Overtime | When it starts, the rate, consent and the quarterly cap |
 | Weekly off and holidays | How they interact with attendance and pay |
 | Regularisation | Who can fix a missed punch, and the approval path |
 
-A configurable day-close applies these rules automatically, so the same situation is treated the same way for everyone.
-
 ## Shift work and rosters
 
-Rotating and night shifts add rules to respect: minimum rest between shifts, limits on consecutive working days, and weekly hour caps. Publishing a roster that checks coverage and working-time compliance before it goes live prevents two opposite problems at once: understaffing a shift, and quietly breaching a rest rule. Night-shift allowances and shift premiums also need to flow into payroll correctly.
+Rotating and night shifts add rules: minimum rest between shifts, limits on consecutive days, the weekly limit and the conditions for women on night shifts. Check coverage and working-time compliance before a roster is published, so you neither understaff a shift nor quietly breach a rest rule. Night allowances and shift premiums must reach payroll correctly. See our guide to [shift management and rostering](/blog/shift-management-and-rostering) and [night shifts for women employees](/blog/night-shift-women-employees).
 
-## Pay at risk: the most useful output
+## Pay at risk
 
-The single most valuable thing attendance can tell you before payroll runs is where pay is at risk. Unjustified absences and missing punches will become loss of pay if they are not regularised. Surfacing this early, while there is still time to approve a regularisation or confirm an absence, avoids the month-end surprise of a paycheck that is smaller than expected.
+The most useful thing attendance can tell you before payroll is where pay is at risk. Unjustified absences and missing punches become loss of pay unless regularised. Surfacing them while there is still time to approve a regularisation avoids a smaller payslip at month end. See [loss of pay calculation](/blog/loss-of-pay-lop-calculation).
 
 ## Biometric, mobile and field capture
 
-Different workforces need different capture methods. Factory and office staff punch on biometric terminals; retail and distributed teams use mobile check-in; field staff use GPS-based attendance with geofencing. Whatever the method, the punches must deduplicate and map to the right employee and shift before the day-close runs.
+Factory and office staff punch on biometric terminals; distributed teams use mobile check-in; field staff use geofenced attendance. Whatever the method, punches must deduplicate and map to the right employee and shift before the day closes. See [biometric attendance integration](/blog/biometric-attendance-integration).
 
-## Common mistakes to avoid
+## Common mistakes
 
-- Inconsistent grace and half-day rules across teams.
-- Not paying overtime at the mandated rate.
+- Paying overtime at the single rate, or without consent.
+- Ignoring the quarterly overtime cap in the state rules.
+- Applying the old 240-day rule for annual leave.
 - Breaching rest and consecutive-day rules in rosters.
 - Discovering loss of pay only after payroll is computed.
 
-## Frequently asked questions
+## FAQs
 
-**Is overtime always at double the rate?** Often, under the Factories Act, but confirm the applicable state rule.
+**Is overtime always at twice the rate?** For workers covered by the OSH Code, yes. Shops and establishments follow their state Act, which usually also sets twice the rate.
 
-**Can employees fix their own missed punches?** Usually through a regularisation request that a manager approves, not by editing attendance directly.
+**What is the quarterly overtime limit?** The figure in your state's rules under the OSH Code. Check the current notification.
 
-**How do night shifts affect pay?** Through shift allowances and, where hours exceed limits, overtime.
+**Can employees fix their own missed punches?** Through a regularisation request that a manager approves, not by editing attendance.
+
+**When does annual leave start?** After 180 days of work in a calendar year, at one day for every 20 days worked.
 
 ## Key takeaways
 
-- Working hours and overtime are governed by the Factories Act and state laws.
-- A configurable day-close applies grace, half-day and overtime rules consistently.
-- Rosters must respect rest and working-time limits before publishing.
-- Pay-at-risk surfaced early prevents payroll surprises.
+- Working hours and overtime are now under the OSH Code, with details in state rules.
+- 8 hours a day, overtime at twice the rate with consent, a quarterly cap as notified.
+- Annual leave after 180 days at one day per 20 days worked.
+- A configurable day-close and early pay-at-risk prevent payroll surprises.
 
-NeevHR ingests biometric, mobile and field punches, applies a configurable day-close, routes regularisation for approval, and shows pay at risk before the payroll cycle closes.`,
+NeevHR ingests biometric, mobile and field punches, applies a configurable day-close with grace, half-day and overtime rules, checks overtime against the configured cap, and shows pay at risk before payroll closes. See [attendance management](/features/attendance) and the [overtime calculator](/tools/overtime-calculator).
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
   {
     slug: "probation-and-confirmation-best-practices",
@@ -1387,6 +1547,8 @@ NeevHR ingests biometric, mobile and field punches, applies a configurable day-c
 ## Setting the period
 
 Probation is commonly 90 days, though it varies by role and level. Some organisations use longer probation for senior or specialised roles. Whatever the length, the period and its terms, including the possibility of an extension, should be clear in the appointment letter, so there are no surprises later.
+
+Two Labour Code points apply. The OSH Code, 2020 requires an appointment letter for every employee, so put the probation period and its terms in it. Industrial establishments with 300 or more workers need standing orders under the Industrial Relations Code, 2020, and the model standing orders cover probation, so the policy must not contradict them. See [standing orders under the IR Code](/blog/standing-orders-industrial-relations-code).
 
 ## What to assess
 
@@ -1435,6 +1597,8 @@ Whatever the decision, tell the employee. A confirmation letter is a small momen
 - Confirm, extend once, or exit, and document the decision.
 - Communicate the outcome in writing.
 
-NeevHR makes probation a configurable period, prompts the manager for structured feedback before it ends, and supports a confirm, extend or exit decision, so the date never just slips by.`,
+NeevHR makes probation a configurable period, prompts the manager for structured feedback before it ends, and supports a confirm, extend or exit decision, so the date never just slips by.
+
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
   },
 ];

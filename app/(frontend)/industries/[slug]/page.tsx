@@ -23,8 +23,23 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!ind) return { title: "Industry not found", robots: { index: false } };
   return pageMeta({
     title: ind.h1,
-    description: ind.intro.length > 160 ? `${ind.intro.slice(0, 157).replace(/\s+\S*$/, "")}...` : ind.intro,
+    description: ind.intro,
     path: `/industries/${slug}`,
+  });
+}
+
+// Renders [text](href) inside a statutory paragraph as a link; everything else stays text.
+function withLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    return m ? (
+      <Link key={i} href={m[2]} className="text-brand underline underline-offset-2">
+        {m[1]}
+      </Link>
+    ) : (
+      part
+    );
   });
 }
 
@@ -124,6 +139,72 @@ export default async function IndustryPage({ params }: Params) {
           </div>
         </Container>
       </section>
+
+      {/* Statutory rules for this industry */}
+      {ind.statutory && (
+        <section id="statutory" className="scroll-mt-16 border-t border-line py-16 lg:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand">Statutory rules</span>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">{ind.statutory.title}</h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-body">{ind.statutory.intro}</p>
+            </div>
+            <div className="mt-8 overflow-x-auto rounded-2xl border border-line bg-white">
+              <table className="w-full min-w-[520px] text-left text-sm">
+                <thead className="bg-surface-soft text-xs uppercase tracking-wider text-muted">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Rule</th>
+                    <th className="px-4 py-3 font-semibold">What it means for HR and payroll</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ind.statutory.rows.map(([rule, means]) => (
+                    <tr key={rule} className="border-t border-line align-top">
+                      <td className="px-4 py-3 font-medium text-ink">{rule}</td>
+                      <td className="px-4 py-3 text-body">{means}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {ind.statutory.sections?.map((sec) => (
+              <div key={sec.title} className="mt-10 max-w-3xl">
+                <h3 className="text-xl font-semibold text-ink">{sec.title}</h3>
+                {sec.body.map((para) => (
+                  <p key={para} className="mt-3 text-[15px] leading-relaxed text-body">
+                    {withLinks(para)}
+                  </p>
+                ))}
+              </div>
+            ))}
+            {ind.statutory.example && (
+              <div className="mt-10 max-w-3xl rounded-2xl border border-line bg-surface-soft p-6">
+                <h3 className="text-lg font-semibold text-ink">{ind.statutory.example.title}</h3>
+                <ul className="mt-4 space-y-2">
+                  {ind.statutory.example.lines.map((l) => (
+                    <li key={l} className="tnum text-sm leading-relaxed text-body">{l}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs text-muted">{ind.statutory.example.note}</p>
+              </div>
+            )}
+            {ind.statutory.reading && (
+              <div className="mt-8">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Related reading</h3>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {ind.statutory.reading.map((r) => (
+                    <li key={r.href}>
+                      <Link href={r.href} className="inline-flex rounded-full border border-line bg-white px-3 py-1.5 text-sm text-ink hover:border-brand hover:text-brand">
+                        {r.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </Container>
+        </section>
+      )}
 
       {/* Modules that matter */}
       <section className="border-y border-line bg-surface-soft py-16 lg:py-20">

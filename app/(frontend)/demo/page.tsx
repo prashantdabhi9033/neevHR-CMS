@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { DemoForm, type Intent } from "@/components/demo/DemoForm";
@@ -88,6 +89,19 @@ export default async function DemoPage({ searchParams }: Search) {
               </li>
             ))}
           </ul>
+          <div className="mt-10 rounded-2xl border border-line bg-white p-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">What happens after you submit</h2>
+            <ol className="mt-3 space-y-2 text-sm leading-relaxed text-body">
+              <li>1. We reply within one business day to confirm a time, or with the quote you asked for.</li>
+              <li>2. The walkthrough runs on a video call, shaped around the headcount, states and pay structure you tell us about.</li>
+              <li>3. It helps to bring your HR head and whoever runs payroll, plus one tricky payroll case you want to see handled.</li>
+              <li>4. Afterwards you receive an edition recommendation and an implementation outline. There is no obligation.</li>
+            </ol>
+            <p className="mt-4 text-xs text-muted">
+              We use your details to respond, arrange the demo or quote and follow up about NeevHR. See our{" "}
+              <Link href="/privacy" className="text-brand underline">privacy policy</Link>.
+            </p>
+          </div>
         </div>
         <DemoForm intent={intent} edition={edition} />
       </Container>

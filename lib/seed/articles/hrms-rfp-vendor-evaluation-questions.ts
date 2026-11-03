@@ -180,7 +180,7 @@ For a sense of how implementation actually runs once you have chosen, see our [H
 
 **How do you compare HRMS pricing across vendors?** Use your own three-year headcount plan and a fixed commercial template covering subscription, implementation, integrations, support, usage charges and renewal terms. Our [HRMS cost guide](/blog/hrms-cost-in-india) has a worked three-year example.
 
-**Is an RFP necessary for a 500-employee company?** A full formal RFP may be more than you need, but the core of it, a short must-have list, a question bank and a scripted demo, is worth doing at any size. See our guide to [HRMS for 500 employees](/blog/hrms-for-500-employees).
+**Is an RFP necessary for a 500-employee company?** A full formal RFP may be more than you need, but the core of it, a short must-have list, a question bank and a scripted demo, is worth doing at any size. See our guide to [HRMS for 500 employees](/best-hrms-for-mid-sized-business).
 
 ## How NeevHR helps
 

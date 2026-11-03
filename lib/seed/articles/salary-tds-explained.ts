@@ -2,19 +2,45 @@ import type { SeedPost } from "../posts";
 
 const post: SeedPost = {
   slug: "salary-tds-explained",
-  title: "Salary TDS explained: how employers calculate tax every month",
+  title: "Salary TDS explained: 2026-27 slabs, regimes and monthly TDS",
   excerpt:
-    "How employers work out monthly TDS on salary: the projection method, regime choice, declarations and proofs, bonus months, and old and new regime examples.",
+    "Salary TDS for tax year 2026-27: new and old regime slabs, helping employees choose, the projection method, declarations and proofs, and worked examples.",
   category: "payroll",
   author: "NeevHR Team",
   publishedAt: "2026-09-24",
   body: `Employers calculate TDS on salary by estimating each employee's taxable salary for the full tax year, working out the annual tax under the regime the employee has chosen, and deducting that tax in instalments across the year. Each month the estimate is refreshed for pay changes, bonuses, declarations and proofs, and the tax still due is spread over the months that remain. The amount deducted is deposited with the government by the 7th of the following month.
 
-For slab rates and help choosing a regime, see our [old vs new regime guide for FY 2026-27](/blog/tds-on-salary-old-vs-new-regime-fy-2026-27). This guide covers the monthly mechanics.
+This guide covers the slab rates for tax year 2026-27, how to help employees choose a regime, and the monthly mechanics.
 
 ## A note on the new Income-tax Act
 
 From 1 April 2026, the Income-tax Act, 2025 replaced the 1961 Act and the year became the tax year. Salary TDS is now section 392 (old 192), the rebate section 156 (old 87A), and 80C and 80D are sections 123 and 126. Forms are renumbered too: Form 124 (formerly 12BB), Form 122 (formerly 12B), Form 123 (formerly 12BA), Form 130 (formerly Form 16) and Form 138 (formerly Form 24Q). Slabs, the rebate and due dates are unchanged. Current forms are on the [Income Tax Department](https://www.incometax.gov.in/) website.
+
+## Slab rates for tax year 2026-27
+
+**New regime (the default, section 202 of the 2025 Act):**
+
+| Taxable income | Rate |
+| --- | --- |
+| Up to ₹4,00,000 | Nil |
+| ₹4,00,001 to ₹8,00,000 | 5% |
+| ₹8,00,001 to ₹12,00,000 | 10% |
+| ₹12,00,001 to ₹16,00,000 | 15% |
+| ₹16,00,001 to ₹20,00,000 | 20% |
+| ₹20,00,001 to ₹24,00,000 | 25% |
+| Above ₹24,00,000 | 30% |
+
+**Old regime:** nil up to ₹2,50,000, 5% to ₹5,00,000, 20% to ₹10,00,000 and 30% above, with a ₹50,000 standard deduction and the rebate making tax nil up to ₹5,00,000 of taxable income. Its advantage is the deductions: investments under section 123 (formerly 80C) up to ₹1,50,000, health insurance under section 126 (formerly 80D), the HRA exemption, and home loan interest.
+
+Health and education cess of 4% applies on top in both regimes. Confirm the year's figures in the Finance Act before finalising payroll.
+
+### Helping employees choose
+
+- Employees with large deductions (high HRA, a home loan, full investments, health insurance) often still come out ahead on the old regime.
+- Employees with few deductions usually pay less under the new regime, because of the lower rates and the ₹75,000 standard deduction.
+- A gross salary of ₹11,50,000 with few deductions gives new-regime taxable income of ₹10,75,000 after the standard deduction, below the ₹12 lakh rebate limit, so TDS is nil.
+
+Let each employee declare the regime and proposed deductions at the start of the year, compute TDS on that basis, and true up as proofs arrive.
 
 ## The projection method
 
@@ -148,7 +174,7 @@ Delays cost interest, charged separately for two failures. Tax not deducted when
 
 NeevHR [payroll](/payroll) computes TDS under both regimes from each employee's declaration and re-projects it every month, taking in proofs, previous-employer income, arrears, LOP reversals and variable pay. It produces TDS challans, the quarterly TDS return text file for validation with the FVU, and Form 16 PDFs; you pay and file on the government portals.
 
-*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
 };
 
 export default post;

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Disclaimer } from "@/components/site/Disclaimer";
 import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
-import { pageMeta, LAST_REVIEWED, LAST_REVIEWED_ISO } from "@/lib/seo";
+import { pageMeta, pageDateISO, displayDate } from "@/lib/seo";
 import { StatutoryChecks } from "@/components/animated/StatutoryChecks";
 import { site } from "@/lib/site";
 import { states } from "@/lib/states";
@@ -38,7 +38,7 @@ const sections: Section[] = [
     id: "epf",
     title: "EPF / PF",
     rule: [
-      "Employee and employer each contribute 12% of PF wages (basic plus DA). Of the employer's share, 8.33% goes to EPS on wages up to its own ₹15,000 ceiling (at most ₹1,250 a month).",
+      "Employee and employer each contribute 12% of PF wages (basic plus DA). Of the employer's share, 8.33% goes to EPS on wages up to the same ₹25,000 ceiling (at most ₹2,083 a month from 17 September 2026, ₹1,250 before). The Central Government's 1.16% pension share stays on ₹15,000 under G.S.R. 890(E).",
       "The PF wage ceiling is ₹25,000 a month from 17 September 2026, and employees earning up to ₹25,000 are now covered compulsorily. Employers may contribute on higher actual wages. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
       "EPF now runs under the EPF Scheme 2026, EPS 2026 and EDLI Scheme 2026, framed under the Code on Social Security, 2020.",
       "Employers also pay EDLI (0.5%) and administration charges (0.5%).",
@@ -71,7 +71,7 @@ const sections: Section[] = [
     ],
     links: [
       { label: "ESI calculator", href: "/tools/esi-calculator" },
-      { label: "ESI explained", href: "/blog/esi-explained-eligibility-benefits-contribution" },
+      { label: "ESI explained", href: "/blog/esi-eligibility" },
     ],
   },
   {
@@ -116,7 +116,7 @@ const sections: Section[] = [
       "Generates the TDS challan and captures challan numbers.",
     ],
     links: [
-      { label: "TDS: old vs new regime", href: "/blog/tds-on-salary-old-vs-new-regime-fy-2026-27" },
+      { label: "TDS: old vs new regime", href: "/blog/salary-tds-explained" },
       { label: "HRA calculator", href: "/tools/hra-calculator" },
     ],
   },
@@ -252,7 +252,7 @@ export default function IndiaPayrollPage() {
           description: metadata.description,
           isPartOf: { "@id": `${site.url}/#website` },
           about: { "@id": `${site.url}/#software` },
-          dateModified: LAST_REVIEWED_ISO,
+          dateModified: pageDateISO("/india-payroll", true),
           inLanguage: "en-IN",
         }}
       />
@@ -277,7 +277,7 @@ export default function IndiaPayrollPage() {
             deductions, statutory contributions, tax calculations, payroll
             approvals and payroll reporting into one system.
           </p>
-          <p className="mt-3 text-sm text-muted">Last reviewed: {LAST_REVIEWED}</p>
+          <p className="mt-3 text-sm text-muted">Last reviewed: {displayDate(pageDateISO("/india-payroll", true))}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/demo" size="lg">
               Book a Demo
@@ -350,7 +350,51 @@ export default function IndiaPayrollPage() {
             </div>
           ))}
 
-          <div>
+          <div id="worked-example" className="scroll-mt-24">
+            <h2 className="text-2xl font-bold tracking-tight text-ink">Worked example: one employee&apos;s month</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-body">
+              An employee in Pune, Maharashtra, in November 2026: basic plus DA ₹14,000, HRA ₹4,000 and special allowance
+              ₹2,500, so gross ₹20,500. PF is on actual basic, below the ₹25,000 ceiling. Illustrative only.
+            </p>
+            <div className="mt-5 overflow-x-auto rounded-2xl border border-line bg-white">
+              <table className="w-full min-w-[520px] text-left text-sm">
+                <thead className="bg-surface-soft text-xs uppercase tracking-wider text-muted">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Item</th>
+                    <th className="px-4 py-3 font-semibold">Working</th>
+                    <th className="px-4 py-3 text-right font-semibold">Amount</th>
+                  </tr>
+                </thead>
+                <tbody className="tnum">
+                  {[
+                    ["Employee PF", "12% × ₹14,000", "₹1,680"],
+                    ["Employee ESI", "0.75% × ₹20,500 = ₹153.75, rounded up", "₹154"],
+                    ["Professional tax", "Maharashtra, men above ₹10,000 (₹300 in February)", "₹200"],
+                    ["Labour Welfare Fund", "Maharashtra deducts in June and December only", "₹0"],
+                    ["TDS", "Annual salary ₹2,46,000, below the new-regime rebate limit", "₹0"],
+                    ["Net pay", "₹20,500 − ₹1,680 − ₹154 − ₹200", "₹18,466"],
+                    ["Employer PF", "EPS 8.33% × ₹14,000 = ₹1,166; EPF ₹514; EDLI and admin 0.5% each, ₹70 + ₹70", "₹1,820"],
+                    ["Employer ESI", "3.25% × ₹20,500 = ₹666.25, rounded up", "₹667"],
+                  ].map(([a, b, c]) => (
+                    <tr key={a} className="border-t border-line align-top">
+                      <td className="px-4 py-3 font-medium text-ink">{a}</td>
+                      <td className="px-4 py-3 text-body">{b}</td>
+                      <td className="px-4 py-3 text-right text-ink">{c}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-muted">
+              Rules referred to: the PF wage ceiling of ₹25,000 from 17 September 2026 under S.O. 5109(E) (
+              <a className="underline" href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2310811" rel="noopener" target="_blank">PIB release</a>
+              ), ESI rates as notified by <a className="underline" href="https://www.esic.gov.in/" rel="noopener" target="_blank">ESIC</a>, the{" "}
+              <Link className="underline" href="/india/payroll/maharashtra">Maharashtra PT and LWF schedule</Link> and the Income-tax Act, 2025 (
+              <a className="underline" href="https://www.incometax.gov.in/" rel="noopener" target="_blank">Income Tax Department</a>).
+            </p>
+          </div>
+
+          <div id="state-guides" className="scroll-mt-24">
             <h2 className="text-2xl font-bold tracking-tight text-ink">State payroll guides</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-body">
               Professional tax, Labour Welfare Fund, minimum wages and shops and establishments rules, state by state.
@@ -366,7 +410,7 @@ export default function IndiaPayrollPage() {
             </ul>
           </div>
 
-          <Disclaimer sources={[EPFO, ESIC, ITD, TIN, MOLE]} />
+          <Disclaimer sources={[EPFO, ESIC, ITD, TIN, MOLE]} reviewed={displayDate(pageDateISO("/india-payroll", true))} />
         </Container>
       </section>
 

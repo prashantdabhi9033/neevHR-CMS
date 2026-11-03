@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-09-24",
   body: `Payroll reconciliation is the monthly check that the figures in your payroll register agree with everywhere they end up: the headcount, last month's payroll, the PF, ESI and TDS filings, the bank file and the general ledger. Do it in a fixed order every month, before approval and again after payment, and make sure every difference is either corrected or explained in writing. A reconciled payroll is one where the numbers tie, not one where they are merely close.
 
-This guide sets out six reconciliations, a worked example and the controls that keep the process honest, building on the verify stage described in our [monthly payroll process](/blog/monthly-payroll-process-step-by-step).
+This guide sets out six reconciliations, a worked example and the controls that keep the process honest, building on the verify stage described in our [monthly payroll process](/blog/monthly-payroll-checklist).
 
 ## The six reconciliations
 

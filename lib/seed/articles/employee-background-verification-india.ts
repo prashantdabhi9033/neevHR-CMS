@@ -69,7 +69,7 @@ Aadhaar is often the first document HR asks for, and the one that needs the most
 - **Do not make Aadhaar the only accepted identity proof** for verification. Accept alternatives such as PAN, passport or voter ID.
 - **Prefer masked Aadhaar,** which shows only the last four digits, or offline verification methods published by [UIDAI](https://uidai.gov.in/), where you only need to confirm identity.
 - **Do not store full Aadhaar numbers or copies** in emails, shared drives or vendor portals unless there is a specific need.
-- **Separate the PF need.** After joining, Aadhaar must be seeded against the employee's UAN for PF, as our [UAN guide](/blog/uan-explained) explains. That is a different purpose from BGV, and should be collected and stored under its own controls.
+- **Separate the PF need.** After joining, Aadhaar must be seeded against the employee's UAN for PF, as our [UAN guide](/blog/epf-explained-contribution-uan-withdrawal#what-is-the-uan) explains. That is a different purpose from BGV, and should be collected and stored under its own controls.
 
 ## UAN-based employment history checks
 

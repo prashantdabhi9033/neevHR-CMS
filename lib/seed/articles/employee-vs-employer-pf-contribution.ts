@@ -32,7 +32,7 @@ The EPF wage ceiling was raised from ₹15,000 to ₹25,000 a month by notificat
 
 - **Mandatory coverage widens.** Employees with PF wages up to ₹25,000 must now be enrolled.
 - **The employee share at the ceiling rises** from ₹1,800 to ₹3,000 a month.
-- **The EPS maximum rises** from ₹1,250 to about ₹2,083 a month (8.33% of ₹25,000). Practitioner commentary supports this, but check EPFO's operational circular for the exact treatment.
+- **The EPS maximum rises** from ₹1,250 to about ₹2,083 a month (8.33% of ₹25,000). The Central Government's separate 1.16% pension subsidy stays on ₹15,000 under G.S.R. 890(E); it is not an employer deduction.
 - **September 2026 is a split month.** Wages for 1 to 16 September fall under the old ceiling and 17 to 30 September under the new one. At the time of writing, how EPFO wants this reflected in the ECR was still awaited, so confirm before filing.
 
 The EPF & MP Act, 1952 has been repealed and subsumed in the Code on Social Security, and EPFO now runs the EPF Scheme 2026, EPS 2026 and EDLI 2026. The core 12% and 8.33% mechanics carry over.
@@ -146,7 +146,7 @@ Interest on an employee's own contributions above a yearly threshold is taxable.
 
 **Why is admin charge higher than EDLI for high earners on actual basic?** Admin charges follow the wages on which contribution is paid, while EDLI is capped at the ceiling.
 
-**Does the ₹25,000 ceiling change ESI?** No. ESI has its own ₹21,000 gross wage limit, which has not changed. See our [ESI guide](/blog/esi-explained-eligibility-benefits-contribution).
+**Does the ₹25,000 ceiling change ESI?** No. ESI has its own ₹21,000 gross wage limit, which has not changed. See our [ESI guide](/blog/esi-eligibility).
 
 ## How NeevHR helps
 

@@ -29,7 +29,7 @@ export function HraCalculator() {
           value={metro}
           onChange={setMetro}
           options={[
-            { label: "Metro (50%)", value: "metro" },
+            { label: "8 metro cities (50%)", value: "metro" },
             { label: "Non-metro (40%)", value: "non" },
           ]}
         />

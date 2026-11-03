@@ -1,3 +1,4 @@
+import { ChooseAndSwitch } from "@/components/site/ChooseAndSwitch";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -9,7 +10,7 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { TaxonomyGrid, OneRecordSection, WhatIsHrmsSection } from "@/components/home/HrmsSections";
 import { AttendanceVisual } from "@/components/product/AttendanceVisual";
-import { pageMeta, softwareJsonLd } from "@/lib/seo";
+import { pageMeta, pageDateISO, softwareJsonLd } from "@/lib/seo";
 import { site, implementationSteps } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -216,7 +217,7 @@ const hrmsFaqs = [
   },
   {
     q: "Does NeevHR have a mobile app?",
-    a: "Yes. The app for Android and iPhone is built. Employee self-service works on the web today, including from a phone browser.",
+    a: "The app for Android and iPhone is built and coming to Google Play and the App Store. Today employees use self-service on the web, including from a phone browser.",
   },
   {
     q: "How secure is employee data in NeevHR?",
@@ -274,7 +275,7 @@ export default function HrmsPage() {
           description: metadata.description,
           isPartOf: { "@id": `${site.url}/#website` },
           about: { "@id": `${site.url}/#software` },
-          dateModified: "2026-09-24",
+          dateModified: pageDateISO("/hrms"),
           inLanguage: "en-IN",
         }}
       />
@@ -490,6 +491,8 @@ export default function HrmsPage() {
       <div id="faq" className="scroll-mt-20">
         <Faq items={hrmsFaqs} withSchema heading="HRMS software: frequently asked questions" />
       </div>
+
+      <ChooseAndSwitch />
 
       {/* 16. CTA */}
       <section className="pb-20">

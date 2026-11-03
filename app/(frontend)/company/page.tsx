@@ -67,6 +67,11 @@ export default function CompanyPage() {
                 payroll actually work day to day: statutory names, lifecycle
                 stages and edge cases included.
               </p>
+              <p className="mt-3">
+                NeevHR is built and run by {site.legalName}, registered at {site.address.street},{" "}
+                {site.address.locality}, {site.address.region} {site.address.postalCode}. Write to us at{" "}
+                <a href={`mailto:${site.email}`} className="text-brand underline">{site.email}</a>.
+              </p>
             </div>
             <div>
               <h2 className="text-xl font-semibold text-ink">What we build</h2>

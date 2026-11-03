@@ -8,7 +8,8 @@ import { industries } from "@/lib/industries";
 import { guides } from "@/lib/guides";
 import { glossary } from "@/lib/glossary";
 import { states } from "@/lib/states";
-import { CONTENT_UPDATED_ISO, PAGE_UPDATED_ISO } from "@/lib/seo";
+import { pageDateISO } from "@/lib/seo";
+import { isMergedPost } from "@/lib/merged-posts";
 
 // Regenerate hourly so posts published in /admin or by the seed route reach
 // the sitemap without waiting for a redeploy.
@@ -26,7 +27,7 @@ async function blogEntries(now: Date): Promise<Entry[]> {
       depth: 0,
       pagination: false,
     });
-    return docs.map((p) => ({
+    return docs.filter((p) => !isMergedPost(p.slug)).map((p) => ({
       url: `${site.url}/blog/${p.slug}`,
       lastModified: new Date(p.updatedAt ?? p.publishedAt ?? now),
       changeFrequency: "monthly" as const,
@@ -39,12 +40,15 @@ async function blogEntries(now: Date): Promise<Entry[]> {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  // Static pages carry the date their content was last reviewed, not the
-  // build time, so lastmod stays a meaningful signal for crawlers.
-  const reviewed = new Date(CONTENT_UPDATED_ISO);
+  // lastmod is the same date the page shows and puts in its schema (pageDateISO), so the
+  // signals agree. Statutory pages (calculators, glossary, guides, India payroll, compare)
+  // fall back to the statutory review date; state guides carry their own review date.
+  const statePaths = new Map(states.map((st) => [`/india/payroll/${st.slug}`, st.reviewedIso]));
+  const isStatutory = (p: string) =>
+    p.startsWith("/tools/") || p.startsWith("/glossary/") || guides.some((g) => `/${g.slug}` === p) || p === "/india-payroll" || p === "/compare";
   const entry = (path: string, priority: number): Entry => ({
     url: `${site.url}${path}`,
-    lastModified: PAGE_UPDATED_ISO[path] ? new Date(PAGE_UPDATED_ISO[path]) : reviewed,
+    lastModified: new Date(statePaths.get(path) ?? pageDateISO(path, isStatutory(path))),
     changeFrequency: "monthly",
     priority,
   });

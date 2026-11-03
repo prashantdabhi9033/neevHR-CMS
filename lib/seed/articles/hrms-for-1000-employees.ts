@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-09-24",
   body: `At 1,000 employees and above, choosing an HRMS is less about features and more about governance: several legal entities in one system, bulk changes that do not break history, separation of duties in payroll, an audit trail that satisfies internal audit, and a security review your CIO can sign off. The rollout itself becomes the biggest risk, so the plan should include a pilot entity and at least one fully reconciled parallel payroll before anyone is paid from the new system.
 
-This article is written for the CHRO, CFO and CIO who will make the decision together. If you are closer to 500 employees, our guide on [what a 500-employee company needs](/blog/hrms-for-500-employees) is a better starting point.
+This article is written for the CHRO, CFO and CIO who will make the decision together. If you are closer to 500 employees, our guide on [what a 500-employee company needs](/best-hrms-for-mid-sized-business) is a better starting point.
 
 ## Multiple legal entities in one system
 
@@ -135,7 +135,7 @@ Three differences were configuration errors in the new system, now fixed. Four w
 
 ## How NeevHR helps
 
-NeevHR supports multiple legal entities, locations and departments on one effective-dated employee record, with CSV import and a dry run, compensation cycles, separation of duties in payroll (compute, verify, approve, publish), and an audit log. For your security review: Postgres row-level tenant isolation, field-level encryption of PAN, Aadhaar, UAN and bank details, TOTP MFA, DPDP consent and data principal requests, retention and legal hold, and hosting in India; single sign-on is not available today, and NeevHR does not currently hold SOC 2 or ISO 27001 certification. Review the details on our [security page](/security) or [book a demo](/demo) to plan your pilot.
+NeevHR supports multiple legal entities, locations and departments on one effective-dated employee record, with CSV import and a dry run, compensation cycles, separation of duties in payroll (compute, verify, approve, publish), and an audit log. For your security review: Postgres row-level tenant isolation, field-level encryption of PAN, Aadhaar, UAN and bank details, TOTP MFA, DPDP consent and data principal requests, retention and legal hold, and hosting in India; single sign-on is available with Google and Microsoft is being switched on (SAML is not built), and NeevHR does not currently hold SOC 2 or ISO 27001 certification. Review the details on our [security page](/security) or [book a demo](/demo) to plan your pilot.
 
 *This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
 };

@@ -11,7 +11,7 @@ import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { CalcTracker } from "@/components/tools/CalcTracker";
 import { tools, toolBySlug } from "@/lib/tools";
-import { pageMeta, LAST_REVIEWED_ISO } from "@/lib/seo";
+import { pageMeta, pageDateISO, displayDate } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export function toolMetadata(slug: string): Metadata {
@@ -50,7 +50,7 @@ export function ToolLayout({
           operatingSystem: "Web",
           isAccessibleForFree: true,
           offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
-          dateModified: LAST_REVIEWED_ISO,
+          dateModified: pageDateISO(`/tools/${slug}`, true),
           publisher: { "@id": `${site.url}/#organization` },
           inLanguage: "en-IN",
         }}
@@ -117,7 +117,7 @@ export function ToolLayout({
             </ul>
           </div>
 
-          {t.statutory && <Disclaimer sources={t.sources} className="mt-8" />}
+          {t.statutory && <Disclaimer sources={t.sources} reviewed={displayDate(pageDateISO(`/tools/${slug}`, true))} className="mt-8" />}
         </Container>
       </section>
 

@@ -14,7 +14,7 @@ This document establishes the strategic keyword-to-URL ownership architecture fo
 | Target Keyword(s) | Search Intent | Topic | Intent Type | Primary Target URL | Supporting URLs | Competition | Priority | Recommended Action |
 | :--- | :--- | :--- | :---: | :--- | :--- | :---: | :---: | :--- |
 | **HRMS software India**, HRMS software for Indian companies, India HRMS | Commercial / Transactional | Core HRMS Suite | Commercial | `/hrms` | `/`, `/pricing`, `/features`, `/compare` | High | **P1** | Maintain as definitive India HRMS pillar; link to payroll & attendance |
-| **Best HRMS software India**, HRMS for growing businesses, HRMS for 100-1000 employees | Commercial / Decision | Vendor Selection | Commercial | `/` (Homepage) | `/hrms`, `/compare`, `/pricing`, `/demo` | Very High | **P1** | Position brand as India-first modern platform; highlight statutory depth |
+| **Best HRMS software India**, how to choose an HRMS, HRMS selection guide | Commercial / Decision | Vendor Selection | Commercial | `/best-hrms-software-india` | `/hrms`, `/compare`, `/pricing`, `/demo` | Very High | **P1** | Position brand as India-first modern platform; highlight statutory depth |
 | **Payroll software India**, payroll software for Indian companies, payroll management software | Commercial / Transactional | Payroll Processing | Commercial | `/payroll` | `/india-payroll`, `/features/compliance`, `/tools` | High | **P1** | Emphasize 1-click runs, salary reconciliation, bank payout files |
 | **India payroll software**, PF ESI PT TDS software, statutory payroll compliance software | Commercial / Transactional | Statutory Compliance | Commercial | `/india-payroll` | `/payroll`, `/features/compliance`, `/tools/*` | Medium | **P1** | Detailed statutory hub: ECR, Form 24Q, Form 16, LWF rules |
 | **HRMS pricing India**, HR software pricing, payroll software cost in India | Commercial / Decision | Pricing & ROI | Commercial | `/pricing` | `/demo`, `/compare`, `/hrms` | Medium | **P1** | Transparent tiering model, employee count calculator |
@@ -88,3 +88,27 @@ This document establishes the strategic keyword-to-URL ownership architecture fo
 | **Best HRMS for 1000 employees**, enterprise HRMS India | `/best-hrms-for-1000-employees` | Commercial Guide | **P2** |
 | **Best HRMS for mid-sized business**, mid-market HR software | `/best-hrms-for-mid-sized-business` | Commercial Guide | **P2** |
 | **Best HRMS for small business India**, SME HR software | `/best-hrms-for-small-business` | Commercial Guide | **P2** |
+
+---
+
+## Ownership decided 03 Nov 2026 (SEO audit WEB-007)
+
+One page per intent. Merged pages 308 to the owner (see SEO-REDIRECT-MAP.md).
+
+| Intent | Owner | Supporting, not competing |
+| :--- | :--- | :--- |
+| Brand, HRMS and payroll software India | `/` | `/hrms`, `/payroll` |
+| Best HRMS software India, choosing an HRMS | `/best-hrms-software-india` | `/compare` |
+| HRMS for 1,000 employees | `/best-hrms-for-1000-employees` | (blog merged) |
+| HRMS for 500 employees, mid-sized business | `/best-hrms-for-mid-sized-business` | (blog merged) |
+| HRMS for small business | `/best-hrms-for-small-business` | |
+| Payroll software (product) | `/payroll` | `/best-payroll-software-india` (buyer checklist) |
+| India payroll compliance (statutory hub) | `/india-payroll` | `/features/compliance`, state guides |
+| What is HRMS (definition) | `/blog/what-is-hrms-software` | `/glossary/hrms` (short definition), `/hrms#what-is-hrms` |
+| HRMS vs HRIS | `/blog/hrms-vs-hris` | `/glossary/hris` |
+| ESI eligibility and ESI explained | `/blog/esi-eligibility` | `/tools/esi-calculator` |
+| Salary TDS, old vs new regime | `/blog/salary-tds-explained` | `/tools/tds-calculator`, `/features/income-tax` |
+| EPF and UAN | `/blog/epf-explained-contribution-uan-withdrawal` | `/blog/employee-vs-employer-pf-contribution`, `/glossary/pf`, `/tools/pf-calculator` |
+| Monthly payroll process and checklist | `/blog/monthly-payroll-checklist` | `/blog/payroll-compliance-checklist-india` |
+| Manual payroll vs software | `/switch-from-manual-payroll` | `/blog/payroll-software-vs-manual-payroll` (cost angle) |
+

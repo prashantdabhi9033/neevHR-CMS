@@ -73,6 +73,26 @@ export default function ContactPage() {
           </div>
         </Container>
       </section>
+
+      <section className="pb-16">
+        <Container>
+          <div className="rounded-2xl border border-line bg-surface-soft p-7">
+            <h2 className="text-lg font-semibold text-ink">Company details</h2>
+            <dl className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
+              <div>
+                <dt className="font-semibold text-ink">Legal entity</dt>
+                <dd className="mt-1 text-body">{site.legalName}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-ink">Registered address</dt>
+                <dd className="mt-1 text-body">
+                  {site.address.street}, {site.address.locality}, {site.address.region} {site.address.postalCode}, {site.address.country}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

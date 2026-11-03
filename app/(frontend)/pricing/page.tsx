@@ -1,3 +1,4 @@
+import { ChooseAndSwitch } from "@/components/site/ChooseAndSwitch";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -198,6 +199,8 @@ export default function PricingPage() {
       <section className="border-t border-line">
         <Faq items={pricingFaqs} withSchema heading="Pricing questions" />
       </section>
+
+      <ChooseAndSwitch />
     </>
   );
 }

@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-10-16",
   body: `A flexible benefit plan (FBP) is a portion of an employee's CTC that the employee can allocate across tax-efficient heads, such as leave travel, telephone and internet, meal vouchers, books and periodicals, and employer NPS contribution, and then claim against bills or proofs. Under the old tax regime, a well-used FBP can cut tax noticeably. Under the new regime, which is now the default, most FBP exemptions are not available, and the employer's NPS contribution is the main head that still reliably reduces taxable income.
 
-This guide explains how FBP works and when it is still worth offering. For where FBP sits inside the CTC, see [salary structure and CTC breakup](/blog/salary-structure-ctc-breakup-explained), and for the regimes themselves, [TDS on salary: old vs new regime](/blog/tds-on-salary-old-vs-new-regime-fy-2026-27).
+This guide explains how FBP works and when it is still worth offering. For where FBP sits inside the CTC, see [salary structure and CTC breakup](/blog/salary-structure-ctc-breakup-explained), and for the regimes themselves, [TDS on salary: old vs new regime](/blog/salary-tds-explained).
 
 ## A note on the new Income-tax Act
 

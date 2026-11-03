@@ -332,7 +332,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Data hosted in India", desc: "The application and database run on servers in India. If your company switches on AI, what each feature needs, including uploaded receipts and proofs, goes to its provider, which may process it outside India.", href: "/security", tiers: ALL },
       { name: "Tenant isolation", desc: "Each company's data separated by Postgres row-level security in the database.", tiers: ALL },
       { name: "Field-level encryption", desc: "PAN, Aadhaar, UAN, ESI number and bank details encrypted with AES-256-GCM.", tiers: ALL },
-      { name: "Single sign-on: Google and Microsoft", desc: "Your company turns it on for its own domain, for people who already have a login, and can make it required. Google is available and Microsoft is built and being switched on. SAML and Okta are not built.", href: "/security#sign-in", tiers: ALL },
+      { name: "Single sign-on: Google, with Microsoft being switched on", desc: "Your company turns it on for its own domain, for people who already have a login, and can make it required. Google is available and Microsoft is built and being switched on. SAML and Okta are not built.", href: "/security#sign-in", tiers: ALL },
       { name: "Multi-factor authentication", desc: "Authenticator-app MFA that admins can make mandatory for everyone.", tiers: ALL },
       { name: "DPDP Act 2023 controls", desc: "Access scopes, masking, encryption and audit logs that support your DPDP duties.", href: "/features/compliance", tiers: ALL },
     ],
@@ -380,7 +380,7 @@ const shortLines: Record<string, string> = {
   "Tax proof reading": "Section, amount, year and issuer set against the declaration.",
   "Admin controls and usage report": "A switch per module, the credit balance and usage by person.",
   "Data hosted in India": "The application and database run on servers in India.",
-  "Single sign-on: Google and Microsoft": "Your own accounts, turned on per company.",
+  "Single sign-on: Google, with Microsoft being switched on": "Your own accounts, turned on per company.",
   "Data migration": "Masters and opening balances with a dry run, undo and sign-off.",
   "Parallel payroll run": "Compare a cycle with your current process before go-live.",
 };
@@ -468,7 +468,7 @@ export const pricingFaqs: FaqItem[] = [
   },
   {
     q: "Is the mobile app included?",
-    a: "Yes, in every edition. The app for Android and iPhone is built. Web self-service is included and works today, including from a phone browser.",
+    a: "Yes, in every edition. The app for Android and iPhone is built and coming to Google Play and the App Store. Web self-service is included and works today, including from a phone browser.",
   },
   {
     q: "How long does it take to go live?",

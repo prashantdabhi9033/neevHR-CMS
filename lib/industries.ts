@@ -15,6 +15,15 @@ export type Industry = {
   features: string[];
   modules: { slug: string; name: string; why: string }[];
   faqs: { q: string; a: string }[];
+  /** Statutory rules that matter most in this industry (audit WEB-019). Rows: rule, what it means for HR. */
+  statutory?: {
+    title: string;
+    intro: string;
+    rows: [string, string][];
+    sections?: { title: string; body: string[] }[];
+    example?: { title: string; lines: string[]; note: string };
+    reading?: { label: string; href: string }[];
+  };
 };
 
 export const industries: Industry[] = [
@@ -69,6 +78,34 @@ export const industries: Industry[] = [
         a: "Yes. Shifts, rosters, weekly-off policies and attendance rules are assigned to employee groups, so each plant or line can have its own rules.",
       },
     ],
+    statutory: {
+      title: "Factory compliance under the Labour Codes",
+      intro: "Since 21 November 2025 factories are governed by the OSH Code, 2020 (which replaced the Factories Act, 1948 and the Contract Labour Act, 1970), the Code on Wages, 2019 and the Code on Social Security, 2020. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Factory definition", "20 or more workers with power, or 40 without (earlier 10 and 20)"],
+        ["Working hours", "Not more than 8 hours a day; weekly limits and spread-over as your state notifies"],
+        ["Overtime", "Twice the ordinary rate of wages, with the worker's consent, within a quarterly cap in state rules"],
+        ["Annual leave", "One day for every 20 days worked, after 180 days of work in a calendar year"],
+        ["Contract labour", "OSH Code provisions apply at 50 or more contract workers (earlier 20); the principal employer stays liable"],
+        ["Women at night", "Permitted with consent and the safety conditions the government prescribes"],
+        ["Minimum wages", "State rates by skill and area, revised with dearness allowance, never below the central floor wage"],
+        ["Appointment letters and health checks", "An appointment letter for every worker, and a free annual health check-up at the age prescribed"],
+      ],
+      sections: [
+        { title: "Contract labour and the principal employer", body: ["Most plants run on a mix of permanent and contract workers. Under the OSH Code a contractor supplying 50 or more contract workers needs a licence, and the principal employer must make sure wages are paid on time and that PF and ESI are deposited for contract workers; if the contractor defaults, the principal employer pays and recovers from the contractor.", "In practice that means keeping the contractor's registrations, monthly challans and wage registers on file and checking them before releasing the contractor's invoice. Our [contract labour checklist](/blog/contract-labour-compliance-principal-employer) covers each document."] },
+        { title: "Overtime at twice the ordinary rate", body: ["For workers under the OSH Code, overtime is paid at twice the ordinary rate of wages and needs the worker's consent. The ordinary hourly rate is usually the month's wages divided by the working days and the daily hours your policy uses. States also notify a cap on total overtime in a quarter, so the roster has to watch cumulative hours, not only the day. Use the [overtime calculator](/tools/overtime-calculator) to check a figure."] },
+        { title: "Night shifts for women", body: ["Women may work night shifts with their consent and the conditions the government prescribes, typically safe transport, security and adequate numbers on the shift. See [night shift rules for women employees](/blog/night-shift-women-employees)."] },
+        { title: "Minimum wages by zone and skill", body: ["Minimum wages are set by the state, by skill level (unskilled, semi-skilled, skilled, highly skilled) and area, and most states revise the dearness allowance twice a year. A structure that is compliant in March can fall below the floor after an April or October revision. See [minimum wages in India](/blog/minimum-wages-in-india-explained) and the [state payroll guides](/india-payroll)."] },
+      ],
+      example: { title: "Worked example: one shop-floor worker's month (illustrative)", lines: ["Monthly wages ₹18,200, with 26 working days and an 8-hour day: daily rate ₹700, ordinary hourly rate ₹87.50", "Overtime: 10 approved hours at twice the rate, 10 × ₹175 = ₹1,750", "Gross for the month: ₹18,200 + ₹1,750 = ₹19,950, within the ₹21,000 ESI limit", "ESI employee share: 0.75% of ₹19,950 = ₹149.63, rounded up to ₹150; employer share 3.25% = ₹648.38, rounded up to ₹649", "PF: 12% of PF wages; overtime allowance is not part of wages for PF under the Code's definition"], note: "Figures are illustrative. The hourly divisor, rounding and the wage components that count for PF follow your policy and the Codes; confirm the overtime cap and minimum wage for your state." },
+      reading: [
+        { label: "Four Labour Codes summary", href: "/blog/four-labour-codes-summary" },
+        { label: "Attendance and overtime rules", href: "/blog/attendance-and-overtime-rules-in-india" },
+        { label: "Contract labour compliance", href: "/blog/contract-labour-compliance-principal-employer" },
+        { label: "Standing orders under the IR Code", href: "/blog/standing-orders-industrial-relations-code" },
+        { label: "Shift management and rostering", href: "/blog/shift-management-and-rostering" },
+      ],
+    },
   },
   {
     slug: "it-ites",
@@ -117,6 +154,22 @@ export const industries: Industry[] = [
         a: "Not to job boards. Recruitment in NeevHR covers requisitions, candidate pipelines, interviews, referrals and offers, and a company can switch on a public careers page and take applications from its own website.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for IT and ITeS companies",
+      intro: "IT offices are usually shops and commercial establishments under the state Act, and their people are mostly salaried professionals. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["State Shops and Establishments Act", "Working hours, weekly off, leave and night work for women; several states give IT and ITeS establishments conditional exemptions, so check yours"],
+        ["PF at the ₹25,000 ceiling", "Freshers and junior staff earning up to ₹25,000 are now covered compulsorily from 17 September 2026"],
+        ["Gratuity for fixed-term staff", "Payable after one year of service under the Code on Social Security, not five"],
+        ["POSH", "An Internal Committee at every office with 10 or more employees, and an annual report"],
+        ["DPDP Act, 2023", "Employee and candidate data handling, with the main duties applying from 13 May 2027"],
+      ],
+      reading: [
+        { label: "Fixed-term employment under the Labour Codes", href: "/blog/fixed-term-employment-labour-codes" },
+        { label: "POSH compliance", href: "/blog/posh-act-compliance-for-employers" },
+        { label: "DPDP Act for HR teams", href: "/blog/dpdp-act-2023-for-hr-teams" },
+      ],
+    },
   },
   {
     slug: "retail-qsr",
@@ -162,9 +215,25 @@ export const industries: Industry[] = [
       },
       {
         q: "Can store staff use a mobile app?",
-        a: "The NeevHR mobile app for Android and iPhone is built. Today, employees use self-service on the web from any phone browser.",
+        a: "The NeevHR mobile app for Android and iPhone is built and coming to the stores. Today, employees use self-service on the web from any phone browser.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for retail and QSR chains",
+      intro: "Stores and outlets fall under each state's Shops and Establishments Act, so a chain across states runs several rule sets at once. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Shops and Establishments Act per state", "Opening hours, weekly off, spread-over and leave differ by state"],
+        ["Minimum wages", "State rates by skill and area apply to every store employee, including part-time staff in proportion to hours"],
+        ["ESI", "Most store staff earn within the ₹21,000 limit, so ESI applies, with eligibility fixed for each contribution period"],
+        ["PT and LWF", "Deducted by the store's state, at each state's rates and due dates"],
+        ["Final wages", "Due within two working days of a resignation or exit under the Code on Wages, which matters in a high-turnover workforce"],
+      ],
+      reading: [
+        { label: "ESI eligibility and contribution periods", href: "/blog/esi-eligibility" },
+        { label: "Professional tax by state", href: "/blog/professional-tax-by-state-india" },
+        { label: "Full and final settlement", href: "/blog/full-and-final-settlement-explained" },
+      ],
+    },
   },
   {
     slug: "healthcare",
@@ -212,6 +281,22 @@ export const industries: Industry[] = [
         a: "Yes. Shift allowances and approved overtime flow into the monthly payroll run.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for hospitals and healthcare",
+      intro: "Hospitals run round the clock with large nursing and support teams, which brings working-hours, night-shift and ESI rules into every roster. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Working hours and overtime", "Daily and weekly limits and overtime at twice the rate under the OSH Code or the state Act, depending on how the establishment is covered"],
+        ["Night shifts for women", "Permitted with consent and the prescribed safety conditions, which matter for nursing rosters"],
+        ["ESI", "Many states have extended ESI to private medical institutions with 10 or more employees; check the notification for your district"],
+        ["Maternity", "26 weeks for the first two children under the Code on Social Security, with a creche at 50 or more employees"],
+        ["Minimum wages", "Support and housekeeping staff must be paid at least the state rate for their skill"],
+      ],
+      reading: [
+        { label: "Maternity benefit for employers", href: "/blog/maternity-benefit-act-for-employers" },
+        { label: "Night shift rules for women", href: "/blog/night-shift-women-employees" },
+        { label: "Shift management and rostering", href: "/blog/shift-management-and-rostering" },
+      ],
+    },
   },
   {
     slug: "bfsi",
@@ -260,6 +345,21 @@ export const industries: Industry[] = [
         a: "No, not currently. We walk your information security team through the controls in place during evaluation.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for banks, NBFCs and insurers",
+      intro: "Financial services combine large branch networks, incentive-heavy sales teams and strict data and audit expectations. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Appropriate government", "For banking and insurance companies the Central Government is usually the appropriate government under the Codes, so central rules apply"],
+        ["Incentives and the wage definition", "Incentives sit outside wages, but excluded components above 50% of total remuneration are added back for PF, gratuity and bonus"],
+        ["TDS on variable pay", "Incentives and bonuses change the year's projected tax; the employer deducts under section 392 of the Income-tax Act, 2025"],
+        ["DPDP Act, 2023", "Employee data in a regulated business, with the main duties applying from 13 May 2027"],
+      ],
+      reading: [
+        { label: "The 50% wage rule", href: "/blog/labour-codes-wage-definition-50-percent-rule" },
+        { label: "Variable pay and incentive plans", href: "/blog/variable-pay-incentive-plan" },
+        { label: "Salary TDS explained", href: "/blog/salary-tds-explained" },
+      ],
+    },
   },
   {
     slug: "logistics",
@@ -306,6 +406,21 @@ export const industries: Industry[] = [
         a: "Yes. Overtime rules, caps and approvals are configurable, and approved overtime is paid through payroll.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for logistics and transport",
+      intro: "Hubs, warehouses and drivers spread across states bring transport, contract labour and multi-state payroll rules together. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Motor transport workers", "Motor transport undertakings are covered by the OSH Code, with working hours, rest and records for drivers and crew"],
+        ["Contract labour", "Warehouse and loading staff are often contract workers; OSH Code provisions apply at 50 or more and the principal employer stays liable"],
+        ["Multi-state payroll", "PT and LWF follow each hub's state; minimum wages follow the state and skill"],
+        ["ESI", "Most hub staff earn within the ₹21,000 limit, so ESI applies across many districts"],
+      ],
+      reading: [
+        { label: "Contract labour compliance", href: "/blog/contract-labour-compliance-principal-employer" },
+        { label: "Geo-fencing attendance for field staff", href: "/blog/geo-fencing-attendance-field-staff" },
+        { label: "Labour welfare fund by state", href: "/blog/labour-welfare-fund-state-wise" },
+      ],
+    },
   },
   {
     slug: "pharma",
@@ -352,6 +467,21 @@ export const industries: Industry[] = [
         a: "No. NeevHR is an HRMS and is not validated as a GxP system. Discuss your quality requirements with us during evaluation.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for pharma and life sciences",
+      intro: "Pharma combines factory compliance at the plant with a large field sales force on incentives. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Plants under the OSH Code", "Working hours, overtime at twice the rate, annual leave after 180 days and health check-ups"],
+        ["Sales promotion employees", "Medical representatives are covered by the Labour Codes, which absorbed the Sales Promotion Employees Act, 1976"],
+        ["Incentives", "Field incentives sit outside wages but count towards the 50% test for PF, gratuity and bonus"],
+        ["Contract labour", "Packing and housekeeping contractors at 50 or more workers bring the principal employer duties"],
+      ],
+      reading: [
+        { label: "Four Labour Codes summary", href: "/blog/four-labour-codes-summary" },
+        { label: "Variable pay and incentive plans", href: "/blog/variable-pay-incentive-plan" },
+        { label: "Contract labour compliance", href: "/blog/contract-labour-compliance-principal-employer" },
+      ],
+    },
   },
   {
     slug: "hospitality",
@@ -396,9 +526,25 @@ export const industries: Industry[] = [
       },
       {
         q: "Is there a mobile app for frontline staff?",
-        a: "The NeevHR mobile app is built for Android and iPhone. Employees can use web self-service from a phone browser today.",
+        a: "The NeevHR mobile app is built for Android and iPhone and coming to the stores. Employees can use web self-service from a phone browser today.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for hotels and hospitality",
+      intro: "Hotels run every department across shifts and seasons, with many employees near the ESI limit. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Shops and Establishments Act per state", "Hours, weekly off and spread-over for hotels and restaurants differ by state"],
+        ["Overtime and night work", "Overtime at twice the rate, and women on night shifts with consent and safety conditions"],
+        ["Minimum wages", "State rates for hotel and restaurant work by skill and area"],
+        ["ESI", "Many staff earn within the ₹21,000 limit; eligibility is fixed for each six-month contribution period"],
+        ["Seasonal and fixed-term staff", "Fixed-term staff get gratuity after one year and parity of wages with permanent staff"],
+      ],
+      reading: [
+        { label: "Fixed-term employment under the Labour Codes", href: "/blog/fixed-term-employment-labour-codes" },
+        { label: "ESI eligibility", href: "/blog/esi-eligibility" },
+        { label: "Shift management and rostering", href: "/blog/shift-management-and-rostering" },
+      ],
+    },
   },
   {
     slug: "professional-services",
@@ -445,6 +591,21 @@ export const industries: Industry[] = [
         a: "Yes. Policies are configured in settings and assigned to employee groups, without code.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for professional services firms",
+      intro: "Consulting firms and agencies are usually shops and establishments under the state Act, with salaried professionals and project-based contracts. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Shops and Establishments Act", "Working hours, leave and weekly off for the office's state"],
+        ["Fixed-term contracts", "Recognised for all sectors, with parity of wages and gratuity after one year"],
+        ["POSH", "An Internal Committee at every office with 10 or more employees"],
+        ["DPDP Act, 2023", "Employee data, and often client data on employee devices, with the main duties from 13 May 2027"],
+      ],
+      reading: [
+        { label: "Fixed-term employment under the Labour Codes", href: "/blog/fixed-term-employment-labour-codes" },
+        { label: "POSH compliance", href: "/blog/posh-act-compliance-for-employers" },
+        { label: "Timesheets", href: "/features/timesheets" },
+      ],
+    },
   },
   {
     slug: "staffing-bpo",
@@ -492,6 +653,21 @@ export const industries: Industry[] = [
         a: "NeevHR runs payroll for your own employees, with PT and LWF by work location. Discuss client-billing and associate-specific requirements with us during evaluation.",
       },
     ],
+    statutory: {
+      title: "Rules that matter for staffing firms and BPOs",
+      intro: "Staffing firms are the contractor in most contract-labour arrangements, and BPOs run large shift operations, often at night. Labour is a concurrent subject, so the details below depend on the rules your state has notified; confirm them for each location.",
+      rows: [
+        ["Contractor licence", "A contractor supplying 50 or more contract workers needs a licence under the OSH Code, and a single licence can cover several states"],
+        ["Deposits for deployed staff", "Wages, PF and ESI for deployed staff are the contractor's duty, and the principal employer checks them"],
+        ["Night shifts", "Women on night shifts with consent and the prescribed safety conditions, including transport"],
+        ["Final wages", "Due within two working days of an exit under the Code on Wages, at high attrition volumes"],
+      ],
+      reading: [
+        { label: "Contract labour compliance", href: "/blog/contract-labour-compliance-principal-employer" },
+        { label: "Night shift rules for women", href: "/blog/night-shift-women-employees" },
+        { label: "Full and final settlement", href: "/blog/full-and-final-settlement-explained" },
+      ],
+    },
   },
 ];
 

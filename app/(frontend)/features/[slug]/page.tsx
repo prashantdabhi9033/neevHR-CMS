@@ -7,9 +7,10 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { modules, moduleList } from "@/lib/modules";
 import { capabilityId, moduleGroups } from "@/lib/module-nav";
-import { differentiators } from "@/lib/site";
+import { differentiators, site } from "@/lib/site";
 import { moduleExtras } from "@/lib/module-extras";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, pageDateISO } from "@/lib/seo";
+import { JsonLd } from "@/components/site/JsonLd";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
 import { AiControlSection } from "@/components/home/AiControlSection";
@@ -56,8 +57,9 @@ export default async function ModulePage({ params }: Params) {
         {m.eyebrow}
       </span>
       <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
-        {m.title}
+        {x?.h1 ?? m.title}
       </h1>
+      {x?.h1 && <p className="mt-3 text-xl font-semibold text-brand">{m.title}</p>}
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
         {m.intro}
       </p>
@@ -83,6 +85,18 @@ export default async function ModulePage({ params }: Params) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          url: `${site.url}/features/${slug}`,
+          name: x?.h1 ?? `${m.name} software`,
+          isPartOf: { "@id": `${site.url}/#website` },
+          about: { "@id": `${site.url}/#software` },
+          dateModified: pageDateISO(`/features/${slug}`),
+          inLanguage: "en-IN",
+        }}
+      />
       <Breadcrumbs
         items={[
           { name: "Features", href: "/features" },
@@ -242,7 +256,28 @@ export default async function ModulePage({ params }: Params) {
         </Container>
       </section>
 
-      {/* Platform band */}
+      {/* India context where the module has it; otherwise the shared platform band */}
+      {x?.india ? (
+        <section className="py-16 lg:py-20">
+          <Container>
+            <Reveal className="max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand">India rules</span>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink">{x.india.title}</h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-body">{x.india.intro}</p>
+            </Reveal>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {x.india.points.map((pt, i) => (
+                <Reveal key={pt.t} delay={i * 60}>
+                  <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
+                    <h3 className="text-[15px] font-semibold text-ink">{pt.t}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-body">{pt.b}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : (
       <section className="py-16 lg:py-20">
         <Container>
           <Reveal className="max-w-2xl">
@@ -277,6 +312,7 @@ export default async function ModulePage({ params }: Params) {
           </div>
         </Container>
       </section>
+      )}
 
       {x && (
         <section className="border-t border-line bg-surface-soft">

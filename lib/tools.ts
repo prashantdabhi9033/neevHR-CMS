@@ -3,6 +3,8 @@
 // common mistakes, FAQ, related links, CTA, review date and sources.
 // Keep statutory figures here in step with the calculator components.
 
+import { moreTools } from "@/lib/tools-more";
+
 export type Link = { label: string; href: string };
 
 export type Tool = {
@@ -95,12 +97,12 @@ export const tools: Tool[] = [
       "Free HRA exemption calculator for India. Find tax-exempt house rent allowance from basic, HRA, rent and city, using the least-of-three rule for the old tax regime.",
     explanation: [
       "House Rent Allowance can be partly exempt from income tax for salaried employees who pay rent and choose the old tax regime. Under the new regime HRA is fully taxable.",
-      "From 1 April 2026 the Income-tax Act, 2025 replaces the Income-tax Act, 1961, so the familiar section number 10(13A) is renumbered. The least-of-three test used here is the basis of the exemption.",
+      "From 1 April 2026 the Income-tax Act, 2025 replaces the Income-tax Act, 1961, so the familiar section 10(13A) becomes section 11 read with Schedule III. The least-of-three test is unchanged. From tax year 2026-27, rule 279 of the Income-tax Rules, 2026 extends the 50% limb from four cities to eight: Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad.",
     ],
     formula: [
       "Exempt HRA = least of the three amounts below",
       "1. Actual HRA received",
-      "2. 50% of basic + DA (Delhi, Mumbai, Kolkata, Chennai) or 40% (other cities)",
+      "2. 50% of basic + DA in Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad (from tax year 2026-27), or 40% in other cities",
       "3. Rent paid − 10% of basic + DA",
       "Taxable HRA = HRA received − exempt HRA",
     ],
@@ -115,7 +117,7 @@ export const tools: Tool[] = [
     },
     mistakes: [
       "Claiming HRA exemption under the new tax regime, where it is not available.",
-      "Treating Bengaluru, Hyderabad or Pune as metro for the 50% limb; only four cities qualify.",
+      "Using the old four-city list for tax year 2026-27: Bengaluru, Hyderabad, Pune and Ahmedabad now get the 50% limb too (rule 279, Income-tax Rules, 2026). Years before 2026-27 keep the four-city list.",
       "Not submitting rent receipts or the landlord's PAN (required when annual rent exceeds ₹1 lakh).",
       "Paying rent to a spouse, which tax authorities generally disallow.",
     ],
@@ -126,7 +128,7 @@ export const tools: Tool[] = [
       },
       {
         q: "Which cities count as metro for HRA?",
-        a: "Delhi, Mumbai, Kolkata and Chennai. Every other city uses the 40% limb.",
+        a: "From tax year 2026-27, eight cities: Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune and Ahmedabad (rule 279 of the Income-tax Rules, 2026). Every other city uses the 40% limb. Earlier years used only Delhi, Mumbai, Kolkata and Chennai.",
       },
       {
         q: "What if I live in my own house?",
@@ -140,7 +142,7 @@ export const tools: Tool[] = [
     related: [
       { label: "What is HRA?", href: "/glossary/hra" },
       { label: "HRA exemption explained", href: "/blog/hra-exemption-explained" },
-      { label: "TDS on salary: old vs new regime", href: "/blog/tds-on-salary-old-vs-new-regime-fy-2026-27" },
+      { label: "TDS on salary: old vs new regime", href: "/blog/salary-tds-explained" },
       { label: "Payroll and TDS in NeevHR", href: "/payroll" },
     ],
     sources: [ITD],
@@ -152,15 +154,15 @@ export const tools: Tool[] = [
     seoTitle: "PF Calculator: EPF and EPS at the ₹25,000 Ceiling",
     tagline: "Estimate monthly EPF and EPS contributions for employee and employer.",
     metaDesc:
-      "Free EPF / PF calculator for India. Estimate employee and employer provident fund contributions at 12%, the EPS split and the ₹25,000 wage ceiling in force from 17 September 2026.",
+      "Free PF calculator for India: employee and employer 12%, EPS 8.33% and EDLI on the ₹25,000 wage ceiling in force from 17 Sep 2026, with an example.",
     explanation: [
       "Employees' Provident Fund (EPF) is a statutory retirement scheme run by EPFO. Employee and employer each contribute 12% of PF wages (basic + DA). The employer's share is split between the Employees' Pension Scheme (EPS) and EPF.",
-      "The PF wage ceiling is ₹25,000 a month from 17 September 2026 (S.O. 5109(E) under the Code on Social Security, 2020). The EPS wage ceiling stays ₹15,000. Employees earning up to ₹25,000 are now covered compulsorily. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
+      "The PF wage ceiling is ₹25,000 a month from 17 September 2026 (S.O. 5109(E) under the Code on Social Security, 2020). EPS and EDLI are worked out on the same ₹25,000 ceiling, so the employer's EPS share is at most ₹2,083 a month (₹1,250 before). The Central Government's 1.16% pension subsidy stays on ₹15,000 (G.S.R. 890(E)) and is not deducted by the employer. Employees earning up to ₹25,000 are now covered compulsorily. Employers can contribute on the capped wage or on actual basic; the choice should be applied consistently. EPFO guidance on applying the change within September 2026 was awaited at the time of review.",
     ],
     formula: [
       "PF wage = basic + DA (capped at ₹25,000 if the employer caps)",
       "Employee PF = 12% × PF wage",
-      "Employer EPS = 8.33% × min(PF wage, ₹15,000), so at most ₹1,250",
+      "Employer EPS = 8.33% × min(PF wage, ₹25,000), so at most ₹2,083 (₹15,000 and ₹1,250 before 17 Sep 2026)",
       "Employer EPF = 12% × PF wage − employer EPS",
       "Employer also pays EDLI at 0.5% (on wages up to ₹25,000) and admin charges at 0.5%",
     ],
@@ -168,13 +170,13 @@ export const tools: Tool[] = [
       title: "Basic + DA of ₹30,000, contribution on actual basic",
       lines: [
         "Employee PF: 12% × ₹30,000 = ₹3,600",
-        "Employer EPS: 8.33% × ₹15,000 = ₹1,250",
-        "Employer EPF: ₹3,600 − ₹1,250 = ₹2,350",
+        "Employer EPS: 8.33% × ₹25,000 = ₹2,083",
+        "Employer EPF: ₹3,600 − ₹2,083 = ₹1,517",
         "Total to EPF and EPS: ₹7,200 a month, plus EDLI and admin charges",
       ],
     },
     mistakes: [
-      "Still capping PF wages at the old limit after 17 September 2026, or computing EPS on wages above its own ₹15,000 ceiling.",
+      "Still capping PF or EPS wages at the old ₹15,000 limit after 17 September 2026, or computing EPS above the ₹25,000 ceiling.",
       "Leaving allowances out of PF wages when the Labour Codes' 50% wage rule applies.",
       "Switching between capped and actual basis mid-year without a documented policy.",
       "Forgetting EDLI and admin charges when budgeting employer cost.",
@@ -185,8 +187,8 @@ export const tools: Tool[] = [
         a: "From 17 September 2026, employees with PF wages up to ₹25,000 must be covered. Those above it when they first join are not compulsorily covered, but employers commonly extend membership. Once a member, contributions continue.",
       },
       {
-        q: "What is the minimum PF contribution?",
-        a: "When wages are capped at the ₹25,000 ceiling, the employee contribution is ₹3,000 a month, matched by the employer (₹1,250 to EPS and ₹1,750 to EPF).",
+        q: "What is the PF contribution at the ceiling?",
+        a: "When wages are capped at the ₹25,000 ceiling, the employee contribution is ₹3,000 a month, matched by the employer (₹2,083 to EPS and ₹917 to EPF). It is not a minimum: a lower basic gives a lower contribution.",
       },
       {
         q: "When is PF due?",
@@ -259,7 +261,7 @@ export const tools: Tool[] = [
     ],
     related: [
       { label: "What is ESI?", href: "/glossary/esi" },
-      { label: "ESI explained", href: "/blog/esi-explained-eligibility-benefits-contribution" },
+      { label: "ESI explained", href: "/blog/esi-eligibility" },
       { label: "India payroll", href: "/india-payroll" },
       { label: "Payroll software", href: "/payroll" },
     ],
@@ -317,7 +319,7 @@ export const tools: Tool[] = [
     related: [
       { label: "What is CTC?", href: "/glossary/ctc" },
       { label: "Salary structure and CTC breakup", href: "/blog/salary-structure-ctc-breakup-explained" },
-      { label: "TDS on salary: old vs new regime", href: "/blog/tds-on-salary-old-vs-new-regime-fy-2026-27" },
+      { label: "TDS on salary: old vs new regime", href: "/blog/salary-tds-explained" },
       { label: "Payroll software", href: "/payroll" },
     ],
     sources: [ITD, EPFO],
@@ -473,7 +475,7 @@ export const tools: Tool[] = [
       },
     ],
     related: [
-      { label: "TDS on salary: old vs new regime", href: "/blog/tds-on-salary-old-vs-new-regime-fy-2026-27" },
+      { label: "TDS on salary: old vs new regime", href: "/blog/salary-tds-explained" },
       { label: "HRA calculator", href: "/tools/hra-calculator" },
       { label: "Form 16 explained", href: "/blog/form-16-explained" },
       { label: "India payroll: TDS and Form 24Q", href: "/india-payroll#tds" },
@@ -726,5 +728,7 @@ export const tools: Tool[] = [
     statutory: true,
   },
 ];
+
+tools.push(...moreTools);
 
 export const toolBySlug = Object.fromEntries(tools.map((t) => [t.slug, t]));

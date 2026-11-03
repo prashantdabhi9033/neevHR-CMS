@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import Image from "next/image";
 import { ScaledStage } from "@/components/showcase/ScaledStage";
 
 // Feature visuals, one composition per feature (owner direction, 28 Sep 2026): each image is built
@@ -167,9 +168,16 @@ export function Phone({
     >
       <div className="relative overflow-hidden rounded-[34px] bg-white" style={{ aspectRatio: "390 / 844" }}>
         {src ? (
-          // Static screenshot at a fixed design size inside a scaled stage; next/image adds nothing here.
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover object-top" loading={eager ? "eager" : "lazy"} />
+          // next/image serves WebP or AVIF at the phone's width instead of the 130 to 370 KB PNG (audit TECH-11).
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes={`${width * 2}px`}
+            className="object-cover object-top"
+            priority={eager}
+            loading={eager ? undefined : "lazy"}
+          />
         ) : (
           children
         )}

@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Disclaimer } from "@/components/site/Disclaimer";
 import { JsonLd } from "@/components/site/JsonLd";
 import { glossary, glossaryBySlug } from "@/lib/glossary";
-import { pageMeta, LAST_REVIEWED_ISO } from "@/lib/seo";
+import { pageMeta, pageDateISO, displayDate } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -22,11 +22,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const g = glossaryBySlug[slug];
   if (!g) return { title: "Term not found", robots: { index: false } };
   // Expanded name in the title only when it still fits in ~60 characters.
+  // "Formula" only for terms whose explanation actually contains one (audit TECH-05).
+  const hasFormula = [g.definition, ...(g.howItWorks ?? [])].some((t) => /[=×÷]/.test(t));
   const long = g.full ? `What is ${g.term} (${g.full})? Meaning & Example` : "";
-  const title =
-    long && long.length <= 58 ? long : `What is ${g.term}? Meaning, Formula & Example`;
+  const short = `What is ${g.term}? Meaning${hasFormula ? ", Formula" : ""} & Example`;
+  const title = [long, short, `What is ${g.term}? Meaning & Example`].find((t) => t && t.length <= 58) ?? `${g.term}: meaning and example`;
   return pageMeta({
-    title: title.length <= 58 ? title : `What is ${g.term}? Meaning & Example`,
+    title,
     description: g.short,
     path: `/glossary/${slug}`,
   });
@@ -56,7 +58,7 @@ export default async function GlossaryTermPage({ params }: Params) {
     "@type": "WebPage",
     url,
     name: `What is ${g.term}?`,
-    dateModified: LAST_REVIEWED_ISO,
+    dateModified: pageDateISO(`/glossary/${slug}`, true),
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${url}#term` },
     inLanguage: "en-IN",
@@ -78,7 +80,7 @@ export default async function GlossaryTermPage({ params }: Params) {
             HR &amp; payroll glossary
           </span>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            What is {g.term}?
+            What is {g.term}?{" "}
             {g.full && (
               <span className="mt-1 block text-xl font-semibold text-muted sm:text-2xl">
                 {g.full}
@@ -146,7 +148,7 @@ export default async function GlossaryTermPage({ params }: Params) {
             </div>
           </section>
 
-          {g.statutory && <Disclaimer sources={g.sources} className="mt-10" />}
+          {g.statutory && <Disclaimer sources={g.sources} reviewed={displayDate(pageDateISO(`/glossary/${slug}`, true))} className="mt-10" />}
 
           <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl bg-brand px-7 py-7 text-center sm:flex-row sm:text-left">
             <div>

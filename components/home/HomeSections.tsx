@@ -229,6 +229,7 @@ const securityPoints = [
   "Audit log of administrative and payroll changes",
   "Database backups with a documented restore procedure",
   "DPDP Act 2023: consent, data principal requests and retention",
+  "When an AI feature is used, what it needs goes to the AI provider, which may process it outside India",
 ];
 
 export function IntegrationsSecuritySection() {
@@ -258,7 +259,7 @@ export function IntegrationsSecuritySection() {
               <Icon name="shield" className="h-4 w-4" />
               Security and your data
             </span>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight">Your employee data stays protected and in India</h2>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight">Your employee data is protected and hosted in India</h2>
             <ul className="mt-6 space-y-2.5">
               {securityPoints.map((t) => (
                 <li key={t} className="flex items-start gap-2.5 text-sm text-white/80">

@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-10-06",
   body: `Under the Code on Wages, 2019, in force since 21 November 2025, no wage period can exceed a month, and monthly wages must be paid before the end of the 7th day of the next month. On resignation, dismissal, removal, retrenchment or closure, wages are due within two working days. Deductions are allowed only for purposes the Code lists, capped at 50% of wages in a wage period.
 
-This guide covers the payment and deduction rules in Chapter III of the Code. For how these dates fit into a payroll cycle, see our [monthly payroll process](/blog/monthly-payroll-process-step-by-step).
+This guide covers the payment and deduction rules in Chapter III of the Code. For how these dates fit into a payroll cycle, see our [monthly payroll process](/blog/monthly-payroll-checklist).
 
 ## Who these rules apply to
 

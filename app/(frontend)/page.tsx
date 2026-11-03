@@ -21,7 +21,7 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Testimonials } from "@/components/home/Testimonials";
 import { PhotoHero } from "@/components/home/PhotoHero";
 import { AiModulesHome } from "@/components/ai/AiModulesSection";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, pageDateISO } from "@/lib/seo";
 import { implementationSteps, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -125,7 +125,7 @@ export default function HomePage() {
     about: { "@id": `${site.url}/#software` },
     inLanguage: "en-IN",
     datePublished: "2026-09-01",
-    dateModified: "2026-11-03",
+    dateModified: pageDateISO(""),
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],

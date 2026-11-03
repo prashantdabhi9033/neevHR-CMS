@@ -2,15 +2,27 @@ import type { SeedPost } from "../posts";
 
 const post: SeedPost = {
   slug: "monthly-payroll-checklist",
-  title: "Monthly payroll checklist for Indian companies",
+  title: "Monthly payroll process and checklist for Indian companies",
   excerpt:
-    "Monthly payroll checklist for India: input cut-off, joiners, leavers, LOP, arrears, run checks, bank file, JV, and PF, ESI, TDS, PT and LWF due dates.",
+    "The monthly payroll process for India in five stages, with a checklist: input cut-off, joiners, leavers, LOP, verify, approval, bank file, JV and due dates.",
   category: "payroll",
   author: "NeevHR Team",
   publishedAt: "2026-09-24",
   body: `A monthly payroll checklist for an Indian company has four parts: collect and freeze inputs before a fixed cut-off, run and verify the payroll, complete the post-payroll outputs (bank file, payslips, register and journal voucher), and meet the statutory deadlines that follow, mainly TDS by the 7th and PF and ESI by the 15th of the next month, with PT and LWF on each state's schedule. Tick every item every month, even the ones that "never change".
 
-This is a working checklist you can copy into your own process. For the underlying five-stage cycle (inputs, compute, verify, approve, publish), read our companion article on the [monthly payroll process, step by step](/blog/monthly-payroll-process-step-by-step).
+This is a working checklist you can copy into your own process. It follows a five-stage cycle that the same person can run the same way every month.
+
+## The five stages
+
+| Stage | What happens | The control that matters |
+| --- | --- | --- |
+| 1. Inputs | Freeze attendance and leave; collect joiners, exits, revisions, LOP, arrears, claims and loan EMIs | A fixed cut-off and a checklist, so nothing arrives late |
+| 2. Compute | Apply structures; compute gross, PF, ESI, PT, LWF, TDS and other deductions | LOP reduces both pay and the statutory base |
+| 3. Verify | Compare each employee's net with last month; check joiners, exits, statutory lines and the minimum-wage floor | A person explains the biggest movements |
+| 4. Approve | One named approver signs off | The person who computed the run does not approve it |
+| 5. Publish | Bank file, payslips, register, journal voucher, then the challans and returns | Each statutory deadline tracked to filing |
+
+After sign-off the run is locked; later changes go to the next cycle or an off-cycle run.
 
 ## A sample payroll calendar
 
@@ -162,6 +174,11 @@ Under the Income-tax Act, 2025, in force from 1 April 2026, forms are renumbered
 
 ## FAQs
 
+**What is an off-cycle run?** A separate run for a held employee or a correction, outside the main monthly cycle.
+
+**How do we handle a held salary?** Hold it at verify with a reason, pay everyone else, and settle the held employee in an off-cycle run.
+
+
 **What is a good payroll input cut-off date?** Five to seven working days before the pay date is common. It leaves time to compute, verify and approve without rushing.
 
 **Should leavers be paid in the regular run or separately?** Either works, provided wages due are paid on time. Many companies settle leavers through a separate full and final run so the regular payroll is not held up.
@@ -174,7 +191,7 @@ Under the Income-tax Act, 2025, in force from 1 April 2026, forms are renumbered
 
 NeevHR pulls closed attendance, approved leave, joiners, exits, arrears, loans and variable pay into payroll, calculates PF, ESI, PT, LWF and TDS, and flags anomalies in a payroll exception report before a separate approver signs off. After approval it generates the bank files, salary register, balanced journal voucher, PF ECR file, ESIC contribution file, challans and the Form 24Q text file for FVU validation; your team uploads and pays on the government portals. See [NeevHR Payroll](/payroll) for details.
 
-*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
 };
 
 export default post;

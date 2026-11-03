@@ -43,7 +43,7 @@ Use the legal entity name, not a brand name, especially in groups with several e
 
 ### UAN, ESI number and PAN
 
-The [UAN](/blog/uan-explained) lets the employee check that the PF deducted reached their passbook. Show the ESI insurance number only where the employee is covered. Mask PAN and bank account numbers to the last four characters. The full numbers add nothing to the employee, who already knows them, and increase the damage if a slip is forwarded or leaked.
+The [UAN](/blog/epf-explained-contribution-uan-withdrawal#what-is-the-uan) lets the employee check that the PF deducted reached their passbook. Show the ESI insurance number only where the employee is covered. Mask PAN and bank account numbers to the last four characters. The full numbers add nothing to the employee, who already knows them, and increase the damage if a slip is forwarded or leaked.
 
 ### Pay period, paid days and LOP
 

@@ -2,15 +2,36 @@ import type { SeedPost } from "../posts";
 
 const post: SeedPost = {
   slug: "esi-eligibility",
-  title: "ESI eligibility: who is covered and when coverage starts and stops",
+  title: "ESI explained: eligibility, rates, benefits and periods",
   excerpt:
-    "Which establishments and employees ESI covers, the ₹21,000 wage limit, contribution periods, the mid-period rule and scenarios for increments and new joiners.",
+    "ESI for employers: who is covered, the ₹21,000 wage limit, 0.75% and 3.25% rates, the benefits, contribution periods and the mid-period rule, with scenarios.",
   category: "compliance",
   author: "NeevHR Team",
   publishedAt: "2026-09-24",
   body: `ESI covers employees earning gross wages of up to ₹21,000 a month (₹25,000 for persons with disability) in establishments with 10 or more employees in areas where the scheme is notified. Eligibility is tested at the start of each six-month contribution period (April to September and October to March). An employee covered at the start stays covered until that period ends, even if an increment takes wages above the limit. A new joiner earning within the limit is covered from the day they join.
 
-Our [ESI overview](/blog/esi-explained-eligibility-benefits-contribution) explains the benefits and rates. This article goes deeper on the eligibility rules and the edge cases that decide whether a particular employee should have ESI deducted this month.
+This guide covers what ESI gives employees, the rates, and the eligibility rules and edge cases that decide whether a particular employee should have ESI deducted this month.
+
+## What ESI is for, and the rates
+
+ESI is an insurance scheme, not a savings scheme. In exchange for a small contribution, covered employees and their families get medical care through ESIC hospitals and dispensaries, and cash benefits when they cannot work because of sickness, maternity or employment injury. It runs under Chapter IV of the Code on Social Security, 2020.
+
+| Contributor | Rate | Applied on |
+| --- | --- | --- |
+| Employee | 0.75% | Gross wages |
+| Employer | 3.25% | Gross wages |
+
+Both shares are deposited with ESIC by the 15th of the following month. Rates are as last notified by ESIC; check the current figures on the [ESIC website](https://www.esic.gov.in/).
+
+## The benefits employees receive
+
+- **Medical benefit:** full medical care for the employee and dependants from the first day of insurable employment.
+- **Sickness benefit:** cash during certified sickness, at a percentage of wages for a set number of days a year.
+- **Maternity benefit:** paid leave for confinement, miscarriage and related conditions, subject to contribution conditions. An ESI-covered woman claims this from ESIC, not from the employer.
+- **Disablement benefit:** cash for temporary or permanent disablement from employment injury.
+- **Dependants' benefit:** a pension to dependants if an employee dies from employment injury.
+
+Explaining these at joining changes how employees see the deduction: it is cover, not just a cut.
 
 ## Which establishments are covered
 
@@ -121,6 +142,9 @@ Every covered employee must be registered as an insured person (IP) on the ESIC 
 
 ## FAQs
 
+**Is the employer contribution part of CTC?** It is an employer cost, so it usually sits in CTC, but it is never deducted from the employee's salary.
+
+
 **When does an employee stop being covered?** From the start of the next contribution period after their wages exceed the limit, that is 1 October or 1 April. Not in the month the increment takes effect.
 
 **Does the new ₹25,000 EPF ceiling change ESI?** No. ESI's ₹21,000 limit is separate and unchanged.
@@ -133,7 +157,7 @@ Every covered employee must be registered as an insured person (IP) on the ESIC 
 
 NeevHR computes ESI on gross wages in each [payroll](/payroll) run, alongside PF, PT, LWF and TDS, and generates the ESIC contribution file and challan for the employer to upload and pay on the ESIC portal. Increments, arrears and overtime come through the same effective-dated employee record and [attendance](/features/attendance) data, so contribution wages follow what was actually paid. Explore the [compliance features](/features/compliance) or [book a demo](/demo).
 
-*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 24 Sep 2026.*`,
+*This article provides general information for educational purposes. Statutory rules, thresholds, rates and filing requirements may change; verify with the relevant authority or a qualified professional. Last reviewed: 03 Nov 2026.*`,
 };
 
 export default post;

@@ -39,7 +39,7 @@ const available = [
 const faqs = [
   {
     q: "Is there a NeevHR mobile app?",
-    a: "Yes, it is built for Android and iPhone. Web self-service is available today and works in a phone browser.",
+    a: "It is built for Android and iPhone and coming to Google Play and the App Store; it is not listed yet. Web self-service is available today and works in a phone browser.",
   },
   {
     q: "What can employees do in self-service today?",

@@ -10,7 +10,7 @@ const post: SeedPost = {
   publishedAt: "2026-10-27",
   body: `A salary bank transfer file is the bulk payment file that payroll generates after the run is approved, listing each employee's account number, IFSC, name and net pay, which the company uploads to its corporate banking portal to credit salaries through NEFT, RTGS or the bank's internal transfer. A safe process has four controls: validated bank details, a maker-checker release, a file total that matches net pay less holds, and same-day follow-up of failed credits. Salaries for a monthly wage period must reach employees before the end of the 7th day of the following month under the Code on Wages.
 
-This guide covers the file fields, the release workflow, IFSC and account validation, holds, failed credits and reversals, bank cut-offs, the legal deadlines and the reconciliation, with a worked example. For where disbursement sits in the payroll cycle, see our [monthly payroll process](/blog/monthly-payroll-process-step-by-step) and the [wage payment deadlines under the Code on Wages](/blog/wage-payment-deadlines-and-deductions).
+This guide covers the file fields, the release workflow, IFSC and account validation, holds, failed credits and reversals, bank cut-offs, the legal deadlines and the reconciliation, with a worked example. For where disbursement sits in the payroll cycle, see our [monthly payroll process](/blog/monthly-payroll-checklist) and the [wage payment deadlines under the Code on Wages](/blog/wage-payment-deadlines-and-deductions).
 
 ## How does salary disbursement through a bank file work?
 

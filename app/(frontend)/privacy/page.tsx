@@ -23,11 +23,10 @@ const lastUpdated = "01 Nov 2026";
 // Legal entity and registered address confirmed by the owner on 17 Oct 2026.
 // OWNER TO CONFIRM: the named Grievance Officer (IT Rules 2011, rule 5(9)); until then a role-based contact.
 const contact = {
-  controller: "NeevHR Technologies LLP",
+  controller: site.legalName,
   email: site.email,
-  grievanceOfficer: "Grievance Officer, NeevHR Technologies LLP",
-  address:
-    "L-1601, Aster, Adani Shantigram, near Shoppers Plaza, Vaishnodevi Circle, Ahmedabad, Gujarat 382421, India",
+  grievanceOfficer: `Grievance Officer, ${site.legalName}`,
+  address: `${site.address.street}, ${site.address.locality}, ${site.address.region} ${site.address.postalCode}, ${site.address.country}`,
 };
 
 const toc = [

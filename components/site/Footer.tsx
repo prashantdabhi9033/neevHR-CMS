@@ -50,6 +50,20 @@ const cols = [
     ],
   },
   {
+    title: "Choose and switch",
+    links: [
+      { label: "HRMS for small business", href: "/best-hrms-for-small-business" },
+      { label: "HRMS for mid-sized business", href: "/best-hrms-for-mid-sized-business" },
+      { label: "HRMS for 1,000+ employees", href: "/best-hrms-for-1000-employees" },
+      { label: "Choosing payroll software", href: "/best-payroll-software-india" },
+      { label: "Payroll for a growing business", href: "/best-payroll-software-for-growing-business" },
+      { label: "Switch from Excel", href: "/switch-from-excel" },
+      { label: "Switch from manual payroll", href: "/switch-from-manual-payroll" },
+      { label: "Switch from a legacy HRMS", href: "/switch-from-legacy-hrms" },
+      { label: "Replace point solutions", href: "/switch-from-point-solutions" },
+    ],
+  },
+  {
     title: "Company",
     links: [
       { label: "About", href: "/company" },
@@ -96,7 +110,7 @@ export function Footer() {
       </Container>
 
       <Container className="pb-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(6,1fr)]">
           <div>
             <BrandMark />
             <p className="mt-4 max-w-xs text-sm text-muted">
@@ -154,7 +168,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} NeevHR. Made in India for Indian teams.</p>
+          <p>© {new Date().getFullYear()} {site.legalName}, {site.address.locality}, {site.address.region}. Made in India for Indian teams.</p>
           <p>
             Prices in INR. Product illustrations use sample data.
           </p>

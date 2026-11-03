@@ -9,7 +9,7 @@ import { Disclaimer } from "@/components/site/Disclaimer";
 import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { states, stateBySlug } from "@/lib/states";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, OG_IMAGE } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ state: string }> };
@@ -81,7 +81,9 @@ export default async function StatePayrollPage({ params }: Params) {
           "@type": "Article",
           headline: `${s.name} payroll guide`,
           description: s.summary,
+          datePublished: s.publishedIso ?? s.reviewedIso,
           dateModified: s.reviewedIso,
+          image: [OG_IMAGE.url],
           author: { "@type": "Organization", name: site.name, url: site.url },
           publisher: { "@id": `${site.url}/#organization` },
           mainEntityOfPage: { "@type": "WebPage", "@id": url },

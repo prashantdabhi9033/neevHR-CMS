@@ -2,6 +2,7 @@
 // rankings, no "No. 1" claims, NeevHR presented as one documented option.
 
 import { site } from "@/lib/site";
+import { statutoryGuides } from "@/lib/statutory-guides";
 
 export type Guide = {
   slug: string;
@@ -23,6 +24,13 @@ export type Guide = {
   faqs: { q: string; a: string }[];
   related: { label: string; href: string }[];
   cta: string;
+  /** Official sources shown under the article, newest rule first. */
+  sources?: { label: string; href: string }[];
+  /** A file the reader can download (for example a calendar). */
+  download?: { label: string; href: string; note?: string };
+  /** This guide's own statutory review date, when newer than the site-wide one. */
+  reviewed?: string;
+  reviewedIso?: string;
 };
 
 export const guides: Guide[] = [
@@ -270,7 +278,7 @@ export const guides: Guide[] = [
     related: [
       { label: "HRMS data migration", href: "/hrms-data-migration" },
       { label: "Switching from Excel", href: "/switch-from-excel" },
-      { label: "Monthly payroll process", href: "/blog/monthly-payroll-process-step-by-step" },
+      { label: "Monthly payroll process", href: "/blog/monthly-payroll-checklist" },
       { label: "HRMS software", href: "/hrms" },
     ],
     cta: "Plan your NeevHR implementation",
@@ -504,7 +512,7 @@ export const guides: Guide[] = [
     related: [
       { label: "Moving from separate point tools", href: "/switch-from-point-solutions" },
       { label: "Payroll software", href: "/payroll" },
-      { label: "Monthly payroll process", href: "/blog/monthly-payroll-process-step-by-step" },
+      { label: "Monthly payroll process", href: "/blog/monthly-payroll-checklist" },
       { label: "Switching from Excel", href: "/switch-from-excel" },
       { label: "HRMS data migration", href: "/hrms-data-migration" },
     ],
@@ -730,25 +738,169 @@ export const guides: Guide[] = [
     h1: "Choosing an HRMS for a Mid-Sized Business in India",
     seoTitle: "Best HRMS for Mid-Sized Business in India",
     description:
-      "What mid-sized Indian companies of 200 to 1,000 employees need from an HRMS: multi-location payroll, shifts and biometrics, approvals, data scopes, performance cycles and reporting.",
+      "HRMS for mid-sized Indian companies: multi-location payroll, shifts and biometrics, approvals and data scopes, with a checklist and a worked rollout.",
     published: "2026-09-24",
     lead:
       "Between roughly 200 and 1,000 employees, HR changes character. There are several locations and states, managers who approve things, shift-based teams, and leadership that wants reports. The HRMS has to carry process, not just records.",
     sections: [
       {
-        id: "priorities",
-        title: "Priorities at this size",
+        id: "what-changes",
+        title: "What changes at around 500 employees",
+        body: [
+          "Most companies reach 500 people with tools chosen at 50: a payroll spreadsheet, a separate attendance system, email approvals and an employee master in Excel. Each works alone; what breaks is the joins between them.",
+          "More locations and states bring state rules into every run: PT slabs and filing frequency, LWF, minimum wages and location holiday calendars. Shift and plant teams bring biometric devices, rosters, night shifts, overtime and regularisation. With 50 to 70 people managers, approvals move from HR to managers. Access has to be scoped so a plant HR executive sees only the plant. Increments need a defensible performance cycle, and leadership wants headcount, attrition and cost reports that match the payroll register.",
+        ],
+      },
+      {
+        id: "volume",
+        title: "Worked example: monthly volume at 500 employees",
+        body: [
+          "The assumptions are illustrative, not benchmarks; replace them with your own. With a span of control of 8 there are about 62 managers, so each approves around 12 items a month. Add 7 to 8 full and final settlements and about 12 onboarding cases a month, and re-keying all of it into payroll is where errors come from.",
+        ],
         table: {
-          head: ["Need", "Why it matters", "What to check"],
+          head: [
+            "Item",
+            "Assumption",
+            "Monthly volume",
+          ],
           rows: [
-            ["Multi-state payroll", "PT and LWF differ by state", "Rules applied from each employee's work location"],
-            ["Shifts and biometrics", "Operations teams work in shifts", "Device protocol support, rosters, overtime rules"],
-            ["Approval workflows", "Managers approve leave, attendance and expenses", "Configurable chains by record type"],
-            ["Data scopes", "Managers and HRBPs should see only their people", "Role-based access with department or entity scope"],
-            ["Performance cycles", "Increments need a defensible process", "Goals, reviews and sign-off linked to compensation"],
-            ["Reporting", "Leadership wants headcount, attrition and cost", "Standard reports plus a builder and drill-down"],
+            [
+              "Exits",
+              "18% annual attrition: 90 a year",
+              "7 to 8",
+            ],
+            [
+              "Joiners",
+              "Replace 90 exits and grow by 50: 140 a year",
+              "about 12",
+            ],
+            [
+              "Leave applications",
+              "1 per employee per month",
+              "500",
+            ],
+            [
+              "Attendance regularisations",
+              "10% of employees raise 2 a month",
+              "100",
+            ],
+            [
+              "Expense claims",
+              "30% of employees file 1 a month",
+              "150",
+            ],
+            [
+              "Manager approvals",
+              "500 + 100 + 150",
+              "750",
+            ],
           ],
         },
+      },
+      {
+        id: "requirements",
+        title: "Requirements and what to check in a demo",
+        table: {
+          head: [
+            "Area",
+            "What you need",
+            "What to check live",
+          ],
+          rows: [
+            [
+              "Employee record",
+              "One record with effective-dated history",
+              "Change a department with a past date and see history and as-of reports update",
+            ],
+            [
+              "Organisation",
+              "Legal entities, locations, departments",
+              "Two entities with different statutory registrations in one tenant",
+            ],
+            [
+              "Attendance",
+              "Biometric integration, shifts, rosters, overtime, regularisation, LOP",
+              "Your device models; a night shift crossing midnight",
+            ],
+            [
+              "Leave",
+              "Accrual, proration, carry-forward, encashment, location holidays",
+              "A mid-year joiner's prorated balance",
+            ],
+            [
+              "Payroll",
+              "Structures, arrears, LOP reversal, loans, variable pay",
+              "A backdated increment producing correct arrears",
+            ],
+            [
+              "Statutory",
+              "PF, ESI, PT and LWF by state; TDS under both regimes",
+              "The ECR, ESIC file and Form 138 (formerly 24Q) file from a run",
+            ],
+            [
+              "Access",
+              "Role-based access, data scopes, masking, MFA, audit log",
+              "A plant HR login that cannot see another plant",
+            ],
+            [
+              "Performance",
+              "Goals, reviews, 360 feedback, calibration",
+              "A rating distribution across departments",
+            ],
+            [
+              "Exit",
+              "F&F with gratuity, leave encashment and recoveries",
+              "An F&F statement with a loan outstanding",
+            ],
+          ],
+        },
+      },
+      {
+        id: "not-yet",
+        title: "What you probably do not need yet",
+        body: [
+          "Be wary of paying for complexity you will not use: a multi-year transformation programme, a certified consultant to change a leave rule, or heavy custom development. Leave, attendance, pay structures and appraisals should be configuration a trained HR administrator can change.",
+        ],
+      },
+      {
+        id: "approach",
+        title: "Implementation approach",
+        steps: [
+          {
+            t: "Design",
+            b: "Document entities, locations, pay structures, leave and attendance policies and approval chains.",
+          },
+          {
+            t: "Data",
+            b: "Clean the employee master, statutory numbers, bank details and year-to-date payroll figures.",
+          },
+          {
+            t: "Configure",
+            b: "Set up policies, structures, devices, roles and data scopes with your HR administrator.",
+          },
+          {
+            t: "Parallel payroll",
+            b: "Run one month in both systems and reconcile employee by employee.",
+          },
+          {
+            t: "Go live",
+            b: "Pay from the new system, open self-service, retire the spreadsheets. Introduce performance at a cycle boundary.",
+          },
+        ],
+      },
+      {
+        id: "questions",
+        title: "Questions to ask vendors",
+        bullets: [
+          "How do you apply PT and LWF when an employee transfers between states mid-month?",
+          "Which biometric device models and protocols are supported today, and how are missed punches handled?",
+          "Can a manager approve leave and attendance without seeing salary data?",
+          "How do you restrict an HR user to one entity or location?",
+          "When a salary change is backdated, how are arrears calculated and shown?",
+          "Which checks run before payroll is approved, and who can approve?",
+          "Which statutory files do you generate, and which portal steps remain with us?",
+          "What is live today, and what is on the roadmap? Ask for this in writing.",
+        ],
       },
       {
         id: "pitfalls",
@@ -766,9 +918,21 @@ export const guides: Guide[] = [
         body: [
           `${site.entity} It is built for this band: multi-location PT and LWF, biometric attendance with shifts and rosters, configurable approvals, role-based data scopes, performance and compensation cycles, and reports on one record. ${site.implementation}`,
         ],
-      },
+      }
     ],
     faqs: [
+      {
+        q: "Is 500 employees too small for a full HRMS?",
+        a: "No. This is usually the size at which a connected HRMS pays for itself, because approvals, attendance data and payroll changes outgrow spreadsheets and point tools.",
+      },
+      {
+        q: "Should payroll and HR be in the same system?",
+        a: "At this size it helps: when attendance, leave, joiners and exits feed payroll directly, the monthly re-keying that causes most payroll errors goes away.",
+      },
+      {
+        q: "How long does implementation take for 500 employees?",
+        a: "It depends on data quality, the number of entities and states, integrations such as biometric devices, and payroll complexity.",
+      },
       {
         q: "What HRMS is suitable for 500 employees?",
         a: "One that handles multi-location statutory payroll, shift and biometric attendance, approval workflows and role-based data scopes, with a realistic implementation plan and a parallel payroll run.",
@@ -792,44 +956,218 @@ export const guides: Guide[] = [
       "How to evaluate an HRMS for 1,000 or more employees in India: multiple entities, bulk operations, security and audit, integrations, performance at scale and implementation risk.",
     published: "2026-09-24",
     lead:
-      "At 1,000 employees and above, an HRMS decision involves the CHRO, CFO and CIO together. The questions shift from features to governance: entities, controls, audit, integrations and how the rollout will be de-risked.",
+      "At 1,000 employees and above, an HRMS decision involves the CHRO, CFO and CIO together. The questions shift from features to governance: several legal entities in one system, bulk changes that keep history, separation of duties, an audit trail, a security review, and a rollout de-risked by a pilot and a reconciled parallel payroll.",
     sections: [
       {
-        id: "governance",
-        title: "Governance and structure",
-        bullets: [
-          "Multiple legal entities with their own statutory registrations, in one system",
-          "Transfers between entities and locations as dated events",
-          "Bulk actions for transfers, manager changes and separations",
-          "Separation of duties in payroll (the person who computes cannot approve)",
-          "Audit log of administrative, payroll and permission changes",
+        id: "entities",
+        title: "Multiple legal entities in one system",
+        body: [
+          "Large Indian employers are rarely one company: an operating company, a services subsidiary, a manufacturing unit, sometimes an acquired business. Each legal entity has its own PAN and TAN (so its own TDS deposits, Form 138 returns and Form 130 certificates, formerly Form 24Q and Form 16), its own PF establishment code and ESI employer code, PT registrations in each state, salary bank accounts and general ledger.",
+          "The HRMS must keep these apart for statutory purposes while giving HR one view of the workforce. Ask to see two entities with different registrations running payroll in the same period, each producing its own ECR, ESIC file, TDS return and journal voucher.",
+          "An inter-entity transfer is usually a change of employer for income tax: each entity reports the salary it paid, and the new entity takes the earlier income and TDS into its projection. The UAN stays the same while the PF establishment changes. Decide and document service continuity for gratuity and leave before the first transfer, and record the move as a dated event on one employee record.",
+        ],
+      },
+      {
+        id: "bulk",
+        title: "Bulk operations without breaking history",
+        body: [
+          "At this size change arrives in batches: a reorganisation moves 200 people to new managers, an annual revision changes everyone's pay, a site closure separates a team. Look for bulk import with a dry run that reports errors before saving, mass actions for transfers, manager changes and separations that create proper dated events, compensation cycles with review and approval, and an audit entry for every bulk change.",
+        ],
+      },
+      {
+        id: "duties",
+        title: "Separation of duties",
+        body: [
+          "Payroll fraud and payroll errors share a root cause: one person who can change data, run payroll and release payment. Auditors expect the duties split, and the system should enforce it, not only document it.",
+        ],
+        table: {
+          head: [
+            "Activity",
+            "Maker",
+            "Checker",
+          ],
+          rows: [
+            [
+              "Salary revision or new structure",
+              "HR operations",
+              "HR head or compensation team",
+            ],
+            [
+              "Bank account change",
+              "Employee or HR",
+              "Payroll or HR reviewer",
+            ],
+            [
+              "Payroll compute",
+              "Payroll executive",
+              "Payroll lead (verify)",
+            ],
+            [
+              "Payroll approval",
+              "Not the person who computed",
+              "Finance or payroll head",
+            ],
+            [
+              "Publish, bank file and payslips",
+              "Payroll",
+              "Finance releases payment",
+            ],
+            [
+              "Role and permission changes",
+              "IT or HRIS admin",
+              "Separate approver",
+            ],
+          ],
+        },
+      },
+      {
+        id: "audit",
+        title: "Audit trail",
+        body: [
+          "For any change the log should show what changed, from what to what, who made it and when. At this size it should cover employee master, salary and bank changes, payroll runs and approvals, statutory settings, roles and permissions, and data exports. Ask to see the log for a salary change made last week, and how long logs are kept.",
         ],
       },
       {
         id: "security",
-        title: "Security review questions",
-        bullets: [
-          "How is our data isolated from other customers?",
-          "Which fields are encrypted, and how are keys managed?",
-          "Can MFA be enforced for all users? Is single sign-on available?",
-          "Where is data hosted, and what are the backup and recovery arrangements?",
-          "Which certifications are held today?",
+        title: "The security review",
+        table: {
+          head: [
+            "Question",
+            "Why it matters",
+          ],
+          rows: [
+            [
+              "How is our data isolated from other customers?",
+              "Isolation should hold at the database layer, not only in application code",
+            ],
+            [
+              "Which fields are encrypted at rest?",
+              "PAN, Aadhaar, UAN and bank details are high-risk if exposed",
+            ],
+            [
+              "Can MFA be enforced for all users?",
+              "Password-only access to salary data is hard to defend",
+            ],
+            [
+              "Is single sign-on available?",
+              "Your identity team may require it",
+            ],
+            [
+              "Where is data hosted?",
+              "Many Indian employers prefer or require hosting in India",
+            ],
+            [
+              "Which certifications are held today?",
+              "Some procurement policies require SOC 2 or ISO 27001",
+            ],
+            [
+              "How are DPDP requests handled?",
+              "The DPDP Act, 2023 applies to employee data; its main duties apply from 13 May 2027 under the DPDP Rules, 2025",
+            ],
+            [
+              "What retention and legal hold controls exist?",
+              "Records must be kept for statutory periods and some preserved during disputes",
+            ],
+          ],
+        },
+        body: [
+          "Get answers in writing, and ask for what is available today rather than what is planned.",
         ],
       },
       {
         id: "integrations",
         title: "Integrations",
         body: [
-          "Expect to connect biometric devices across sites, bank payment files, an accounting system, and possibly your own data platform through an API or webhooks. Ask for a list of integrations that are live today.",
+          "Expect to connect biometric devices across many sites (ideally over a standard push protocol), bank payment files in your banks' formats, your accounting system through a journal export or an API, and your own data platform through APIs and webhooks. Ask for the integrations live today and test the ones you depend on during the pilot.",
         ],
       },
       {
         id: "rollout",
-        title: "De-risking the rollout",
-        steps: [
-          { t: "Pilot an entity", b: "Go live with one entity or location first." },
-          { t: "Parallel payroll", b: "Reconcile at least one full cycle before switching over." },
-          { t: "Phase the talent modules", b: "Introduce performance and recruitment at cycle boundaries." },
+        title: "Phased rollout with a pilot and parallel payroll",
+        table: {
+          head: [
+            "Phase",
+            "Scope",
+            "Exit criterion",
+          ],
+          rows: [
+            [
+              "1. Foundation",
+              "All entities: employee master, organisation, roles and data scopes",
+              "Master data reconciled to current payroll headcount",
+            ],
+            [
+              "2. Pilot entity",
+              "One entity or location: attendance, leave, payroll",
+              "One parallel payroll fully reconciled",
+            ],
+            [
+              "3. Pilot go-live",
+              "Pay the pilot entity from the new system",
+              "Statutory files accepted and bank payment successful",
+            ],
+            [
+              "4. Remaining entities",
+              "Waves, each with its own parallel run",
+              "Each wave reconciled before go-live",
+            ],
+            [
+              "5. Talent modules",
+              "Performance, recruitment, compensation cycles",
+              "Introduced at a cycle boundary",
+            ],
+          ],
+        },
+        body: [
+          "Choose a pilot that is representative but not the most complex: it should include shifts, more than one state and a mix of ESI and non-ESI employees.",
+        ],
+      },
+      {
+        id: "parallel-example",
+        title: "Worked example: reconciling a parallel run",
+        body: [
+          "A group has three entities: A with 650 employees, B with 400 and C with 250, 1,300 in all. The team pilots Entity C for one month in parallel. The rule: every employee's net pay must match the legacy payroll to the rupee, or the difference must be explained and accepted. Of 250 employees, 243 match and 7 differ.",
+          "Three differences were configuration errors in the new system, now fixed; four were errors or timing issues in the legacy payroll. That is typical: a parallel run tests both systems. After the fix the team reran the month, got 250 of 250 matched or explained, and went live the following month.",
+        ],
+        table: {
+          head: [
+            "Cause",
+            "Employees",
+            "Resolution",
+          ],
+          rows: [
+            [
+              "LOP divisor: legacy used 30 days, the new setup calendar days",
+              "3",
+              "Policy confirmed as 30 days; configuration corrected",
+            ],
+            [
+              "PT state: mid-month transfers, legacy applied the old state",
+              "2",
+              "New system correct; legacy error noted",
+            ],
+            [
+              "Arrears: a backdated promotion missed in legacy",
+              "1",
+              "New system correct",
+            ],
+            [
+              "TDS: a declaration updated after the legacy cut-off",
+              "1",
+              "Timing difference; accepted",
+            ],
+          ],
+        },
+      },
+      {
+        id: "mistakes",
+        title: "Common mistakes",
+        bullets: [
+          "Treating all entities as one for statutory purposes, so returns and challans mix registrations.",
+          "Making bulk changes outside the system, which breaks effective-dated history.",
+          "Granting one person compute and approve rights because the team is busy at go-live.",
+          "Accepting a security questionnaire on trust without checking what is live.",
+          "Going live across every entity at once with no pilot and no parallel payroll.",
         ],
       },
       {
@@ -838,9 +1176,25 @@ export const guides: Guide[] = [
         body: [
           `${site.entity} It supports multiple entities, bulk actions, separation of duties, an audit log, Postgres row-level tenant isolation, field-level encryption of sensitive identifiers and enforceable MFA. Worth knowing: single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.`,
         ],
-      },
+      }
     ],
     faqs: [
+      {
+        q: "How long does an HRMS rollout take for 1,000 or more employees?",
+        a: "It depends on entities, states, data quality and integrations. A multi-entity programme is usually delivered in waves, each with its own parallel run.",
+      },
+      {
+        q: "Should we pilot HR or payroll first?",
+        a: "Load the employee master for everyone first, then pilot attendance, leave and payroll together for one entity, because the three feed each other.",
+      },
+      {
+        q: "How many parallel payroll runs do we need?",
+        a: "At least one fully reconciled run per wave, and a second if the first reveals configuration changes.",
+      },
+      {
+        q: "Can one HRMS handle several legal entities?",
+        a: "It should. Each entity needs its own statutory registrations, returns and journal entries, with one employee record for the workforce view.",
+      },
       {
         q: "What HRMS is suitable for 1,000 employees?",
         a: "One with multi-entity support, bulk operations, strong access control and audit, the integrations you need live today, and an implementation plan that includes a pilot and a parallel payroll.",
@@ -991,5 +1345,7 @@ export const guides: Guide[] = [
     cta: "See NeevHR payroll for a growing team",
   },
 ];
+
+guides.push(...statutoryGuides);
 
 export const guideBySlug = Object.fromEntries(guides.map((g) => [g.slug, g]));

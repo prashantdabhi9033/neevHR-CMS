@@ -46,7 +46,7 @@ Statutory rules depend on wage levels that move during the year. ESI coverage de
 
 ### TDS projection
 
-TDS must be projected on the year's expected income, then recalculated when salaries change, declarations arrive, proofs are verified, variable pay is paid or a mid-year joiner declares previous-employer income. Under-deduction early in the year leads to large deductions later, or to a shortfall. See [TDS on salary under the old and new regimes](/blog/tds-on-salary-old-vs-new-regime-fy-2026-27).
+TDS must be projected on the year's expected income, then recalculated when salaries change, declarations arrive, proofs are verified, variable pay is paid or a mid-year joiner declares previous-employer income. Under-deduction early in the year leads to large deductions later, or to a shortfall. See [TDS on salary under the old and new regimes](/blog/salary-tds-explained).
 
 ### LOP, arrears and reversals
 

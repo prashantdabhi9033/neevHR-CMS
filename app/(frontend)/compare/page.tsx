@@ -1,3 +1,4 @@
+import { ChooseAndSwitch } from "@/components/site/ChooseAndSwitch";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -170,6 +171,8 @@ export default function ComparePage() {
           </div>
         </Container>
       </section>
+
+      <ChooseAndSwitch />
     </>
   );
 }

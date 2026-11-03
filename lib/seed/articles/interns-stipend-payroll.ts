@@ -37,7 +37,7 @@ The tax position on stipends is not settled by a single rule, and the Income-tax
 
 ### Will TDS be deducted on a stipend?
 
-Usually not, because the income is low. Under the new regime for tax year 2026-27, salaried individuals with taxable income up to ₹12,00,000 have no tax after the rebate, and the standard deduction is ₹75,000. A six-month intern on ₹25,000 a month earns ₹1,50,000 in total, far below any taxable level. Payroll still records the stipend and reports any TDS in the quarterly return; check our [TDS on salary under the old and new regimes](/blog/tds-on-salary-old-vs-new-regime-fy-2026-27) guide for the slabs. Collect PAN at joining all the same; without it, any TDS that does arise is at a higher rate.
+Usually not, because the income is low. Under the new regime for tax year 2026-27, salaried individuals with taxable income up to ₹12,00,000 have no tax after the rebate, and the standard deduction is ₹75,000. A six-month intern on ₹25,000 a month earns ₹1,50,000 in total, far below any taxable level. Payroll still records the stipend and reports any TDS in the quarterly return; check our [TDS on salary under the old and new regimes](/blog/salary-tds-explained) guide for the slabs. Collect PAN at joining all the same; without it, any TDS that does arise is at a higher rate.
 
 ## Do PF and ESI apply to interns?
 

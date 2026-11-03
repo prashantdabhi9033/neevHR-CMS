@@ -1,3 +1,4 @@
+import { isMergedPost } from "@/lib/merged-posts";
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -40,6 +41,7 @@ export default async function BlogPage() {
       limit: 200,
       depth: 1,
     }));
+    docs = docs.filter((p) => !isMergedPost(p.slug));
   } catch {
     docs = [];
   }

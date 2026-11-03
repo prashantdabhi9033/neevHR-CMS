@@ -81,6 +81,7 @@ export default function FrontendLayout({
     "@type": "Organization",
     "@id": orgId,
     name: site.name,
+    legalName: site.legalName,
     url: site.url,
     logo: {
       "@type": "ImageObject",
@@ -94,6 +95,10 @@ export default function FrontendLayout({
     areaServed: { "@type": "Country", name: "India" },
     address: {
       "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      addressLocality: site.address.locality,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
       addressCountry: site.addressCountry,
     },
     knowsAbout: [

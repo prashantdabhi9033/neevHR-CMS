@@ -2,7 +2,7 @@ import type { SeedPost } from "../posts";
 
 const post: SeedPost = {
   slug: "payroll-compliance-checklist-india",
-  title: "Payroll compliance checklist for India: registrations, deposits and returns",
+  title: "Payroll compliance checklist for India: deposits and returns",
   excerpt:
     "The registrations, monthly deposits, quarterly returns and annual filings an Indian employer must track, with due dates, records to keep and common lapses.",
   category: "compliance",
@@ -71,7 +71,7 @@ Two dates cause most of the pressure: the 7th, when TDS and salary deadlines coi
 7. Pay PT and file the PT return where the state requires it that month.
 8. Reconcile: payroll deductions should equal the challans paid, head by head.
 
-For a fuller walk-through, see our [monthly payroll process guide](/blog/monthly-payroll-process-step-by-step).
+For a fuller walk-through, see our [monthly payroll process guide](/blog/monthly-payroll-checklist).
 
 ## Records to keep
 

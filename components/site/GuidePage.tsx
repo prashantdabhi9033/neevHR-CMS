@@ -6,7 +6,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
-import { pageMeta, LAST_REVIEWED, LAST_REVIEWED_ISO, OG_IMAGE } from "@/lib/seo";
+import { pageMeta, pageDateISO, displayDate, OG_IMAGE } from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { Guide } from "@/lib/guides";
 
@@ -17,7 +17,7 @@ export function guideMetadata(g: Guide): Metadata {
     path: `/${g.slug}`,
     type: "article",
     publishedTime: g.published,
-    modifiedTime: LAST_REVIEWED_ISO,
+    modifiedTime: g.reviewedIso ?? pageDateISO(`/${g.slug}`, true),
     authors: [site.name],
   });
 }
@@ -37,7 +37,7 @@ export function GuidePage({ g }: { g: Guide }) {
           description: g.description,
           image: [OG_IMAGE.url],
           datePublished: g.published,
-          dateModified: LAST_REVIEWED_ISO,
+          dateModified: g.reviewedIso ?? pageDateISO(`/${g.slug}`, true),
           author: { "@type": "Organization", name: site.name, url: site.url },
           publisher: { "@id": `${site.url}/#organization` },
           mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -60,10 +60,23 @@ export function GuidePage({ g }: { g: Guide }) {
           </h1>
           <p className="mt-4 text-sm text-muted">
             Published: {new Date(g.published).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
-            {" · "}Updated: {LAST_REVIEWED}
+            {" · "}Updated: {g.reviewed ?? displayDate(pageDateISO(`/${g.slug}`, true))}
             {" · "}Author: {site.name} team
           </p>
           <p className="mt-5 text-lg leading-relaxed text-body">{g.lead}</p>
+          {g.download && (
+            <p className="mt-5">
+              <a
+                href={g.download.href}
+                download
+                className="inline-flex items-center gap-2 rounded-xl border border-brand/30 bg-white px-4 py-2.5 text-sm font-semibold text-brand hover:border-brand"
+              >
+                <Icon name="arrow" className="h-4 w-4 rotate-90" />
+                {g.download.label}
+              </a>
+              {g.download.note && <span className="mt-2 block text-xs text-muted">{g.download.note}</span>}
+            </p>
+          )}
 
           <nav aria-label="On this page" className="mt-8 rounded-2xl border border-line bg-surface-soft p-5">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted">On this page</p>
@@ -145,6 +158,23 @@ export function GuidePage({ g }: { g: Guide }) {
               )}
             </section>
           ))}
+          {g.sources && g.sources.length > 0 && (
+            <section id="sources" className="mt-12 scroll-mt-24 rounded-2xl border border-line bg-surface-soft p-5">
+              <h2 className="text-base font-semibold text-ink">Sources</h2>
+              <ul className="mt-3 space-y-1.5">
+                {g.sources.map((src) => (
+                  <li key={src.href} className="text-sm">
+                    <a href={src.href} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                      {src.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-xs text-muted">
+                Last reviewed {g.reviewed ?? displayDate(pageDateISO(`/${g.slug}`, true))}. Rules change by notification; check the source before you act.
+              </p>
+            </section>
+          )}
         </Container>
       </article>
 

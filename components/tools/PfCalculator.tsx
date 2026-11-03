@@ -15,7 +15,7 @@ export function PfCalculator() {
   const employee = 0.12 * pfWage;
   const employerTotal = 0.12 * pfWage;
   // EPS rounded to the rupee first, as on the ECR; EPF takes the balance.
-  const eps = Math.round(0.0833 * Math.min(pfWage, EPS_WAGE_CEILING)); // up to Rs 1,250, on the EPS ceiling
+  const eps = Math.round(0.0833 * Math.min(pfWage, EPS_WAGE_CEILING)); // up to Rs 2,083, on the EPS ceiling
   const epf = Math.max(0, employerTotal - eps);
   const monthly = employee + employerTotal;
 
@@ -53,7 +53,7 @@ export function PfCalculator() {
           <ResultRow label="Total per month" value={inr(monthly)} strong />
         </div>
         <p className="mt-4 text-xs text-muted">
-          Employer share splits into EPS (8.33% of wages up to ₹15,000, so up to ₹1,250) and EPF. EDLI and
+          Employer share splits into EPS (8.33% of wages up to ₹25,000, so up to ₹2,083 from 17 Sep 2026) and EPF. EDLI and
           admin charges (~0.5%) are not shown. Indicative only.
         </p>
       </div>

@@ -93,7 +93,7 @@ The full ₹18,000 is taxable salary in that tax year. There is no exemption for
 
 ## Does the new tax regime allow the leave encashment exemption?
 
-Under the 1961 Act, the leave encashment exemption on retirement or resignation remained available to employees in the new regime under section 115BAC, unlike exemptions such as HRA and LTA. The new regime is now the default, and the general understanding is that this treatment continues under the Income-tax Act, 2025. Confirm against the current law before relying on it for a large settlement. For the regime choice itself, see [TDS on salary: old vs new regime](/blog/tds-on-salary-old-vs-new-regime-fy-2026-27).
+Under the 1961 Act, the leave encashment exemption on retirement or resignation remained available to employees in the new regime under section 115BAC, unlike exemptions such as HRA and LTA. The new regime is now the default, and the general understanding is that this treatment continues under the Income-tax Act, 2025. Confirm against the current law before relying on it for a large settlement. For the regime choice itself, see [TDS on salary: old vs new regime](/blog/salary-tds-explained).
 
 | Item | Old regime | New regime |
 | --- | --- | --- |

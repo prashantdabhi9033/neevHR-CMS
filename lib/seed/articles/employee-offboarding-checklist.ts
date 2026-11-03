@@ -122,7 +122,7 @@ Statutory deductions (PF, ESI if applicable, professional tax and TDS) apply to 
 
 ## Step 8: PF exit, transfer and withdrawal guidance
 
-After the final month's contribution is filed in the ECR, mark the employee's date of exit on the EPFO employer portal. If the exit is not marked, the old member ID looks active, and the employee's transfer or claim can get stuck. Our [UAN guide](/blog/uan-explained) explains the transfer process.
+After the final month's contribution is filed in the ECR, mark the employee's date of exit on the EPFO employer portal. If the exit is not marked, the old member ID looks active, and the employee's transfer or claim can get stuck. Our [UAN guide](/blog/epf-explained-contribution-uan-withdrawal#what-is-the-uan) explains the transfer process.
 
 Guidance to give the leaver:
 

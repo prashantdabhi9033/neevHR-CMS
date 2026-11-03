@@ -102,7 +102,7 @@ The range minimum rule prevents a promoted employee from being paid below the fl
 
 Decide the order of calculation and write it down. If Kavya also earns an 8% merit increase, applying merit first and then the promotion gives ₹7,80,000 × 1.08 = ₹8,42,400, then ₹8,42,400 × 1.12 = ₹9,43,488. The two increases compound to about 21%, not 20%. Some companies instead add the percentages, or cap the combined increase. Any of these is fine if applied to everyone. Our [salary hike calculator](/tools/salary-hike-calculator) shows the new CTC for a given percentage.
 
-Remember the knock-on effects. A higher Basic raises the employer PF cost where contributions are on actual Basic above the ₹15,000 ceiling, and it raises the gratuity liability.
+Remember the knock-on effects. A higher Basic raises the employer PF cost where Basic is below the ₹25,000 wage ceiling (in force from 17 September 2026) or contributions are on actual Basic above it, and it raises the gratuity liability.
 
 ## How should promotions be effective-dated?
 

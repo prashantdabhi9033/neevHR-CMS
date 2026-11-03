@@ -1,5 +1,6 @@
 import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
+import { MERGED_POSTS } from "./lib/merged-posts";
 
 // Content-Security-Policy. The front end drops 'unsafe-eval' (Next's client
 // runtime and GA do not need eval); 'unsafe-inline' stays because Next injects
@@ -45,6 +46,8 @@ const baseSecurityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // app/global-not-found.tsx: one branded 404 for unmatched URLs (two root layouts).
+  experimental: { globalNotFound: true },
   async headers() {
     return [
       // Strict front-end policy everywhere (no 'unsafe-eval').
@@ -131,6 +134,14 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/about", destination: "/company", permanent: true },
+      // The state guides sit under /india/payroll/<state>; their parent is the India payroll hub.
+      { source: "/india", destination: "/india-payroll", permanent: true },
+      { source: "/india/payroll", destination: "/india-payroll", permanent: true },
+      ...Object.entries(MERGED_POSTS).map(([slug, to]) => ({
+        source: `/blog/${slug}`,
+        destination: to,
+        permanent: true,
+      })),
       { source: "/features/payroll", destination: "/payroll", permanent: true },
       { source: "/hrms-comparison", destination: "/compare", permanent: true },
       { source: "/full-and-final-settlement", destination: "/features/full-and-final-settlement", permanent: true },

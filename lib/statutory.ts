@@ -4,5 +4,9 @@
 
 /** EPF wage ceiling per month, from 17 Sep 2026 (S.O. 5109(E)). Earlier rows were lower. */
 export const PF_WAGE_CEILING = 25000;
-/** EPS wage ceiling per month, separate from the EPF ceiling (backend STATUTORY_EPS_WAGE_CEILING_PAISE): at most ₹1,250 a month. */
-export const EPS_WAGE_CEILING = 15000;
+/**
+ * EPS wage ceiling per month. From 17 Sep 2026 it follows the PF wage ceiling of ₹25,000 (owner decision,
+ * 03 Nov 2026), so employer EPS is at most ₹2,083 a month; ₹15,000 (₹1,250) before. The Central Government's
+ * 1.16% share stays on ₹15,000 under G.S.R. 890(E) and is not an employer deduction.
+ */
+export const EPS_WAGE_CEILING = 25000;

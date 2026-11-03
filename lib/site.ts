@@ -20,12 +20,21 @@ export const site = {
   url: "https://www.neevhr.com",
   email: "hello@neevhr.com",
   addressCountry: "IN",
+  // Legal entity and registered address, confirmed by the owner on 17 Oct 2026 (also on /privacy).
+  legalName: "NeevHR Technologies LLP",
+  address: {
+    street: "L-1601, Aster, Adani Shantigram, near Shoppers Plaza, Vaishnodevi Circle",
+    locality: "Ahmedabad",
+    region: "Gujarat",
+    postalCode: "382421",
+    country: "India",
+  },
   // Owner, 01 Nov 2026: no go-live timeline on the site.
   implementation:
     "Implementation time depends on employee count, data quality, integrations and payroll complexity.",
   // Official profiles for schema.org sameAs and the footer social links.
   socials: [
-    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/neevhr-37b432438/" },
+    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/neevhr/" },
     { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/neevhr" },
     { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/channel/UC4cUg0HifDHTwf0JqXYz4aw" },
     { label: "X", icon: "x", href: "https://x.com/neevhr" },
@@ -107,7 +116,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "Is there a mobile app?",
-    a: "Yes. The NeevHR mobile app for Android and iPhone is built. Today, employees use self-service on the web, including from a phone browser, for attendance, leave, payslips, tax declarations, expenses and approvals.",
+    a: "Yes. The NeevHR mobile app for Android and iPhone is built and coming to Google Play and the App Store. Today, employees use self-service on the web, including from a phone browser, for attendance, leave, payslips, tax declarations, expenses and approvals.",
   },
   {
     q: "How is our employee data protected?",

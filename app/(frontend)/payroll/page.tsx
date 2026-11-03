@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
 import { PayrollVisual } from "@/components/product/PayrollVisual";
 import { PayrollRunFlow } from "@/components/animated/PayrollRunFlow";
-import { pageMeta, softwareJsonLd } from "@/lib/seo";
+import { pageMeta, pageDateISO, softwareJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -103,7 +103,7 @@ export default function PayrollPage() {
           description: metadata.description,
           isPartOf: { "@id": `${site.url}/#website` },
           about: { "@id": `${site.url}/#software` },
-          dateModified: "2026-09-24",
+          dateModified: pageDateISO("/payroll"),
           inLanguage: "en-IN",
         }}
       />
@@ -229,7 +229,12 @@ export default function PayrollPage() {
             { l: "Variable pay", h: "/features/variable-pay" },
             { l: "Exit & F&F", h: "/features/exit" },
             { l: "PF calculator", h: "/tools/pf-calculator" },
-            { l: "Monthly payroll process", h: "/blog/monthly-payroll-process-step-by-step" },
+            { l: "Monthly payroll process", h: "/blog/monthly-payroll-checklist" },
+            { l: "CTC calculator", h: "/tools/ctc-calculator" },
+            { l: "Take-home salary calculator", h: "/tools/take-home-salary-calculator" },
+            { l: "Payroll reconciliation", h: "/blog/payroll-reconciliation-guide" },
+            { l: "Salary bank files", h: "/blog/salary-disbursement-bank-file" },
+            { l: "State payroll guides", h: "/india-payroll#state-guides" },
           ].map((x) => (
             <Link
               key={x.h}
