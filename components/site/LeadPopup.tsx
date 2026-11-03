@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { sizes, type Intent } from "@/components/demo/DemoForm";
+import { sizes, type Intent } from "@/lib/lead-options";
 import { track } from "@/lib/track";
 
 // Lead-capture popup. Shown at most once per session, and only on a sign of

@@ -79,6 +79,23 @@ const paths: Record<string, React.ReactNode> = {
   ),
 };
 
+// The paths are drawn once per page by <IconSprite /> in the site layout; each
+// icon only references its symbol, so a page with a hundred icons does not
+// repeat their paths in the HTML and in the RSC payload.
+export function IconSprite() {
+  return (
+    <svg aria-hidden="true" width="0" height="0" style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}>
+      <defs>
+        {Object.entries(paths).map(([name, d]) => (
+          <symbol key={name} id={`i-${name}`} viewBox="0 0 24 24">
+            {d}
+          </symbol>
+        ))}
+      </defs>
+    </svg>
+  );
+}
+
 export function Icon({
   name,
   className = "h-5 w-5",
@@ -96,7 +113,7 @@ export function Icon({
       aria-hidden="true"
       {...props}
     >
-      {paths[name] ?? null}
+      {name in paths ? <use href={`#i-${name}`} /> : null}
     </svg>
   );
 }

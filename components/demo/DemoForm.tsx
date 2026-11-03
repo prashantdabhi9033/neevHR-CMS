@@ -4,15 +4,10 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/track";
+import { sizes, type Intent } from "@/lib/lead-options";
 
-export const sizes = [
-  "Under 100",
-  "100 - 500",
-  "500 - 1,000",
-  "1,000 - 2,500",
-  "2,500 - 5,000",
-  "5,000+",
-];
+export { sizes, type Intent };
+
 
 const requirements = [
   "Complete HRMS",
@@ -25,7 +20,6 @@ const requirements = [
 ];
 
 type Status = "idle" | "submitting" | "done" | "error";
-export type Intent = "demo" | "quote";
 
 const copy: Record<
   Intent,

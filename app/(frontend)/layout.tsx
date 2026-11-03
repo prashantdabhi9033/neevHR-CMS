@@ -4,7 +4,8 @@ import "../globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Analytics } from "@/components/site/Analytics";
-import { LeadPopup } from "@/components/site/LeadPopup";
+import { LeadPopupLazy } from "@/components/site/LeadPopupLazy";
+import { IconSprite } from "@/components/ui/Icon";
 import { site } from "@/lib/site";
 import { OG_IMAGE } from "@/lib/seo";
 
@@ -143,6 +144,7 @@ export default function FrontendLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <IconSprite />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -155,7 +157,7 @@ export default function FrontendLayout({
         <main id="main-content" className="overflow-x-clip">{children}</main>
         <Footer />
         <Analytics />
-        <LeadPopup />
+        <LeadPopupLazy />
       </body>
     </html>
   );

@@ -15,16 +15,14 @@ function CellMark({ cell }: { cell: Cell }) {
   if (cell === false) {
     return (
       <span className="text-line" aria-label="Not included">
-        <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded bg-slate-300" />
+        <span aria-hidden="true" className="cmp-no" />
       </span>
     );
   }
   if (cell === true) {
     return (
-      <span className="inline-flex flex-col items-center gap-0.5">
-        <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-accent-tint text-accent-dark" aria-label="Included">
-          <Icon name="check" className="h-3.5 w-3.5" strokeWidth={2.4} />
-        </span>
+      <span className="cmp-yes" aria-label="Included">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" /></svg>
       </span>
     );
   }
@@ -43,33 +41,32 @@ function CellMark({ cell }: { cell: Cell }) {
   );
 }
 
-const COLS = "grid-cols-[minmax(0,1fr)_repeat(3,60px)] sm:grid-cols-[minmax(0,1fr)_repeat(3,128px)] lg:grid-cols-[minmax(0,1fr)_repeat(3,168px)]";
 
 function Row({ f }: { f: Feature }) {
   const [open, setOpen] = useState(false);
   const line = featureLine(f);
   return (
     <li>
-      <div className={`grid ${COLS} items-center gap-1 px-4 py-3 hover:bg-surface-soft/60 sm:px-6`}>
-        <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="group flex min-w-0 items-start gap-2 pr-2 text-left">
-          <svg viewBox="0 0 24 24" className={`mt-1 h-3 w-3 shrink-0 text-muted transition-transform group-hover:text-brand ${open ? "rotate-90" : ""}`} fill="currentColor" aria-hidden="true">
+      <div className="cmp-row">
+        <button type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="cmp-btn">
+          <svg viewBox="0 0 24 24" className="cmp-tri" aria-hidden="true">
             <path d="M9 6.5v11l8-5.5-8-5.5Z" />
           </svg>
           <span className="min-w-0">
-            <span className="block text-sm font-medium text-ink group-hover:text-brand">{f.name}</span>
-            <span className="mt-0.5 hidden text-xs leading-relaxed text-muted sm:block">{line}</span>
+            <span className="cmp-name">{f.name}</span>
+            <span className="cmp-line">{line}</span>
           </span>
         </button>
         {f.tiers.map((c, i) => (
-          <div key={editions[i].key} className="flex justify-center">
+          <div key={editions[i].key} className="cmp-cell">
             <CellMark cell={c} />
           </div>
         ))}
       </div>
-      <div hidden={!open} className="border-t border-line/50 bg-surface-soft/60 px-4 py-3 pl-9 text-[13px] leading-relaxed text-body sm:px-6 sm:pl-11">
+      <div hidden={!open} className="cmp-desc">
         {f.desc}
         {f.href && (
-          <Link href={f.href} className="mt-1.5 flex w-fit items-center gap-1 text-xs font-semibold text-brand hover:underline">
+          <Link href={f.href} className="cmp-more">
             Learn more <Icon name="arrow" className="h-3.5 w-3.5" />
           </Link>
         )}
@@ -161,7 +158,7 @@ export function CompareTable() {
 
       <div className="mt-6 rounded-2xl border border-line bg-white shadow-[var(--shadow-card)]">
         {/* Sticky edition header */}
-        <div className={`sticky top-16 z-20 grid ${COLS} items-end gap-1 rounded-t-2xl border-b border-line bg-white/95 px-4 py-3 backdrop-blur sm:px-6`}>
+        <div className={`sticky top-16 z-20 cmp-cols items-end gap-1 rounded-t-2xl border-b border-line bg-white/95 px-4 py-3 backdrop-blur sm:px-6`}>
           <p className="text-xs font-medium text-muted">
             {shown === featureCount ? `${featureCount} features` : `${shown} of ${featureCount} features`}
           </p>
@@ -201,7 +198,7 @@ export function CompareTable() {
                   type="button"
                   aria-expanded={open}
                   onClick={() => toggle(g.group)}
-                  className={`grid w-full ${COLS} items-center gap-1 bg-surface-soft px-4 py-3 text-left hover:bg-brand-tint/50 sm:px-6`}
+                  className={`grid w-full cmp-cols items-center gap-1 bg-surface-soft px-4 py-3 text-left hover:bg-brand-tint/50 sm:px-6`}
                 >
                   <span className="flex min-w-0 items-center gap-2.5 sm:gap-3">
                     <span className="hidden h-8 w-8 shrink-0 place-items-center rounded-lg bg-white text-brand ring-1 ring-line sm:grid">

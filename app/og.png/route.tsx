@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-import { BRAND, WORDMARK_RATIO, svgDataUri, wordmarkSvg } from "@/lib/brand";
+import { BRAND, WORDMARK_RATIO, wordmarkSvg } from "@/lib/brand";
+import { svgDataUri } from "@/lib/brand-uri";
 
 const size = { width: 1200, height: 630 };
 

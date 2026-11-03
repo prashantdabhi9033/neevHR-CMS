@@ -65,7 +65,7 @@ export function ModuleOverview() {
                     {it.href ? (
                       <Link
                         href={it.href}
-                        className="inline-block rounded-full border border-line bg-white px-2.5 py-0.5 text-body transition-colors hover:border-brand/40 hover:text-brand"
+                        className="chip-link"
                       >
                         {it.name}
                       </Link>

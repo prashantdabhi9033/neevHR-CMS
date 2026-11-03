@@ -53,10 +53,10 @@ function FeatureRow({ f, edition }: { f: Item; edition: string }) {
           setOpen(!open);
           if (!open) track("pricing_feature_expand", { edition, feature: f.name });
         }}
-        className="flex w-full items-start gap-2 py-1.5 text-left text-sm text-body hover:text-ink"
+        className="ed-feat"
       >
-        <Icon name="check" className="mt-[3px] h-3.5 w-3.5 shrink-0 text-accent" strokeWidth={2.4} />
-        <span className="flex flex-1 flex-wrap items-center gap-x-1.5 gap-y-1">
+        <svg viewBox="0 0 24 24" className="ed-tick" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" /></svg>
+        <span className="ed-name">
           <span className={open ? "font-medium text-ink" : ""}>{f.name}</span>
           {f.level && (
             <span className="rounded bg-accent-tint px-1.5 py-px text-[10px] font-semibold uppercase tracking-wide text-accent-dark">

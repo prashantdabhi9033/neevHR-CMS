@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-import { appIconSvg, svgDataUri } from "@/lib/brand";
+import { appIconSvg } from "@/lib/brand";
+import { svgDataUri } from "@/lib/brand-uri";
 
 // 512×512 raster logo for schema.org Organization.logo (Google requires a
 // raster image of at least 112px; the favicon SVG is too small for that).

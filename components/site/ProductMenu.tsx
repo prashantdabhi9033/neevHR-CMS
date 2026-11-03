@@ -36,7 +36,7 @@ function MenuGroup({
             <Link
               href={it.href}
               onClick={onPick}
-              className="block rounded-md px-2 py-1 text-[13px] font-medium leading-[18px] text-body transition-colors hover:bg-brand-tint hover:text-brand"
+              className="menu-link"
             >
               {it.name}
             </Link>

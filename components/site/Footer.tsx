@@ -157,7 +157,7 @@ export function Footer() {
                   <li key={`${i}:${l.label}`}>
                     <Link
                       href={l.href}
-                      className="text-sm text-muted transition-colors hover:text-brand"
+                      className="foot-link"
                     >
                       {l.label}
                     </Link>

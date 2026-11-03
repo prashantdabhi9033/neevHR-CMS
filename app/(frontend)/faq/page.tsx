@@ -56,11 +56,11 @@ export default function FaqPage() {
               <div className="mt-5 divide-y divide-line rounded-2xl border border-line bg-white">
                 {g.items.map((f) => (
                   <details key={f.q} className="group px-6">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-[15px] font-semibold text-ink marker:content-none">
+                    <summary className="faq-q">
                       <h3 className="text-[15px] font-semibold">{f.q}</h3>
                       <span
                         aria-hidden="true"
-                        className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-line text-muted transition-transform group-open:rotate-45"
+                        className="faq-plus"
                       >
                         +
                       </span>

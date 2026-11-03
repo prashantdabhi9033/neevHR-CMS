@@ -56,8 +56,3 @@ export function appIconSvg(tile: string = BRAND.blue, mark: string = "#FFFFFF"):
     `</g></g></svg>`
   );
 }
-
-/** An SVG string as a data URI (for <img> in generated images). */
-export function svgDataUri(svg: string): string {
-  return `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
-}
