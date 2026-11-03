@@ -46,10 +46,10 @@ export default function ProductOverviewPage() {
         </Container>
       </section>
 
-      {/* New */}
-      <section id="new" className="scroll-mt-16 border-b border-line bg-surface-soft py-14 lg:py-16">
+      {/* Capabilities inside the modules */}
+      <section id="capabilities" className="scroll-mt-16 border-b border-line bg-surface-soft py-14 lg:py-16">
         <Container>
-          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">New in NeevHR</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">Capabilities inside the modules</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {newFeatures.map((n) => (
               <Link key={n.name} href={n.href} className="block rounded-xl border border-line bg-white p-4 transition-colors hover:border-brand">

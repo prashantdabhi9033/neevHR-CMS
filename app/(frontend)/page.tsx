@@ -10,27 +10,19 @@ import { Faq } from "@/components/site/Faq";
 import { PayrollVisual } from "@/components/product/PayrollVisual";
 import { AttendanceVisual } from "@/components/product/AttendanceVisual";
 import { PerformanceVisual } from "@/components/product/PerformanceVisual";
-import { RecruitmentVisual } from "@/components/product/RecruitmentVisual";
-import { MobileVisual } from "@/components/product/MobileVisual";
-import { ReportsVisual } from "@/components/product/ReportsVisual";
+import { WhatIsNeevhrSection } from "@/components/home/HrmsSections";
 import {
-  CompleteHrmsSection,
-  OneRecordSection,
-  SizeSection, WhatIsNeevhrSection,
-  WhatIsHrmsSection,
-} from "@/components/home/HrmsSections";
+  IntegrationsSecuritySection,
+  ModuleOverview,
+  TrustStrip,
+  WhyNeevhrSection,
+} from "@/components/home/HomeSections";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Testimonials } from "@/components/home/Testimonials";
 import { PhotoHero } from "@/components/home/PhotoHero";
-import { AiControlSection } from "@/components/home/AiControlSection";
 import { AiModulesHome } from "@/components/ai/AiModulesSection";
 import { pageMeta } from "@/lib/seo";
-import {
-  compliancePoints,
-  implementationSteps,
-  platformCapabilities,
-  site,
-} from "@/lib/site";
+import { implementationSteps, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "HRMS & Payroll Software in India, AI Enabled | NeevHR",
@@ -40,56 +32,7 @@ export const metadata: Metadata = pageMeta({
   path: "/",
 });
 
-const comparisonRows = [
-  {
-    dim: "Built for",
-    neev: "Growing & mid-market India",
-    tier1: "Large global enterprises",
-    point: "One team or function",
-  },
-  {
-    dim: "India statutory",
-    neev: "PF, ESI, PT, TDS in the core",
-    tier1: "Add-on or partner",
-    point: "Manual or partial",
-  },
-  {
-    dim: "Go live",
-    neev: "Guided, run by your own HR team",
-    tier1: "Long, consultant-led projects",
-    point: "Quick, but limited",
-  },
-  {
-    dim: "Configured by",
-    neev: "Your trained HR admin",
-    tier1: "Certified consultant",
-    point: "Limited options",
-  },
-];
-
-const valueProps = [
-  {
-    icon: "flag",
-    title: "Built for India, only India",
-    body: "PF, ESI, PT, LWF and TDS, gratuity, bonus and the DPDP Act 2023 live in the core, not a country pack bolted on. INR, the India financial year and state-wise PT and LWF tables throughout.",
-  },
-  {
-    icon: "users",
-    title: "One employee record, effective-dated",
-    body: "Every promotion, transfer and pay change is a dated event on a single timeline. Nothing is overwritten, so you can run payroll, reports and org charts exactly as they stood on any date.",
-  },
-  {
-    icon: "sliders",
-    title: "Configuration over customization",
-    body: "Leave, attendance, payroll, expense and appraisal are configurable rule sets your HR admin assigns to employee groups, in plain language. A new policy or business unit needs no code and no consultant.",
-  },
-  {
-    icon: "bolt",
-    title: "A guided go-live",
-    body: "Guided migration moves your employee master, opening balances and documents across with dry-run validation. You run a parallel payroll cycle to reconcile, then go live.",
-  },
-];
-
+// Three modules shown in depth; the rest are one click away in the links under them.
 const features: Feature[] = [
   {
     eyebrow: "Payroll",
@@ -127,42 +70,15 @@ const features: Feature[] = [
     href: "/features/performance",
     Visual: PerformanceVisual,
   },
-  {
-    eyebrow: "Recruitment",
-    title: "Hire faster, and onboard from day one",
-    body: "Move candidates from requisition to a signed offer in one flow, with interview panels, structured feedback and offers that carry the approved compensation. An accepted offer becomes an onboarding journey without re-keying a thing.",
-    highlights: [
-      "Requisitions with a validation gate",
-      "Pipeline board, panels and offer history",
-      "Hire-to-onboard handover into the employee record",
-    ],
-    href: "/features/recruitment",
-    Visual: RecruitmentVisual,
-  },
-  {
-    eyebrow: "Employee experience",
-    title: "Self-service for every employee",
-    body: "Employees check attendance, apply for leave, download payslips, submit tax declarations and claim expenses themselves, while managers act on approvals from one inbox. The NeevHR mobile app is built for Android and iPhone.",
-    highlights: [
-      "Attendance, leave, payslips and tax declarations",
-      "A unified inbox of everything awaiting you",
-      "Mobile app for Android and iPhone",
-    ],
-    href: "/mobile",
-    Visual: MobileVisual,
-  },
-  {
-    eyebrow: "Analytics",
-    title: "Every list a report, every report a chart",
-    body: "A report catalog across modules plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and drill from a chart to the underlying records, then export it or schedule it by email.",
-    highlights: [
-      "Report builder with group-by and aggregate",
-      "Drill from any chart to the records behind it",
-      "Dashboards for every persona",
-    ],
-    href: "/features/reports",
-    Visual: ReportsVisual,
-  },
+];
+
+const moreModules = [
+  { label: "Recruitment", href: "/features/recruitment" },
+  { label: "Leave", href: "/features/leave" },
+  { label: "Employee self-service and mobile", href: "/mobile" },
+  { label: "Reports & analytics", href: "/features/reports" },
+  { label: "Expenses", href: "/features/expenses" },
+  { label: "Exit and F&F", href: "/features/exit" },
 ];
 
 export default function HomePage() {
@@ -209,7 +125,7 @@ export default function HomePage() {
     about: { "@id": `${site.url}/#software` },
     inLanguage: "en-IN",
     datePublished: "2026-09-01",
-    dateModified: "2026-11-01",
+    dateModified: "2026-11-03",
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", ".hero-intro"],
@@ -222,6 +138,8 @@ export default function HomePage() {
       <JsonLd data={webPageJsonLd} />
 
       <PhotoHero />
+
+      <TrustStrip />
 
       <WhatIsNeevhrSection />
 
@@ -239,89 +157,11 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <AiModulesHome />
-
-      <AiControlSection />
-
-      <CompleteHrmsSection />
-      <WhatIsHrmsSection />
-      <OneRecordSection />
-      <SizeSection />
-
-      {/* Value props */}
-      <section id="why" className="scroll-mt-16 border-b border-line bg-surface-soft py-20">
-        <Container>
-          <Reveal className="max-w-2xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-              Why NeevHR
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Built for the way India runs HR
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-body">
-              The depth to run payroll and compliance at scale, with the clarity
-              of a modern platform, and none of the cost, consultants or
-              year-long rollout of a tier-one suite.
-            </p>
-          </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {valueProps.map((v, i) => (
-              <Reveal key={v.title} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-tint text-brand">
-                    <Icon name={v.icon} />
-                  </span>
-                  <h3 className="mt-4 text-lg font-semibold text-ink">
-                    {v.title}
-                  </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-body">
-                    {v.body}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="mt-12">
-            <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-[var(--shadow-card)]">
-              <table className="w-full min-w-[560px] text-left text-sm">
-                <caption className="sr-only">
-                  How NeevHR compares to tier-one suites and point tools
-                </caption>
-                <thead>
-                  <tr className="border-b border-line bg-surface-soft text-ink">
-                    <th scope="col" className="px-5 py-3 font-semibold">What matters</th>
-                    <th scope="col" className="px-5 py-3 font-semibold text-brand">NeevHR</th>
-                    <th scope="col" className="px-5 py-3 font-semibold">Tier-one suites</th>
-                    <th scope="col" className="px-5 py-3 font-semibold">Point tools</th>
-                  </tr>
-                </thead>
-                <tbody className="text-body">
-                  {comparisonRows.map((r) => (
-                    <tr key={r.dim} className="border-b border-line last:border-0">
-                      <th scope="row" className="px-5 py-3 font-medium text-ink">{r.dim}</th>
-                      <td className="px-5 py-3 font-medium text-ink">{r.neev}</td>
-                      <td className="px-5 py-3">{r.tier1}</td>
-                      <td className="px-5 py-3">{r.point}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="mt-3 text-sm text-muted">
-              See the{" "}
-              <Link href="/compare" className="font-medium text-brand hover:text-brand-dark">
-                full comparison
-              </Link>
-              .
-            </p>
-          </Reveal>
-        </Container>
-      </section>
+      <ModuleOverview />
 
       {/* Feature sections */}
       <section id="modules" className="scroll-mt-16 border-b border-line">
-        <Container className="pt-20 text-center">
+        <Container className="pt-16 text-center lg:pt-20">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-wider text-brand">
               One platform
@@ -331,110 +171,42 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-body">
               More than 30 modules share one employee record, so a change made
-              once flows everywhere it belongs. A few of them below.
+              once flows everywhere it belongs. Three of them below.
             </p>
           </Reveal>
         </Container>
 
         {features.map((f, i) => (
-          <FeatureSection key={f.eyebrow} feature={f} flip={i % 2 === 1} />
+          <FeatureSection key={f.eyebrow} feature={f} flip={i % 2 === 1} compact />
         ))}
 
-        <Container className="pb-20 text-center">
-          <Button href="/features" variant="secondary" size="lg">
-            See all modules
-            <Icon name="arrow" className="h-4 w-4" />
-          </Button>
-        </Container>
-      </section>
-
-      {/* Platform capabilities */}
-      <section className="border-b border-line bg-surface-soft py-20">
-        <Container>
-          <Reveal className="max-w-2xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-              Platform underneath
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Configurable by design, governed by default
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-body">
-              The same cross-cutting platform powers every module, so
-              configuration, access and audit work the same way everywhere.
-            </p>
-          </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {platformCapabilities.map((c, i) => (
-              <Reveal key={c.title} delay={i * 50}>
-                <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
-                  <h3 className="text-base font-semibold text-ink">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-body">
-                    {c.body}
-                  </p>
-                </div>
-              </Reveal>
+        <Container className="pb-16 text-center lg:pb-20">
+          <ul className="flex flex-wrap justify-center gap-2">
+            {moreModules.map((m) => (
+              <li key={m.href}>
+                <Link
+                  href={m.href}
+                  className="inline-block rounded-full border border-line bg-white px-4 py-1.5 text-sm font-medium text-body transition-colors hover:border-brand/40 hover:text-brand"
+                >
+                  {m.label}
+                </Link>
+              </li>
             ))}
+          </ul>
+          <div className="mt-6">
+            <Button href="/features" variant="secondary" size="lg">
+              See all modules
+              <Icon name="arrow" className="h-4 w-4" />
+            </Button>
           </div>
         </Container>
       </section>
 
-      {/* Compliance */}
-      <section
-        id="compliance"
-        className="scroll-mt-16 border-b border-line bg-ink py-20 text-white"
-      >
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
-              <Icon name="shield" className="h-4 w-4 text-accent" />
-              India statutory compliance
-            </span>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
-              How does NeevHR handle India statutory compliance?
-            </h2>
-            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/70">
-              PF, ESI, PT, LWF and TDS are calculated in every payroll run, and
-              the filing outputs are generated from it: PF ECR, the ESIC
-              contribution file, challans, the Form 24Q return file and Form 16.
-              Statutory tables are configurable, so a rate change is a settings
-              update, not a code change.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/security" variant="inverse">
-                See security & compliance
-              </Button>
-              <Button
-                href="/compare"
-                className="bg-white/10 text-white hover:bg-white/15"
-              >
-                Why NeevHR
-              </Button>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <div className="grid grid-cols-2 gap-3">
-              {compliancePoints.map((c) => (
-                <div
-                  key={c}
-                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium"
-                >
-                  <Icon name="check" className="h-4 w-4 shrink-0 text-accent" />
-                  {c}
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 text-xs leading-relaxed text-white/50">
-              Built to the rules published by{" "}
-              <a href="https://www.epfindia.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">EPFO</a>,{" "}
-              <a href="https://www.esic.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">ESIC</a>,{" "}
-              the{" "}
-              <a href="https://www.incometax.gov.in/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">Income Tax Department</a>{" "}
-              and the{" "}
-              <a href="https://www.meity.gov.in/data-protection-framework" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-2 hover:underline">DPDP Act 2023</a>.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
+      <AiModulesHome />
+
+      <WhyNeevhrSection />
+
+      <IntegrationsSecuritySection />
 
       {/* Implementation */}
       <section className="border-b border-line py-20">
@@ -457,6 +229,17 @@ export default function HomePage() {
               {" · "}
               <Link href="/hrms-data-migration" className="font-medium text-brand hover:text-brand-dark">
                 How data migration works
+              </Link>
+            </p>
+            <p className="mt-2 text-sm text-body">
+              Moving from Excel or another HRMS? Employee master, org structure, documents, leave and loan balances
+              and year-to-date payroll come across from CSV with a dry run.{" "}
+              <Link href="/switch-from-excel" className="font-medium text-brand hover:text-brand-dark">
+                From Excel
+              </Link>
+              {" · "}
+              <Link href="/switch-from-legacy-hrms" className="font-medium text-brand hover:text-brand-dark">
+                From another HRMS
               </Link>
             </p>
           </Reveal>
@@ -506,11 +289,14 @@ export default function HomePage() {
                   Book a walkthrough and we will show payroll, attendance and
                   approvals mapped to how your team actually runs HR.
                 </p>
-                <div className="mt-8 flex justify-center">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                   <Button href="/demo" size="lg" variant="inverse">
                     Book a demo
                     <Icon name="arrow" className="h-4 w-4" />
                   </Button>
+                  <Link href="/pricing" className="text-sm font-semibold text-white hover:text-white/80">
+                    See editions →
+                  </Link>
                 </div>
               </div>
             </div>

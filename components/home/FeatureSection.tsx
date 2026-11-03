@@ -16,13 +16,16 @@ export type Feature = {
 export function FeatureSection({
   feature,
   flip = false,
+  compact = false,
 }: {
   feature: Feature;
   flip?: boolean;
+  /** Tighter spacing, for the home page where three of these sit back to back. */
+  compact?: boolean;
 }) {
   const { eyebrow, title, body, highlights, href, Visual } = feature;
   return (
-    <Container wide className="py-14 lg:py-20">
+    <Container wide className={compact ? "py-10 lg:py-12" : "py-14 lg:py-20"}>
       <div
         className={`grid items-center gap-10 lg:gap-12 ${
           flip ? "lg:grid-cols-[1.2fr_0.8fr]" : "lg:grid-cols-[0.8fr_1.2fr]"

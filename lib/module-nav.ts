@@ -104,9 +104,9 @@ export const moduleGroups: ModuleNavGroup[] = [
 export const capabilityId = (title: string) =>
   title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-// Features added recently: the block on /features lists them all. The menu column carries the ones with no module of
-// their own in the menu (menu: true), and only as many as fit without making the menu scroll on a laptop.
-export type NewFeature = { name: string; desc: string; href: string; menu?: boolean };
+// Capabilities inside the modules, listed on /features. Those with a menuGroup also appear in the header menus
+// under that group, as a link to the capability on its module page.
+export type NewFeature = { name: string; desc: string; href: string; menuGroup?: string };
 
 export const newFeatures: NewFeature[] = [
   { name: "AI inside each module", desc: "Resume match, payroll flags, receipts, tax proofs, helpdesk drafts and more, as suggestions a person decides on.", href: "/features/ai-assistant#ai-in-modules" },
@@ -118,23 +118,34 @@ export const newFeatures: NewFeature[] = [
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
   { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
   { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: `/features/manager-self-service#${capabilityId("Approve from email")}` },
-  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app.", href: `/features/attendance#${capabilityId("QR code attendance")}`, menu: true },
-  { name: "Biometric device sync", desc: "Send employees to devices, remove leavers and compare each device's user list.", href: `/features/attendance#${capabilityId("Device management")}`, menu: true },
+  { name: "QR code attendance", desc: "Kiosk or poster, scanned with the mobile app.", href: `/features/attendance#${capabilityId("QR code attendance")}`, menuGroup: "Time & attendance" },
+  { name: "Biometric device sync", desc: "Send employees to devices, remove leavers and compare each device's user list.", href: `/features/attendance#${capabilityId("Device management")}`, menuGroup: "Time & attendance" },
   { name: "Daily-wage and hourly payroll", desc: "Weekly and fortnightly runs from attendance.", href: "/payroll" },
   { name: "Tally and Zoho Books entries", desc: "Vouchers and journals from published payroll, by file.", href: "/payroll" },
-  { name: "PF correction of a filed month", desc: "Arrears, refunds, EPS to EPF transfers and a supplementary ECR.", href: `/features/compliance#${capabilityId("PF correction of a filed month")}`, menu: true },
+  { name: "PF correction of a filed month", desc: "Arrears, refunds, EPS to EPF transfers and a supplementary ECR.", href: `/features/compliance#${capabilityId("PF correction of a filed month")}`, menuGroup: "Payroll & pay" },
   { name: "Manual PT and LWF", desc: "Record liabilities outside payroll, with challan tracking.", href: `/features/compliance#${capabilityId("Manual PT and LWF")}` },
-  { name: "Careers website applications", desc: "From your own website into Recruitment.", href: `/features/recruitment#${capabilityId("Careers website applications")}`, menu: true },
-  { name: "Internal job posting", desc: "Open roles for employees, with eligibility and manager rules.", href: `/features/recruitment#${capabilityId("Internal job posting")}`, menu: true },
-  { name: "Resume parsing", desc: "Details suggested from a resume, rule based, for you to accept.", href: `/features/recruitment#${capabilityId("Resume parsing")}`, menu: true },
-  { name: "1:1 meetings", desc: "Manager and team member, with a shared agenda and action items.", href: `/features/performance#${capabilityId("1:1 meetings")}`, menu: true },
-  { name: "Digital ID cards", desc: "ID cards to view and print, with a public verify page.", href: `/features/employees#${capabilityId("Digital ID cards")}`, menu: true },
+  { name: "Careers website applications", desc: "From your own website into Recruitment.", href: `/features/recruitment#${capabilityId("Careers website applications")}`, menuGroup: "Talent" },
+  { name: "Internal job posting", desc: "Open roles for employees, with eligibility and manager rules.", href: `/features/recruitment#${capabilityId("Internal job posting")}`, menuGroup: "Talent" },
+  { name: "Resume parsing", desc: "Details suggested from a resume, rule based, for you to accept.", href: `/features/recruitment#${capabilityId("Resume parsing")}`, menuGroup: "Talent" },
+  { name: "1:1 meetings", desc: "Manager and team member, with a shared agenda and action items.", href: `/features/performance#${capabilityId("1:1 meetings")}`, menuGroup: "Employee experience" },
+  { name: "Digital ID cards", desc: "ID cards to view and print, with a public verify page.", href: `/features/employees#${capabilityId("Digital ID cards")}`, menuGroup: "Employee experience" },
   { name: "Asset QR labels", desc: "Print labels; scanning one opens the asset for someone with access.", href: `/features/assets#${capabilityId("Asset QR labels")}` },
   { name: "Helpdesk attachments and CSAT", desc: "Files on tickets, internal notes and a rating when a ticket closes.", href: `/features/helpdesk#${capabilityId("Satisfaction rating")}` },
   { name: "Google and Microsoft sign-in", desc: "Your company's own accounts, turned on per company. Microsoft is being switched on.", href: "/security#sign-in" },
   { name: "Process Studio", desc: "Your own HR flows, from templates.", href: "/features/process-studio" },
   { name: "Travel advance", desc: "Trip limits, auto-adjust and recovery.", href: `/features/expenses#${capabilityId("Travel advance")}` },
   { name: "Data migration workspace", desc: "Dry run, undo, parallel run and sign-off.", href: "/hrms-data-migration" },
+];
+
+// Menu links for a group: its modules, then the capabilities placed in it.
+export type MenuLink = { key: string; name: string; href: string };
+export const menuLinks = (group: string): MenuLink[] => [
+  ...(moduleGroups.find((g) => g.group === group)?.items ?? []).map((i) => ({
+    key: i.slug,
+    name: i.name,
+    href: i.href ?? `/features/${i.slug}`,
+  })),
+  ...newFeatures.filter((n) => n.menuGroup === group).map((n) => ({ key: n.href, name: n.name, href: n.href })),
 ];
 
 // Flat set of slugs that have their own /features/[slug] page.

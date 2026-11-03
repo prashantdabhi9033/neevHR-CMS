@@ -55,6 +55,10 @@ export function AiModulesHome() {
           ))}
         </div>
         <Rules />
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-body">
+          Your Company Admin decides who gets the assistant, and a usage report shows credits used by person and
+          department, never what anyone asked. It reads only what the person&apos;s role can open on screen.
+        </p>
         <div className="mt-8">
           <Button href="/features/ai-assistant" variant="secondary">
             See every AI feature

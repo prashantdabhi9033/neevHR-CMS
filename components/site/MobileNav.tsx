@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { moduleGroups, newFeatures } from "@/lib/module-nav";
+import { menuLinks, moduleGroups } from "@/lib/module-nav";
 import { industryNav as industries } from "@/lib/industry-nav";
 
 export function MobileNav({
@@ -51,10 +51,10 @@ export function MobileNav({
                     {grp.group}
                   </p>
                   <div className="mt-1 grid grid-cols-2 gap-x-3">
-                    {grp.items.map((it) => (
+                    {menuLinks(grp.group).map((it) => (
                       <Link
-                        key={it.slug}
-                        href={it.href ?? `/features/${it.slug}`}
+                        key={it.key}
+                        href={it.href}
                         onClick={() => setOpen(false)}
                         className="py-1.5 text-[13px] text-body"
                       >
@@ -64,19 +64,6 @@ export function MobileNav({
                   </div>
                 </div>
               ))}
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">New in NeevHR</p>
-                <div className="mt-1 grid grid-cols-2 gap-x-3">
-                  {newFeatures.filter((n) => n.menu).map((n) => (
-                    <Link key={n.name} href={n.href} onClick={() => setOpen(false)} className="py-1.5 text-[13px] text-body">
-                      {n.name}
-                    </Link>
-                  ))}
-                  <Link href="/features#new" onClick={() => setOpen(false)} className="py-1.5 text-[13px] font-semibold text-brand">
-                    All new features →
-                  </Link>
-                </div>
-              </div>
               <div className="flex gap-4">
                 <Link
                   href="/hrms"
@@ -90,7 +77,7 @@ export function MobileNav({
                   onClick={() => setOpen(false)}
                   className="inline-block text-xs font-semibold text-brand"
                 >
-                  All features →
+                  See all features →
                 </Link>
               </div>
             </div>

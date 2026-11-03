@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Faq } from "@/components/site/Faq";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Reveal } from "@/components/site/Reveal";
-import { TaxonomyGrid, OneRecordSection } from "@/components/home/HrmsSections";
+import { TaxonomyGrid, OneRecordSection, WhatIsHrmsSection } from "@/components/home/HrmsSections";
 import { AttendanceVisual } from "@/components/product/AttendanceVisual";
 import { pageMeta, softwareJsonLd } from "@/lib/seo";
 import { site, implementationSteps } from "@/lib/site";
@@ -253,6 +253,7 @@ const hrmsFaqs = [
 ];
 
 const toc = [
+  { id: "what-is-hrms", label: "What is an HRMS?" },
   { id: "features", label: "HRMS features" },
   ...blocks.map((b) => ({ id: b.id, label: b.title })),
   { id: "security", label: "Security" },
@@ -327,6 +328,8 @@ export default function HrmsPage() {
           ))}
         </Container>
       </nav>
+
+      <WhatIsHrmsSection />
 
       {/* 1. Features */}
       <section id="features" className="scroll-mt-20 py-16 lg:py-20">

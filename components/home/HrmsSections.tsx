@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/site/Reveal";
 import { EmployeesVisual } from "@/components/product/EmployeesVisual";
-import { taxonomy, hrmsIncludes, sizeSegments } from "@/lib/taxonomy";
+import { taxonomy, hrmsIncludes } from "@/lib/taxonomy";
 import { site } from "@/lib/site";
 
 // Shared, content-heavy sections used on the homepage and the /hrms pillar.
@@ -38,30 +38,6 @@ export function TaxonomyGrid() {
         </Reveal>
       ))}
     </div>
-  );
-}
-
-export function CompleteHrmsSection() {
-  return (
-    <section id="hrms" className="scroll-mt-16 border-b border-line py-20">
-      <Container>
-        <Reveal className="max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Complete HRMS
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Complete HRMS for the Entire Employee Lifecycle
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-body">
-            Manage your workforce from hiring to exit on one platform. NeevHR
-            connects employee records, onboarding, attendance, leave, payroll,
-            recruitment, performance, expenses, compliance and employee
-            self-service through a single employee record.
-          </p>
-        </Reveal>
-        <TaxonomyGrid />
-      </Container>
-    </section>
   );
 }
 
@@ -172,16 +148,6 @@ export function OneRecordSection() {
   );
 }
 
-const whatItCovers = [
-  { label: "Employee management", href: "/features/employees" },
-  { label: "Attendance", href: "/features/attendance" },
-  { label: "Leave", href: "/features/leave" },
-  { label: "Payroll", href: "/payroll" },
-  { label: "PF, ESI, PT, LWF and TDS", href: "/india-payroll" },
-  { label: "Recruitment", href: "/features/recruitment" },
-  { label: "Performance", href: "/features/performance" },
-];
-
 // A plain statement of what NeevHR is, near the top of the home page, for people and for search engines.
 export function WhatIsNeevhrSection() {
   return (
@@ -193,74 +159,43 @@ export function WhatIsNeevhrSection() {
             {site.entity} HR, payroll, finance, managers and employees work from one employee
             record, with Indian statutory rules such as PF, ESI, PT, LWF and TDS built into payroll.
           </p>
+          <p className="mt-3 text-[15px] leading-relaxed text-body">
+            It covers{" "}
+            <Link href="/features/employees" className="font-medium text-brand hover:text-brand-dark">employee management</Link>,{" "}
+            <Link href="/features/attendance" className="font-medium text-brand hover:text-brand-dark">attendance</Link>,{" "}
+            <Link href="/features/leave" className="font-medium text-brand hover:text-brand-dark">leave</Link>,{" "}
+            <Link href="/payroll" className="font-medium text-brand hover:text-brand-dark">payroll</Link> with{" "}
+            <Link href="/india-payroll" className="font-medium text-brand hover:text-brand-dark">PF, ESI, PT, LWF and TDS</Link>,{" "}
+            <Link href="/features/recruitment" className="font-medium text-brand hover:text-brand-dark">recruitment</Link> and{" "}
+            <Link href="/features/performance" className="font-medium text-brand hover:text-brand-dark">performance</Link>, among more than 30 modules.
+          </p>
         </div>
         <div>
-          <h3 className="text-base font-semibold text-ink">Who it is for</h3>
+          <h3 className="text-base font-semibold text-ink">Who it is for: HRMS for 100 to 5,000+ employees</h3>
           <p className="mt-2 text-[15px] leading-relaxed text-body">
             Indian organisations of roughly 100 to several thousand employees that have outgrown
             spreadsheets and disconnected HR tools. It is built for India only.
           </p>
-          <h3 className="mt-5 text-base font-semibold text-ink">What it covers</h3>
-          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-            {whatItCovers.map((c) => (
-              <li key={c.href}>
-                <Link href={c.href} className="font-medium text-brand hover:text-brand-dark">{c.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-export function SizeSection() {
-  return (
-    <section id="company-size" className="scroll-mt-16 border-b border-line bg-surface-soft py-20">
-      <Container>
-        <Reveal className="max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Who it is for
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            HRMS for 100 to 5,000+ Employees
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-body">
-            NeevHR is designed for organizations that have outgrown
-            spreadsheets and disconnected HR tools and need a centralized HRMS
-            for employee management, attendance, payroll and workforce
-            operations.
+          <p className="mt-3 text-sm text-muted">
+            Working out what you need at your size? See the{" "}
+            <Link href="/best-hrms-software-india" className="font-medium text-brand hover:text-brand-dark">
+              HRMS selection guide for India
+            </Link>
+            , or the notes for a{" "}
+            <Link href="/best-hrms-for-small-business" className="font-medium text-brand hover:text-brand-dark">
+              small business
+            </Link>
+            , a{" "}
+            <Link href="/best-hrms-for-mid-sized-business" className="font-medium text-brand hover:text-brand-dark">
+              mid-sized business
+            </Link>{" "}
+            and{" "}
+            <Link href="/best-hrms-for-1000-employees" className="font-medium text-brand hover:text-brand-dark">
+              1,000 or more employees
+            </Link>
+            .
           </p>
-        </Reveal>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {sizeSegments.map((s, i) => (
-            <Reveal key={s.title} delay={i * 60}>
-              <div className="h-full rounded-2xl border border-line bg-white p-6 shadow-[var(--shadow-card)]">
-                <h3 className="text-lg font-semibold text-ink">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-body">{s.body}</p>
-              </div>
-            </Reveal>
-          ))}
         </div>
-        <p className="mt-6 text-sm text-muted">
-          Working out what you need at your size? See our{" "}
-          <Link href="/best-hrms-software-india" className="font-medium text-brand hover:text-brand-dark">
-            HRMS selection guide for India
-          </Link>
-          , or the notes for a{" "}
-          <Link href="/best-hrms-for-small-business" className="font-medium text-brand hover:text-brand-dark">
-            small business
-          </Link>
-          , a{" "}
-          <Link href="/best-hrms-for-mid-sized-business" className="font-medium text-brand hover:text-brand-dark">
-            mid-sized business
-          </Link>{" "}
-          and{" "}
-          <Link href="/best-hrms-for-1000-employees" className="font-medium text-brand hover:text-brand-dark">
-            1,000 or more employees
-          </Link>
-          .
-        </p>
       </Container>
     </section>
   );

@@ -3,7 +3,49 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { moduleGroups, newFeatures } from "@/lib/module-nav";
+import { menuLinks, type MenuLink } from "@/lib/module-nav";
+
+// The menu's own arrangement of the module groups: Insights joins Platform, and the two longest lists
+// (Core HR, Platform and insights) share a wide cell split into two columns.
+const wide = [
+  { group: "Core HR", items: menuLinks("Core HR") },
+  { group: "Platform and insights", items: [...menuLinks("Insights"), ...menuLinks("Platform and security")] },
+];
+const narrow = ["Time & attendance", "Payroll & pay", "Talent", "Employee experience"].map((group) => ({
+  group,
+  items: menuLinks(group),
+}));
+
+function MenuGroup({
+  group,
+  items,
+  twoCols = false,
+  onPick,
+}: {
+  group: string;
+  items: MenuLink[];
+  twoCols?: boolean;
+  onPick: () => void;
+}) {
+  return (
+    <div>
+      <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">{group}</p>
+      <ul className={`mt-1.5 ${twoCols ? "columns-2 gap-x-5" : ""}`}>
+        {items.map((it) => (
+          <li key={it.key}>
+            <Link
+              href={it.href}
+              onClick={onPick}
+              className="block rounded-md px-2 py-1 text-[13px] font-medium leading-[18px] text-body transition-colors hover:bg-brand-tint hover:text-brand"
+            >
+              {it.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function ProductMenu() {
   const [open, setOpen] = useState(false);
@@ -68,75 +110,34 @@ export function ProductMenu() {
       </button>
 
       <div
-        className={`fixed left-1/2 top-16 z-50 max-h-[calc(100vh-72px)] w-[1120px] max-w-[96vw] overflow-y-auto -translate-x-1/2 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] transition-all ${
+        className={`fixed left-1/2 top-16 z-50 max-h-[calc(100vh-72px)] w-[1120px] max-w-[96vw] overflow-y-auto -translate-x-1/2 rounded-2xl border border-line bg-white shadow-[var(--shadow-float)] transition-all ${
           open
             ? "visible translate-y-0 opacity-100"
             : "invisible translate-y-1 opacity-0"
         }`}
       >
-        <div className="grid grid-cols-4 gap-x-6 gap-y-5">
-          {moduleGroups.map((grp) => (
-            <div key={grp.group}>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">
-                {grp.group}
-              </p>
-              <ul className="mt-2 space-y-0.5">
-                {grp.items.map((it) => (
-                  <li key={it.slug}>
-                    <Link
-                      href={it.href ?? `/features/${it.slug}`}
-                      onClick={() => setOpen(false)}
-                      className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-body transition-colors hover:bg-brand-tint hover:text-brand"
-                    >
-                      {it.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">New in NeevHR</p>
-            <ul className="mt-2 space-y-0.5">
-              {newFeatures.filter((n) => n.menu).map((n) => (
-                <li key={n.name}>
-                  <Link
-                    href={n.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-body transition-colors hover:bg-brand-tint hover:text-brand"
-                  >
-                    {n.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/features#new" onClick={() => setOpen(false)} className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-brand hover:bg-brand-tint">
-                  All new features →
-                </Link>
-              </li>
-            </ul>
+        {/* Six text columns: Core HR and Platform share the first two, so no column runs long and every link
+            shows without scrolling on a 1280 x 720 laptop. */}
+        <div className="grid grid-cols-6 gap-x-5 px-5 pt-5 pb-4">
+          <div className="col-span-2 space-y-4">
+            {wide.map((grp) => (
+              <MenuGroup key={grp.group} group={grp.group} items={grp.items} twoCols onPick={() => setOpen(false)} />
+            ))}
           </div>
+          {narrow.map((grp) => (
+            <MenuGroup key={grp.group} group={grp.group} items={grp.items} onPick={() => setOpen(false)} />
+          ))}
         </div>
-        <div className="mt-4 flex items-center justify-between border-t border-line pt-4">
-          <span className="text-xs text-muted">
-            30+ modules on one employee record.
-          </span>
-          <div className="flex gap-4">
-            <Link
-              href="/hrms"
-              onClick={() => setOpen(false)}
-              className="text-xs font-semibold text-brand hover:text-brand-dark"
-            >
+        <div className="flex items-center justify-between rounded-b-2xl border-t border-line bg-surface-soft px-5 py-3">
+          <span className="text-xs text-muted">30+ modules on one employee record.</span>
+          <span className="flex gap-4">
+            <Link href="/hrms" onClick={() => setOpen(false)} className="text-xs font-semibold text-brand hover:text-brand-dark">
               HRMS overview →
             </Link>
-            <Link
-              href="/features"
-              onClick={() => setOpen(false)}
-              className="text-xs font-semibold text-brand hover:text-brand-dark"
-            >
-              All features →
+            <Link href="/features" onClick={() => setOpen(false)} className="text-xs font-semibold text-brand hover:text-brand-dark">
+              See all features →
             </Link>
-          </div>
+          </span>
         </div>
       </div>
     </div>
