@@ -9,6 +9,7 @@ import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical
 import { Container } from "@/components/ui/Container";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { renderArticle, readMins, categoryOf } from "@/lib/blog";
+import { glossaryTermsIn } from "@/lib/glossary";
 import { site } from "@/lib/site";
 import { pageMeta, OG_IMAGE } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -78,7 +79,9 @@ export async function generateStaticParams() {
 type Params = { params: Promise<{ slug: string }> };
 
 // Other published posts in the same category, so every post links to its neighbours
-// and newer posts get internal links from older ones (audit WEB-008).
+// and newer posts get internal links from older ones (audit WEB-008). The six are the
+// posts on either side of this one by date, not the six newest, so older posts are
+// linked too instead of only the latest few.
 async function getMoreInCategory(slug: string, category?: string | null) {
   try {
     const payload = await getPayload({ config });
@@ -88,15 +91,18 @@ async function getMoreInCategory(slug: string, category?: string | null) {
         and: [
           { _status: { equals: "published" } },
           { category: { equals: category ?? "hr-strategy" } },
-          { slug: { not_equals: slug } },
           { slug: { not_in: Object.keys(MERGED_POSTS) } },
         ],
       },
       sort: "-publishedAt",
-      limit: 6,
+      limit: 300,
       depth: 0,
+      select: { slug: true, title: true },
     });
-    return docs.map((d) => ({ slug: d.slug as string, title: d.title as string }));
+    const at = docs.findIndex((d) => d.slug === slug);
+    const others = docs.filter((d) => d.slug !== slug);
+    const start = Math.max(0, Math.min(at - 3, others.length - 6));
+    return others.slice(start, start + 6).map((d) => ({ slug: d.slug as string, title: d.title as string }));
   } catch {
     return [];
   }
@@ -168,6 +174,7 @@ export default async function PostPage({ params }: Params) {
 
   const article = post.bodyMarkdown ? renderArticle(post.bodyMarkdown) : null;
   const more = await getMoreInCategory(slug, post.category);
+  const terms = glossaryTermsIn(post.bodyMarkdown ?? JSON.stringify(post.content ?? ""));
 
   const url = `${site.url}/blog/${slug}`;
   const articleJsonLd = {
@@ -293,6 +300,27 @@ export default async function PostPage({ params }: Params) {
             reviewed={formatDate(post.updatedAt || post.publishedAt)}
             sources={STATUTORY_SOURCES}
           />
+        )}
+
+        {terms.length > 0 && (
+          <nav aria-label="Terms used in this article" className="mt-10">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">
+              Terms used in this article
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {terms.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/glossary/${g.slug}`}
+                    title={g.full ? `${g.term}: ${g.full}` : g.term}
+                    className="inline-block rounded-full border border-line bg-white px-3 py-1.5 text-sm font-medium text-body hover:border-brand/40 hover:text-brand"
+                  >
+                    {g.term}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         )}
 
         {more.length > 0 && (

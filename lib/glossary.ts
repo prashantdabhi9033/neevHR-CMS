@@ -532,3 +532,42 @@ export const glossary: GlossaryTerm[] = [
 glossary.push(...moreGlossary);
 
 export const glossaryBySlug = Object.fromEntries(glossary.map((g) => [g.slug, g]));
+
+// How each term is written in articles. Acronyms match case-sensitively so "tan" or "pt" in
+// ordinary words never count; phrases match in any case.
+const TERM_PATTERNS: Record<string, RegExp> = {
+  hrms: /\bHRMS\b/,
+  hris: /\bHRIS\b/,
+  pf: /\bE?PF\b|provident fund/i,
+  esi: /\bESIC?\b|employees' state insurance/i,
+  pt: /\bPT\b|professional tax/i,
+  lwf: /\bLWF\b|labour welfare fund/i,
+  gratuity: /gratuity/i,
+  ctc: /\bCTC\b|cost to company/i,
+  "gross-salary": /gross salary|gross pay/i,
+  "net-salary": /net salary|net pay|take-home/i,
+  "basic-salary": /basic salary|basic pay|basic and DA/i,
+  hra: /\bHRA\b|house rent allowance/i,
+  lop: /\bLOP\b|loss of pay/i,
+  "full-and-final-settlement": /full and final|full & final|\bF&F\b/i,
+  "employee-self-service": /\bESS\b|self-service/i,
+  eps: /\bEPS\b|employees' pension scheme/i,
+  edli: /\bEDLI\b/,
+  vpf: /\bVPF\b|voluntary provident fund/i,
+  "form-12bb": /form 12BB|form 124\b/i,
+  tan: /\bTAN\b/,
+  regularisation: /regularisation|regularization/i,
+  ecr: /\bECR\b|electronic challan/i,
+};
+
+// Glossary terms an article mentions, in order of first mention, so each post links the
+// definitions it relies on and every glossary page is linked from the posts that use it.
+export function glossaryTermsIn(text: string, limit = 8): GlossaryTerm[] {
+  const hits: { at: number; g: GlossaryTerm }[] = [];
+  for (const g of glossary) {
+    const re = TERM_PATTERNS[g.slug];
+    const at = re ? text.search(re) : -1;
+    if (at >= 0) hits.push({ at, g });
+  }
+  return hits.sort((a, b) => a.at - b.at).slice(0, limit).map((h) => h.g);
+}
