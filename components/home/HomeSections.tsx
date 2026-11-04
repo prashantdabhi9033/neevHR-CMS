@@ -93,18 +93,18 @@ export function ModuleOverview() {
 const differentiators = [
   {
     icon: "flag",
-    title: "Built for India, only India",
-    body: "PF, ESI, PT, LWF and TDS, gratuity, bonus and the DPDP Act 2023 live in the core, not a country pack bolted on, with state-wise PT and LWF tables.",
+    title: "Built for India",
+    body: "PF, ESI, PT, LWF and TDS, gratuity, bonus and the DPDP Act 2023 are built into the product, not added on as a country pack, with state-wise PT and LWF tables.",
   },
   {
     icon: "users",
-    title: "One employee record, effective-dated",
-    body: "Every promotion, transfer and pay change is a dated event. Nothing is overwritten, so payroll, reports and org charts run as they stood on any date.",
+    title: "A complete profile for each employee, with every change on record",
+    body: "Every promotion, transfer and pay change is saved with its date. Nothing is overwritten, so you can see payroll, reports and org charts as they were on any past date.",
   },
   {
     icon: "sliders",
-    title: "Configured by your HR admin",
-    body: "Leave, attendance, pay, expense and appraisal rules, approval chains and custom fields are settings assigned to employee groups. No code and no consultant.",
+    title: "Your HR admin customises it",
+    body: "Your HR admin can customise all policies and workflows for each employee group: leave, attendance, pay, expense, appraisal, approval chains and custom fields. No code and no consultant.",
   },
   {
     icon: "chart",
@@ -115,7 +115,7 @@ const differentiators = [
 
 const comparisonRows = [
   { dim: "Built for", neev: "Growing & mid-market India", tier1: "Large global enterprises", point: "One team or function" },
-  { dim: "India statutory", neev: "PF, ESI, PT, TDS in the core", tier1: "Add-on or partner", point: "Manual or partial" },
+  { dim: "India statutory", neev: "PF, ESI, PT and TDS built in", tier1: "Add-on or partner", point: "Manual or partial" },
   { dim: "Go live", neev: "Guided, run by your own HR team", tier1: "Long, consultant-led projects", point: "Quick, but limited" },
   { dim: "Configured by", neev: "Your trained HR admin", tier1: "Certified consultant", point: "Limited options" },
 ];
@@ -222,7 +222,7 @@ const integrations = [
 
 const securityPoints = [
   "Hosted in India, on servers in Mumbai",
-  "Each company's data isolated at the database row level",
+  "Each company's data kept separate inside the database",
   "PAN, Aadhaar, UAN and bank details encrypted at field level",
   "Role-based access with data scopes and field masking",
   "MFA, enforceable per company",

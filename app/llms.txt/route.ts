@@ -23,7 +23,7 @@ export function GET() {
     "## Facts",
     "- Category: HRMS software; payroll software; HR and payroll platform",
     "- Market: India only (INR, Indian financial year, Indian statutory law)",
-    "- Built for: growing and mid-market Indian businesses, roughly 100 to several thousand employees",
+    "- Built for: growing and mid-market Indian businesses, roughly 500 to 5,000+ employees",
     "- Payroll statutory coverage: PF/EPF, ESI, Professional Tax, Labour Welfare Fund, TDS (old and new regime), gratuity, statutory bonus",
     "- Statutory outputs: PF ECR file, ESIC contribution file, PF/TDS/PT/LWF challans, Form 24Q return file (FVU format), Form 16 Part A and B, bank payment files",
     "- Platform: one effective-dated employee record, configurable policies by employee group, approval workflows, RBAC with data scopes, field-level masking, audit log",

@@ -123,7 +123,7 @@ export function OneRecordSection() {
           </p>
           <ul className="mt-6 space-y-2.5">
             {[
-              "Dated events for promotions, transfers and pay revisions",
+              "Promotions, transfers and pay revisions saved with their dates",
               "Org charts and master reports as of any date",
               "Backdated revisions flow into payroll as arrears",
             ].map((t) => (
@@ -171,9 +171,9 @@ export function WhatIsNeevhrSection() {
           </p>
         </div>
         <div>
-          <h3 className="text-base font-semibold text-ink">Who it is for: HRMS for 100 to 5,000+ employees</h3>
+          <h3 className="text-base font-semibold text-ink">Who it is for: HRMS for 500 to 5,000+ employees</h3>
           <p className="mt-2 text-[15px] leading-relaxed text-body">
-            Indian organisations of roughly 100 to several thousand employees that have outgrown
+            Indian organisations of roughly 500 to 5,000+ employees that have outgrown
             spreadsheets and disconnected HR tools. It is built for India only.
           </p>
           <p className="mt-3 text-sm text-muted">

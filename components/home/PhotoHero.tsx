@@ -33,7 +33,7 @@ export function PhotoHero() {
           </h1>
           <p className="hero-intro mt-5 text-[17px] leading-relaxed text-white/90">
             Hire, pay and grow your people on one platform built for Indian companies.{" "}
-            <strong className="font-semibold text-white">NeevHR is fully AI enabled, with AI inside each module and not only a chat.</strong>
+            <strong className="font-semibold text-white">NeevHR is fully AI-enabled, with AI inside each module, not only in a chat. Your admin can control and customise every setting.</strong>
           </p>
           <ul className="mt-6 grid gap-2.5 text-[15px] text-white/90">
             {[

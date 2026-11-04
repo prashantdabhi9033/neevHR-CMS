@@ -42,7 +42,7 @@ const groups = [
   {
     title: "Approval channels",
     body: "Approvers can approve or reject from Slack, Microsoft Teams or WhatsApp. Each is connected per company, using your own app or business account, with a setup guide for each. It stays off until its test passes and a Company Admin switches it on.",
-    items: ["Slack: your own Slack app", "Microsoft Teams: your own bot, with your Microsoft 365 admin", "WhatsApp: your own WhatsApp Business account, with Meta's charges", "Money and pay requests only open in NeevHR"],
+    items: ["Slack: your own Slack app", "Microsoft Teams: your own bot, with your Microsoft 365 admin", "WhatsApp: your own WhatsApp Business account, with Meta's charges", "Money and pay requests are approved only inside NeevHR"],
   },
   {
     title: "API and webhooks",

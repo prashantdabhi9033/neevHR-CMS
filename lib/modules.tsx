@@ -62,7 +62,7 @@ export const modules: Record<string, ModuleContent> = {
     showcase: "wide",
     name: "Employee records",
     eyebrow: "Core HR",
-    title: "One employee record, effective-dated, for everything",
+    title: "A complete profile for each employee, with every change on record",
     intro:
       "A searchable directory backed by a full employee 360, job, pay, statutory, documents, assets and lifecycle, all on a single dated timeline you can report on as of any date.",
     capabilities: [
@@ -88,7 +88,7 @@ export const modules: Record<string, ModuleContent> = {
     slug: "onboarding",
     name: "Onboarding",
     eyebrow: "Core HR",
-    title: "New hires productive from day one, not week three",
+    title: "A smooth first day for every new joiner, with everything set up in advance",
     intro:
       "Turn an accepted offer into a ready employee. Collect documents, capture statutory and bank details, reserve assets and assign a buddy as a guided, trackable journey HR and the joiner share.",
     capabilities: [
@@ -542,7 +542,7 @@ export const modules: Record<string, ModuleContent> = {
     showcase: "wide",
     name: "Performance",
     eyebrow: "Talent",
-    title: "Reviews, calibration and increments on one record",
+    title: "Goals, reviews, 360-degree feedback and increments in one cycle",
     intro:
       "Set weighted goals, run appraisal cycles with 360 feedback and a 9-box talent view, and turn ratings into increment and bonus decisions, with the right sign-off authority at every step.",
     capabilities: [
@@ -742,7 +742,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Insights",
     title: "Every list a report, every report a chart",
     intro:
-      "A report catalog across modules plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and drill from any chart straight to the underlying records.",
+      "A report catalog across modules plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and click any chart to open the records behind it.",
     capabilities: [
       { title: "Report catalog", body: "Ready reports grouped by module, permission-filtered and searchable." },
       { title: "Custom builder", body: "Choose columns, filters, group-by and aggregate, then chart it live." },
@@ -983,7 +983,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Slack", body: "A direct message from your own Slack app, with Approve, Reject and Open in NeevHR. People are found by their work email." },
       { title: "Microsoft Teams", body: "A card in a personal chat with your own Teams bot. It needs your Microsoft 365 admin, and each approver connects once from the Inbox." },
       { title: "WhatsApp", body: "An approved template message on the mobile number on the approver's profile. It needs your own WhatsApp Business account on Meta, and Meta's charges apply." },
-      { title: "One rule with email", body: "Which request types can be decided outside the app is one setting for email and these apps. Money, pay and maker-checker requests only ever get Open in NeevHR." },
+      { title: "One rule with email", body: "Which request types can be decided outside the app is one setting for email and these apps. Money and pay requests, and anything that needs a second approver, only show an Open in NeevHR button." },
       { title: "Safe buttons", body: "A button works once, only for the person it was sent to, with every check of the Inbox. Reject opens a short page, because a rejection needs a reason." },
       { title: "Little in the message", body: "The message shows who asked and what for, not the reason, since a leave reason can be medical." },
     ],

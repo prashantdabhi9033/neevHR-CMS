@@ -106,7 +106,7 @@ export default function CompanyPage() {
                 </li>
                 <li>
                   <span className="font-semibold text-ink">Analytics everywhere.</span>{" "}
-                  Every list can become a report, and reports drill to records.
+                  Every list can become a report, and each report opens the records behind it.
                 </li>
               </ul>
             </div>

@@ -32,7 +32,7 @@ export function AiControlSection({ cta = true }: { cta?: boolean }) {
       <Container>
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">AI you stay in control of</span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Your people get answers. You keep the keys.</h2>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Your people get answers. Your admin keeps full control.</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
             Employees stop waiting for HR on routine questions, and anything that would change a record comes back to a person to confirm. Your admin decides the rest.
           </p>

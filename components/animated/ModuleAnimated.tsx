@@ -28,7 +28,7 @@ const bySlug: Record<string, { eyebrow: string; title: string; sub: string; Visu
   "approval-channels": {
     eyebrow: "See it work",
     title: "The same decision, from wherever the approver is",
-    sub: "A leave or attendance request can be decided in the app your company connects. Money and pay requests carry no details and only open in NeevHR.",
+    sub: "A leave or attendance request can be decided in the app your company connects. Money and pay requests show no details in the message and are approved only inside NeevHR.",
     Visual: ApprovalChannelsFlow,
   },
 };

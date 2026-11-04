@@ -324,12 +324,12 @@ export const industries: Industry[] = [
       "MFA enforceable for all users",
       "Variable pay and incentives",
       "DPDP consent and data principal requests",
-      "Reports that drill to records",
+      "Reports that open the records behind each number",
     ],
     modules: [
       { slug: "variable-pay", name: "Variable pay", why: "Incentive plans, caps and approvals before anything reaches payroll." },
       { slug: "compliance", name: "Statutory compliance", why: "Returns, challans and Form 16 tracked against due dates." },
-      { slug: "reports", name: "Reports & analytics", why: "Audit-ready reporting that drills from charts to records." },
+      { slug: "reports", name: "Reports & analytics", why: "Audit-ready reporting, from any chart to the records behind it." },
     ],
     faqs: [
       {

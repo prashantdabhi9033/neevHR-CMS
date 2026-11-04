@@ -167,7 +167,7 @@ const blocks: Block[] = [
   {
     id: "analytics",
     title: "HR analytics",
-    body: "A catalog of reports across modules, persona dashboards and a self-serve report builder, with drill-down from charts to the records behind them.",
+    body: "A catalog of reports across modules, persona dashboards and a self-serve report builder, and you can click any chart to see the records behind it.",
     points: [
       "Headcount, attrition, attendance and payroll reports",
       "Report builder with group-by and aggregation",
@@ -197,7 +197,7 @@ const hrmsFaqs = [
   },
   {
     q: "Who is NeevHR built for?",
-    a: "Indian organisations of roughly 100 to several thousand employees that have outgrown spreadsheets and disconnected tools.",
+    a: "Indian organisations of roughly 500 to 5,000+ employees that have outgrown spreadsheets and disconnected tools.",
   },
   {
     q: "Does NeevHR support multiple legal entities and locations?",
@@ -221,7 +221,7 @@ const hrmsFaqs = [
   },
   {
     q: "How secure is employee data in NeevHR?",
-    a: "Company data is isolated with Postgres row-level security, sensitive identifiers are encrypted at field level, access is role-based with data scopes, MFA is available, changes are audit-logged, and data is hosted in India.",
+    a: "Each company's data is kept separate inside the database (Postgres row-level security), sensitive identifiers are encrypted at field level, access is role-based with data scopes, MFA is available, changes are audit-logged, and data is hosted in India.",
   },
   {
     q: "Does NeevHR support the DPDP Act 2023?",
