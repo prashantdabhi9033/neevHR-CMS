@@ -138,14 +138,17 @@ export const newFeatures: NewFeature[] = [
 ];
 
 // Menu links for a group: its modules, then the capabilities placed in it.
-export type MenuLink = { key: string; name: string; href: string };
+export type MenuLink = { key: string; name: string; href: string; desc: string };
 export const menuLinks = (group: string): MenuLink[] => [
   ...(moduleGroups.find((g) => g.group === group)?.items ?? []).map((i) => ({
     key: i.slug,
     name: i.name,
     href: i.href ?? `/features/${i.slug}`,
+    desc: i.desc,
   })),
-  ...newFeatures.filter((n) => n.menuGroup === group).map((n) => ({ key: n.href, name: n.name, href: n.href })),
+  ...newFeatures
+    .filter((n) => n.menuGroup === group)
+    .map((n) => ({ key: n.href, name: n.name, href: n.href, desc: n.desc })),
 ];
 
 // Flat set of slugs that have their own /features/[slug] page.

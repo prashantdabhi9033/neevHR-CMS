@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { menuLinks, moduleGroups } from "@/lib/module-nav";
-import { industryNav as industries } from "@/lib/industry-nav";
+import { solutionColumns } from "@/lib/menu-nav";
 
 export function MobileNav({
   secondaryNav,
@@ -13,7 +13,7 @@ export function MobileNav({
 }) {
   const [open, setOpen] = useState(false);
   const [modulesOpen, setModulesOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <div className="lg:hidden">
@@ -85,23 +85,30 @@ export function MobileNav({
 
           <button
             type="button"
-            onClick={() => setIndustriesOpen((v) => !v)}
+            onClick={() => setSolutionsOpen((v) => !v)}
             className="mt-1 flex w-full items-center justify-between border-t border-line py-2 text-sm font-semibold text-ink"
           >
-            Industries
-            <span className={`transition-transform ${industriesOpen ? "rotate-45" : ""}`}>+</span>
+            Solutions
+            <span className={`transition-transform ${solutionsOpen ? "rotate-45" : ""}`}>+</span>
           </button>
-          {industriesOpen && (
-            <div className="grid grid-cols-2 gap-x-3 pb-3 pl-1">
-              {industries.map((it) => (
-                <Link
-                  key={it.slug}
-                  href={`/industries/${it.slug}`}
-                  onClick={() => setOpen(false)}
-                  className="py-1.5 text-[13px] text-body"
-                >
-                  {it.name}
-                </Link>
+          {solutionsOpen && (
+            <div className="space-y-4 pb-3 pl-1">
+              {solutionColumns.map((col) => (
+                <div key={col.heading}>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-brand">{col.heading}</p>
+                  <div className="mt-1 grid grid-cols-2 gap-x-3">
+                    {col.items.map((it) => (
+                      <Link
+                        key={it.key}
+                        href={it.href}
+                        onClick={() => setOpen(false)}
+                        className="py-1.5 text-[13px] text-body"
+                      >
+                        {it.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           )}

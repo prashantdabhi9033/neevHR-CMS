@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/site/MobileNav";
 import { ProductMenu } from "@/components/site/ProductMenu";
-import { IndustriesMenu } from "@/components/site/IndustriesMenu";
+import { ColumnsMenu } from "@/components/site/ColumnsMenu";
+import { resourceColumns, solutionColumns } from "@/lib/menu-nav";
 
 const secondaryNav = [
   { label: "Payroll", href: "/payroll" },
@@ -48,17 +49,20 @@ export function Header() {
 
         <nav aria-label="Main" className="hidden items-center gap-6 lg:flex">
           <ProductMenu />
-          <IndustriesMenu />
-
-          {secondaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-body transition-colors hover:text-ink group-data-[hero=true]:text-white group-data-[hero=true]:hover:text-white/80"
-            >
-              {item.label}
-            </Link>
-          ))}
+          <ColumnsMenu label="Solutions" columns={solutionColumns} />
+          {secondaryNav.map((item) =>
+            item.href === "/resources" ? (
+              <ColumnsMenu key={item.href} label={item.label} columns={resourceColumns} />
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-body transition-colors hover:text-ink group-data-[hero=true]:text-white group-data-[hero=true]:hover:text-white/80"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
