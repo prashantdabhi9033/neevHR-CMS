@@ -148,7 +148,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} It is designed for organisations from about 100 to several thousand employees and covers employee management, attendance, leave, payroll with PF, ESI, PT, LWF and TDS, recruitment, performance, expenses and self-service on one effective-dated employee record.`,
+          `${site.entity} It is designed for organisations from about 500 to 5,000+ employees and covers employee management, attendance, leave, payroll with PF, ESI, PT, LWF and TDS, recruitment, performance, expenses and self-service on one effective-dated employee record.`,
           "Worth knowing when you compare: the NeevHR mobile app is built for Android and iPhone, single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.",
         ],
       },
@@ -708,7 +708,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          "NeevHR is designed for organisations from about 100 employees upwards. If you have fewer than 50 employees and simple payroll in one state, a lighter payroll-only tool may suit you better today. If you expect to grow past 100, operate in several states, or need attendance and approvals, NeevHR is worth evaluating.",
+          "NeevHR is designed for organisations from about 500 employees upwards. If you have fewer employees and simple payroll in one state, a lighter payroll-only tool may suit you better today. If you expect to grow past 500, operate in several states, or need attendance and approvals, NeevHR is worth evaluating.",
         ],
       },
     ],
@@ -1326,7 +1326,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} It is designed for companies from about 100 employees upwards, so it suits a business that is growing into multi-state payroll, shift teams and manager approvals.`,
+          `${site.entity} It is designed for companies from about 500 employees upwards, so it suits a business that is growing into multi-state payroll, shift teams and manager approvals.`,
         ],
       },
     ],

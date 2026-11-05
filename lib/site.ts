@@ -43,13 +43,13 @@ export const site = {
 
 export const differentiators = [
   {
-    title: "Built for India, only India",
+    title: "Built for India",
     body: "PF, ESI, PT, LWF and TDS, gratuity, bonus and the DPDP Act 2023 are part of the core product, not an add-on. INR and the India financial year throughout.",
     icon: "flag",
   },
   {
-    title: "Depth without the drag",
-    body: "Process discipline and statutory accuracy for growing and mid-market companies, without the cost or the multi-year rollout of a tier-one suite.",
+    title: "Everything a large HR team needs, and easy to set up and run",
+    body: "Statutory accuracy and clear processes for growing and mid-market companies, without the cost or long rollout of a large HR suite.",
     icon: "users",
   },
   {
@@ -58,8 +58,8 @@ export const differentiators = [
     icon: "bolt",
   },
   {
-    title: "Configured by your HR admin",
-    body: "Leave, attendance, payroll, expense and appraisal are configurable rule sets assigned to employee groups. A trained HR admin can own them, no certified consultant required.",
+    title: "Your HR admin customises it",
+    body: "Your HR admin can customise all policies and workflows for each employee group: leave, attendance, payroll, expense and appraisal. No certified consultant is needed.",
     icon: "sliders",
   },
 ] as const;
@@ -81,7 +81,7 @@ export const platformCapabilities = [
   { title: "Role-based access", body: "Fine-grained RBAC with data scopes, field-level masking, time-bound grants and separation-of-duties checks." },
   { title: "Audit trail", body: "Changes are recorded and effective-dated, so records can be reported as they stood on any date." },
   { title: "Notifications", body: "In-app, email, SMS, WhatsApp and browser push from a single dispatcher, once each channel's provider is configured." },
-  { title: "AI in every module", body: "Fully AI enabled: suggestions on each module's own screen, and an assistant that answers within each person's role. A person decides, and your admin controls who uses it and how much." },
+  { title: "AI in every module", body: "Fully AI-enabled: suggestions on each module's own screen, and an assistant that answers within each person's role. A person decides, and your admin controls who uses it and how much." },
   { title: "Import & export", body: "Bulk CSV import with dry-run validation, and export from lists and reports." },
 ];
 
@@ -90,7 +90,7 @@ export type FaqItem = { q: string; a: string };
 // Homepage FAQ: the questions buyers ask first.
 const aiFaq: FaqItem = {
   q: "Does NeevHR have AI?",
-  a: "Yes. NeevHR is fully AI enabled. AI works inside each module, for example resume match, payroll change explanation, receipt and tax proof reading and helpdesk drafts, and the assistant answers questions within each person's role. Everything is a suggestion a person decides on. It is switched on per module, on prepaid credits.",
+  a: "Yes. NeevHR is fully AI-enabled. AI works inside each module, for example resume match, payroll change explanation, receipt and tax proof reading and helpdesk drafts, and the assistant answers questions within each person's role. Everything is a suggestion a person decides on. It is switched on per module, on prepaid credits.",
 };
 
 export const faqs: FaqItem[] = [
@@ -104,7 +104,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "Who is NeevHR for?",
-    a: "Organisations of roughly 100 to several thousand employees that have outgrown spreadsheets and disconnected HR tools, and need structured HR, attendance and payroll with Indian statutory compliance.",
+    a: "Organisations of roughly 500 to 5,000+ employees that have outgrown spreadsheets and disconnected HR tools, and need structured HR, attendance and payroll with Indian statutory compliance.",
   },
   {
     q: "Does NeevHR calculate PF, ESI, PT and TDS?",
@@ -120,7 +120,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "How is our employee data protected?",
-    a: "Each company's data is isolated with Postgres row-level security, sensitive identifiers such as PAN, Aadhaar and bank details are encrypted at the field level, access is controlled by roles and data scopes, and changes are audit-logged. Data is hosted in India.",
+    a: "Each company's data is kept separate inside the database (Postgres row-level security), sensitive identifiers such as PAN, Aadhaar and bank details are encrypted at the field level, access is controlled by roles and data scopes, and changes are audit-logged. Data is hosted in India.",
   },
   {
     q: "How does NeevHR pricing work?",
@@ -142,7 +142,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       faqs[2],
       {
         q: "Is NeevHR suitable for small and medium businesses?",
-        a: "NeevHR is designed for organisations from about 100 employees upward. A smaller company with simple payroll may need less than a full HRMS; the guide for small businesses on this site explains what to check first.",
+        a: "NeevHR is designed for organisations from about 500 employees upward. A smaller company with simple payroll may need less than a full HRMS; the guide for small businesses on this site explains what to check first.",
       },
       {
         q: "Is NeevHR the best HRMS software in India?",
@@ -150,7 +150,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "How many employees can NeevHR support?",
-        a: "NeevHR is designed for organisations from about 100 to several thousand employees. For larger workforces we size the deployment with you during evaluation rather than quote a fixed limit.",
+        a: "NeevHR is designed for organisations from about 500 to 5,000+ employees. For larger workforces we size the deployment with you during evaluation rather than quote a fixed limit.",
       },
       {
         q: "Does NeevHR support multiple legal entities?",
@@ -182,7 +182,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Can managers approve from Slack, Teams or WhatsApp?",
-        a: "Yes, once your company connects the app. Each one is connected per company with its own setup guide, using your own Slack app, Teams bot or WhatsApp Business account. Money, pay and maker-checker requests only open in NeevHR.",
+        a: "Yes, once your company connects the app. Each one is connected per company with its own setup guide, using your own Slack app, Teams bot or WhatsApp Business account. Money and pay requests, and anything that needs a second approver, are approved only inside NeevHR.",
       },
       {
         q: "Is NeevHR available in Hindi?",
@@ -314,8 +314,8 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
 ];
 
 export const implementationSteps = [
-  { week: "Week 1", title: "Configure", body: "Entities, policies, pay structures and employee groups set up with your HR admin." },
-  { week: "Weeks 2 to 3", title: "Migrate", body: "Employee master, opening balances and documents imported and validated with a dry run." },
-  { week: "Weeks 4 to 6", title: "Parallel run", body: "Attendance and a parallel payroll cycle reconciled against your current process." },
-  { week: "Weeks 6 to 8", title: "Go live", body: "First live payroll, self-service rollout and reports handover." },
+  { week: "Step 1", title: "Configure", body: "Entities, policies, pay structures and employee groups set up with your HR admin." },
+  { week: "Step 2", title: "Migrate", body: "Employee master, opening balances and documents imported and validated with a dry run." },
+  { week: "Step 3", title: "Parallel run", body: "Attendance and a parallel payroll cycle reconciled against your current process." },
+  { week: "Step 4", title: "Go live", body: "First live payroll, self-service rollout and reports handover." },
 ];

@@ -24,7 +24,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     workflow: [
       { step: "Create", body: "Add employees individually, by CSV import with dry-run validation, or from an accepted offer." },
       { step: "Change", body: "Record promotions, transfers and revisions as dated events, singly or in bulk." },
-      { step: "Govern", body: "Sensitive changes such as bank or statutory details go through maker-checker approval." },
+      { step: "Govern", body: "Sensitive changes such as bank or statutory details need a second person to approve them." },
       { step: "Report", body: "Run headcount, attrition and master reports as of any date." },
     ],
     benefits: [
@@ -1257,7 +1257,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     faqs: [
       { q: "Do these work without setup?", a: "No. Each app is connected per company, using your own Slack app, Teams bot or WhatsApp Business account, with a setup guide for each in the Help Centre." },
       { q: "Who pays for WhatsApp messages?", a: "Your company, to Meta, on your own WhatsApp Business account." },
-      { q: "Can payroll be approved from a chat app?", a: "No. Money, pay and maker-checker requests only get an Open in NeevHR button." },
+      { q: "Can payroll be approved from a chat app?", a: "No. Payroll, pay and anything that needs a second approver can be approved only inside NeevHR. The message shows an Open in NeevHR button." },
     ],
   },
 };

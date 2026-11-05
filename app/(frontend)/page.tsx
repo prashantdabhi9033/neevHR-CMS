@@ -170,8 +170,8 @@ export default function HomePage() {
               Unify people, pay and processes, without the silos
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-body">
-              More than 30 modules share one employee record, so a change made
-              once flows everywhere it belongs. Three of them below.
+              More than 30 modules work on the same employee profile, so a change
+              made once updates everywhere it is needed. Three of them below.
             </p>
           </Reveal>
         </Container>

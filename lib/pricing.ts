@@ -85,10 +85,10 @@ export const everyEdition = [
   { icon: "flag", title: "India statutory payroll", body: "PF, ESI, PT, LWF and TDS with returns and challans." },
   { icon: "layers", title: "One price, not a module maze", body: "Edition-based packaging, quoted in INR." },
   { icon: "bolt", title: "Guided go-live", body: "Configuration, migration and a parallel payroll run." },
-  { icon: "shield", title: "Data hosted in India", body: "Row-level isolation and field-level encryption." },
-  { icon: "sparkle", title: "Fully AI enabled", body: "AI inside each module you have, plus the assistant, on prepaid credits." },
+  { icon: "shield", title: "Data hosted in India", body: "Each company's data kept separate, and sensitive fields encrypted." },
+  { icon: "sparkle", title: "Fully AI-enabled", body: "AI inside each module you have, plus the assistant, on prepaid credits." },
   { icon: "users", title: "Multiple entities", body: "Several legal entities and locations in one account." },
-  { icon: "sliders", title: "Configured by HR", body: "Policies as rule sets your HR admin owns." },
+  { icon: "sliders", title: "Customised by your HR admin", body: "Your HR admin can customise all policies and workflows." },
 ];
 
 // ---------------------------------------------------------------- AI on credits
@@ -290,7 +290,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Approval workflows", desc: "Standard: built-in manager and HR approvals. Advanced: your own multi-step chains with any, all or quorum rules.", tiers: ["Standard", "Standard", "Advanced"] },
       { name: "Process Studio", desc: "Design your own HR flows from templates, with notices, time limits, rules and letters, and test them before you publish.", href: "/features/process-studio", tiers: ENT_ONLY },
       { name: "Approve from email", desc: "Approvers can approve or reject from the request email, once a Company Admin switches it on.", href: "/features/manager-self-service#approve-from-email", tiers: ALL },
-      { name: "Approve from Slack, Teams or WhatsApp", desc: "Each app is connected per company with a setup guide, using your own app or business account. WhatsApp charges are Meta's. Money and pay requests only open in NeevHR.", href: "/features/approval-channels", tiers: ALL },
+      { name: "Approve from Slack, Teams or WhatsApp", desc: "Each app is connected per company with a setup guide, using your own app or business account. WhatsApp message charges are billed by Meta. Money and pay requests are approved only inside NeevHR.", href: "/features/approval-channels", tiers: ALL },
       { name: "Roles and permissions", desc: "Advanced adds custom roles, data scopes, field-level masking, time-bound grants and separation-of-duties checks.", tiers: ["Standard", "Standard", "Advanced"] },
       { name: "Access reviews and second-admin approval", desc: "Confirm who can reach what, and require a second admin for role and workflow changes.", href: "/security#audit", tiers: ENT_ONLY },
       { name: "Audit trail", desc: "Administrative, payroll and permission changes are logged.", tiers: ALL },
@@ -330,7 +330,7 @@ export const featureGroups: FeatureGroup[] = [
     icon: "shield",
     features: [
       { name: "Data hosted in India", desc: "The application and database run on servers in India. If your company switches on AI, what each feature needs, including uploaded receipts and proofs, goes to its provider, which may process it outside India.", href: "/security", tiers: ALL },
-      { name: "Tenant isolation", desc: "Each company's data separated by Postgres row-level security in the database.", tiers: ALL },
+      { name: "Tenant isolation", desc: "Each company's data kept separate inside the database (Postgres row-level security).", tiers: ALL },
       { name: "Field-level encryption", desc: "PAN, Aadhaar, UAN, ESI number and bank details encrypted with AES-256-GCM.", tiers: ALL },
       { name: "Single sign-on: Google, with Microsoft being switched on", desc: "Your company turns it on for its own domain, for people who already have a login, and can make it required. Google is available and Microsoft is built and being switched on. SAML and Okta are not built.", href: "/security#sign-in", tiers: ALL },
       { name: "Multi-factor authentication", desc: "Authenticator-app MFA that admins can make mandatory for everyone.", tiers: ALL },
@@ -432,7 +432,7 @@ export const quoteFactors = [
   { t: "Implementation", b: "Implementation scope and any fee are set out in the quote, based on entities, data migration and integrations." },
   { t: "Integrations", b: "Standard integrations (biometric ADMS, CSV import and export, API keys, webhooks) are part of the platform. Custom integration work is quoted separately." },
   { t: "Support", b: "The support model during implementation and after go-live is described in your quote." },
-  { t: "Minimum size", b: "NeevHR is designed for organisations from about 100 employees. Tell us your headcount and we will advise." },
+  { t: "Minimum size", b: "NeevHR is designed for organisations from about 500 employees. Tell us your headcount and we will advise." },
   { t: "Changing edition", b: "Start on the edition you need today and move up as you grow. Your data and configuration stay as they are." },
   { t: "Trial", b: "We run a guided demo on a structure close to yours. A trial or pilot can be discussed for your case." },
 ];

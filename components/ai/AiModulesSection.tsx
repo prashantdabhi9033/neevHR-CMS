@@ -29,7 +29,7 @@ export function AiModulesHome() {
     <section id="ai-in-modules" className="scroll-mt-16 border-b border-line bg-white py-16 lg:py-20">
       <Container wide>
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand">Fully AI enabled</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand">Fully AI-enabled</span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">AI inside each module, not only in a chat</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
             It works on the screen where the work happens, and every result is a labelled suggestion. These are sample screens, with sample names and figures.

@@ -221,7 +221,7 @@ export default async function ModulePage({ params }: Params) {
               Configuration points
             </span>
             <p className="mt-2 text-sm text-muted">
-              Set as rule sets by your HR admin, assigned to employee groups.
+              Your HR admin sets these for each employee group.
             </p>
             <ul className="mt-5 space-y-3">
               {m.configPoints.map((c) => (
@@ -238,8 +238,8 @@ export default async function ModulePage({ params }: Params) {
               Reports & analytics
             </span>
             <p className="mt-2 text-sm text-muted">
-              Every list becomes a report; every report a chart that drills to
-              records.
+              Every list becomes a report, and every chart opens the employee
+              records behind it.
             </p>
             <ul className="mt-5 space-y-3">
               {m.reports.map((r) => (

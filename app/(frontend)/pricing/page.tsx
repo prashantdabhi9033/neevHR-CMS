@@ -61,7 +61,7 @@ export default function PricingPage() {
             below, and we will prepare a quote in INR.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">
-            {["PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Guided go-live", "Fully AI enabled, on prepaid credits", "Data hosted in India"].map((c) => (
+            {["PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Guided go-live", "Fully AI-enabled, on prepaid credits", "Data hosted in India"].map((c) => (
               <span key={c} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-body ring-1 ring-line">
                 <Icon name="check" className="h-3.5 w-3.5 text-accent" strokeWidth={2.2} />
                 {c}
@@ -111,7 +111,7 @@ export default function PricingPage() {
             <SectionHead
               eyebrow="AI on prepaid credits"
               title="AI is not a price per employee"
-              sub="NeevHR is fully AI enabled. AI is charged separately from your edition: it is switched on per module and paid from one prepaid balance."
+              sub="NeevHR is fully AI-enabled. AI is charged separately from your edition: it is switched on per module and paid from one prepaid balance."
             />
             <ul className="mt-7 grid gap-5 sm:grid-cols-2">
               {aiCreditPoints.map((p) => (
