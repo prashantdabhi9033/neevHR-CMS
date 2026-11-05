@@ -441,7 +441,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
     benefits: [
       "Budgets are visible while proposing",
-      "Revisions become effective-dated pay changes, including arrears",
+      "Revisions become pay changes from their start date, including arrears",
       "Letters are generated from the approved numbers",
     ],
     whoUses: [
@@ -588,7 +588,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     workflow: [
       { step: "Pick", body: "Start from the report catalog or a dataset in the builder." },
       { step: "Shape", body: "Filter, group and aggregate, then choose a chart." },
-      { step: "Drill", body: "Click through from a chart to the records behind it." },
+      { step: "Open the records", body: "Click through from a chart to the records behind it." },
       { step: "Share", body: "Save the view, export it or schedule it by email." },
     ],
     benefits: [

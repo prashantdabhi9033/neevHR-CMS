@@ -187,7 +187,7 @@ const sections: Section[] = [
       "An employee's work location, not the head office, decides which state rules apply.",
     ],
     neevhr: [
-      "Applies PT and LWF from the employee's work location on the effective-dated record.",
+      "Applies PT and LWF from the employee's work location on the employee's record for that date.",
       "Holds state statutory tables as configurable settings that can be exported, reviewed and imported.",
       "Flags minimum-wage shortfalls in the payroll exception report.",
       "When a statutory rate or limit changes, NeevHR applies it from its start date. Months already paid keep their old rates.",

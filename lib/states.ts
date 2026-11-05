@@ -30,7 +30,7 @@ const R = "24 Sep 2026";
 const RI = "2026-09-24";
 
 const COMMON_NEEVHR = [
-  "PT and LWF follow each employee's work location on the effective-dated record.",
+  "PT and LWF follow each employee's work location on the employee's record for that date.",
   "State slab and LWF tables are configurable settings, so a rate change is a settings update.",
   "PT and LWF challan data is produced from the published payroll run.",
 ];

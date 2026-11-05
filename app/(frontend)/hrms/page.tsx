@@ -81,7 +81,7 @@ const blocks: Block[] = [
     title: "Payroll",
     body: "Monthly payroll runs from configurable pay structures, attendance and leave inputs, loans, reimbursements and variable pay, through compute, verify, approve and publish.",
     points: [
-      "Salary structures assigned by group, with effective-dated revisions",
+      "Salary structures assigned by group, with pay revisions from their start date",
       "Arrears, LOP and LOP reversal, loans and variable pay",
       "Payslip PDFs, salary register and journal voucher export",
       "Bank payment files in generic and bank-specific CSV layouts",
@@ -124,7 +124,7 @@ const blocks: Block[] = [
   {
     id: "expenses",
     title: "Expenses",
-    body: "Employees claim expenses against policy, managers approve, and reimbursement is paid through payroll, with separation of duties between approver and payer.",
+    body: "Employees claim expenses against policy, managers approve, and reimbursement is paid through payroll, and the person who pays a claim can never approve it.",
     points: [
       "Policy-based claims with receipts",
       "Partial sanction and approval chains",
@@ -409,9 +409,9 @@ export default function HrmsPage() {
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {[
-              "Postgres row-level tenant isolation",
+              "Each company's data kept separate in the database",
               "Field-level encryption of PAN, Aadhaar and bank details",
-              "RBAC with data scopes and field masking",
+              "Access by role, with sensitive fields hidden",
               "TOTP MFA, enforceable per company",
               "Audit log of administrative and payroll changes",
               "DPDP consent, data principal requests, retention",

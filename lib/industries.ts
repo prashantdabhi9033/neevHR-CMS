@@ -311,7 +311,7 @@ export const industries: Industry[] = [
     ],
     challenges: [
       "An audit trail for every change, each saved with its date",
-      "Fine-grained access control and separation of duties",
+      "Access by role, and no one approves their own payroll or claim",
       "Protection of PAN, Aadhaar and bank details",
       "Incentive and variable-pay cycles for sales teams",
       "DPDP Act 2023 consent and data principal requests",

@@ -102,7 +102,7 @@ export default function CompanyPage() {
                 </li>
                 <li>
                   <span className="font-semibold text-ink">One employee record.</span>{" "}
-                  Effective-dated history you can report on as of any date.
+                  Full change history you can report on as of any date.
                 </li>
                 <li>
                   <span className="font-semibold text-ink">Analytics everywhere.</span>{" "}

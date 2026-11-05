@@ -44,7 +44,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "payroll", name: "Payroll", desc: "Configurable structures, LOP, arrears, payslips.", href: "/payroll" },
       { slug: "income-tax", name: "Income tax", desc: "Declarations, proofs, tracker and tax ledger." },
       { slug: "compliance", name: "Statutory compliance", desc: "PF, ESI, PT, LWF, TDS returns and challans." },
-      { slug: "expenses", name: "Expenses", desc: "Claims and reimbursement with separation of duties." },
+      { slug: "expenses", name: "Expenses", desc: "Claims and reimbursement. The payer never approves." },
       { slug: "loans", name: "Loans & advances", desc: "Loans, advances and EMI recovery in payroll." },
       { slug: "variable-pay", name: "Variable pay", desc: "Incentives and variable payout cycles." },
       { slug: "benefits", name: "Benefits and insurance", desc: "Flexible benefits, declarations and group insurance." },
