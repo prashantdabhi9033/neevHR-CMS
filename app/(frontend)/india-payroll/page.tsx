@@ -190,6 +190,7 @@ const sections: Section[] = [
       "Applies PT and LWF from the employee's work location on the effective-dated record.",
       "Holds state statutory tables as configurable settings that can be exported, reviewed and imported.",
       "Flags minimum-wage shortfalls in the payroll exception report.",
+      "When a statutory rate or limit changes, NeevHR applies it from its start date. Months already paid keep their old rates.",
     ],
     links: [{ label: "Minimum wages in India", href: "/blog/minimum-wages-in-india-explained" }],
   },

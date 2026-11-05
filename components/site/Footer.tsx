@@ -94,7 +94,7 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-5 rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)] sm:flex-row sm:items-center">
           <div>
             <p className="text-lg font-bold text-ink">
-              Ready to see NeevHR on your own numbers?
+              Ready to see NeevHR set up for your organisation?
             </p>
             <p className="mt-1 text-sm text-body">
               A tailored walkthrough for your team, no generic slide deck.

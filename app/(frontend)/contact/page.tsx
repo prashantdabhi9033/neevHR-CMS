@@ -55,6 +55,9 @@ export default function ContactPage() {
               <Button href="/demo">Book a Demo</Button>
               <Button href="/demo?intent=quote" variant="secondary">Get a quote</Button>
             </div>
+            <a href="/downloads/NeevHR-Brochure-2026.pdf" className="mt-4 inline-block text-sm font-semibold text-brand hover:text-brand-dark">
+              Download the brochure (PDF)
+            </a>
           </div>
           <div className="rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">
             <h2 className="text-lg font-semibold text-ink">Follow NeevHR</h2>

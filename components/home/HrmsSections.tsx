@@ -112,9 +112,8 @@ export function OneRecordSection() {
           <p className="mt-4 text-[15px] leading-relaxed text-body">
             NeevHR maintains one employee record across the entire HR
             lifecycle. Promotions, transfers, salary revisions, organizational
-            changes and other employment events are maintained as
-            effective-dated history rather than overwriting previous
-            information.
+            changes and other employment events are saved with their dates as
+            a full change history, so nothing earlier is overwritten.
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-body">
             This allows HR and payroll teams to understand employee information

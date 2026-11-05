@@ -31,8 +31,8 @@ export default function ProductOverviewPage() {
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-body">
             NeevHR brings the full employee lifecycle into one platform. Every
-            change is a dated event on a single timeline, so you can run any
-            report as of any date, and every module is a configurable rule set.
+            change is saved with its date, so you can run any report as of any
+            date, and your HR admin can customise every module&apos;s policies and workflows.
           </p>
           <div className="mt-8 flex justify-center gap-3">
             <Button href="/demo" size="lg">

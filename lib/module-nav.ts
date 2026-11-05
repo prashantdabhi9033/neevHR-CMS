@@ -9,7 +9,7 @@ export type ModuleNavGroup = { group: string; blurb: string; items: ModuleNavIte
 export const moduleGroups: ModuleNavGroup[] = [
   {
     group: "Core HR",
-    blurb: "One effective-dated employee record.",
+    blurb: "One employee profile, with full change history.",
     items: [
       { slug: "employees", name: "Employee records", desc: "One dated timeline per employee, with a 360 view." },
       { slug: "onboarding", name: "Onboarding", desc: "Offer to day-one as a guided journey." },
@@ -20,7 +20,7 @@ export const moduleGroups: ModuleNavGroup[] = [
       { slug: "full-and-final-settlement", name: "Full & final settlement", desc: "F&F worksheet paid through payroll." },
       { slug: "documents", name: "Documents", desc: "Policies and employee files with acknowledgement." },
       { slug: "alumni-portal", name: "Alumni portal", desc: "Ex-employees download payslips, Form 16 and F&F." },
-      { slug: "disciplinary", name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case." },
+      { slug: "disciplinary", name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one case record, with every step dated." },
       { slug: "posh", name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads." },
     ],
   },
@@ -114,7 +114,7 @@ export const newFeatures: NewFeature[] = [
   { name: "Development plans", desc: "Focus areas, actions and approval, linked to appraisals and learning.", href: "/features/development-plans" },
   { name: "360 feedback by competency", desc: "Question sets, standalone rounds and anonymity on every cut.", href: "/features/360-feedback" },
   { name: "OKR and goal cascade", desc: "Company, team and personal goals linked, with key results.", href: "/features/goal-cascade" },
-  { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one dated case.", href: "/features/disciplinary" },
+  { name: "Disciplinary cases", desc: "Notices, replies, inquiry and outcome on one case record, with every step dated.", href: "/features/disciplinary" },
   { name: "POSH complaint route", desc: "Confidential complaints that only the Internal Committee reads.", href: "/features/posh" },
   { name: "Approvals in Slack, Teams, WhatsApp", desc: "Connected per company, each with a setup guide.", href: "/features/approval-channels" },
   { name: "Approve from email", desc: "Decide from the request email, once a Company Admin switches it on.", href: `/features/manager-self-service#${capabilityId("Approve from email")}` },

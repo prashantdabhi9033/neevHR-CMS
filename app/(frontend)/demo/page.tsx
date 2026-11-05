@@ -89,6 +89,12 @@ export default async function DemoPage({ searchParams }: Search) {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-sm text-body">
+            Prefer to read first?{" "}
+            <a href="/downloads/NeevHR-Brochure-2026.pdf" className="font-semibold text-brand hover:text-brand-dark">
+              Download the 2-page brochure (PDF)
+            </a>
+          </p>
           <div className="mt-10 rounded-2xl border border-line bg-white p-5">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-brand">What happens after you submit</h2>
             <ol className="mt-3 space-y-2 text-sm leading-relaxed text-body">

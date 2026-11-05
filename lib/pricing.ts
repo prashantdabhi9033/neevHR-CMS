@@ -134,7 +134,7 @@ export const featureGroups: FeatureGroup[] = [
     icon: "users",
     features: [
       { name: "Employee 360 profile", desc: "Job, pay, statutory, bank, documents, leave, assets and income tax in one profile.", href: "/features/employees", tiers: ALL },
-      { name: "Effective-dated history", desc: "Every promotion, transfer and pay change is a dated event. Report on any past date.", tiers: ALL },
+      { name: "Full change history", desc: "Every promotion, transfer and pay change is saved with its date. Report on any past date.", tiers: ALL },
       { name: "Multiple legal entities and locations", desc: "Several entities in one account, each with its own statutory registrations.", tiers: ALL },
       { name: "Org chart", desc: "Tree and focused views, with the org rebuilt as it stood on any date.", href: "/features/org-chart", tiers: ALL },
       { name: "Onboarding journeys", desc: "Pre-join tasks, intake forms, buddy and asset reservation before day one.", href: "/features/onboarding", tiers: ALL },
@@ -143,7 +143,7 @@ export const featureGroups: FeatureGroup[] = [
       { name: "Holiday calendars", desc: "Location-aware public, optional and restricted holidays.", href: "/features/holidays", tiers: ALL },
       { name: "Exit and clearance", desc: "Notice, department clearances, handover, relieving and experience letters.", href: "/features/exit", tiers: ALL },
       { name: "Alumni portal", desc: "Former employees download their own payslips, Form 16 and F&F statement.", href: "/features/alumni-portal", tiers: ALL },
-      { name: "Disciplinary cases", desc: "Show-cause notices, charge sheets, replies, inquiry and outcome as one dated case, under its own permission.", href: "/features/disciplinary", tiers: ALL },
+      { name: "Disciplinary cases", desc: "Show-cause notices, charge sheets, replies, inquiry and outcome on one case record, with every step dated, under its own permission.", href: "/features/disciplinary", tiers: ALL },
       { name: "POSH complaint route", desc: "A confidential complaint that only the Internal Committee reads, committee set-up, case steps and an annual report with no names.", href: "/features/posh", tiers: ALL },
       { name: "Retirement and absconding", desc: "See upcoming retirements, and a guided absconding process with show-cause notices.", href: "/features/exit", tiers: ALL },
       { name: "Layoff and mass separation", desc: "Separate many people together, with severance by tax type.", href: "/features/exit", tiers: ALL },
@@ -353,7 +353,7 @@ export const featureGroups: FeatureGroup[] = [
 // One short line for the comparison table, where a description would otherwise run long. The full description opens in place.
 const shortLines: Record<string, string> = {
   "Digital ID cards": "An ID card with a QR code, to view, print and verify.",
-  "Disciplinary cases": "Notices, replies, inquiry and outcome on one dated case.",
+  "Disciplinary cases": "Notices, replies, inquiry and outcome on one case record, with every step dated.",
   "POSH complaint route": "A confidential complaint that only the Internal Committee reads.",
   "Biometric device management": "Send employees to devices, remove leavers and compare user lists.",
   "Geofenced and web check-in": "Punch from the web or the app, inside the boundary you set.",
