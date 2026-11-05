@@ -36,7 +36,7 @@ const rows: { dim: string; neev: string; tier1: string; point: string }[] = [
   },
   {
     dim: "India statutory",
-    neev: "PF, ESI, PT, LWF, TDS, gratuity, bonus and DPDP in the core",
+    neev: "PF, ESI, PT, LWF, TDS, gratuity, bonus and DPDP built in",
     tier1: "Via country packs and add-ons",
     point: "Partial, varies by tool",
   },

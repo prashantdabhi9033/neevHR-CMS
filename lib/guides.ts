@@ -73,7 +73,7 @@ export const guides: Guide[] = [
           "Which outputs are generated: ECR, ESI contribution file, challans, Form 24Q return file, Form 16?",
           "How are LOP, arrears, loans, variable pay and full and final settlement handled?",
           "Can state PT and LWF tables be updated in settings when rules change?",
-          "Is there separation of duties between computing and approving payroll?",
+          "Can the person who computes payroll also approve it?",
         ],
       },
       {
@@ -406,7 +406,7 @@ export const guides: Guide[] = [
             ["Formulas for PF, ESI, PT and TDS", "Statutory calculations in each payroll run"],
             ["Manual ECR and challan preparation", "ECR, ESI file, challans and Form 24Q generated"],
             ["Emails for payslips and leave", "Employee self-service"],
-            ["Overwritten cells", "Effective-dated history and audit log"],
+            ["Overwritten cells", "Full change history and audit log"],
             ["Hand-built reports", "Reports and dashboards from live data"],
           ],
         },
@@ -628,7 +628,7 @@ export const guides: Guide[] = [
             ["Employee master", "One per tool", "One record with full change history"],
             ["Attendance to payroll", "Monthly export and import", "Payroll reads closed attendance"],
             ["Hire to payroll", "Re-keyed from the ATS", "Offer flows into onboarding and payroll"],
-            ["Access and audit", "Different per tool", "One RBAC model and audit log"],
+            ["Access and audit", "Different per tool", "One set of access roles and one audit log"],
             ["Reporting", "Stitched in spreadsheets", "Reports across modules"],
           ],
         },
@@ -815,7 +815,7 @@ export const guides: Guide[] = [
             [
               "Organisation",
               "Legal entities, locations, departments",
-              "Two entities with different statutory registrations in one tenant",
+              "Two entities with different statutory registrations in one account",
             ],
             [
               "Attendance",
@@ -1164,7 +1164,7 @@ export const guides: Guide[] = [
         title: "Common mistakes",
         bullets: [
           "Treating all entities as one for statutory purposes, so returns and challans mix registrations.",
-          "Making bulk changes outside the system, which breaks effective-dated history.",
+          "Making bulk changes outside the system, which breaks the change history.",
           "Granting one person compute and approve rights because the team is busy at go-live.",
           "Accepting a security questionnaire on trust without checking what is live.",
           "Going live across every entity at once with no pilot and no parallel payroll.",
@@ -1174,7 +1174,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} It supports multiple entities, bulk actions, separation of duties, an audit log, Postgres row-level tenant isolation, field-level encryption of sensitive identifiers and enforceable MFA. Worth knowing: single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.`,
+          `${site.entity} It supports multiple entities, bulk actions, separation of duties, an audit log, each company's data kept separate in the database, field-level encryption of sensitive identifiers and enforceable MFA. Worth knowing: single sign-on covers Google with Microsoft being switched on but not SAML, and NeevHR does not currently hold SOC 2 or ISO 27001 certification.`,
         ],
       }
     ],
@@ -1240,7 +1240,7 @@ export const guides: Guide[] = [
         id: "accuracy",
         title: "Accuracy controls",
         bullets: [
-          "Separation of duties between computing and approving payroll",
+          "The person who computes payroll cannot approve it",
           "An exception report that flags anomalies before approval",
           "Period locks after payroll closes",
           "Arrears for backdated revisions that flow into PF and ESI",

@@ -151,7 +151,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Headcount plan", body: "Approved headcount and budget per department, with open and over-plan flags." },
       { title: "Hiring plan", body: "Planned hires against requisitions actually raised, so you always see what is left to hire." },
       { title: "Cost-centre budgets", body: "Budget envelopes per cost centre with committed-cost tracking." },
-      { title: "Roll forward", body: "Copy last year's plan and adjust, with an effective-dated change history per cell." },
+      { title: "Roll forward", body: "Copy last year's plan and adjust, with every change to each cell saved with its date." },
       { title: "Drafts and scenarios", body: "Work on drafts of a year's headcount plan and compare them. The live plan does not change until a draft is approved." },
       { title: "Submit and approve", body: "A draft goes for approval, can be sent back, and becomes the one live plan, with earlier versions kept." },
       { title: "Monthly phasing and grade", body: "Phase a plan by month and by grade, to see what should be in place by when." },
@@ -373,9 +373,9 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Payroll & pay",
     title: "Payroll that is statutory-accurate, on time, every cycle",
     intro:
-      "Run monthly payroll with PF, ESI, PT, LWF and TDS in the core. Configure pay structures once, and let LOP, arrears, loans and reimbursements flow in automatically, with an audit trail behind every change.",
+      "Run monthly payroll with PF, ESI, PT, LWF and TDS built in. Configure pay structures once, and let LOP, arrears, loans and reimbursements flow in automatically, with an audit trail behind every change.",
     capabilities: [
-      { title: "Governed run", body: "Compute, verify, approve and publish, with separation of duties and a post-compute exception report of anomaly and statutory checks." },
+      { title: "Governed run", body: "Compute, verify, approve and publish. The person who computes a run cannot approve it, and an exception report of anomaly and statutory checks." },
       { title: "India statutory built in", body: "PF at the ₹25,000 wage ceiling, ESI to ₹21,000 gross, state PT, LWF and TDS, with ECR, challan and Form 16 outputs." },
       { title: "LOP, arrears & loans", body: "Loss of pay reduces the statutory base correctly; arrears recompute; loan EMIs appear only when active." },
       { title: "Bank-ready disbursement", body: "NEFT and RTGS files and a GL journal, with a payroll register and per-component YTD." },
@@ -429,11 +429,11 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Payroll & pay",
     title: "Expense claims and reimbursement, customised to your company policy",
     intro:
-      "Expense and travel claims checked against your company's own policy, with receipts, policy checks, partial sanction and reimbursement through payroll or settled separately, with separation of duties between the approver and the payer.",
+      "Expense and travel claims checked against your company's own policy, with receipts, policy checks, partial sanction and reimbursement through payroll or settled separately. The person who pays a claim can never approve it.",
     capabilities: [
       { title: "Claims & receipts", body: "Employees submit claims with receipts; approvers sanction, return or reject." },
       { title: "Policy checks", body: "Per-category caps, submission windows and pre-approval, with a recorded override for breaches." },
-      { title: "Separation of duties", body: "Approve and reimburse are separate permissions; the payer is never the approver." },
+      { title: "Approver and payer are different people", body: "Approve and reimburse are separate permissions. The person who pays a claim can never approve it." },
       { title: "Advances", body: "Issue and settle cash advances, netting against claims or recovering via payroll." },
       { title: "Travel advance", body: "Advances with a trip limit, adjusted on claim approval, with statement, ageing, bulk pay and recovery in F&F." },
       { title: "Mileage and per diem", body: "Mileage rates, per diem by grade and location, and GST on bills." },
@@ -459,7 +459,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Policy caps", body: "Principal, tenure and rate caps, with approvals parked above a threshold." },
       { title: "Post-exit residuals", body: "Record external repayments or write off balances with second-approver controls." },
     ],
-    configPoints: ["Loan types and policy caps", "Interest method", "Approval thresholds", "Write-off separation of duties"],
+    configPoints: ["Loan types and policy caps", "Interest method", "Approval thresholds", "Write-off needs a second approver"],
     reports: ["Outstanding by type", "EMI recovery schedule", "Write-offs"],
     related: ["payroll", "expenses"],
     Visual: LoansVisual,
@@ -741,13 +741,13 @@ export const modules: Record<string, ModuleContent> = {
     showcase: "wide",
     name: "Reports & analytics",
     eyebrow: "Insights",
-    title: "Every list a report, every report a chart",
+    title: "Every list becomes a report, and every chart opens the records behind it",
     intro:
       "A report catalog across modules plus a self-serve builder. Pick a dataset, group and aggregate, visualise it, and click any chart to open the records behind it.",
     capabilities: [
       { title: "Report catalog", body: "Ready reports grouped by module, permission-filtered and searchable." },
       { title: "Custom builder", body: "Choose columns, filters, group-by and aggregate, then chart it live." },
-      { title: "Drill-down", body: "Click a bar or slice to open the exact records behind it." },
+      { title: "Click through to records", body: "Click a bar or slice to open the exact records behind it." },
       { title: "Export", body: "CSV, Excel and PDF, including password-protected PDF." },
       { title: "Role-based dashboards", body: "Each role sees its own dashboard, with attrition risk for Company Admins unless they grant it to others." },
       { title: "Saved and shared views", body: "Save a report view and share it with your team." },
@@ -768,7 +768,7 @@ export const modules: Record<string, ModuleContent> = {
     slug: "ai-assistant",
     name: "AI assistant",
     eyebrow: "Insights",
-    title: "Fully AI enabled: inside each module, and in a chat",
+    title: "Fully AI-enabled: inside each module, and in a chat",
     intro:
       "Ask in plain words, and get answers from your own HR data. AI reads a resume against an opening, explains a payroll flag, reads a receipt or a tax proof and drafts a helpdesk reply, on the screen where the work happens. The assistant answers from your company's data within each person's role. Every result is a suggestion, and a person decides.",
     capabilities: [

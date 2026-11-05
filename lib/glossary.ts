@@ -44,7 +44,7 @@ export const glossary: GlossaryTerm[] = [
       title: "One change, many effects",
       lines: [
         "An employee is promoted with effect from 1 October.",
-        "The HRMS records the new grade and salary as a dated event.",
+        "The HRMS saves the new grade and salary with the date they take effect.",
         "October payroll picks up the revised salary and statutory deductions automatically.",
         "The org chart, headcount report and cost reports reflect the change from the same date.",
       ],

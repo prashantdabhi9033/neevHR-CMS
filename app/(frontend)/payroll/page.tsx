@@ -50,7 +50,7 @@ const capabilities: { name: string; detail: string; href?: string }[] = [
 
 const workflow = [
   { t: "Inputs", b: "Attendance, leave, LOP, new joiners, exits, arrears, loans, reimbursements and variable pay are gathered for the period." },
-  { t: "Compute", b: "Earnings, deductions, PF, ESI, PT, LWF and TDS are calculated for every employee from their effective-dated structure." },
+  { t: "Compute", b: "Earnings, deductions, PF, ESI, PT, LWF and TDS are calculated for every employee from the salary structure in force that month." },
   { t: "Verify", b: "A post-compute exception report flags anomalies and statutory mismatches for review." },
   { t: "Approve", b: "The run goes through its approval chain. The person who computed or verified it cannot approve it." },
   { t: "Publish", b: "Payslips are released, and bank files, ECR, ESI file, challans, register and journal voucher are generated." },
@@ -67,7 +67,7 @@ const payrollFaqs = [
   },
   {
     q: "Can we have different salary structures for different groups?",
-    a: "Yes. Pay structures and components are configured and assigned to employee groups, and revisions are effective-dated.",
+    a: "Yes. Pay structures and components are configured and assigned to employee groups, and revisions apply from their start date.",
   },
   {
     q: "Does NeevHR file returns on government portals for us?",
