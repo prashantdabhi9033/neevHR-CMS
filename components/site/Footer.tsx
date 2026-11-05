@@ -125,6 +125,9 @@ export function Footer() {
               >
                 {site.email}
               </a>
+              <a href={site.phoneHref} className="block transition-colors hover:text-brand">
+                {site.phone}
+              </a>
             </div>
             <ul className="mt-4 flex items-center gap-3">
               {site.socials.map((s) => (

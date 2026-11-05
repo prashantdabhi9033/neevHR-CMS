@@ -37,9 +37,12 @@ export default function ContactPage() {
         <Container className="grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">
             <h2 className="text-lg font-semibold text-ink">Sales and support</h2>
-            <p className="mt-2 text-sm text-body">Email us.</p>
+            <p className="mt-2 text-sm text-body">Email or call us.</p>
             <a href={`mailto:${site.email}`} className="mt-3 block text-sm font-semibold text-brand hover:text-brand-dark">
               {site.email}
+            </a>
+            <a href={site.phoneHref} className="mt-1 block text-sm font-semibold text-brand hover:text-brand-dark">
+              {site.phone}
             </a>
           </div>
           <div className="rounded-2xl border border-line bg-white p-7 shadow-[var(--shadow-card)]">
