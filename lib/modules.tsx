@@ -67,7 +67,7 @@ export const modules: Record<string, ModuleContent> = {
       "A searchable directory backed by a full employee 360, job, pay, statutory, documents, assets and lifecycle, all on a single dated timeline you can report on as of any date.",
     capabilities: [
       { title: "Employee 360", body: "Overview, job & timeline, personal, statutory & bank, documents, leave, compensation, probation, performance, assets and income tax, in one profile." },
-      { title: "Effective-dated timeline", body: "Every promotion, transfer and pay change is a dated event; history is never overwritten." },
+      { title: "Full change history", body: "Every promotion, transfer and pay change is saved with its date; nothing is ever overwritten." },
       { title: "Bulk actions", body: "Mass transfer, change manager, assign roles, set shift or employment type across selected employees or a whole group." },
       { title: "PII-safe import & export", body: "CSV import with validation and export with CTC redaction for users without the entitlement." },
       { title: "Digital ID cards", body: "An ID card for every employee, with a QR code, to view and print." },
@@ -401,7 +401,7 @@ export const modules: Record<string, ModuleContent> = {
     showcase: "wide",
     name: "Statutory compliance",
     eyebrow: "Payroll & pay",
-    title: "Never miss a statutory filing again",
+    title: "Every PF, ESI, PT, LWF and TDS due date in one calendar",
     intro:
       "Track every PF, ESI, PT, LWF and TDS obligation with a due-date calendar, drive returns from draft to filed, and generate Form 16 and Form 12BA for the completed financial year.",
     capabilities: [
@@ -409,6 +409,7 @@ export const modules: Record<string, ModuleContent> = {
       { title: "Returns workflow", body: "Create, prepare and file 24Q, PF ECR, ESI, PT and LWF returns with real portal references." },
       { title: "Form 16 & 12BA", body: "Generate and distribute Form 16 with quarter-wise deposit reconciliation, and Form 12BA perquisites." },
       { title: "Filing calendar", body: "A month calendar of what is due, filed, pending and overdue." },
+      { title: "Rate changes on the right date", body: "When a statutory rate or limit changes, NeevHR applies it from its start date. Months already paid keep their old rates." },
       { title: "PF correction of a filed month", body: "Correct PF for a month already filed: arrears, a record of excess refunds, EPS to EPF transfers and bulk recompute, with a second person's approval and a supplementary ECR." },
       { title: "Manual PT and LWF", body: "Record PT and LWF liabilities outside payroll, with period, status, challan tracking and a second person's approval." },
       { title: "Statutory library updates", body: "PT, LWF and minimum wage updates apply only after a person reviews and saves them." },
@@ -426,9 +427,9 @@ export const modules: Record<string, ModuleContent> = {
     slug: "expenses",
     name: "Expenses",
     eyebrow: "Payroll & pay",
-    title: "Policy-checked claims, reimbursed with control",
+    title: "Expense claims and reimbursement, customised to your company policy",
     intro:
-      "Expense and travel claims with receipts, policy checks, partial sanction and reimbursement through payroll or settled separately, with separation of duties between the approver and the payer.",
+      "Expense and travel claims checked against your company's own policy, with receipts, policy checks, partial sanction and reimbursement through payroll or settled separately, with separation of duties between the approver and the payer.",
     capabilities: [
       { title: "Claims & receipts", body: "Employees submit claims with receipts; approvers sanction, return or reject." },
       { title: "Policy checks", body: "Per-category caps, submission windows and pre-approval, with a recorded override for breaches." },
@@ -769,7 +770,7 @@ export const modules: Record<string, ModuleContent> = {
     eyebrow: "Insights",
     title: "Fully AI enabled: inside each module, and in a chat",
     intro:
-      "AI reads a resume against an opening, explains a payroll flag, reads a receipt or a tax proof and drafts a helpdesk reply, on the screen where the work happens. The assistant answers from your company's data within each person's role. Every result is a suggestion, and a person decides.",
+      "Ask in plain words, and get answers from your own HR data. AI reads a resume against an opening, explains a payroll flag, reads a receipt or a tax proof and drafts a helpdesk reply, on the screen where the work happens. The assistant answers from your company's data within each person's role. Every result is a suggestion, and a person decides.",
     capabilities: [
       { title: "AI inside each module", body: "Resume match, payroll change explanation, receipt and tax proof reading, helpdesk drafts, report from a sentence, review and letter drafts, survey summary, attrition reasons, learning suggestions and setup from Excel or PDF. See them below." },
       { title: "Answers for every employee", body: "Leave balance, attendance, shift, holidays, expense claims, tickets, courses, and their own payslip summary, CTC, loans, goals and released rating." },
@@ -931,7 +932,7 @@ export const modules: Record<string, ModuleContent> = {
     slug: "disciplinary",
     name: "Disciplinary cases",
     eyebrow: "Core HR",
-    title: "Every disciplinary case, a dated record from notice to outcome",
+    title: "Every disciplinary case on record, from notice to outcome",
     intro:
       "Open a case, issue a show-cause notice or charge sheet, take the reply, run the inquiry and close with an outcome, with each step on the case's timeline and the employee able to read and answer their own notices.",
     capabilities: [

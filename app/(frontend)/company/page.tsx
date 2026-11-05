@@ -98,7 +98,7 @@ export default function CompanyPage() {
               <ul className="mt-3 space-y-3">
                 <li>
                   <span className="font-semibold text-ink">Configuration over customization.</span>{" "}
-                  Every policy is a rule set assigned to employee groups, not a code change.
+                  Your HR admin can customise every module&apos;s policies and workflows for each employee group, without a code change.
                 </li>
                 <li>
                   <span className="font-semibold text-ink">One employee record.</span>{" "}

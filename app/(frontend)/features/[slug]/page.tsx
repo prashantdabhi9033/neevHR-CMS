@@ -288,7 +288,7 @@ export default async function ModulePage({ params }: Params) {
               {m.name} does not run in a silo
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-body">
-              Like every module, it sits on one effective-dated employee record,
+              Like every module, it works on the same employee profile, with full change history,
               with India&apos;s statutory rules, configuration and governance
               shared across the platform.
             </p>

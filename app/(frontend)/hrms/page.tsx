@@ -32,7 +32,7 @@ const blocks: Block[] = [
   {
     id: "employee-management",
     title: "Employee management",
-    body: "Every employee has one record that holds job, pay, statutory IDs, bank details, documents, assets and history. Changes are dated events, so the record can be read as it stood on any date.",
+    body: "Every employee has one record that holds job, pay, statutory IDs, bank details, documents, assets and history. Every change is saved with its date, so you can see the record as it was on any past date.",
     points: [
       "Employee 360 profile with job, pay, statutory and documents",
       "Multiple legal entities, locations, departments, grades and cost centres",

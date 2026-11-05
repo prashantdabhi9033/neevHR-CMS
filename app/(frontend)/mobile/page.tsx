@@ -74,8 +74,9 @@ export default function MobilePage() {
               Employee Self Service for every employee
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
-              Employees handle attendance, leave, payslips, tax declarations
-              and requests themselves, and managers approve from one inbox.
+              An AI-enabled self-service portal in English and Hindi. Employees
+              handle attendance, leave, payslips, tax declarations and requests
+              themselves, and managers approve from one inbox.
               Self-service runs on the web today, including in a phone browser.
               The NeevHR mobile app is built for Android and iPhone.
             </p>

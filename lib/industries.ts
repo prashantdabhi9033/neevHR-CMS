@@ -307,17 +307,17 @@ export const industries: Industry[] = [
       "Banks, NBFCs, insurers and brokers need an HRMS with a complete audit trail, fine-grained access control, strong data protection and incentive management for sales teams. NeevHR is built with these controls in the core.",
     overview: [
       "Financial services firms are audited on how they handle their own people data as well as their customers'. HR needs to show who changed what and when, and to keep salary and identity data visible only to those who need it.",
-      "NeevHR records changes as effective-dated history with an audit log, controls access with roles, data scopes and field masking, enforces separation of duties on payroll and reimbursement, and supports DPDP Act 2023 processes.",
+      "NeevHR keeps a full change history with an audit log, controls access with roles, data scopes and field masking, enforces separation of duties on payroll and reimbursement, and supports DPDP Act 2023 processes.",
     ],
     challenges: [
-      "An effective-dated audit trail for every change",
+      "An audit trail for every change, each saved with its date",
       "Fine-grained access control and separation of duties",
       "Protection of PAN, Aadhaar and bank details",
       "Incentive and variable-pay cycles for sales teams",
       "DPDP Act 2023 consent and data principal requests",
     ],
     features: [
-      "Audit log and effective-dated history",
+      "Audit log and full change history",
       "Role-based access with data scopes",
       "Field-level masking",
       "Field-level encryption of sensitive identifiers",

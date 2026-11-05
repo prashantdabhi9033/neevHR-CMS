@@ -51,7 +51,7 @@ const features: Feature[] = [
     title: "Turn every punch into a payroll-ready day",
     body: "Capture attendance from biometric devices and the web, apply your shift and grace rules, and close each day into numbers payroll can trust. Regularisation and overtime are approved in the same inbox as everything else.",
     highlights: [
-      "Biometric punches over the ADMS push protocol",
+      "Biometric and web punches in one place",
       "Configurable day-close, grace and overtime rules",
       "Pay-at-risk surfaces before payroll runs",
     ],
@@ -60,11 +60,11 @@ const features: Feature[] = [
   },
   {
     eyebrow: "Performance",
-    title: "Reviews, calibration and increments on one record",
-    body: "Set weighted goals, gather 360 feedback, and review talent on a 9-box grid and a rating distribution curve. Final sign-off maps straight to increment and bonus decisions, with the right authority at every step.",
+    title: "Goals, reviews, 360-degree feedback and increments in one cycle",
+    body: "Set weighted goals, gather 360-degree feedback, review talent on a 9-box grid and a rating distribution curve, and agree a development plan for each person. Final sign-off maps straight to increment and bonus decisions, with the right authority at every step.",
     highlights: [
       "Weighted goals with a 100% validator",
-      "360 feedback, 9-box and rating distribution",
+      "360-degree feedback, 9-box grid and development plans",
       "Ratings reprice increments at final sign-off",
     ],
     href: "/features/performance",
@@ -283,11 +283,11 @@ export default function HomePage() {
               <div className="bg-grid absolute inset-0 opacity-20" />
               <div className="relative mx-auto max-w-2xl">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  See NeevHR on your own numbers
+                  See NeevHR set up for your organisation
                 </h2>
                 <p className="mt-4 text-[15px] leading-relaxed text-white/80">
-                  Book a walkthrough and we will show payroll, attendance and
-                  approvals mapped to how your team actually runs HR.
+                  Book a demo and we will show payroll, attendance and approvals
+                  set up the way your team works.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                   <Button href="/demo" size="lg" variant="inverse">

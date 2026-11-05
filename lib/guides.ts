@@ -140,7 +140,7 @@ export const guides: Guide[] = [
         title: "Support and reporting",
         bullets: [
           "What support is included during implementation and after go-live?",
-          "Can HR build reports without the vendor, and drill from a chart to the records behind it?",
+          "Can HR build reports without the vendor, and click a chart to see the records behind it?",
           "Can reports be run as of a past date?",
         ],
       },
@@ -573,7 +573,7 @@ export const guides: Guide[] = [
         id: "neevhr",
         title: "Where NeevHR fits",
         body: [
-          `${site.entity} Policies are configured by an HR administrator rather than coded, employee changes are kept as effective-dated history, and integrations include biometric ADMS, API keys, webhooks, bank files and a payroll journal export. Month-by-month historical payslips are not imported, so plan to archive them.`,
+          `${site.entity} Policies are configured by an HR administrator rather than coded, employee changes are kept as a full change history, and integrations include biometric ADMS, API keys, webhooks, bank files and a payroll journal export. Month-by-month historical payslips are not imported, so plan to archive them.`,
         ],
       },
     ],
@@ -625,7 +625,7 @@ export const guides: Guide[] = [
         table: {
           head: ["Area", "Separate tools", "One HRMS"],
           rows: [
-            ["Employee master", "One per tool", "One effective-dated record"],
+            ["Employee master", "One per tool", "One record with full change history"],
             ["Attendance to payroll", "Monthly export and import", "Payroll reads closed attendance"],
             ["Hire to payroll", "Re-keyed from the ATS", "Offer flows into onboarding and payroll"],
             ["Access and audit", "Different per tool", "One RBAC model and audit log"],
@@ -809,7 +809,7 @@ export const guides: Guide[] = [
           rows: [
             [
               "Employee record",
-              "One record with effective-dated history",
+              "One record with full change history",
               "Change a department with a past date and see history and as-of reports update",
             ],
             [

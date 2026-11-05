@@ -23,7 +23,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       "Employee management software with one effective-dated employee record: job, pay, statutory IDs, documents and history, reportable as of any date. Built for Indian companies.",
     workflow: [
       { step: "Create", body: "Add employees individually, by CSV import with dry-run validation, or from an accepted offer." },
-      { step: "Change", body: "Record promotions, transfers and revisions as dated events, singly or in bulk." },
+      { step: "Change", body: "Record promotions, transfers and revisions, each saved with its date, singly or in bulk." },
       { step: "Govern", body: "Sensitive changes such as bank or statutory details need a second person to approve them." },
       { step: "Report", body: "Run headcount, attrition and master reports as of any date." },
     ],
@@ -51,7 +51,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
         a: "Yes. Custom fields can be added to the employee record without code.",
       },
       { q: "Which statutory details does the employee record hold?", a: "PAN, Aadhaar, UAN, ESI number and bank details, encrypted at field level, plus the PF and ESI settings that payroll uses." },
-      { q: "Can we see the organisation as it was on a past date?", a: "Yes. Because changes are dated events, headcount, master reports and the org chart can be produced as of any date." },
+      { q: "Can we see the organisation as it was on a past date?", a: "Yes. Because every change is saved with its date, headcount, master reports and the org chart can be produced as of any date." },
       { q: "Who can see salary and identity data?", a: "Only roles you allow. Access follows data scopes by entity, location or department, and sensitive fields are masked for everyone else." },
     ],
     h1: "Employee management software for Indian companies",
@@ -60,7 +60,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       intro: "An Indian employee record carries statutory identity as well as job and pay: PAN, Aadhaar, UAN, ESI number and bank details, the PF and ESI coverage that follows from them, and the dated history auditors and courts ask for.",
       points: [
         { t: "Statutory identity", b: "PAN, Aadhaar, UAN, ESI number and bank details are held once, encrypted at field level and masked for roles that do not need them." },
-        { t: "Dated history", b: "Promotions, transfers and pay changes are dated events, so registers and reports can be produced as they stood on any date." },
+        { t: "Full change history", b: "Promotions, transfers and pay changes are saved with their dates, so registers and reports can be produced as they stood on any date." },
         { t: "Several entities", b: "One person can move between legal entities with their own registrations while keeping one record and one UAN." },
         { t: "Retention", b: "Records stay available for the periods labour and tax law require after an employee leaves." },
       ],
@@ -593,7 +593,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
     ],
     benefits: [
       "Reports respect each user's data scope",
-      "As-of-date master reports from effective-dated history",
+      "As-of-date master reports from full change history",
       "Attrition risk with visible, rule-based reasons",
     ],
     whoUses: [
@@ -691,7 +691,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       },
       {
         q: "Can we model a future reorganisation?",
-        a: "Not as a draft scenario. Structure changes in NeevHR apply to the live org as dated events.",
+        a: "Not as a draft scenario. Structure changes in NeevHR apply to the live org, each saved with its date.",
       },
     ],
   },
@@ -1207,7 +1207,7 @@ export const moduleExtras: Record<string, ModuleExtra> = {
       { step: "Inquiry", body: "Take the reply, name the officer and record the findings." },
       { step: "Close", body: "Close with an outcome and an order." },
     ],
-    benefits: ["One dated record of what was issued, and when", "A check against dismissal without an inquiry", "Employees read and answer their own notices"],
+    benefits: ["One record of what was issued, and when", "A check against dismissal without an inquiry", "Employees read and answer their own notices"],
     whoUses: [
       { role: "HR", does: "Opens and runs cases." },
       { role: "Inquiry officer", does: "Records the inquiry and findings." },

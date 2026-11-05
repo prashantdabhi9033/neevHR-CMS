@@ -81,8 +81,8 @@ export const compliancePoints = [
 export const platformCapabilities = [
   { title: "Custom fields", body: "Extend employee, candidate, asset, expense and helpdesk records with your own fields, without a code change." },
   { title: "Workflow & approvals", body: "Configurable approval chains per record type, routed to a role or a named person, with any, all or quorum rules." },
-  { title: "Role-based access", body: "Fine-grained RBAC with data scopes, field-level masking, time-bound grants and separation-of-duties checks." },
-  { title: "Audit trail", body: "Changes are recorded and effective-dated, so records can be reported as they stood on any date." },
+  { title: "Role-based access", body: "Each person sees only what their role allows. Sensitive fields can be hidden, and one person cannot hold two conflicting roles." },
+  { title: "Audit trail", body: "Every change is recorded with its date, so records can be reported as they stood on any date." },
   { title: "Notifications", body: "In-app, email, SMS, WhatsApp and browser push from a single dispatcher, once each channel's provider is configured." },
   { title: "AI in every module", body: "Fully AI-enabled: suggestions on each module's own screen, and an assistant that answers within each person's role. A person decides, and your admin controls who uses it and how much." },
   { title: "Import & export", body: "Bulk CSV import with dry-run validation, and export from lists and reports." },
@@ -177,7 +177,7 @@ export const faqGroups: { group: string; items: FaqItem[] }[] = [
       },
       {
         q: "Does NeevHR handle disciplinary cases?",
-        a: "Yes. Show-cause notices, charge sheets, replies, the inquiry and the outcome sit on one dated case, under its own permission. Have letter wording checked by your adviser.",
+        a: "Yes. Show-cause notices, charge sheets, replies, the inquiry and the outcome sit on one case record, with every step dated, under its own permission. Have letter wording checked by your adviser.",
       },
       {
         q: "Does NeevHR have a POSH complaint route?",
