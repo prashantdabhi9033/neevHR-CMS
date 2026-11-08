@@ -303,6 +303,19 @@ export default function HomePage() {
           </Reveal>
         </Container>
       </section>
+
+      {/* Startup Fame verification badge: present in markup for crawling, hidden from view */}
+      <div aria-hidden="true" style={{ display: "none" }}>
+        <a href="https://startupfa.me/s/neevhr?utm_source=www.neevhr.com" target="_blank" rel="noopener noreferrer">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://startupfa.me/badges/featured-badge-small.webp"
+            alt="NeevHR - Featured on Startup Fame"
+            width={224}
+            height={36}
+          />
+        </a>
+      </div>
     </>
   );
 }
