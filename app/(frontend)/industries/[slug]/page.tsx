@@ -280,13 +280,26 @@ export default async function IndustryPage({ params }: Params) {
 
       {slug === "healthcare" && (
         <section className="pb-12">
-          <Container className="flex justify-center">
+          <Container className="flex flex-wrap items-center justify-center gap-4">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://sellwithboost.com/badge/listing.svg"
                 alt="Listed on Sell With boost"
                 style={{ height: 40, width: "auto" }}
+              />
+            </a>
+            <a
+              href="https://startupfa.me/s/neevhr?utm_source=www.neevhr.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://startupfa.me/badges/featured-badge-small.webp"
+                alt="NeevHR - Featured on Startup Fame"
+                width={224}
+                height={36}
               />
             </a>
           </Container>
