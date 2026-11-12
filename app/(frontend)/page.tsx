@@ -18,7 +18,6 @@ import {
   WhyNeevhrSection,
 } from "@/components/home/HomeSections";
 import { JsonLd } from "@/components/site/JsonLd";
-import { Testimonials } from "@/components/home/Testimonials";
 import { PhotoHero } from "@/components/home/PhotoHero";
 import { AiModulesHome } from "@/components/ai/AiModulesSection";
 import { pageMeta, pageDateISO } from "@/lib/seo";
@@ -267,8 +266,6 @@ export default function HomePage() {
           </ol>
         </Container>
       </section>
-
-      <Testimonials />
 
       {/* FAQ */}
       <section className="border-b border-line bg-surface-soft">
