@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/track";
-import { editions, featureGroups, type Cell, type Feature } from "@/lib/pricing";
+import { FREE_EMPLOYEES, editions, featureGroups, type Cell, type Feature } from "@/lib/pricing";
 
 // Edition cards: the promise and the highlights first, so the three can be read side by side. The full list of what an
 // edition adds sits under one collapsible heading per module, and each feature opens in place to its description.
@@ -128,6 +128,26 @@ export function EditionPlans() {
             <div className="p-6 sm:p-7">
               <h2 className="text-xl font-bold text-ink">{e.name}</h2>
               <p className="mt-0.5 text-sm font-medium text-accent-dark">{e.tagline}</p>
+              {/* Owner pricing, 25 Nov 2026: Core and Growth show their per-day price; Enterprise is priced on scope. */}
+              <div className="mt-4">
+                {e.pricePerDay != null ? (
+                  <>
+                    <p className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold tracking-tight text-ink">₹{e.pricePerDay}</span>
+                      <span className="text-sm font-medium text-body">per employee per day</span>
+                    </p>
+                    <p className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-accent-tint px-2.5 py-1 text-xs font-semibold text-accent-dark">
+                      <Icon name="check" className="h-3 w-3" strokeWidth={3} />
+                      First {FREE_EMPLOYEES} employees free
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-2xl font-bold tracking-tight text-ink">Custom pricing</p>
+                    <p className="mt-1 text-xs font-medium text-muted">Priced on your entities, integrations and support</p>
+                  </>
+                )}
+              </div>
               <p className="mt-3 text-sm leading-relaxed text-body lg:min-h-[66px]">{e.bestFor}</p>
               <Button
                 href={`/demo?intent=quote&edition=${e.key}`}

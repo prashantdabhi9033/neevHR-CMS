@@ -27,7 +27,7 @@ export const metadata: Metadata = pageMeta({
   title: "HRMS Pricing India: Core, Growth, Enterprise | NeevHR",
   absoluteTitle: true,
   description:
-    "HRMS and payroll software pricing in INR, by employee count and edition. Compare Core, Growth and Enterprise feature by feature, and see how AI credits work.",
+    "HRMS and payroll software pricing in INR: Core ₹1 and Growth ₹2 per employee per day, first 10 employees free. Compare Core, Growth and Enterprise feature by feature, and see how AI credits work.",
   path: "/pricing",
 });
 
@@ -57,11 +57,11 @@ export default function PricingPage() {
             One platform, three editions, priced for your headcount
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-body sm:text-base">
-            Every edition carries India statutory payroll. Pick the edition that fits today, compare all {featureCount} features
-            below, and we will prepare a quote in INR.
+            Every edition carries India statutory payroll. Core is ₹1 and Growth ₹2 per employee per day, and your first 10
+            employees are free. Compare all {featureCount} features below.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">
-            {["PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Guided go-live", "Fully AI-enabled, on prepaid credits", "Data hosted in India"].map((c) => (
+            {["First 10 employees free", "PF, ESI, PT, LWF and TDS in every edition", "No per-module licensing", "Guided go-live", "Fully AI-enabled, on prepaid credits", "Data hosted in India"].map((c) => (
               <span key={c} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-body ring-1 ring-line">
                 <Icon name="check" className="h-3.5 w-3.5 text-accent" strokeWidth={2.2} />
                 {c}

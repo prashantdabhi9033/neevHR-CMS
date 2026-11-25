@@ -22,6 +22,8 @@ export type Edition = {
   bestFor: string;
   plus?: string;
   recommended?: boolean;
+  /** Owner pricing, 25 Nov 2026: rupees per employee per day. Absent = priced on scope (Enterprise). */
+  pricePerDay?: number;
   /** The few lines a buyer compares first. They add nothing beyond the feature rows below. */
   highlights: string[];
 };
@@ -31,6 +33,7 @@ export const editions: Edition[] = [
     key: "core",
     name: "Core",
     tagline: "Get the foundation live",
+    pricePerDay: 1,
     bestFor: "Companies moving HR, attendance and payroll off spreadsheets onto one compliant system.",
     highlights: [
       "Employee records, onboarding, exit and full and final settlement",
@@ -45,6 +48,7 @@ export const editions: Edition[] = [
     key: "growth",
     name: "Growth",
     tagline: "Add talent and analytics",
+    pricePerDay: 2,
     bestFor: "Growing teams that hire every month and want structured reviews and their own reports.",
     plus: "Everything in Core, plus",
     highlights: [
@@ -73,6 +77,9 @@ export const editions: Edition[] = [
     ],
   },
 ];
+
+/** Owner pricing, 25 Nov 2026: a company's first 10 employees are free on Core and Growth. */
+export const FREE_EMPLOYEES = 10;
 
 export const editionName = (k: EditionKey) => editions.find((e) => e.key === k)!.name;
 
@@ -443,8 +450,12 @@ export const pricingFaqs: FaqItem[] = [
     a: "It works on prepaid credits, separate from your edition, and it can be added to any edition. AI inside a module comes with that module's edition. Your company recharges and each answer or result uses credits according to its length, and a stored result is reused at no charge. There is no per-employee AI fee, employees never pay, and your admin sees the balance and who used how much. Recharge plans start at ₹500.",
   },
   {
-    q: "Why is NeevHR pricing not listed publicly?",
-    a: "Price depends on employee count, edition, implementation requirements and integrations, which vary a lot between companies. We prepare a quote in INR once we understand your setup.",
+    q: "How much does NeevHR cost?",
+    a: "Core is ₹1 and Growth is ₹2 per employee per day, and your first 10 employees are free on both. Enterprise is priced on your scope (entities, integrations and support). AI runs on prepaid credits, separate from the edition.",
+  },
+  {
+    q: "What does \"first 10 employees free\" mean?",
+    a: "On Core and Growth you pay only for employees beyond the first 10. A company with 10 or fewer employees pays nothing for its edition.",
   },
   {
     q: "Is payroll included in every edition?",

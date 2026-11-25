@@ -53,7 +53,7 @@ export function GET() {
     "- Process Studio: no-code HR flows from templates, with notices, time limits, rules and letters (Enterprise edition)",
     "- Data migration: opening-balance files with row-level checks and undo; parallel payroll run with mapping, tolerance, reasons and sign-off",
     `- Implementation: ${site.implementation}`,
-    "- Pricing: three editions (Core, Growth, Enterprise), priced by employee count in INR, with implementation and integrations in the quote; quote on request",
+    "- Pricing: Core ₹1 and Growth ₹2 per employee per day, first 10 employees free on both; Enterprise priced on scope (entities, integrations, support); AI on prepaid credits",
     "",
     "## Limits and items not built (stated for accuracy)",
     "- Mobile app: built for Android and iPhone and not yet in Google Play or the App Store; employees use web self-service today, including in a phone browser",
