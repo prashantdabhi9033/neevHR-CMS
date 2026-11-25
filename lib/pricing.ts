@@ -22,8 +22,10 @@ export type Edition = {
   bestFor: string;
   plus?: string;
   recommended?: boolean;
-  /** Owner pricing, 25 Nov 2026: rupees per employee per day. Absent = priced on scope (Enterprise). */
+  /** Owner pricing, 25 Nov 2026: rupees per employee per day. Absent = quoted (Growth from 26 Nov 2026, Enterprise). */
   pricePerDay?: number;
+  /** The line under "Custom pricing" when there is no published price. */
+  quoteNote?: string;
   /** The few lines a buyer compares first. They add nothing beyond the feature rows below. */
   highlights: string[];
 };
@@ -48,7 +50,8 @@ export const editions: Edition[] = [
     key: "growth",
     name: "Growth",
     tagline: "Add talent and analytics",
-    pricePerDay: 2,
+    // Owner, 26 Nov 2026: the Growth amount is no longer published; it is quoted.
+    quoteNote: "Quoted on your headcount and the modules you need",
     bestFor: "Growing teams that hire every month and want structured reviews and their own reports.",
     plus: "Everything in Core, plus",
     highlights: [
@@ -65,6 +68,7 @@ export const editions: Edition[] = [
     key: "enterprise",
     name: "Enterprise",
     tagline: "Full platform and control",
+    quoteNote: "Priced on your entities, integrations and support",
     bestFor: "Multi-entity, multi-location organisations that need spend control, benefits and fine-grained access.",
     plus: "Everything in Growth, plus",
     highlights: [
@@ -78,7 +82,7 @@ export const editions: Edition[] = [
   },
 ];
 
-/** Owner pricing, 25 Nov 2026: a company's first 10 employees are free on Core and Growth. */
+/** Owner pricing, 25 Nov 2026: a company's first 10 employees are free (shown with the published Core price). */
 export const FREE_EMPLOYEES = 10;
 
 export const editionName = (k: EditionKey) => editions.find((e) => e.key === k)!.name;
@@ -451,11 +455,11 @@ export const pricingFaqs: FaqItem[] = [
   },
   {
     q: "How much does NeevHR cost?",
-    a: "Core is ₹1 and Growth is ₹2 per employee per day, and your first 10 employees are free on both. Enterprise is priced on your scope (entities, integrations and support). AI runs on prepaid credits, separate from the edition.",
+    a: "Core is ₹1 per employee per day, and your first 10 employees are free. Growth is quoted on your headcount and the modules you need, and Enterprise on your scope (entities, integrations and support). AI runs on prepaid credits, separate from the edition.",
   },
   {
     q: "What does \"first 10 employees free\" mean?",
-    a: "On Core and Growth you pay only for employees beyond the first 10. A company with 10 or fewer employees pays nothing for its edition.",
+    a: "On Core you pay only for employees beyond the first 10. A company with 10 or fewer employees pays nothing for Core.",
   },
   {
     q: "Is payroll included in every edition?",

@@ -128,7 +128,7 @@ export function EditionPlans() {
             <div className="p-6 sm:p-7">
               <h2 className="text-xl font-bold text-ink">{e.name}</h2>
               <p className="mt-0.5 text-sm font-medium text-accent-dark">{e.tagline}</p>
-              {/* Owner pricing, 25 Nov 2026: Core and Growth show their per-day price; Enterprise is priced on scope. */}
+              {/* Owner pricing: Core shows its per-day price (25 Nov 2026); Growth (from 26 Nov 2026) and Enterprise are quoted. */}
               <div className="mt-4">
                 {e.pricePerDay != null ? (
                   <>
@@ -144,7 +144,7 @@ export function EditionPlans() {
                 ) : (
                   <>
                     <p className="text-2xl font-bold tracking-tight text-ink">Custom pricing</p>
-                    <p className="mt-1 text-xs font-medium text-muted">Priced on your entities, integrations and support</p>
+                    <p className="mt-1 text-xs font-medium text-muted">{e.quoteNote}</p>
                   </>
                 )}
               </div>
