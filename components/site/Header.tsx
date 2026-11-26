@@ -39,7 +39,7 @@ export function Header() {
   return (
     <header
       data-hero={isHome && !pastHero}
-      className="group sticky top-0 z-50 border-b border-line/70 bg-white/85 backdrop-blur transition-colors duration-300 data-[hero=true]:border-transparent data-[hero=true]:bg-transparent data-[hero=true]:bg-gradient-to-b data-[hero=true]:from-[#15147b]/35 data-[hero=true]:to-transparent data-[hero=true]:backdrop-blur-none"
+      className="group sticky top-0 z-50 bg-white shadow-[0_6px_16px_-12px_rgba(21,20,123,0.18)] transition-colors duration-300 data-[hero=true]:bg-transparent data-[hero=true]:bg-gradient-to-b data-[hero=true]:from-[#15147b]/35 data-[hero=true]:to-transparent data-[hero=true]:shadow-none"
     >
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" aria-label="NeevHR home" className="inline-flex">
