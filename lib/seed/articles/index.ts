@@ -97,6 +97,14 @@ import esop_taxation_employees from "./esop-taxation-employees";
 import interns_stipend_payroll from "./interns-stipend-payroll";
 import salary_disbursement_bank_file from "./salary-disbursement-bank-file";
 
+// Batch 6: trending topics (26 Nov 2026).
+import labour_codes_one_year_compliance_checklist from "./labour-codes-one-year-compliance-checklist";
+import epf_scheme_2026_changes_for_employers from "./epf-scheme-2026-changes-for-employers";
+import payroll_year_end_checklist_tax_year_2026_27 from "./payroll-year-end-checklist-tax-year-2026-27";
+import salary_increment_india_2027_budget_planning from "./salary-increment-india-2027-budget-planning";
+import ai_in_hr_india_use_cases from "./ai-in-hr-india-use-cases";
+import four_day_work_week_india_labour_codes from "./four-day-work-week-india-labour-codes";
+
 export const articleBatch2: SeedPost[] = [
   ecr_explained,
   employee_onboarding_checklist,
@@ -196,4 +204,10 @@ export const articleBatch5: SeedPost[] = [
   esop_taxation_employees,
   interns_stipend_payroll,
   salary_disbursement_bank_file,
+  labour_codes_one_year_compliance_checklist,
+  epf_scheme_2026_changes_for_employers,
+  payroll_year_end_checklist_tax_year_2026_27,
+  salary_increment_india_2027_budget_planning,
+  ai_in_hr_india_use_cases,
+  four_day_work_week_india_labour_codes,
 ];
