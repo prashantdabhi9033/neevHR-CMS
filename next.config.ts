@@ -79,6 +79,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // The product tour is a stand-alone animated deck in public/tour/ (shared by sales, kept out of search).
+  async rewrites() {
+    return [{ source: "/tour", destination: "/tour/index.html" }];
+  },
   async redirects() {
     // Descriptive /hrms/<topic> URLs (the SEO spec's naming) resolve to the
     // canonical pages that already exist, instead of duplicating content.
